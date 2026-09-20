@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "channel": "test",
+  "version": "7.0.85",
+  "publishedAt": "2026-09-20T21:21:46.522Z",
+  "artifact": "releases/BuyerLog-7.0.85.zip",
+  "sha256": "0ba29251d9534b572d490bbc9e3f86a91c30974e65c2f2ce2499ba77b4c98c42",
+  "size": 36345131,
+  "mandatory": false,
+  "releaseNotes": "",
+  "minimumUpdaterVersion": "1.0.0"
+}
