@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "version": "7.0.94",
+  "publishedAt": "2026-09-22T22:11:20.211Z",
+  "artifact": "releases/BuyerLog-7.0.94.zip",
+  "sha256": "83be299eda02754a344bb2288e8d182f090e1d9b0fcfcc0926cf057d6c47dfab",
+  "size": 36711431,
+  "mandatory": false,
+  "releaseNotes": "",
+  "minimumUpdaterVersion": "1.0.0"
+}
