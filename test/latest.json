@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.94",
-  "publishedAt": "2026-09-22T22:10:00.065Z",
-  "artifact": "releases/BuyerLog-7.0.94.zip",
-  "sha256": "83be299eda02754a344bb2288e8d182f090e1d9b0fcfcc0926cf057d6c47dfab",
-  "size": 36711431,
+  "version": "7.0.95",
+  "publishedAt": "2026-09-22T22:21:55.307Z",
+  "artifact": "releases/BuyerLog-7.0.95.zip",
+  "sha256": "c9ca7a9c7fa3216f513a46d73b6cb288217600167014ec17f0f43bb9ef4eb169",
+  "size": 36712950,
   "mandatory": false,
   "releaseNotes": "",
   "minimumUpdaterVersion": "1.0.0"
