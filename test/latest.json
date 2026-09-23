@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.100",
-  "publishedAt": "2026-09-23T08:47:02.956Z",
-  "artifact": "releases/BuyerLog-7.0.100.zip",
-  "sha256": "87bd76266542475a38049269baaff7a6ae9a6d45b3871607fff191534f8b1642",
-  "size": 36737051,
+  "version": "7.0.101",
+  "publishedAt": "2026-09-23T10:16:48.847Z",
+  "artifact": "releases/BuyerLog-7.0.101.zip",
+  "sha256": "eca53ccc5a99d4d9745a749a6ba4d9d0b3e2430a22c7a94c7784abf88aa331a4",
+  "size": 36743944,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.100: OAB legacy PASS/Edge veri çekimi geri getirildi; merkezi E-Mail Groups ve Send to Pricing alıcı kurtarma/senkronizasyonu düzeltildi; INTAKE ve OAB pivot ayarları hizalandı; çalışma alanı sekme navigasyonu, kompakt üst bar, Overview filtre katmanı ve Endeksmatik Adjustment Rate görünürlüğü iyileştirildi.",
+  "releaseNotes": "Buyer Log 7.0.101: LFL, Price Analysis, OAB ve benzeri alt detaylarda PLM SYNC kimlik çözümleme düzeltildi; görünür PLM ID bulunmasa da gizli kimlik metadata ve güvenli model/renk/sipariş eşleştirmesi kullanılıyor; ASAS target snapshotları çözümlemeye dahil edildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
