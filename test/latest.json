@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.106",
-  "publishedAt": "2026-09-23T14:04:33.469Z",
-  "artifact": "releases/BuyerLog-7.0.106.zip",
-  "sha256": "d2b26ab3b9a193f561b2e3dafcf32edd257cc9108cb7ec0e0933d1668dcfc855",
-  "size": 36762550,
+  "version": "7.0.107",
+  "publishedAt": "2026-09-23T21:36:17.850Z",
+  "artifact": "releases/BuyerLog-7.0.107.zip",
+  "sha256": "82643d15e335e4f7ba5829e8fdd9a7a3ef143375e49e948c98ab9252b756f19f",
+  "size": 36763692,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.106: Collection/Koleksiyon hücrelerinde manuel giriş, picker ve clipboard paste ortak mutation/commit akışına bağlandı. In Store Month/Week paste artık In Store ve Retail dependency kurallarını manuel girişle aynı şekilde uygular; Shipment Date otomatik doldurulmaz. Çok hücreli paste explicit kullanıcı değerlerini koruyarak dependency hesaplarını final state üzerinde çalıştırır. Dinamik üretici fiyat paste işlemleri manuel price commit yolunu kullanır; model/renk bind ve override davranışı korunur. Yeni regression testleri ve tam Buyer Log test paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.107: OAB artık Edge/Chrome Remote Debugging kullanmadan Buyer Log’un dahili Electron/Chromium oturumu üzerinden çalışır. OAB için persist:oab kalıcı oturumu kullanılır; GET/Refresh OAB gerektiğinde Buyer Log içinde login/MFA akışını açar ve başarılı girişten sonra işlemi otomatik sürdürür. OAB rapor ve batch çağrıları backend RAM auth + oabApiClient üzerinden yürür; mevcut cache, filtre, parsing, snapshot ve batch merge davranışları korunur. OAB aktif yolunda CDP, 9223, harici browser profile ve Remote Debugging fallback kaldırıldı. Tam Buyer Log regression testleri PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
