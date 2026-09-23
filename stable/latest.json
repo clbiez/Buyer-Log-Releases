@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.105",
-  "publishedAt": "2026-09-23T11:46:53.633Z",
-  "artifact": "releases/BuyerLog-7.0.105.zip",
-  "sha256": "058832f1b77790b9422066e3909d8c624058540c42ef05fde8401e3eead4f7c2",
-  "size": 36747196,
+  "version": "7.0.106",
+  "publishedAt": "2026-09-23T14:06:26.466Z",
+  "artifact": "releases/BuyerLog-7.0.106.zip",
+  "sha256": "d2b26ab3b9a193f561b2e3dafcf32edd257cc9108cb7ec0e0933d1668dcfc855",
+  "size": 36762550,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.105: Uygulamanın güncel main kaynakları tek sürüm altında toplandı. Collection Ctrl+C / rich clipboard akışında hücre içi Enter ve diğer satır sonları tek satıra normalize edilerek her modelin dış panoda tek fiziksel satır olarak kalması güvenceye alındı; etkileşimli DOM verisinin clipboard'a sızmaması korunuyor. İlgili regresyon sözleşmesi yeni davranışla hizalandı ve tam Buyer Log test paketi başarıyla geçti.",
+  "releaseNotes": "Buyer Log 7.0.106: Collection/Koleksiyon hücrelerinde manuel giriş, picker ve clipboard paste ortak mutation/commit akışına bağlandı. In Store Month/Week paste artık In Store ve Retail dependency kurallarını manuel girişle aynı şekilde uygular; Shipment Date otomatik doldurulmaz. Çok hücreli paste explicit kullanıcı değerlerini koruyarak dependency hesaplarını final state üzerinde çalıştırır. Dinamik üretici fiyat paste işlemleri manuel price commit yolunu kullanır; model/renk bind ve override davranışı korunur. Yeni regression testleri ve tam Buyer Log test paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
