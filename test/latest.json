@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.101",
-  "publishedAt": "2026-09-23T10:16:48.847Z",
-  "artifact": "releases/BuyerLog-7.0.101.zip",
-  "sha256": "eca53ccc5a99d4d9745a749a6ba4d9d0b3e2430a22c7a94c7784abf88aa331a4",
-  "size": 36743944,
+  "version": "7.0.102",
+  "publishedAt": "2026-09-23T11:04:02.086Z",
+  "artifact": "releases/BuyerLog-7.0.102.zip",
+  "sha256": "5a781cc38e028b32037e38cb6c30bc89243b3d3e5a773abcecb3ecbd7a4dc1f5",
+  "size": 36747448,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.101: LFL, Price Analysis, OAB ve benzeri alt detaylarda PLM SYNC kimlik çözümleme düzeltildi; görünür PLM ID bulunmasa da gizli kimlik metadata ve güvenli model/renk/sipariş eşleştirmesi kullanılıyor; ASAS target snapshotları çözümlemeye dahil edildi.",
+  "releaseNotes": "Buyer Log 7.0.102: Kayıp E-Mail Groups kayıtları eski quotation alıcı geçmişinden güvenli şekilde geri kazanılıp mevcut merkezi rehberle birleştirilir; mevcut dolu e-posta kayıtları ezilmez. Collection Status hücrelerindeki gereksiz nokta/sol renk çizgisi kaldırıldı ve Collection Excel dışa aktarımında hücre içi satır sonları tek satıra normalize edilerek her modelin tek fiziksel Excel satırında kalması sağlandı.",
   "minimumUpdaterVersion": "1.0.0"
 }
