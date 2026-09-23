@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.95",
-  "publishedAt": "2026-09-22T22:22:43.148Z",
-  "artifact": "releases/BuyerLog-7.0.95.zip",
-  "sha256": "c9ca7a9c7fa3216f513a46d73b6cb288217600167014ec17f0f43bb9ef4eb169",
-  "size": 36712950,
+  "version": "7.0.100",
+  "publishedAt": "2026-09-23T08:47:02.956Z",
+  "artifact": "releases/BuyerLog-7.0.100.zip",
+  "sha256": "87bd76266542475a38049269baaff7a6ae9a6d45b3871607fff191534f8b1642",
+  "size": 36737051,
   "mandatory": false,
-  "releaseNotes": "",
+  "releaseNotes": "Buyer Log 7.0.100: OAB legacy PASS/Edge veri çekimi geri getirildi; merkezi E-Mail Groups ve Send to Pricing alıcı kurtarma/senkronizasyonu düzeltildi; INTAKE ve OAB pivot ayarları hizalandı; çalışma alanı sekme navigasyonu, kompakt üst bar, Overview filtre katmanı ve Endeksmatik Adjustment Rate görünürlüğü iyileştirildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
