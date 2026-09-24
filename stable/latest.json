@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.110",
-  "publishedAt": "2026-09-24T07:45:14.421Z",
-  "artifact": "releases/BuyerLog-7.0.110.zip",
-  "sha256": "1c80078cdd66e36d206bf9e5eca5528b5b007ad634d6750e5013898e4cbcaacb",
-  "size": 36784801,
+  "version": "7.0.111",
+  "publishedAt": "2026-09-24T09:32:26.572Z",
+  "artifact": "releases/BuyerLog-7.0.111.zip",
+  "sha256": "68c2a414e72d91487084963b51ab259af34a744aab9e429f56849804bb4040e9",
+  "size": 36806120,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.110: CP ve Orders tablolarına Focus/Extended/All görünümünden bağımsız Partial View eklendi. Açıldığında lojistik Status etiketleri sipariş satırlarını status bazında çoğaltır, her satır tek status etiketi ve ilgili adedi gösterir; Status sütunu alt toplamı aktif filtreye göre yalnız görünür statü adetlerini toplar, sipariş seviyesindeki diğer toplamlar çift sayılmaz. LFL tablolarında sütun genişlikleri kullanıcı tarafından ayarlanabilir ve dar başlıklar hücre içinde satır kırar. LFL FOB değişimi yalnız iki dönemde de kıyaslanabilir veri bulunan kırılımlardan hesaplanır; kıyaslanacak veri yoksa yüzde boş kalır. Tam Buyer Log regression testleri PASS.",
+  "releaseNotes": "Buyer Log 7.0.111: LFL Comparison ve Manufacturer tablolarında dikey yükseklik kullanıcı tarafından manuel ayarlanabilir hale getirildi ve sayfanın alt içeriğini kapatan taşma düzeltildi. Koleksiyon sahibinin kendi çalışma alanını birden fazla pencere/oturumda düzenlemesinde kilit kaldırıldı; yerel değişiklikler otomatik rebase edilerek korunuyor ve canlı güncellemeler kaydedilmemiş veriyi ezmiyor. LFL Multi-dimensional Comparison alanı seçilen güncel/kıyaslanan periyotları doğru yansıtacak ve ana LFL raporuyla aynı yalnız-kıyaslanabilir veri hesabını kullanacak şekilde düzeltildi. OAB dahili giriş sonrası oturum algılama ve seçili filtreyle otomatik devam akışı güçlendirildi. PLM Operations Center hata detaylarının polling sırasında açılıp kapanması/yükleniyor durumuna dönmesi düzeltildi. Tam Buyer Log regression testleri PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
