@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.115",
-  "publishedAt": "2026-09-24T19:23:12.013Z",
-  "artifact": "releases/BuyerLog-7.0.115.zip",
-  "sha256": "6920ff7cf1cedf89b099a0cddd80dc535f53f8c442a9fe1300c1d93146e204d6",
-  "size": 36817612,
+  "version": "7.0.116",
+  "publishedAt": "2026-09-24T19:53:18.971Z",
+  "artifact": "releases/BuyerLog-7.0.116.zip",
+  "sha256": "101a49e30ea98bc9f7effaffe9495e244ca61e806ff164583133ae0fca7ea089",
+  "size": 36819367,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.115: Collection PLM görsel senkronunda ana renk/parent ve single satırlar CoreNectum ana model görselini (ön+arka), variant satırlar renk kodu eşleşen Option Image görselini kullanır. Variant Option Image yoksa ana model görseline güvenli fallback uygulanır. CP ve Orders mevcut otomatik seçim davranışını korur. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.116: CoreNectum Style List üst-seviye imageUrl artık model.imageUrl'dan önce kullanılır; Collection ana renk/parent/single satırlarında Options görseli bulunsa bile ön+arka kanonik model görseli alınır. Variant satırlar kendi Option Image'ını kullanmaya devam eder. Eski otomatik Option Image kayıtları Eksikleri Tamamla ile kendiliğinden düzeltilir; manuel görseller korunur. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
