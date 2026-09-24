@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.113",
-  "publishedAt": "2026-09-24T12:08:21.911Z",
-  "artifact": "releases/BuyerLog-7.0.113.zip",
-  "sha256": "9410645d326843603945f1b71e428ca1bfbbe495acde1b4155cd7598be0064ff",
-  "size": 36813792,
+  "version": "7.0.114",
+  "publishedAt": "2026-09-24T12:23:24.854Z",
+  "artifact": "releases/BuyerLog-7.0.114.zip",
+  "sha256": "fe2ea9ce101d4f0293c2f48c4a11f706554cb46b96284f938d8544985b6738dc",
+  "size": 36814580,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.113: LFL Hazır Filtreler alanında Mevcut Filtreyi Kaydet işlemi Electron'da desteklenmeyen prompt() nedeniyle çalışmıyordu. Native prompt kaldırıldı; panel içinde filtre adı girişi, Kaydet/İptal ve Enter/Escape desteği eklendi. LFL Trial aktif filtre eşleme düzeltmeleri de güncel paket kapsamında. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.114: CP, Collection ve Orders sayfalarındaki kayıtlı Görünüm/Filtre akışlarında Electron tarafından desteklenmeyen prompt() kullanımı kaldırıldı. Farklı Kaydet ve Yeniden Adlandır işlemleri artık uygulama içi metin giriş penceresiyle çalışıyor. CP/Orders özel not sütunu ekleme ve yeniden adlandırma akışındaki aynı risk de kaldırıldı. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
