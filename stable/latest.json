@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.109",
-  "publishedAt": "2026-09-24T06:23:05.229Z",
-  "artifact": "releases/BuyerLog-7.0.109.zip",
-  "sha256": "2c981d6c30bb3c23d71e4845b14c6b8a3162822173a37384104e44f7280c9c45",
-  "size": 36773484,
+  "version": "7.0.110",
+  "publishedAt": "2026-09-24T07:45:14.421Z",
+  "artifact": "releases/BuyerLog-7.0.110.zip",
+  "sha256": "1c80078cdd66e36d206bf9e5eca5528b5b007ad634d6750e5013898e4cbcaacb",
+  "size": 36784801,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.109: INTAKE pivotunda Güncel Alım Bütçesi 0 olan kayıtları gizleme seçeneği ve tüm grupları daralt/genişlet kontrolleri eklendi; varsayılan filtrelerden MerchAltGrupTanım, UrunKlasmanKod ve SonGuncellenmeTarihi çıkarılırken bu alanlar kullanıcı tarafından yeniden eklenebilir kaldı. OAB dahili Electron oturumunda giriş/MFA tamamlandıktan sonra seçili GET OAB isteği otomatik devam edecek şekilde düzeltildi. CP ve Orders üst çubuğundaki Page Filters ve teknik 'Loaded from cache' durumu kaldırıldı. CP, Orders ve Collection tablo arama kutuları yazılan metin sığmadığında sağa doğru dinamik genişlerken sağdaki eylem düğmelerini sıkıştırmayacak şekilde güncellendi. Tam Buyer Log regression testleri PASS.",
+  "releaseNotes": "Buyer Log 7.0.110: CP ve Orders tablolarına Focus/Extended/All görünümünden bağımsız Partial View eklendi. Açıldığında lojistik Status etiketleri sipariş satırlarını status bazında çoğaltır, her satır tek status etiketi ve ilgili adedi gösterir; Status sütunu alt toplamı aktif filtreye göre yalnız görünür statü adetlerini toplar, sipariş seviyesindeki diğer toplamlar çift sayılmaz. LFL tablolarında sütun genişlikleri kullanıcı tarafından ayarlanabilir ve dar başlıklar hücre içinde satır kırar. LFL FOB değişimi yalnız iki dönemde de kıyaslanabilir veri bulunan kırılımlardan hesaplanır; kıyaslanacak veri yoksa yüzde boş kalır. Tam Buyer Log regression testleri PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
