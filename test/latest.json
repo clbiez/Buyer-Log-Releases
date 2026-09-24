@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.108",
-  "publishedAt": "2026-09-24T04:13:14.627Z",
-  "artifact": "releases/BuyerLog-7.0.108.zip",
-  "sha256": "58c8951052f37f74daeed5886a3eedd4fb63d5faeba86162d0e0c3b248a9f7d6",
-  "size": 36763692,
+  "version": "7.0.109",
+  "publishedAt": "2026-09-24T06:22:02.226Z",
+  "artifact": "releases/BuyerLog-7.0.109.zip",
+  "sha256": "2c981d6c30bb3c23d71e4845b14c6b8a3162822173a37384104e44f7280c9c45",
+  "size": 36773484,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.108: OAB artık Edge/Chrome Remote Debugging, 127.0.0.1:9223 veya harici browser profile bağımlılığı olmadan Buyer Log’un dahili Electron/Chromium oturumu üzerinden çalışır. OAB için persist:oab kalıcı oturumu kullanılır; GET/Refresh OAB sırasında oturum yoksa veya süresi dolmuşsa Buyer Log kendi login/MFA penceresini açar ve başarılı girişten sonra isteği otomatik tekrarlar. OAB rapor ve batch çağrıları backend RAM auth + oabApiClient üzerinden yürür; mevcut cache, filtre, parsing, snapshot ve batch merge davranışları korunur. OAB aktif execution path’inde CDP/debugger ve Remote Debugging fallback bulunmaz. Tam Buyer Log regression testleri PASS.",
+  "releaseNotes": "Buyer Log 7.0.109: INTAKE pivotunda Güncel Alım Bütçesi 0 olan kayıtları gizleme seçeneği ve tüm grupları daralt/genişlet kontrolleri eklendi; varsayılan filtrelerden MerchAltGrupTanım, UrunKlasmanKod ve SonGuncellenmeTarihi çıkarılırken bu alanlar kullanıcı tarafından yeniden eklenebilir kaldı. OAB dahili Electron oturumunda giriş/MFA tamamlandıktan sonra seçili GET OAB isteği otomatik devam edecek şekilde düzeltildi. CP ve Orders üst çubuğundaki Page Filters ve teknik 'Loaded from cache' durumu kaldırıldı. CP, Orders ve Collection tablo arama kutuları yazılan metin sığmadığında sağa doğru dinamik genişlerken sağdaki eylem düğmelerini sıkıştırmayacak şekilde güncellendi. Tam Buyer Log regression testleri PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
