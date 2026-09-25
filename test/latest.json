@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.128",
-  "publishedAt": "2026-09-25T14:12:20.776Z",
-  "artifact": "releases/BuyerLog-7.0.128.zip",
-  "sha256": "4477b0833c56b5aa265ed711186b845982721b40ba7b6e3c62d0da4a4d9f4589",
-  "size": 36892144,
+  "version": "7.0.129",
+  "publishedAt": "2026-09-25T14:32:10.393Z",
+  "artifact": "releases/BuyerLog-7.0.129.zip",
+  "sha256": "fae1e7aa9bf3cc2bf48655879da1a217cd3640979acd6beb880044fe6f5f2753",
+  "size": 36893956,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.128: CoreNectum/PLM model görselini tarayıcıdan Koleksiyon ekranına sürükleme akışı düzeltildi. Drag olayları document capture seviyesinde yakalanıyor; DownloadURL, text/html, text/uri-list ve DataTransferItem.getAsString payloadları destekleniyor. Electron varsayılan drop navigasyonu engelleniyor. Attachment çözümlemesinden önce CoreNectum API oturumu hazır hale getiriliyor. Aynı PLM ID mevcutsa drag/drop hiçbir kaydı değiştirmiyor veya çoğaltmıyor. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.129: Koleksiyon ekranında CoreNectum/PLM model görseli sürüklenirken açılan eski genel 'Drop the file here' Excel katmanı devre dışı bırakıldı. Tarayıcı/CoreNectum image drag payloadları Collection PLM importerına öncelikli yönlendiriliyor; Windows Explorer'dan Excel sürükleme davranışı korunuyor. Drop hedefi eski overlay olsa bile PLM akışı kaybolmuyor. Aynı PLM ID mevcutsa hiçbir kayıt güncellenmiyor veya çoğaltılmıyor. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
