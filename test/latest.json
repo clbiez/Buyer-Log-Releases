@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.134",
-  "publishedAt": "2026-09-25T16:39:09.856Z",
-  "artifact": "releases/BuyerLog-7.0.134.zip",
-  "sha256": "ee0aaa856363ef768f0c61d793a32b4d9170e17e73b26b784d7d2bbace12bb8f",
-  "size": 36974121,
+  "version": "7.0.135",
+  "publishedAt": "2026-09-25T16:46:50.110Z",
+  "artifact": "releases/BuyerLog-7.0.135.zip",
+  "sha256": "a315e63091675be1bea39debf22cb3fd0f8c0f73c5afd865fa2af4479901870c",
+  "size": 36973065,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.134: Backlog grafiği geliştirildi. Zaman aralığı mouse wheel ile yakınlaştırılıp uzaklaştırılabilir; Shift+tekerlek ve ok kontrolleriyle zaman ekseninde kaydırılabilir. Grafikte günümüzü gösteren Bugün/Today çizgisi ve bugüne gitme kontrolü eklendi. Buyer Group, Buyer, MAG, klasman ve benzeri seri kırılımları grafik içinden aranıp çoklu seçilerek filtrelenebilir; bu filtre Backlog ana filtrelerini değiştirmez. Klavye erişilebilirliği ve ilgili regression testleri eklendi. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.135: Koleksiyon ekranındaki PLM görsel sürükle-bırak akışında görülen CoreNectum HTTP 400 / StatusType 3 hatası düzeltildi. Attachment→PLM reverse lookup artık canlı GetStyleList isteğinin filtre, arama, favori grup, sıralama ve güvenlik kapsamı semantiğini aynen koruyor; yalnız sayfalama kontrollü olarak değiştiriliyor ve request body içindeki olası gizli alanlar temizleniyor. Hot Wheels PLM 2131790 senaryosu regression testleriyle koruma altına alındı. 7.0.134 Backlog grafik güncellemeleri ve aradaki diğer main değişiklikleri korunmuştur. Tam Buyer Log regression paketi exact 7.0.135 release branch üzerinde PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
