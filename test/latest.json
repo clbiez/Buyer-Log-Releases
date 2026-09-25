@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.129",
-  "publishedAt": "2026-09-25T14:32:10.393Z",
-  "artifact": "releases/BuyerLog-7.0.129.zip",
-  "sha256": "fae1e7aa9bf3cc2bf48655879da1a217cd3640979acd6beb880044fe6f5f2753",
-  "size": 36893956,
+  "version": "7.0.130",
+  "publishedAt": "2026-09-25T15:08:22.223Z",
+  "artifact": "releases/BuyerLog-7.0.130.zip",
+  "sha256": "72e0c126da7f15589f4b739633a05a870cfa7e03c7c66c09dcc5d1786d17333f",
+  "size": 36895920,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.129: Koleksiyon ekranında CoreNectum/PLM model görseli sürüklenirken açılan eski genel 'Drop the file here' Excel katmanı devre dışı bırakıldı. Tarayıcı/CoreNectum image drag payloadları Collection PLM importerına öncelikli yönlendiriliyor; Windows Explorer'dan Excel sürükleme davranışı korunuyor. Drop hedefi eski overlay olsa bile PLM akışı kaybolmuyor. Aynı PLM ID mevcutsa hiçbir kayıt güncellenmiyor veya çoğaltılmıyor. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.130: Güncel main üzerinden güvenli paket. Koleksiyon ekranında CoreNectum/PLM model görseli sürüklenirken eski genel 'Drop the file here' Excel katmanı artık PLM image drag için devreye girmiyor; browser/CoreNectum payloadları Collection PLM importerına öncelikli yönlendiriliyor, Excel dosyası sürükleme davranışı korunuyor. Drop hedefi eski overlay olsa bile PLM akışı kaybolmuyor. Aynı PLM ID mevcutsa hiçbir kayıt güncellenmiyor veya çoğaltılmıyor. 7.0.129 sonrasında main'e giren diğer güncellemeler de aynen korunuyor. Tam Buyer Log regression paketi ikinci koşumda PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
