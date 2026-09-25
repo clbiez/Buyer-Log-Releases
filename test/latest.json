@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.126",
-  "publishedAt": "2026-09-25T13:12:08.424Z",
-  "artifact": "releases/BuyerLog-7.0.126.zip",
-  "sha256": "b38351c9404c5de924ff2051d1f56b72088105e58deaed9eb90f6215b95325b6",
-  "size": 36866998,
+  "version": "7.0.127",
+  "publishedAt": "2026-09-25T13:57:00.249Z",
+  "artifact": "releases/BuyerLog-7.0.127.zip",
+  "sha256": "35c919cfc9aacfdb4d4af3a5533d6979429887328570c94468a63030c6b275a6",
+  "size": 36886100,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.126: Koleksiyon elle fiyat girişindeki üretici önerileri artık ASAS database üretici kataloğundan geliyor ve mevcut Koleksiyon/Quotation üreticileriyle tekilleştirilerek birleştiriliyor; eski katalog cache'leri otomatik yenileniyor. TR Landed hesabı Türkiye'ye özel royalty kurallarını kullanıyor ve uygun TR kuralı yoksa uyarı veriyor. Send to Pricing ekranındaki e-posta grubu görünürlüğü düzeltildi. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.127: Koleksiyon ekranında CoreNectum/PLM Style List model görseli sürüklenip bırakıldığında görselin Attachment kimliğinden PLM kaydı otomatik çözülür ve yeni Koleksiyon modeli oluşturulur. Drag/drop yalnız Koleksiyon'da çalışır; aynı PLM ID zaten mevcutsa hiçbir satır güncellenmez veya çoğaltılmaz. Model verileri mevcut Direct PLM normalizer ve kanonik PLM görsel pipeline'ı üzerinden alınır. Attachment reverse index direct CoreNectum API ile çalışır; Edge/CDP gerekmez. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
