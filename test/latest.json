@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.123",
-  "publishedAt": "2026-09-25T05:12:32.309Z",
-  "artifact": "releases/BuyerLog-7.0.123.zip",
-  "sha256": "8aaa83ee44938a4d4a321c56cd2dfbbe701bc139692399ba84fc43f8384bc60b",
-  "size": 36850179,
+  "version": "7.0.125",
+  "publishedAt": "2026-09-25T09:44:50.703Z",
+  "artifact": "releases/BuyerLog-7.0.125.zip",
+  "sha256": "1915cdc9ad7c9db2b23edc96965f9ebfaf7e66edfd5bdbf90d3e626b22a68c22",
+  "size": 36862065,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.123: updater artık GitHub Release asset hattı bloklandığında raw.githubusercontent.com üzerindeki raw-dist aynasını öncelikli kullanıyor; klasik release indirmesi fallback olarak korunuyor. TEST/STABLE release pipeline ZIP paketlerini raw-dist dalına otomatik aynalıyor. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.125: tablo aramalarına kullanım ipucu açılır pencereleri eklendi; uzun süren e-posta işlemleri Operation Center özetinde aşama bilgisiyle gösteriliyor; Koleksiyon listesi açılırken legacy owner recovery artık otomatik çalışmıyor, böylece eski satırların yeniden canlanması/model çoğalması riski engelleniyor. Koleksiyon listeleme güvenliği için regression testi eklendi. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
