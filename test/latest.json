@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.136",
-  "publishedAt": "2026-09-25T17:44:11.993Z",
-  "artifact": "releases/BuyerLog-7.0.136.zip",
-  "sha256": "e680af0ad6b17a99ee9254fa3dc1668817052425a5b2d08d47053319eb64c152",
-  "size": 36985698,
+  "version": "7.0.137",
+  "publishedAt": "2026-09-25T19:51:40.424Z",
+  "artifact": "releases/BuyerLog-7.0.137.zip",
+  "sha256": "e3046bfe187e647e261cc565930605dc1d65eb5ee2f464b581cbe02b0844fac7",
+  "size": 37005432,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.136: Backlog grafiği TradingView tarzı kullanıma geçirildi. Grafik artık ilk açılışta tüm tarihleri sıkıştırmak yerine okunabilir bir zaman penceresiyle açılıyor. 4H / 3Ay / 6Ay / YTD / 1Y / Sığdır / Tümü hızlı aralıkları eklendi. Mouse wheel ile zoom, sol tık+sürükle ile yatay pan, crosshair, tarih ve tüm seri değerlerini gösteren sabitlenebilir bilgi kutusu, sağ değer ekseni ve daha kompakt zaman etiketleri eklendi. Legend üzerinden tek tıkla seri gizleme/gösterme ve çift tıkla yalnız seçili seriyi gösterme destekleniyor. Bugün/Today göstergesi, grafik içi filtreler, mevcut Backlog filtreleri, Settings ve Excel export davranışı korunmuştur. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.137: Backlog grafik v2 paketi tamamlandı. Grafik yatay sürüklemede daha akışkan pan davranışı kullanır; Y ekseni clean/nice-step tam sayı referansları üretir ve crosshair değerleri küsüratsız Türkçe sayı formatında gösterilir. Hafta etiketleri yalnız hafta numarası, ay etiketleri MAY 26 / FEB 26 biçimindedir ve görünür aralığa göre seyrekleştirilir. Opsiyonel ikinci Time Field ile iki tarih alanı aynı grafikte overlay edilebilir. Ortalama çizgisi açılıp kapatılabilir; crosshair özetinde alt toplam gösterilir; grafik PNG ve SVG olarak dışarı aktarılabilir. Backlog Excel export, Buyer Log'daki görünür tarih aralığını ve seri state'ini koruyan canlı native Excel chart üretir; chart verisi export edilen BACKLOG satırlarına bağlıdır. X Tarih (Ay) ve X Tarih (Hafta) hücreleri artık orijinal tarih hücresine Excel formülüyle bağlıdır ve kaynak tarih değişince yeniden hesaplanır. Main'deki PLM Style List ana renk görsel düzeltmeleri korunmuştur. Tam Buyer Log Node regression suite PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
