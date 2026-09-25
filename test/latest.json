@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.127",
-  "publishedAt": "2026-09-25T13:57:00.249Z",
-  "artifact": "releases/BuyerLog-7.0.127.zip",
-  "sha256": "35c919cfc9aacfdb4d4af3a5533d6979429887328570c94468a63030c6b275a6",
-  "size": 36886100,
+  "version": "7.0.128",
+  "publishedAt": "2026-09-25T14:12:20.776Z",
+  "artifact": "releases/BuyerLog-7.0.128.zip",
+  "sha256": "4477b0833c56b5aa265ed711186b845982721b40ba7b6e3c62d0da4a4d9f4589",
+  "size": 36892144,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.127: Koleksiyon ekranında CoreNectum/PLM Style List model görseli sürüklenip bırakıldığında görselin Attachment kimliğinden PLM kaydı otomatik çözülür ve yeni Koleksiyon modeli oluşturulur. Drag/drop yalnız Koleksiyon'da çalışır; aynı PLM ID zaten mevcutsa hiçbir satır güncellenmez veya çoğaltılmaz. Model verileri mevcut Direct PLM normalizer ve kanonik PLM görsel pipeline'ı üzerinden alınır. Attachment reverse index direct CoreNectum API ile çalışır; Edge/CDP gerekmez. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.128: CoreNectum/PLM model görselini tarayıcıdan Koleksiyon ekranına sürükleme akışı düzeltildi. Drag olayları document capture seviyesinde yakalanıyor; DownloadURL, text/html, text/uri-list ve DataTransferItem.getAsString payloadları destekleniyor. Electron varsayılan drop navigasyonu engelleniyor. Attachment çözümlemesinden önce CoreNectum API oturumu hazır hale getiriliyor. Aynı PLM ID mevcutsa drag/drop hiçbir kaydı değiştirmiyor veya çoğaltmıyor. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
