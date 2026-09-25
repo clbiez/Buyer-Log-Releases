@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.135",
-  "publishedAt": "2026-09-25T16:46:50.110Z",
-  "artifact": "releases/BuyerLog-7.0.135.zip",
-  "sha256": "a315e63091675be1bea39debf22cb3fd0f8c0f73c5afd865fa2af4479901870c",
-  "size": 36973065,
+  "version": "7.0.136",
+  "publishedAt": "2026-09-25T17:44:11.993Z",
+  "artifact": "releases/BuyerLog-7.0.136.zip",
+  "sha256": "e680af0ad6b17a99ee9254fa3dc1668817052425a5b2d08d47053319eb64c152",
+  "size": 36985698,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.135: Koleksiyon ekranındaki PLM görsel sürükle-bırak akışında görülen CoreNectum HTTP 400 / StatusType 3 hatası düzeltildi. Attachment→PLM reverse lookup artık canlı GetStyleList isteğinin filtre, arama, favori grup, sıralama ve güvenlik kapsamı semantiğini aynen koruyor; yalnız sayfalama kontrollü olarak değiştiriliyor ve request body içindeki olası gizli alanlar temizleniyor. Hot Wheels PLM 2131790 senaryosu regression testleriyle koruma altına alındı. 7.0.134 Backlog grafik güncellemeleri ve aradaki diğer main değişiklikleri korunmuştur. Tam Buyer Log regression paketi exact 7.0.135 release branch üzerinde PASS.",
+  "releaseNotes": "Buyer Log 7.0.136: Backlog grafiği TradingView tarzı kullanıma geçirildi. Grafik artık ilk açılışta tüm tarihleri sıkıştırmak yerine okunabilir bir zaman penceresiyle açılıyor. 4H / 3Ay / 6Ay / YTD / 1Y / Sığdır / Tümü hızlı aralıkları eklendi. Mouse wheel ile zoom, sol tık+sürükle ile yatay pan, crosshair, tarih ve tüm seri değerlerini gösteren sabitlenebilir bilgi kutusu, sağ değer ekseni ve daha kompakt zaman etiketleri eklendi. Legend üzerinden tek tıkla seri gizleme/gösterme ve çift tıkla yalnız seçili seriyi gösterme destekleniyor. Bugün/Today göstergesi, grafik içi filtreler, mevcut Backlog filtreleri, Settings ve Excel export davranışı korunmuştur. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
