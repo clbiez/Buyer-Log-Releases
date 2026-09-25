@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.122",
-  "publishedAt": "2026-09-24T21:24:54.137Z",
-  "artifact": "releases/BuyerLog-7.0.122.zip",
-  "sha256": "af379aeb7bafe8b5481472313e1d86a53ed3893ff3ebcc67aa8d2e9fcabce8c3",
-  "size": 36844422,
+  "version": "7.0.123",
+  "publishedAt": "2026-09-25T05:12:32.309Z",
+  "artifact": "releases/BuyerLog-7.0.123.zip",
+  "sha256": "8aaa83ee44938a4d4a321c56cd2dfbbe701bc139692399ba84fc43f8384bc60b",
+  "size": 36850179,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.122: GitHub release güncelleme indirmesi kurumsal ağlarda Electron/Chromium net.fetch öncelikli olacak şekilde sağlamlaştırıldı; Node fetch fallback'i korundu. UPDATE_DOWNLOAD_FAILED durumunda gerçek transport hata kodu, mesajı ve kullanılan transport updater.log'a yazılıyor. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.123: updater artık GitHub Release asset hattı bloklandığında raw.githubusercontent.com üzerindeki raw-dist aynasını öncelikli kullanıyor; klasik release indirmesi fallback olarak korunuyor. TEST/STABLE release pipeline ZIP paketlerini raw-dist dalına otomatik aynalıyor. Tam Buyer Log regression paketi PASS.",
   "minimumUpdaterVersion": "1.0.0"
 }
