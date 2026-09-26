@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.138",
-  "publishedAt": "2026-09-26T12:11:45.997Z",
-  "artifact": "releases/BuyerLog-7.0.138.zip",
-  "sha256": "2694a2096e5970d2cfb1c188f25aeb9c655fc1a18ca82519e7323c380a20cf81",
-  "size": 37175084,
+  "version": "7.0.139",
+  "publishedAt": "2026-09-26T14:56:50.619Z",
+  "artifact": "releases/BuyerLog-7.0.139.zip",
+  "sha256": "02e57c69e540cb29bdfb66264e34902c25e881b047444cf1857a6ffc570d3d07",
+  "size": 37276908,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.138: Claude tarafından geliştirilen çok kullanıcılı Shared Hub senkron ve yetki iyileştirmeleri main'e eksiksiz alındı. Koleksiyon eşzamanlı düzenleme için alan bazlı üç yönlü birleştirme ve nedensel çakışma algılama, Buyer/Moderatör yetki düzeltmeleri, koleksiyon görsel paylaşımı, fiyat talebi ve ortak ayar görünürlüğü, çoklu sekmede tek canlı bağlantı ve veri kaybı önleme iyileştirmeleri eklendi. server.js route mimarisi modülerleştirildi. CP, Siparişler, Genel Bakış ve LFL geçişlerinde projection/cache ve yeniden çizim optimizasyonlarıyla performans iyileştirildi. Genel UI okunabilirliği, boş durumlar, tooltip/ikon dili, kullanıcı yönetimi ve Genel Bakış Bugün modülü güncellendi. Yeni çok kullanıcılı senkron, yetki, performans ve çekirdek hesap regression testleri dahil edildi.",
+  "releaseNotes": "Buyer Log 7.0.139: Backlog sayfasına Planlanan & Gerçekleşen Analizi eklendi. Kullanıcı seçtiği iki tarih-saat arasındaki snapshotları karşılaştırarak yalnız değişen/sapan kayıtları görür; Ex-Factory revizyonları, planlanan ve gerçekleşen yükleme, gerçekleşmeyen plan açığı, geç yükleme, statü, tahmini antrepo giriş tarihi, miktar ve diğer tarih değişiklikleri analiz edilir. Ara revizyon trafiği ayrıca korunur; çoklu revizyon ve başlangıç değerine geri dönen değişiklikler görünür. Buyer, Buyer Group, üretici, sezon, MAG ve MMYG filtreleri ile gündem odaklı analiz desteklenir. Modül açılır/kapanır ve taşınabilir; kullanıcı konumu saklanır. Snapshot geçmişi tek sıkıştırılmış baz+delta dosyasında tutulur. Güncel Backlog radar/pivot geliştirmeleri korunmuş ve yeni regression testleri eklenmiştir.",
   "minimumUpdaterVersion": "1.0.0"
 }
