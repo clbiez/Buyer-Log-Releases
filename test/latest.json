@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.140",
-  "publishedAt": "2026-09-26T15:35:38.818Z",
-  "artifact": "releases/BuyerLog-7.0.140.zip",
-  "sha256": "32ba725f7d34fcadd715b498100407e22ed25392d8a0a021d1cfe399923d409c",
-  "size": 37292943,
+  "version": "7.0.141",
+  "publishedAt": "2026-09-26T16:42:34.168Z",
+  "artifact": "releases/BuyerLog-7.0.141.zip",
+  "sha256": "a863ff8d4b6f881d58945ea257cc99236e2c428c17eeeb0eedde50d4d3a10901",
+  "size": 37349682,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.140: Backlog grafik navigasyonunda uzun hover listeleri kaydırılabilir hale getirildi ve Average çizgisi alt toplamların değil görünür veri noktalarının gerçek ortalamasını kullanacak şekilde düzeltildi. Tüm radar diyagramlarında sağ/sol etiket kırpılması giderildi ve her radara bağımsız filtreleme eklendi. Delivery Risk alanında KPI kartları ile risk radarı varsayılan 50/50 yan yana yerleşime alındı; KPI'lar 2 sıra x 3 kolon düzeninde gösteriliyor. Planlanan & Gerçekleşen Analizi karanlık tema tokenlarına bağlandı. Overview dünya saatlerine Dijital / Analog / Analog + Dijital görünüm seçimi ve tüm IANA saat dilimlerinden saat ekleme desteği eklendi; boşta görünen Workspace ready mesajı kaldırıldı.",
+  "releaseNotes": "Buyer Log 7.0.141: Overview ekranına Global Flow Map eklendi. Harita CP, Orders, Backlog veya Combined veri kaynağını kullanabilir; Combined görünüm aynı siparişi Backlog > Orders > CP önceliğiyle tekilleştirir. 2D dünya haritası ve 3D küre görünümü, açık/koyu tema desteği, sürükleme, yakınlaştırma, tam ekran, KPI ve detay filtreleri bulunur. Üretimde, sevke hazır, yolda ve İstanbul/depo durumları görselleştirilir; Gemi, Uçak, Tır ve Gemi+Uçak akışları animasyonlu rota çizgileriyle gösterilir. Harita üzerindeki akışlara çift tıklayarak sipariş detay drawer'ı açılabilir. Backlog verisi mevcut yetki ve aktif filtreleri koruyan /api/backlog-export hattından alınır. Global Flow Map mevcut Overview Edit Layout sistemine tam genişlik, taşınabilir ve daraltılabilir modül olarak entegre edilmiştir.",
   "minimumUpdaterVersion": "1.0.0"
 }
