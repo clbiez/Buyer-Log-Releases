@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.142",
-  "publishedAt": "2026-09-26T17:25:00.847Z",
-  "artifact": "releases/BuyerLog-7.0.142.zip",
-  "sha256": "959aad45a28d402fc5798db47842037d607095b9dc9c0636fc90870886d5db4f",
-  "size": 37349696,
+  "version": "7.0.143",
+  "publishedAt": "2026-09-26T19:26:55.264Z",
+  "artifact": "releases/BuyerLog-7.0.143.zip",
+  "sha256": "86a3547908942f2a81127786abf7b005b2c91b3aa95f28362a9f8a04f7796f46",
+  "size": 37520368,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.142: Overview ekranındaki Global Flow Map görünürlük sorunu düzeltildi. Modül 7.0.141'de DOM ve layout durumuna doğru şekilde eklenmişti ancak uygulamanın genel section { display:none } kuralını override etmediği için ekranda görünmüyor, buna rağmen düzen yöneticisi modülü mevcut saydığı için Modül Ekle listesinde de çıkmıyordu. Global Flow Map artık Overview'da normal şekilde görünür; mevcut 2D/3D görünüm, CP/Orders/Backlog/Combined kaynakları, filtreler, animasyonlu rota akışları, tam ekran ve çift tık detay özellikleri korunur. Bu görünürlük davranışı için regresyon testi eklendi.",
+  "releaseNotes": "Buyer Log 7.0.143: Global Flow Map daha doğru Natural Earth ülke sınırlarıyla yenilendi; harita yüklenirken thinking-orbs Working görseli kullanılıyor. Deniz sevkiyatları Suez/Çanakkale gibi gerçekçi deniz koridorlarından geçirilir, rota hover alanı tüm çizgi boyunca kesintisiz çalışır. İhracat/ithalat dosya numarası bazında gemi, uçak ve tır simgeleri Handover tarihi ile ülke/yükleme yol süresi kurallarına göre rota ilerlemesine yerleştirilir ve yakın araçlar gruplanır. Araç tıklaması ilgili siparişleri, rota tıklaması tüm rota siparişlerini açar. İstanbul varışında Awaiting Retail Transfer, Customs Operation ve In Warehouse; kalkış ülkesinde Production ve Loading Operations ayrımları hover/click detaylarıyla gösterilir. Global Flow, LFL, Backlog, CP, Collection Analytics, Price & Supplier Analysis ve operasyonel uyarı detayları ortak sağ çekmece altyapısına taşındı. Çekmece model görsellerini, PLM Sync'i, kalıcı sütun seçimini, aramayı ve yalnız görünür sütunları görseller hücreye bağlı olacak şekilde Excel'e aktarmayı destekler. Regresyon testleri genişletildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
