@@ -1,0 +1,29 @@
+{
+  "name": "buyer-log-desktop",
+  "productName": "Buyer Log",
+  "version": "7.0.153",
+  "description": "Buyer Log masaüstü barındırıcısı (mevcut backend + gömülü Chromium).",
+  "main": "electron/launcher.js",
+  "private": true,
+  "dependencies": {
+    "express": "^4.19.2",
+    "groq-sdk": "^1.6.0",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "test:buyerlog": "node tests/run-tests.js",
+    "test:collection": "node tests/run-tests.js collection",
+    "github:sync": "node scripts/github-source-sync.js",
+    "github:sync:patch": "node scripts/github-source-sync.js --bump patch",
+    "release:patch": "node scripts/release-publish.js --channel test --bump patch",
+    "release:minor": "node scripts/release-publish.js --channel test --bump minor",
+    "release:major": "node scripts/release-publish.js --channel test --bump major",
+    "release:build": "node scripts/release-publish.js --channel test --build-only",
+    "release:promote": "node scripts/release-promote.js",
+    "release:bridge": "node scripts/bridge-publish.js",
+    "release:test": "node scripts/release-publish.js --channel test",
+    "version:assert": "node scripts/version-assert.js",
+    "portable:manifest": "node scripts/portable-manifest.js"
+  }
+}
