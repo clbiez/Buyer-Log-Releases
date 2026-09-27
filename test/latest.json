@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.144",
-  "publishedAt": "2026-09-27T03:10:45.992Z",
-  "artifact": "releases/BuyerLog-7.0.144.zip",
-  "sha256": "3155f57abfe59072644d3eb3b90322815a0d18a76785e77fd83b233e8ab4301c",
-  "size": 37537970,
+  "version": "7.0.145",
+  "publishedAt": "2026-09-27T06:44:46.496Z",
+  "artifact": "releases/BuyerLog-7.0.145.zip",
+  "sha256": "a33eda8c7d164e2ac3e233e2d5a9c74f83184665cc14caf9fed018ac98325b52",
+  "size": 37584781,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.144: kullanıcı menüsüne mevcut güvenli masaüstü OAB SSO akışını kullanan manuel OAB Kullanıcı Girişi eklendi. Global Flow haritasının aydınlık/gri temadaki deniz, kara ve ülke sınırı kontrastı artırıldı; koyu tema korunuyor. Ayrıca ortak alt detay çekmecesinde sütun tercihleri sayfa bazlı saklanıyor, Excel dışa aktarımında Tüm Sütunlar/Görünen Sütunlar seçilebiliyor, boş hücreler canonical/nested kaynak fallback ile tamamlanıyor ve panel sol kenardan sürüklenerek genişletilebiliyor.",
+  "releaseNotes": "Buyer Log 7.0.145: Claude'un Global Flow ve performans geliştirmeleri güncel main ile birleştirildi. Global Flow artık CP/Orders için tam veri sağlayıcılarını kullanıyor; parsiyel bazlı sevkiyat modeli, Gemi Ad bazlı araç gruplama, Bangladesh/India Colombo aktarmalı Gemi+Uçak rotaları, ortak rota segmentleri, Critical/hızlı filtreler ve çoklu panel filtreleri eklendi. Mevcut 2D 2:1 harita oranı, geniş zoom aralığı, 3D inertia ve aydınlık tema kontrastı korundu. Ortak detay çekmecesinde büyük veri kümeleri parça parça çiziliyor, arama geciktiriliyor ve görsel indeksi tek kez kuruluyor; sayfa bazlı sütun tercihleri, panel genişletme ve Tüm/Görünen Sütunlar Excel aktarımı korunuyor. İlgili regression ve performans testleri güncellendi.",
   "minimumUpdaterVersion": "1.0.0"
 }
