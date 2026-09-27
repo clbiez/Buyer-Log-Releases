@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.143",
-  "publishedAt": "2026-09-26T19:26:55.264Z",
-  "artifact": "releases/BuyerLog-7.0.143.zip",
-  "sha256": "86a3547908942f2a81127786abf7b005b2c91b3aa95f28362a9f8a04f7796f46",
-  "size": 37520368,
+  "version": "7.0.144",
+  "publishedAt": "2026-09-27T03:10:45.992Z",
+  "artifact": "releases/BuyerLog-7.0.144.zip",
+  "sha256": "3155f57abfe59072644d3eb3b90322815a0d18a76785e77fd83b233e8ab4301c",
+  "size": 37537970,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.143: Global Flow Map daha doğru Natural Earth ülke sınırlarıyla yenilendi; harita yüklenirken thinking-orbs Working görseli kullanılıyor. Deniz sevkiyatları Suez/Çanakkale gibi gerçekçi deniz koridorlarından geçirilir, rota hover alanı tüm çizgi boyunca kesintisiz çalışır. İhracat/ithalat dosya numarası bazında gemi, uçak ve tır simgeleri Handover tarihi ile ülke/yükleme yol süresi kurallarına göre rota ilerlemesine yerleştirilir ve yakın araçlar gruplanır. Araç tıklaması ilgili siparişleri, rota tıklaması tüm rota siparişlerini açar. İstanbul varışında Awaiting Retail Transfer, Customs Operation ve In Warehouse; kalkış ülkesinde Production ve Loading Operations ayrımları hover/click detaylarıyla gösterilir. Global Flow, LFL, Backlog, CP, Collection Analytics, Price & Supplier Analysis ve operasyonel uyarı detayları ortak sağ çekmece altyapısına taşındı. Çekmece model görsellerini, PLM Sync'i, kalıcı sütun seçimini, aramayı ve yalnız görünür sütunları görseller hücreye bağlı olacak şekilde Excel'e aktarmayı destekler. Regresyon testleri genişletildi.",
+  "releaseNotes": "Buyer Log 7.0.144: kullanıcı menüsüne mevcut güvenli masaüstü OAB SSO akışını kullanan manuel OAB Kullanıcı Girişi eklendi. Global Flow haritasının aydınlık/gri temadaki deniz, kara ve ülke sınırı kontrastı artırıldı; koyu tema korunuyor. Ayrıca ortak alt detay çekmecesinde sütun tercihleri sayfa bazlı saklanıyor, Excel dışa aktarımında Tüm Sütunlar/Görünen Sütunlar seçilebiliyor, boş hücreler canonical/nested kaynak fallback ile tamamlanıyor ve panel sol kenardan sürüklenerek genişletilebiliyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
