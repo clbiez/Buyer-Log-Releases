@@ -1,0 +1,181 @@
+name: Publish staged Buyer Log 7.0.152
+
+on:
+  push:
+    branches: [staging-v7.0.152]
+    paths:
+      - 'staging/7.0.152/**'
+      - '.github/workflows/publish-staged-7.0.152.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-staged-7.0.152
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      VERSION: 7.0.152
+      BASE_VERSION: 7.0.149
+      SOURCE_SHA: d7fa744e48b0b8b580aee66d5b244b5b2dc5089a
+      RELEASE_NOTES: >-
+        Buyer Log 7.0.152: License Royalty Calculations tek sözleşme modeline geçirildi; eski TR / Non-TR kayıtları efektif fiyatlar korunarak Royalty + TR Komisyon % + YD Komisyon % + Hologram Cost yapısına migrate edilir. Fiyat Kontrolü Supp. FOB, Final FOB YD ve Final FOB TR sonuçlarını birlikte gösterir ve sipariş ülkesine göre doğru komisyonu uygular. OAB oturum kalıcılığı, LFL Trial FOB kaynağı, kayıtlı LFL özetlerini aynı filtrelerle yenileme, IAS/ASAS Field Mapping onarım akışı, seçilebilir Backup/Restore kapsamları, Backlog grafik/Excel canlı görünür aralık ve eksen iyileştirmeleri ile son bekleyen düzeltmeler aynı sürümde birleştirildi.
+    steps:
+      - name: Checkout staged delta
+        uses: actions/checkout@v4
+        with:
+          ref: staging-v7.0.152
+          fetch-depth: 1
+
+      - name: Restore last published runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work out
+          curl -fL --retry 3 --retry-delay 2 \
+            "https://raw.githubusercontent.com/\${GITHUB_REPOSITORY}/raw-dist/test/BuyerLog-\${BASE_VERSION}.zip" \
+            -o baseline.zip
+          unzip -q baseline.zip -d work
+          test -f work/app/package.json
+          cp -a staging/7.0.152/resources/app/. work/app/
+
+      - name: Reinstall deterministic dependencies
+        working-directory: work/app
+        run: npm ci --ignore-scripts
+
+      - name: Validate version and changed runtime syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd work/app
+          npm run version:assert
+          test "$(node -p "require('./package.json').version")" = "\${VERSION}"
+          while IFS= read -r -d '' file; do
+            node --check "$file"
+          done < <(find ../../staging/7.0.152/resources/app -type f -name '*.js' ! -path '*/tests/*' -print0)
+
+      - name: Run changed-feature regression tests
+        working-directory: work/app
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test \
+            tests/backlog-dynamic-chart.test.js \
+            tests/corporate-integration-lab.test.js \
+            tests/data-management-ui-v781.test.js \
+            tests/lfl-period-date-fields-v70106.test.js \
+            tests/lfl-saved-scenario-refresh.test.js \
+            tests/lfl-table-height-resize.test.js \
+            tests/lfl-trial-collection-fob.test.js \
+            tests/license-royalty-commission-v2.test.js \
+            tests/oab-desktop-auth-v20260921.test.js \
+            tests/refresh-field-mapping-repair.test.js \
+            tests/selective-backup-restore-v7148.test.js
+
+      - name: Build and verify full runtime ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf work/app/tests work/app/server/data work/app/dist-updates work/app/.desktop-dev
+          rm -f work/app/.release-pending.json
+          (cd work && zip -qr "../out/BuyerLog-\${VERSION}.zip" app)
+          unzip -tq "out/BuyerLog-\${VERSION}.zip"
+          unzip -p "out/BuyerLog-\${VERSION}.zip" app/package.json > out/package.json
+          test "$(node -p "require('./out/package.json').version")" = "\${VERSION}"
+          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/electron/launcher.js$')"
+          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/electron/main.js$')"
+          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/server/server.js$')"
+          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/public/index.html$')"
+          if unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep -q '^app/server/data/'; then
+            echo "server/data must not be packaged" >&2
+            exit 1
+          fi
+
+      - name: Create release manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHA="$(sha256sum "out/BuyerLog-\${VERSION}.zip" | awk '{print $1}')"
+          SIZE="$(stat -c%s "out/BuyerLog-\${VERSION}.zip")"
+          SHA="$SHA" SIZE="$SIZE" node <<'NODE'
+          const fs=require('fs');
+          const manifest={
+            schemaVersion:1,
+            channel:'test',
+            version:process.env.VERSION,
+            publishedAt:new Date().toISOString(),
+            artifact:'releases/BuyerLog-'+process.env.VERSION+'.zip',
+            sha256:process.env.SHA,
+            size:Number(process.env.SIZE),
+            mandatory:false,
+            releaseNotes:process.env.RELEASE_NOTES,
+            minimumUpdaterVersion:'1.0.0'
+          };
+          fs.writeFileSync('out/latest.json',JSON.stringify(manifest,null,2)+'\n');
+          fs.writeFileSync('out/BuyerLog-'+process.env.VERSION+'.json',JSON.stringify(manifest,null,2)+'\n');
+          NODE
+          cat out/latest.json
+
+      - name: Publish GitHub TEST release assets
+        shell: bash
+        env:
+          GH_TOKEN: \${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="test-v\${VERSION}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "out/BuyerLog-\${VERSION}.zip" "out/BuyerLog-\${VERSION}.json" --clobber
+          else
+            gh release create "$TAG" "out/BuyerLog-\${VERSION}.zip" "out/BuyerLog-\${VERSION}.json" \
+              --title "Buyer Log TEST \${VERSION}" \
+              --notes "TEST release for \${VERSION} · source \${SOURCE_SHA}"
+          fi
+
+      - name: Checkout raw mirror
+        uses: actions/checkout@v4
+        with:
+          ref: raw-dist
+          path: raw
+          fetch-depth: 1
+
+      - name: Advance raw TEST mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p raw/test
+          rm -f raw/test/BuyerLog-*.zip
+          cp "out/BuyerLog-\${VERSION}.zip" raw/test/
+          cd raw
+          git config user.name "Buyer Log Release Bot"
+          git config user.email "buyer-log-release-bot@users.noreply.github.com"
+          git add test
+          if ! git diff --cached --quiet; then
+            git commit -m "Mirror test \${VERSION}"
+            git push origin HEAD:raw-dist
+          fi
+
+      - name: Checkout release manifest branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: release-main
+          fetch-depth: 1
+
+      - name: Advance TEST latest manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release-main/test
+          cp out/latest.json release-main/test/latest.json
+          cd release-main
+          git config user.name "Buyer Log Release Bot"
+          git config user.email "buyer-log-release-bot@users.noreply.github.com"
+          git add test/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish test latest \${VERSION}"
+            git push origin HEAD:main
+          fi
