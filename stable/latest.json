@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.126",
-  "publishedAt": "2026-09-25T13:13:36.969Z",
-  "artifact": "releases/BuyerLog-7.0.126.zip",
-  "sha256": "b38351c9404c5de924ff2051d1f56b72088105e58deaed9eb90f6215b95325b6",
-  "size": 36866998,
+  "version": "7.0.152",
+  "publishedAt": "2026-09-27T12:29:10.324Z",
+  "artifact": "releases/BuyerLog-7.0.152.zip",
+  "sha256": "ed6aa50313bd7c5a7647fb7017ab4eb16a66c50a65a17ff6c5432642e3a950dc",
+  "size": 17956590,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.126: Koleksiyon elle fiyat girişindeki üretici önerileri artık ASAS database üretici kataloğundan geliyor ve mevcut Koleksiyon/Quotation üreticileriyle tekilleştirilerek birleştiriliyor; eski katalog cache'leri otomatik yenileniyor. TR Landed hesabı Türkiye'ye özel royalty kurallarını kullanıyor ve uygun TR kuralı yoksa uyarı veriyor. Send to Pricing ekranındaki e-posta grubu görünürlüğü düzeltildi. Tam Buyer Log regression paketi PASS.",
+  "releaseNotes": "Buyer Log 7.0.152: License Royalty Calculations tek sözleşme modeline geçirildi; eski TR / Non-TR kayıtları efektif fiyatlar korunarak Royalty + TR Komisyon % + YD Komisyon % + Hologram Cost yapısına migrate edilir. Fiyat Kontrolü Supp. FOB, Final FOB YD ve Final FOB TR sonuçlarını birlikte gösterir ve sipariş ülkesine göre doğru komisyonu uygular. OAB oturum kalıcılığı, LFL Trial FOB kaynağı, kayıtlı LFL özetlerini aynı filtrelerle yenileme, IAS/ASAS Field Mapping onarım akışı, seçilebilir Backup/Restore kapsamları, Backlog grafik/Excel canlı görünür aralık ve eksen iyileştirmeleri ile son bekleyen düzeltmeler aynı sürümde birleştirildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
