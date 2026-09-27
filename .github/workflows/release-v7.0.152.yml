@@ -6,6 +6,7 @@ on:
       - staging-v7.0.152
     paths:
       - '.github/workflows/release-v7.0.152.yml'
+      - 'staging/7.0.152/**'
 
 permissions:
   contents: write

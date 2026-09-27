@@ -34,5 +34,5 @@ test('LFL tablo yükseklikleri kullanıcı bazında kalıcıdır ve sıfırlanab
 
 test('LFL manuel yükseklik içerik azaldığında tabloyu pencere altına zorlamaz', () => {
   assert.match(CSS, /\.lflAnalysisGrid \.lflTableWrap\.lflManualHeight\{[^}]*height:auto!important;[^}]*max-height:var\(--lfl-manual-height\)!important;[^}]*min-height:0;/s);
-  assert.doesNotMatch(CSS, /\.lflAnalysisGrid \.lflTableWrap\.lflManualHeight\{[^}]*height:var\(--lfl-manual-height\)!important/s);
+  assert.doesNotMatch(CSS, /\.lflAnalysisGrid \.lflTableWrap\.lflManualHeight\{[^}]*(?:^|[;{])\s*height\s*:\s*var\(--lfl-manual-height\)!important/s);
 });
