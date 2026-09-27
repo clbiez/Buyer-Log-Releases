@@ -75,24 +75,41 @@ jobs:
           set -euo pipefail
           node --test             tests/backlog-dynamic-chart.test.js             tests/corporate-integration-lab.test.js             tests/data-management-ui-v781.test.js             tests/lfl-period-date-fields-v70106.test.js             tests/lfl-saved-scenario-refresh.test.js             tests/lfl-table-height-resize.test.js             tests/lfl-trial-collection-fob.test.js             tests/license-royalty-commission-v2.test.js             tests/oab-desktop-auth-v20260921.test.js             tests/refresh-field-mapping-repair.test.js             tests/selective-backup-restore-v7148.test.js
 
-      - name: Build and verify immutable full ZIP
+      - name: Build and verify deterministic STORE full ZIP
         shell: bash
         run: |
           set -euo pipefail
           rm -rf work/app/tests work/app/dist-updates work/app/.desktop-dev work/app/server/data
-          (
-            cd work
-            zip -q -r "../dist/BuyerLog-${VERSION}.zip" app
-          )
-          unzip -t "dist/BuyerLog-${VERSION}.zip" >/dev/null
-          test "$(unzip -p "dist/BuyerLog-${VERSION}.zip" app/package.json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).version))")" = "${VERSION}"
-          for required in app/electron/launcher.js app/electron/main.js app/server/server.js app/public/index.html; do
-            unzip -l "dist/BuyerLog-${VERSION}.zip" "$required" | grep -q "$required"
-          done
-          if unzip -l "dist/BuyerLog-${VERSION}.zip" | grep -q 'app/server/data/'; then
-            echo "server/data must not be shipped" >&2
-            exit 1
-          fi
+          node <<'NODE'
+          const fs=require('fs');
+          const path=require('path');
+          const {createZipFromDirectory,listZipEntries,extractZipSafe}=require('./work/app/electron/update/zip');
+          const source=path.resolve('work/app');
+          const output=path.resolve('dist',`BuyerLog-${process.env.VERSION}.zip`);
+          fs.mkdirSync(path.dirname(output),{recursive:true});
+          createZipFromDirectory(source,output,{rootPrefix:'app'});
+          const listing=listZipEntries(output,{maxFiles:30000,maxBytes:1024*1024*1024});
+          if(!listing.entries.length)throw new Error('Deterministic ZIP boş.');
+          if(listing.entries.some(entry=>entry.method!==0))throw new Error('STORE olmayan ZIP entry bulundu.');
+          const verify=path.resolve('dist','.verify-store');
+          fs.rmSync(verify,{recursive:true,force:true});
+          extractZipSafe(output,verify,{maxFiles:30000,maxBytes:1024*1024*1024});
+          const pkg=JSON.parse(fs.readFileSync(path.join(verify,'app','package.json'),'utf8'));
+          if(pkg.version!==process.env.VERSION)throw new Error('Artifact package version mismatch.');
+          for(const required of ['electron/launcher.js','electron/main.js','server/server.js','public/index.html']){
+            if(!fs.existsSync(path.join(verify,'app',...required.split('/'))))throw new Error('Artifact eksik: '+required);
+          }
+          if(fs.existsSync(path.join(verify,'app','server','data')))throw new Error('server/data must not be shipped');
+          fs.rmSync(verify,{recursive:true,force:true});
+          NODE
+          cp "dist/BuyerLog-${VERSION}.zip" /tmp/store-a.zip
+          rm "dist/BuyerLog-${VERSION}.zip"
+          node <<'NODE'
+          const path=require('path');
+          const {createZipFromDirectory}=require('./work/app/electron/update/zip');
+          createZipFromDirectory(path.resolve('work/app'),path.resolve('dist',`BuyerLog-${process.env.VERSION}.zip`),{rootPrefix:'app'});
+          NODE
+          cmp /tmp/store-a.zip "dist/BuyerLog-${VERSION}.zip"
           SHA="$(sha256sum "dist/BuyerLog-${VERSION}.zip" | awk '{print $1}')"
           SIZE="$(stat -c%s "dist/BuyerLog-${VERSION}.zip")"
           echo "ARTIFACT_SHA=${SHA}" >> "$GITHUB_ENV"
