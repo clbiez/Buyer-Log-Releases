@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.149",
-  "publishedAt": "2026-09-27T09:54:49.771Z",
-  "artifact": "releases/BuyerLog-7.0.149.zip",
-  "sha256": "aa9e0f24cdeb255d91d717566d535bde86276c1803c09a4ffd693b414727667f",
-  "size": 49224765,
+  "version": "7.0.152",
+  "publishedAt": "2026-09-27T12:29:07.891Z",
+  "artifact": "releases/BuyerLog-7.0.152.zip",
+  "sha256": "351643a7bde807fabd7052c28c5d4c8f01a0b43e280a628a070bce5f9423b9ff",
+  "size": 17963264,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.149: Data Matching Rules alanında ASAS ve IAS veritabanı sütun seçicileri artık yalnız Buyer Log Field Mapping başlıklarıyla sınırlı değildir. Kullanıcı sütun alanını açtığında seçilen database kaynağının gerçek şeması lazy olarak okunur ve database’deki tüm erişilebilir sütunlar tablo adıyla birlikte seçilebilir. Gereksiz maliyeti önlemek için yalnız seçilen kaynak taranır; şema okunamazsa mevcut Field Mapping listesi ve manuel giriş desteği korunur. İlgili regresyon testleri eklenmiş ve tam Buyer Log test paketi başarıyla geçmiştir.",
+  "releaseNotes": "Buyer Log 7.0.152: License Royalty Calculations tek sözleşme modeline geçirildi; eski TR / Non-TR kayıtları efektif fiyatlar korunarak Royalty + TR Komisyon % + YD Komisyon % + Hologram Cost yapısına migrate edilir. Fiyat Kontrolü Supp. FOB, Final FOB YD ve Final FOB TR sonuçlarını birlikte gösterir ve sipariş ülkesine göre doğru komisyonu uygular. OAB oturum kalıcılığı, LFL Trial FOB kaynağı, kayıtlı LFL özetlerini aynı filtrelerle yenileme, IAS/ASAS Field Mapping onarım akışı, seçilebilir Backup/Restore kapsamları, Backlog grafik/Excel canlı görünür aralık ve eksen iyileştirmeleri ile son bekleyen düzeltmeler aynı sürümde birleştirildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
