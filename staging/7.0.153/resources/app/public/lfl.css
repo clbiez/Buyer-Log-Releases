@@ -1,0 +1,828 @@
+/* ============================================================
+   LFL — v2.03 "kibar" yeniden tasarım
+   Ölçü sistemi (app.css ile ortak):
+   - Tüm kontroller: yükseklik var(--ctl-h,30px), radius var(--r-sm,8px), 11.5px
+   - Etiketler: 9.5px / 700 / uppercase / muted
+   - Kartlar: radius var(--r-lg,12px), 16px iç boşluk, ince çizgi
+   - Boşluk ritmi: 10px (grid), 12px (bloklar arası)
+   ============================================================ */
+#view-lfl{padding-bottom:28px;min-width:0;max-width:100%;overflow-x:hidden;}
+#view-lfl,#view-lfl *{box-sizing:border-box;}
+
+/* ---- Ortak kontrol ölçüleri ---- */
+.lflButton,
+.lflField input,.lflField select,
+.lflDimBtn,.lflSourceBadge{height:var(--ctl-h,30px);border-radius:var(--r-sm,8px);font-size:11.5px;}
+
+/* ---- Butonlar ---- */
+.lflButton{padding:0 12px;border:1px solid var(--line2);background:var(--card2);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:6px;font-weight:640;font-family:inherit;letter-spacing:.01em;white-space:nowrap;cursor:pointer;transition:background .14s var(--ease),border-color .14s var(--ease),color .14s var(--ease),box-shadow .14s var(--ease);}
+.lflButton .ic{width:14px;height:14px;flex:none;}
+.lflButton:hover{background:var(--hover);border-color:var(--muted);}
+.lflButton:active{transform:translateY(1px);}
+.lflButton:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+.lflButton:disabled{opacity:.5;cursor:not-allowed;}
+.lflButton--primary{background:var(--primary);border-color:var(--primary);color:var(--on-primary,#fff);}
+.lflButton--primary:hover{filter:brightness(1.07);background:var(--primary);border-color:var(--primary);}
+.lflButton--ghost{background:transparent;border-color:transparent;color:var(--muted);}
+.lflButton--ghost:hover{background:var(--hover);border-color:transparent;color:var(--ink);}
+.lflButton--tonal{background:var(--acc-bg);border-color:var(--acc-lite);color:var(--acc-ink);}
+.lflButton--tonal:hover{background:color-mix(in srgb,var(--acc-bg) 78%,var(--hover));border-color:var(--acc);}
+
+/* ---- Araç çubuğu ---- */
+.lflToolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;min-width:0;max-width:100%;}
+.lflToolbarSpacer{flex:1;}
+.lflSourceBadge{display:inline-flex;align-items:center;gap:7px;padding:0 12px;border:1px solid var(--line);background:var(--card);color:var(--muted);max-width:min(520px,100%);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:999px;}
+.lflSourceBadge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--success,#22a06b);box-shadow:0 0 0 3px color-mix(in srgb,var(--success,#22a06b) 16%,transparent);flex:none;}
+.lflSourceBadge.isError::before{background:var(--error,#d64545);box-shadow:0 0 0 3px color-mix(in srgb,var(--error,#d64545) 16%,transparent);}
+
+/* ---- Kartlar ---- */
+.lflCard{background:var(--card);border:1px solid var(--line2);border-radius:var(--r-lg,12px);box-shadow:var(--shadow-1);}
+.lflFilterCard{padding:16px;margin-bottom:12px;min-width:0;max-width:100%;}
+.lflSectionHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;}
+.lflSectionHead h2,.lflSectionHead h3{margin:0;color:var(--ink);font-size:13.5px;font-weight:720;letter-spacing:-.01em;line-height:1.3;}
+.lflSectionHead p{margin:3px 0 0;color:var(--muted);font-size:11px;line-height:1.5;}
+
+/* ---- Filtre alanları — tek ölçü ---- */
+.lflFilterGrid{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:10px;}
+.lflField{display:flex;flex-direction:column;gap:5px;min-width:0;}
+.lflField label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.06em;}
+.lflField input,.lflField select{width:100%;border:1px solid var(--line2);background:var(--paper);color:var(--ink);padding:0 9px;font-family:inherit;outline:none;transition:border-color .14s var(--ease),box-shadow .14s var(--ease);}
+.lflField input:hover,.lflField select:hover{border-color:var(--muted);}
+.lflField input:focus,.lflField select:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 13%,transparent);}
+.lflField--wide{grid-column:span 2;}
+.lflShiftYearBtn{width:100%;justify-content:center;}
+.lflDatePair{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.lflCheck{display:flex;align-items:center;gap:8px;height:var(--ctl-h,30px);padding:0 9px;border:1px solid var(--line2);border-radius:var(--r-sm,8px);background:var(--paper);font-size:11.5px;color:var(--ink);}
+.lflCheck input{width:14px;height:14px;margin:0;accent-color:var(--primary);}
+
+/* ---- Boyut (facet) çubuğu — filtre alanlarıyla aynı ölçü ---- */
+.lflFacetBar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+.lflDimWrap{position:relative;min-width:0;}
+.lflDimBtn{max-width:250px;padding:0 9px;border:1px solid var(--line2);background:var(--card2);color:var(--ink);display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:inherit;font-weight:600;transition:background .14s var(--ease),border-color .14s var(--ease),box-shadow .14s var(--ease),color .14s var(--ease);}
+.lflDimBtn:hover{background:var(--hover);border-color:var(--muted);}
+.lflDimBtn:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+.lflDimBtn>.ic:first-child{width:13px;height:13px;color:var(--muted);flex:none;}
+.lflDimText{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lflDimCount{min-width:17px;height:17px;padding:0 5px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:var(--primary);color:var(--on-primary,#fff);font-size:10px;font-weight:800;line-height:1;}
+.lflDimCount[hidden]{display:none!important;}
+.lflDimChevron{width:11px;height:11px;margin-left:auto;transition:transform .12s var(--ease);flex:none;}
+.lflDimBtn[aria-expanded="true"] .lflDimChevron{transform:rotate(180deg);}
+.lflDimBtn.hasFilter{background:var(--acc-bg);border-color:var(--acc-lite);color:var(--acc-ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--acc);}
+.lflDimBtn.hasFilter>.ic:first-child{color:var(--acc-ink);}
+.lflDimBtn.isTrialDisabled,.lflDimBtn:disabled{background:var(--card2);border-color:var(--line);color:var(--muted);opacity:.48;filter:saturate(.2);box-shadow:none;cursor:not-allowed;}
+.lflDimBtn.isTrialDisabled:hover,.lflDimBtn:disabled:hover{background:var(--card2);border-color:var(--line);}
+.lflDimBtn.isTrialDisabled>.ic,.lflDimBtn:disabled>.ic{color:var(--muted);}
+
+/* ---- Boyut popover'ı (macOS mantığı: blur'lu, yumuşak) ---- */
+.lflDimPanel{position:absolute;left:0;top:calc(100% + 6px);z-index:140;min-width:280px;width:max-content;max-width:min(390px,calc(100vw - 36px));border:1px solid var(--line2);border-radius:12px;background:var(--pop,var(--card));backdrop-filter:var(--pop-blur,none);-webkit-backdrop-filter:var(--pop-blur,none);box-shadow:var(--shadow-3,0 14px 34px rgba(0,0,0,.18));overflow:hidden;}
+.lflDimPanel[hidden]{display:none!important;}
+.lflDimPanelHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 9px;border-bottom:1px solid var(--line);}
+.lflDimPanelHead>div{display:flex;flex-direction:column;gap:2px;}
+.lflDimPanelHead strong{font-size:11.5px;color:var(--ink);}
+.lflDimPanelHead span{font-size:10px;color:var(--muted);}
+.lflPanelClear{border:0;background:transparent;color:var(--primary);font-family:inherit;font-size:10.5px;font-weight:700;cursor:pointer;padding:5px 7px;border-radius:6px;}
+.lflPanelClear:hover{background:var(--hover);}
+.lflPanelClear:disabled{opacity:.4;cursor:default;background:transparent;}
+.lflDimSearchWrap{padding:9px 10px 7px;}
+.lflDimSearch{width:100%;height:28px;border:1px solid var(--line2);border-radius:7px;background:var(--paper);color:var(--ink);padding:0 9px;font-family:inherit;font-size:11px;outline:none;}
+.lflDimSearch:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 12%,transparent);}
+.lflDimList{max-height:300px;overflow:auto;padding:3px 7px 8px;}
+.lflDimOption{display:grid;grid-template-columns:15px minmax(0,1fr) auto;align-items:center;gap:8px;min-height:30px;padding:4px 7px;border:1px solid transparent;border-radius:7px;cursor:pointer;color:var(--ink);font-size:11.5px;transition:background .12s var(--ease),border-color .12s var(--ease),color .12s var(--ease);}
+.lflDimOption:hover{background:var(--hover);}
+.lflDimOption.isSelected{background:var(--acc-bg);border-color:var(--acc-lite);color:var(--acc-ink);font-weight:660;}
+.lflDimOption input{width:14px;height:14px;margin:0;accent-color:var(--primary);}
+.lflDimOption span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lflDimOption em{font-style:normal;font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.lflDimOption.isSelected em{color:var(--acc-ink);}
+.lflDimAll{margin-bottom:3px;border-bottom-color:var(--line);}
+.lflDimNoResult{padding:24px 10px;text-align:center;color:var(--muted);font-size:11px;}
+
+/* ---- Filtre eylem satırı ---- */
+.lflFilterActions{display:flex;align-items:center;gap:8px;margin-top:12px;border-top:1px solid var(--line);padding-top:12px;}
+.lflFilterHint{font-size:10.5px;color:var(--muted);margin-right:auto;line-height:1.45;}
+
+/* ---- KPI kartları — sakin, hizalı ---- */
+.lflKpiGrid{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:10px;margin-bottom:12px;}
+.lflKpi{padding:13px 14px;min-height:96px;position:relative;overflow:hidden;border-top:2px solid color-mix(in srgb,var(--primary) 35%,var(--line2));}
+.lflKpiLabel{font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--muted);}
+.lflKpiValue{margin-top:7px;font-size:clamp(17px,1.6vw,23px);font-weight:750;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums;}
+.lflKpiSub{margin-top:4px;font-size:10.5px;color:var(--muted);line-height:1.4;}
+.lflKpiValue.isGood{color:var(--success,#17865d);}
+.lflKpiValue.isBad{color:var(--error,#c83d4a);}
+.lflKpiValue.isNeutral{color:var(--info,#3c70c9);}
+
+/* ---- Yorum ve kaynak blokları ---- */
+.lflTopGrid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.8fr);gap:12px;margin-bottom:12px;}
+.lflInsights,.lflSourceInfo{padding:16px;}
+.lflInsightList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+.lflInsight{display:flex;gap:9px;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card2);font-size:11.5px;line-height:1.45;color:var(--ink);}
+.lflInsightIcon{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--primary) 12%,transparent);color:var(--primary);font-weight:800;flex:none;}
+.lflSourceRows{display:grid;gap:7px;}
+.lflSourceRow{display:flex;justify-content:space-between;gap:12px;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:11.5px;}
+.lflSourceRow:last-child{border-bottom:0;padding-bottom:0;}
+.lflSourceRow span:first-child{color:var(--muted);}
+.lflSourceRow strong{text-align:right;color:var(--ink);font-weight:640;word-break:break-word;}
+.lflWarning{margin-top:9px;padding:8px 10px;border-radius:8px;background:color-mix(in srgb,var(--warning,#d88a10) 11%,transparent);color:var(--ink);font-size:10.5px;line-height:1.45;}
+
+/* ---- Analiz tabloları ve grafik ---- */
+/* v6.35 — İki panelin genişliği artık elle ayarlanabilir. Oran --lfl-split
+   değişkeninde tutulur (kullanıcı tercihi olarak saklanır); ızgara üç sütuna
+   çıktı: sol panel · sürüklenen ayırıcı · sağ panel.
+   align-items:start ÖNEMLİ — ızgaranın varsayılan stretch davranışı kısa olan
+   kartı uzunun boyuna çekiyor ve kartın altında boşluk bırakıyordu. */
+.lflAnalysisGrid{display:grid;grid-template-columns:minmax(0,var(--lfl-split,1.3fr)) 10px minmax(240px,var(--lfl-split-right,.7fr));gap:12px;margin-bottom:12px;align-items:start;}
+.lflSplitHandle{align-self:stretch;display:grid;place-items:center;cursor:col-resize;background:transparent;border:0;padding:0;touch-action:none;}
+.lflSplitHandle>span{display:block;width:3px;height:100%;min-height:44px;border-radius:999px;background:var(--line2);transition:background .14s var(--ease);}
+.lflSplitHandle:hover>span,.lflSplitHandle.isDragging>span{background:var(--primary);}
+.lflSplitHandle:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px;}
+body.lflSplitDragging{cursor:col-resize;user-select:none;}
+.lflTableCard,.lflChartCard,.lflDetailCard{overflow:hidden;}
+.lflTableCard .lflSectionHead,.lflChartCard .lflSectionHead,.lflDetailCard .lflSectionHead{padding:14px 16px 0;}
+.lflTableWrap{overflow:auto;max-height:470px;border-top:1px solid var(--line);}
+.lflTable{width:100%;border-collapse:separate;border-spacing:0;table-layout:auto;font-size:11.5px;}
+.lflTable th{position:sticky;top:0;z-index:2;padding:7px 9px;background:var(--thead-bg);background-clip:padding-box;color:var(--thead-ink);border-bottom:1px solid var(--line2);white-space:nowrap;text-align:left;font-size:10px;font-weight:700;letter-spacing:.04em;}
+.lflTable td{padding:7px 9px;border-bottom:1px solid var(--line);color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;}
+.lflTable tbody tr:hover td{background:var(--row-hover,var(--hover));}
+.lflTable .num{text-align:right;}
+.lflTable .good{color:var(--success,#17865d);font-weight:700;}
+.lflTable .bad{color:var(--error,#c83d4a);font-weight:700;}
+.lflTable .muted{color:var(--muted);}
+.lflTable th[data-lfl-sort]{cursor:pointer;user-select:none;}
+.lflTable th[data-lfl-sort]:hover{background:color-mix(in srgb,var(--thead-bg) 82%,var(--primary));}
+.lflEmptyCell{text-align:center!important;color:var(--muted)!important;padding:34px 10px!important;}
+.lflChart{padding:4px 16px 15px;display:grid;gap:11px;max-height:470px;overflow:auto;}
+.lflChartRow{display:grid;grid-template-columns:minmax(85px,130px) 1fr 58px;gap:8px;align-items:center;}
+.lflChartLabel{font-size:10.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lflBars{display:grid;gap:4px;}
+.lflBarTrack{height:7px;border-radius:999px;background:var(--line);overflow:hidden;}
+.lflBar{height:100%;border-radius:999px;background:var(--primary);min-width:2px;}
+.lflBar--prev{background:var(--muted);}
+.lflChartValue{text-align:right;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.lflChartEmpty{padding:42px 18px;}
+.lflLegend{display:flex;gap:12px;align-items:center;padding:0 16px 12px;font-size:10.5px;color:var(--muted);}
+.lflLegend span{display:inline-flex;align-items:center;gap:5px;}
+.lflLegend i{width:12px;height:5px;border-radius:4px;background:var(--primary);}
+.lflLegend i.prev{background:var(--muted);}
+.lflManufacturerVolumeCard{margin-bottom:12px;overflow:hidden;}
+.lflManufacturerVolumeCard .lflSectionHead{padding:14px 16px 0;}
+.lflManufacturerVolumeLegend b{font:inherit;font-weight:600;}
+.lflManufacturerVolume{padding:2px 16px 16px;display:grid;grid-template-columns:1fr;gap:0;max-height:470px;overflow:auto;}
+.lflManufacturerVolumeRow{display:grid;grid-template-columns:minmax(150px,240px) minmax(120px,1fr) minmax(62px,86px);gap:9px;align-items:center;min-width:0;padding:7px 0;border-bottom:1px solid var(--line);}
+.lflManufacturerVolumeLabel{display:grid;gap:2px;min-width:0;}
+.lflManufacturerVolumeLabel strong{font-size:11px;color:var(--ink);font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lflManufacturerVolumeLabel span{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lflManufacturerVolumeValues{display:grid;gap:2px;text-align:right;font-size:10.5px;font-variant-numeric:tabular-nums;}
+.lflManufacturerVolumeValues strong{color:var(--primary);font-weight:700;}
+.lflManufacturerVolumeValues span{color:var(--muted);}
+.lflDetailCard{margin-bottom:12px;}
+.lflDetailCard .lflTableWrap{max-height:360px;}
+.lflCompareDetailCard{margin-top:12px;}
+.lflCompareDetailCard .lflSectionHead{border-bottom:1px solid var(--line);padding-bottom:12px;}
+
+/* ---- Boş durum ---- */
+.lflStatusEmpty{padding:52px 20px;text-align:center;color:var(--muted);}
+.lflStatusEmpty .ic{width:36px;height:36px;margin-bottom:10px;color:var(--primary);}
+.lflStatusEmpty h3{color:var(--ink);font-size:14.5px;margin:0 0 6px;}
+.lflStatusEmpty p{font-size:11.5px;line-height:1.55;max-width:620px;margin:0 auto;}
+
+/* ---- Kırılımlar ---- */
+@media(max-width:1350px){.lflFilterGrid{grid-template-columns:repeat(2,minmax(180px,1fr));}.lflKpiGrid{grid-template-columns:repeat(3,minmax(150px,1fr));}}
+/* "Kumaş Özellikleri" grubu: 7 kumaş filtresi alt başlıklar olarak dikey dizilir.
+   Panel overflow:hidden olamaz — alt filtrelerin kendi açılır panelleri dışarı taşar. */
+.lflFabricGroupPanel{padding:8px;display:flex;flex-direction:column;gap:6px;min-width:230px;overflow:visible;}
+.lflFabricGroupPanel .lflDimWrap{width:100%;}
+.lflFabricGroupPanel .lflDimBtn{width:100%;max-width:none;justify-content:flex-start;}
+/* Alt filtrenin paneli grubun sağında açılır; grubun içinde sıkışıp kalmaz. */
+.lflFabricGroupPanel .lflDimPanel{left:100%;top:0;margin-left:6px;z-index:150;}
+/* Grup içindeki herhangi bir filtre aktifse ana düğme de vurgulanır. */
+.lflFabricGroup:has(.lflDimBtn.hasFilter)>#lflFabricGroupBtn{border-color:var(--acc);color:var(--acc-ink);font-weight:600;}
+@media(max-width:980px){.lflTopGrid,.lflAnalysisGrid{grid-template-columns:1fr;}.lflSplitHandle{display:none;}.lflInsightList{grid-template-columns:1fr;}.lflFacetBar{align-items:stretch;}.lflDimWrap{flex:1 1 190px;}.lflDimBtn{width:100%;max-width:none;}.lflDimPanel{width:min(360px,calc(100vw - 36px));}
+  .lflFabricGroupPanel .lflDimPanel{left:0;top:calc(100% + 4px);margin-left:0;}}
+@media(max-width:640px){.lflFilterGrid,.lflKpiGrid{grid-template-columns:1fr;}.lflManufacturerVolumeRow{grid-template-columns:minmax(90px,130px) 1fr 58px;}.lflField--wide{grid-column:auto;}.lflDatePair{grid-template-columns:1fr;}.lflToolbar .lflButton{flex:1;}.lflSourceBadge{width:100%;max-width:none;}.lflChartRow{grid-template-columns:82px 1fr 52px;}.lflDimWrap{flex-basis:100%;}.lflDimPanel{position:fixed;left:18px!important;right:18px;top:auto;bottom:18px;width:auto;max-width:none;}.lflFilterActions{align-items:stretch;flex-direction:column;}.lflFilterHint{margin-right:0;}.lflFilterActions .lflButton{width:100%;}}
+
+
+/* v2.04 — Hazır Filtreler */
+.lflReadyWrap{position:relative;display:inline-flex;}
+.lflReadyPanel{position:absolute;right:0;bottom:calc(100% + 6px);z-index:170;width:min(360px,calc(100vw - 36px));max-height:360px;overflow:auto;padding:8px;border:1px solid var(--line2);border-radius:var(--r-md,10px);background:var(--pop,var(--card));backdrop-filter:var(--pop-blur,none);box-shadow:var(--shadow-3);}
+.lflReadyPanel[hidden]{display:none!important;}
+.lflReadyHead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 3px 8px;border-bottom:1px solid var(--line);}
+.lflReadyHead strong{font-size:11.5px;}
+.lflReadySave{height:26px;padding:0 8px;border:1px solid var(--line);border-radius:7px;background:var(--card2);color:var(--ink2);font:inherit;font-size:10.5px;font-weight:700;cursor:pointer;}
+.lflReadyNameEditor{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:5px;align-items:center;padding:7px 3px 0;}
+.lflReadyNameEditor[hidden]{display:none!important;}
+.lflReadyNameInput{min-width:0;height:28px;border:1px solid var(--line2);border-radius:7px;background:var(--paper);color:var(--ink);padding:0 8px;font:inherit;font-size:11px;outline:none;}
+.lflReadyNameInput:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 12%,transparent);}
+.lflReadyNameAction{height:28px;padding:0 8px;border:1px solid var(--line);border-radius:7px;background:var(--card2);color:var(--ink2);font:inherit;font-size:10.5px;font-weight:700;cursor:pointer;}
+.lflReadyNameAction:hover{background:var(--hover);}
+.lflReadyList{display:grid;gap:4px;padding-top:7px;}
+.lflReadyItem{display:grid;grid-template-columns:minmax(0,1fr) 28px;gap:5px;align-items:center;}
+.lflReadyApply,.lflReadyDelete{height:30px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--ink);font:inherit;cursor:pointer;}
+.lflReadyApply{text-align:left;padding:0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11.5px;}
+.lflReadyApply:hover{background:var(--acc-bg);color:var(--acc-ink);}
+.lflReadyDelete{display:grid;place-items:center;color:var(--muted);padding:0;}
+.lflReadyDelete:hover{background:var(--red-bg);color:var(--red);}
+.lflReadyEmpty{padding:18px 8px;text-align:center;color:var(--muted);font-size:11px;line-height:1.45;}
+@media(max-width:640px){.lflReadyWrap{width:100%;}.lflReadyWrap>.lflButton{width:100%;}.lflReadyPanel{position:fixed;left:18px;right:18px;bottom:18px;width:auto;max-height:60vh;}}
+
+/* v3.26 — LFL özel seçim karşılaştırması */
+.lflCustomCompareCard{margin-bottom:12px;overflow:visible;position:relative;}
+.lflCustomCompareHead{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.95fr);gap:18px;align-items:end;padding:14px 16px 0;}
+.lflCustomCompareHead>.lflSectionHead{margin-bottom:12px;}
+.lflCustomCompareControls{display:grid;grid-template-columns:minmax(170px,.78fr) minmax(230px,1.22fr);gap:9px;align-items:end;margin-bottom:12px;}
+.lflCustomCompareDimensionField{min-width:0;}
+.lflCustomComparePicker{position:relative;display:flex;flex-direction:column;gap:5px;min-width:0;}
+.lflCustomComparePicker>label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.06em;}
+.lflCustomCompareValueBtn{height:var(--ctl-h,30px);width:100%;padding:0 9px;border:1px solid var(--line2);border-radius:var(--r-sm,8px);background:var(--paper);color:var(--ink);display:flex;align-items:center;gap:6px;font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;text-align:left;transition:border-color .14s var(--ease),box-shadow .14s var(--ease),background .14s var(--ease);}
+.lflCustomCompareValueBtn:hover{border-color:var(--muted);}
+.lflCustomCompareValueBtn:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+.lflCustomCompareValueBtn[aria-expanded="true"]{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 12%,transparent);}
+.lflCustomCompareValueBtn.hasSelection{background:var(--acc-bg);border-color:var(--acc-lite);color:var(--acc-ink);}
+.lflCustomCompareValueBtn #lflCustomCompareValueText{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
+.lflCustomComparePanel{position:absolute;right:0;top:calc(100% + 6px);z-index:175;width:min(440px,calc(100vw - 36px));border:1px solid var(--line2);border-radius:12px;background:var(--pop,var(--card));backdrop-filter:var(--pop-blur,none);-webkit-backdrop-filter:var(--pop-blur,none);box-shadow:var(--shadow-3,0 14px 34px rgba(0,0,0,.18));overflow:hidden;}
+.lflCustomComparePanel[hidden]{display:none!important;}
+.lflCustomComparePanelHead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px 9px;border-bottom:1px solid var(--line);}
+.lflCustomComparePanelHead>div{display:grid;gap:2px;min-width:0;}
+.lflCustomComparePanelHead strong{font-size:11.5px;color:var(--ink);}
+.lflCustomComparePanelHead span{font-size:10px;color:var(--muted);}
+.lflCustomComparePanelActions{display:flex;gap:5px;flex:none;}
+.lflCustomCompareMiniBtn{height:25px;padding:0 7px;border:1px solid var(--line);border-radius:6px;background:var(--card2);color:var(--ink);font:inherit;font-size:10px;font-weight:700;cursor:pointer;}
+.lflCustomCompareMiniBtn:hover{background:var(--hover);}
+.lflCustomCompareMiniBtn.isClear{color:var(--muted);background:transparent;border-color:transparent;}
+.lflCustomCompareMiniBtn.isClear:hover{color:var(--ink);background:var(--hover);}
+.lflCustomCompareSearchWrap{padding:9px 10px 7px;}
+.lflCustomCompareSearch{width:100%;height:28px;border:1px solid var(--line2);border-radius:7px;background:var(--paper);color:var(--ink);padding:0 9px;font-family:inherit;font-size:11px;outline:none;}
+.lflCustomCompareSearch:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 12%,transparent);}
+.lflCustomCompareOptions{max-height:310px;overflow:auto;padding:3px 7px 8px;}
+.lflCustomCompareOption{display:grid;grid-template-columns:15px minmax(0,1fr) auto;align-items:center;gap:8px;min-height:32px;padding:4px 7px;border:1px solid transparent;border-radius:7px;cursor:pointer;color:var(--ink);font-size:11.5px;}
+.lflCustomCompareOption:hover{background:var(--hover);}
+.lflCustomCompareOption.isSelected{background:var(--acc-bg);border-color:var(--acc-lite);color:var(--acc-ink);font-weight:650;}
+.lflCustomCompareOption input{width:14px;height:14px;margin:0;accent-color:var(--primary);}
+.lflCustomCompareOptionMain{display:grid;gap:1px;min-width:0;}
+.lflCustomCompareOptionMain strong{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lflCustomCompareOptionMain small{font-size:10px;color:var(--muted);font-weight:500;}
+.lflCustomCompareOption em{font-style:normal;font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+.lflCustomCompareScope{margin:0 16px 12px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card2);color:var(--muted);font-size:10.5px;line-height:1.45;}
+.lflCustomCompareBody{display:grid;grid-template-columns:minmax(300px,.78fr) minmax(560px,1.22fr);border-top:1px solid var(--line);min-height:260px;}
+.lflCustomCompareTableWrap{max-height:430px;border-top:0;}
+.lflCustomCompareTableWrap .lflTable{min-width:860px;}
+.lflCustomCompareTableWrap .lflTable th:first-child,.lflCustomCompareTableWrap .lflTable td:first-child{position:sticky;left:0;z-index:1;background:var(--card);}
+.lflCustomCompareTableWrap .lflTable th:first-child{z-index:3;background:var(--thead-bg);}
+.lflCustomCompareDelta{font-weight:700;}
+.lflCustomCompareEmpty{padding:48px 18px;text-align:center;color:var(--muted);font-size:11.5px;line-height:1.55;}
+@media(max-width:1180px){.lflCustomCompareHead{grid-template-columns:1fr;gap:0;}.lflCustomCompareControls{max-width:680px;}.lflCustomCompareTableWrap{max-height:390px;}}
+@media(max-width:640px){.lflCustomCompareControls{grid-template-columns:1fr;}.lflCustomComparePanel{position:fixed;left:18px;right:18px;top:auto;bottom:18px;width:auto;max-height:68vh;}.lflCustomCompareScope{margin-left:12px;margin-right:12px;}}
+
+/* v3.27 — Flexible LFL breakdowns, multi-dimensional comparison and table controls */
+/* v6.49 — REGRESYON DÜZELTİLDİ. Bu iki satır ("grid-template-columns:minmax(0,1fr)"
+   ve "display:none") .lflAnalysisGrid/.lflSplitHandle için dosyada İKİNCİ bir
+   tanımdı ve HİÇBİR media query içinde değildi — yani KOŞULSUZ olarak,
+   masaüstünde bile, v6.35'te eklenen bölünmüş panel + sürüklenebilir ayırıcı
+   özelliğini (yukarıdaki asıl tanım, satır ~132) TAMAMEN eziyordu. Kullanıcı
+   "sürüklenebilir ayırıcı yok" diye bildirdi; kod zaten vardı, bu kural onu
+   hiç görünmez kılıyordu. Dar ekran davranışı zaten @media(max-width:980px)
+   içinde ayrıca tanımlı (bkz. yukarısı), bu yüzden kaldırmak güvenli. */
+.lflTableCard,.lflDetailCard{overflow:hidden;}
+.lflTableCard .lflSectionHead,.lflDetailCard .lflSectionHead{padding:14px 16px 0;}
+
+.lflBreakdownPicker{position:relative;min-width:0;}
+.lflBreakdownBtn{height:var(--ctl-h,30px);width:100%;padding:0 9px;border:1px solid var(--line2);border-radius:var(--r-sm,8px);background:var(--paper);color:var(--ink);display:flex;align-items:center;gap:6px;font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;text-align:left;}
+.lflBreakdownBtn:hover{border-color:var(--muted);}
+.lflBreakdownBtn:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+.lflBreakdownBtn[aria-expanded="true"]{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 12%,transparent);}
+.lflBreakdownBtn #lflBreakdownText{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lflBreakdownPanel{position:absolute;right:0;top:calc(100% + 6px);z-index:176;width:min(390px,calc(100vw - 36px));padding:10px;border:1px solid var(--line2);border-radius:12px;background:var(--pop,var(--card));box-shadow:var(--shadow-3,0 14px 34px rgba(0,0,0,.18));}
+.lflBreakdownPanel[hidden]{display:none!important;}
+.lflBreakdownPanelHead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:1px 1px 9px;border-bottom:1px solid var(--line);}
+.lflBreakdownPanelHead>div{display:grid;gap:2px;}
+.lflBreakdownPanelHead strong{font-size:11.5px;color:var(--ink);}
+.lflBreakdownPanelHead span{font-size:10px;color:var(--muted);}
+.lflBreakdownSlots{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:9px;}
+.lflBreakdownSlot{display:grid;gap:4px;}
+.lflBreakdownSlot>span{font-size:10px;font-weight:700;color:var(--muted);}
+.lflBreakdownSlot select{height:30px;width:100%;border:1px solid var(--line2);border-radius:7px;background:var(--paper);color:var(--ink);padding:0 8px;font:inherit;font-size:11px;}
+
+.lflTable th[data-table-sort]{cursor:pointer;user-select:none;}
+.lflTable th[data-table-sort]:hover{background:color-mix(in srgb,var(--thead-bg) 82%,var(--primary));}
+.lflTable thead tr:first-child th{top:0;}
+.lflDetailCard .lflTable{min-width:1480px;}
+
+.lflManufacturerVolumeRow{grid-template-columns:minmax(150px,230px) minmax(120px,1fr) minmax(92px,118px) minmax(68px,82px);}
+.lflManufacturerFobChange{display:grid;justify-items:end;gap:1px;font-variant-numeric:tabular-nums;}
+.lflManufacturerFobChange small{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.05em;}
+.lflManufacturerFobChange strong{font-size:11px;}
+.lflManufacturerFobChange.good strong{color:var(--success,#17865d);}
+.lflManufacturerFobChange.bad strong{color:var(--error,#c83d4a);}
+.lflManufacturerFobChange.muted strong{color:var(--muted);}
+
+.lflCustomCompareHead{display:block;padding:14px 16px 0;}
+.lflCustomCompareControls{display:grid;grid-template-columns:repeat(3,minmax(190px,1fr)) minmax(190px,.85fr);gap:10px;align-items:end;margin-bottom:12px;}
+.lflCustomCompareAxis{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:7px;align-items:end;min-width:0;}
+.lflCustomCompareReferenceField{align-self:end;}
+.lflCustomComparePicker.isDisabled{opacity:.55;}
+.lflCustomCompareValueBtn>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
+.lflCustomComparePanel{left:0;right:auto;width:min(430px,calc(100vw - 36px));}
+.lflCustomCompareTableWrap .lflTable{min-width:1380px;}
+.lflCustomCompareTableWrap tr.isReference td{background:color-mix(in srgb,var(--acc-bg) 55%,transparent);}
+.lflReferenceBadge{display:inline-flex;align-items:center;height:16px;padding:0 5px;border-radius:999px;background:var(--acc-bg);border:1px solid var(--acc-lite);color:var(--acc-ink);font-size:10px;font-weight:800;letter-spacing:.06em;vertical-align:1px;}
+
+@media(max-width:1280px){.lflCustomCompareControls{grid-template-columns:repeat(2,minmax(230px,1fr));}}
+@media(max-width:760px){.lflBreakdownSlots{grid-template-columns:1fr;}.lflBreakdownPanel{position:fixed;left:18px;right:18px;top:auto;bottom:18px;width:auto;}.lflCustomCompareControls{grid-template-columns:1fr;}.lflCustomCompareAxis{grid-template-columns:1fr 1fr;}.lflManufacturerVolumeRow{grid-template-columns:minmax(90px,130px) 1fr 82px 58px;}}
+
+/* v3.28 — CP-style LFL column filters, fixed facet search and seasonal manufacturer FOB */
+.lflDimOption[hidden]{display:none!important;}
+.lflTable th .thInner{justify-content:space-between;gap:5px;}
+.lflTableSortLabel{min-width:0;flex:1;border:0;background:transparent;color:inherit;padding:0;text-align:inherit;font:inherit;font-weight:inherit;letter-spacing:inherit;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.lflTableSortLabel .arrow{min-width:9px;color:var(--primary);font-size:10px;}
+.lflTableFilterBtn{flex:none;}
+.lflColumnFilterPanel{min-width:255px;max-width:min(330px,calc(100vw - 16px));max-height:min(430px,calc(100vh - 16px));overflow:auto;}
+.lflColumnFilterPanel .cfpList{max-height:280px;overflow:auto;}
+.lflManufacturerVolumeRow{grid-template-columns:minmax(150px,230px) minmax(120px,1fr) minmax(92px,118px) minmax(190px,250px);}
+.lflManufacturerFobMetrics{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:10px;align-items:center;min-width:0;font-variant-numeric:tabular-nums;}
+.lflManufacturerFobMetrics>div{display:grid;gap:1px;min-width:0;text-align:right;}
+.lflManufacturerFobMetrics small{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lflManufacturerFobMetrics strong,.lflManufacturerFobMetrics span,.lflManufacturerFobMetrics b{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lflManufacturerFobMetrics strong{color:var(--primary);font-weight:700;}
+.lflManufacturerFobMetrics span{color:var(--muted);}
+.lflManufacturerFobChange b{font-weight:750;}
+.lflManufacturerFobChange.good b{color:var(--success,#17865d);}
+.lflManufacturerFobChange.bad b{color:var(--error,#c83d4a);}
+.lflManufacturerFobChange.muted b{color:var(--muted);}
+@media(max-width:900px){.lflManufacturerVolumeRow{grid-template-columns:minmax(100px,150px) minmax(100px,1fr) minmax(75px,92px) minmax(160px,210px);}.lflManufacturerFobMetrics{gap:6px;}}
+@media(max-width:640px){.lflManufacturerVolumeRow{grid-template-columns:minmax(90px,125px) minmax(80px,1fr) 68px;}.lflManufacturerFobMetrics{grid-column:1/-1;grid-template-columns:1fr 1fr auto;padding-left:0;}}
+
+
+/* v3.30 — Numeric-only LFL volumes; graphical bars removed */
+.lflManufacturerVolumeCard .lflLegend{display:none!important;}
+.lflBars,.lflBarTrack,.lflBar{display:none!important;}
+.lflManufacturerVolumeRow{grid-template-columns:minmax(150px,230px) minmax(180px,250px) minmax(190px,250px);}
+.lflManufacturerVolumeValues{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:right;min-width:0;}
+.lflManufacturerVolumeValues>div{display:grid;gap:1px;min-width:0;}
+.lflManufacturerVolumeValues small{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lflManufacturerVolumeValues strong,.lflManufacturerVolumeValues span{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+@media(max-width:900px){.lflManufacturerVolumeRow{grid-template-columns:minmax(110px,1fr) minmax(160px,210px) minmax(160px,210px);}}
+@media(max-width:640px){.lflManufacturerVolumeRow{grid-template-columns:minmax(100px,1fr) minmax(150px,190px);}.lflManufacturerFobMetrics{grid-column:1/-1;}.lflManufacturerVolumeValues{gap:6px;}}
+
+/* v3.31 — LFL column-filter popovers follow their table-header anchors while scrolling */
+
+/* v3.32 — Group comparison and manufacturer volumes share one row */
+/* v6.49 — grid-template-columns/align-items satırı KALDIRILDI: bu, v6.35'te
+   eklenen sürüklenebilir bölünmüş panel tanımından (yukarıda, satır ~133)
+   DOSYADA SONRA geldiği için onu eziyordu (aynı özgüllük, CSS'te sonraki
+   kazanır) — sürüklenebilir ayırıcı bu yüzden hiçbir zaman görünmüyordu.
+   Bu kuralın diğer alt seçicileri (min-width, margin, max-height) hâlâ
+   geçerli ve korunuyor; yalnız düzeni ezen satır kaldırıldı. */
+.lflAnalysisGrid>.lflCard{min-width:0;margin-bottom:0;}
+.lflAnalysisGrid .lflManufacturerVolumeCard{margin-bottom:0;}
+.lflAnalysisGrid .lflTableWrap,.lflAnalysisGrid .lflManufacturerVolume{max-height:470px;}
+@media(max-width:1280px){.lflAnalysisGrid{grid-template-columns:1fr;}.lflAnalysisGrid .lflManufacturerVolumeCard{margin-top:0;}}
+
+
+/* v3.33 — Multi-dimensional comparison uses a single full-width table pane */
+.lflCustomCompareBody{display:block;min-height:0;}
+.lflCustomCompareTableWrap{width:100%;max-height:520px;border-top:1px solid var(--line);}
+
+/* v3.34 — LFL tables use the same renderer and visual system as CP Tracker. */
+#view-lfl .lflTableWrap.tablewrap{
+  padding:0;
+  border-top:1px solid var(--line);
+  max-height:470px;
+  overflow:auto;
+  background:var(--table-bg);
+}
+#view-lfl .lflDetailCard .lflTableWrap.tablewrap{max-height:360px;}
+#view-lfl .lflManufacturerVolume{
+  display:block!important;
+  grid-template-columns:none!important;
+  gap:0!important;
+  padding:0!important;
+  max-height:470px;
+}
+#view-lfl .lflManufacturerVolumeCard .lflSectionHead{padding-bottom:12px;}
+#view-lfl .lflCustomCompareTableWrap table,
+#view-lfl .lflDetailCard table{min-width:0;}
+#view-lfl .lflCustomCompareTableWrap table th:first-child,
+#view-lfl .lflCustomCompareTableWrap table td:first-child{position:static;}
+#view-lfl .lflCustomCompareTableWrap table th.frzL,
+#view-lfl .lflCustomCompareTableWrap table td.frzL{position:sticky;}
+#view-lfl .lflAnalysisGrid .lflTableWrap{max-height:470px;}
+#view-lfl .lflTableWrap .empty{padding:28px 16px;text-align:center;color:var(--muted);}
+#view-lfl table tbody tr.isReference td{background:color-mix(in srgb,var(--acc) 7%,var(--table-bg));}
+#view-lfl .lflSectionHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+#view-lfl .lflCpTableTools{display:flex;align-items:center;justify-content:flex-end;gap:6px;position:relative;flex-wrap:wrap;margin-left:auto;}
+#view-lfl .lflCpTableTool{height:30px;padding:0 9px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink2);font:inherit;font-size:10.5px;font-weight:650;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+#view-lfl .lflCpTableTool:hover{background:var(--acc-bg);border-color:var(--acc-lite);color:var(--acc-ink);}
+#view-lfl .lflGenericColPanel{right:0;top:36px;min-width:220px;max-height:360px;overflow:auto;}
+@media(max-width:760px){#view-lfl .lflSectionHead{flex-direction:column;}#view-lfl .lflCpTableTools{width:100%;justify-content:flex-start;margin-left:0;}#view-lfl .lflCpTableTool span{display:none;}}
+
+/* v7.0.110 — LFL tablolarında kullanıcı kontrollü sütun genişliği.
+   Başlık genişliği sütunun minimumunu belirlemez: daraltıldığında başlık
+   hücre içinde görünür kalır ve gerektiği kadar alt satıra geçer. */
+#view-lfl .lflTable.blResizableTable{table-layout:fixed;}
+#view-lfl .lflTable.blResizableTable thead th{
+  white-space:normal;overflow-wrap:anywhere;word-break:normal;height:auto;
+  vertical-align:bottom;line-height:1.25;padding-right:13px;
+}
+#view-lfl .lflTable.blResizableTable thead th .thInner{align-items:flex-end;}
+#view-lfl .lflTable.blResizableTable .lflTableSortLabel{
+  white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;
+  align-items:flex-end;line-height:1.25;
+}
+#view-lfl .lflTable.blResizableTable tbody td{
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* LFL analysis cards: keep the default table viewport content-sized and compact,
+   while allowing each panel to be resized vertically and persisted by lfl.js. */
+#view-lfl .lflAnalysisGrid>.lflAnalysisResizableCard{
+  display:flex;flex-direction:column;align-self:start;height:auto;min-height:0;
+}
+#view-lfl .lflAnalysisGrid .lflTableWrap:not(.lflManualHeight){
+  height:auto!important;
+  max-height:clamp(220px,34vh,360px)!important;
+  flex:none;
+}
+#view-lfl .lflAnalysisGrid .lflTableWrap.lflManualHeight{
+  /* Kullanıcının seçtiği değer zorunlu yükseklik değil, görünür alan üst sınırıdır.
+     Filtre/render sonrası az satır kaldığında tablo boş alan üretip pencere altına uzamaz. */
+  height:auto!important;
+  max-height:var(--lfl-manual-height)!important;
+  min-height:0;
+  flex:none;
+}
+#view-lfl .lflHeightHandle{
+  height:12px;min-height:12px;display:grid;place-items:center;flex:none;
+  cursor:row-resize;touch-action:none;user-select:none;background:var(--card);
+  border-top:1px solid var(--line);
+}
+#view-lfl .lflHeightHandle>span{
+  display:block;width:44px;height:3px;border-radius:999px;background:var(--line2);
+  transition:background .14s var(--ease),width .14s var(--ease);
+}
+#view-lfl .lflHeightHandle:hover>span,
+#view-lfl .lflHeightHandle.isDragging>span{background:var(--primary);width:58px;}
+#view-lfl .lflHeightHandle:focus-visible{outline:2px solid var(--primary);outline-offset:-2px;}
+body.lflHeightDragging{cursor:row-resize;user-select:none;}
+
+/* v3.38 — LFL percentage colours, table exports and portfolio drill-down */
+#view-lfl .lflCpTableTool .ic{width:13px;height:13px;flex:none;}
+#view-lfl .lflPortfolioDrillCell{cursor:zoom-in;font-weight:700;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--primary) 55%,transparent);}
+#view-lfl .lflPortfolioDrillCell:hover{color:var(--primary);background:color-mix(in srgb,var(--primary) 7%,var(--table-bg));}
+body.lflPortfolioModalOpen{overflow:hidden;}
+.lflPortfolioModal{position:fixed;inset:0;z-index:360;display:grid;place-items:center;padding:10px;}
+.lflPortfolioModal[hidden]{display:none!important;}
+.lflPortfolioModalBackdrop{position:absolute;inset:0;background:rgba(15,23,42,.48);backdrop-filter:blur(3px);}
+/* v6.49 — Kullanıcı isteği: "alt detay pencereleri ekranda çok küçük kalıyor
+   ve detaylar okunmuyor; pencereleri maksimum seviyede genişlet ve tabloların
+   sütunlarını açılır pencereye sığdırmaya çalışma." Eskiden pencere 1500×780
+   ile SINIRLANMIŞTI, geniş ekranlarda bile boş kenar bırakıyordu. Artık
+   viewport'un neredeyse tamamını kaplıyor (yalnız 10px'lik kenar payı kalıyor,
+   bkz. .lflPortfolioModal padding). table-layout:auto ve min-width bilerek
+   KORUNUYOR — amaç sütunları sıkıştırmak değil, sütunların doğal
+   genişliğinde kalabileceği DAHA GENİŞ bir alan sağlamak; taşan tablo yine
+   .lflPortfolioModalTableWrap içinde yatay kaydırılabilir. */
+.lflPortfolioModalPanel{position:relative;z-index:1;width:calc(100vw - 20px);height:calc(100vh - 20px);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line2);border-radius:14px;background:var(--card);box-shadow:0 24px 70px rgba(15,23,42,.28);}
+.lflPortfolioModalHead{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:15px 16px;border-bottom:1px solid var(--line);background:var(--card);}
+.lflPortfolioModalHead h3{margin:0;color:var(--ink);font-size:14px;font-weight:760;}
+.lflPortfolioModalHead p{margin:4px 0 0;color:var(--muted);font-size:10.5px;line-height:1.45;}
+.lflPortfolioModalActions{display:flex;align-items:center;gap:8px;flex:none;}
+.lflPortfolioModalClose{width:30px;height:30px;border:1px solid var(--line);border-radius:8px;background:var(--card2);color:var(--ink2);font:700 20px/1 inherit;cursor:pointer;}
+.lflPortfolioModalClose:hover{background:var(--hover);color:var(--ink);}
+.lflPortfolioModalTableWrap{flex:1;min-height:0;overflow:auto;background:var(--table-bg);}
+.lflPortfolioModalTableWrap .lflTable{min-width:1460px;}
+.lflPortfolioModalTableWrap .lflTable th{z-index:4;}
+@media(max-width:760px){.lflPortfolioModal{padding:10px;}.lflPortfolioModalPanel{width:calc(100vw - 20px);height:calc(100vh - 20px);}.lflPortfolioModalHead{flex-direction:column;}.lflPortfolioModalActions{width:100%;justify-content:flex-end;}}
+#view-lfl table td.good,#view-lfl table tfoot td.good{color:var(--success,#17865d)!important;font-weight:750;}
+#view-lfl table td.bad,#view-lfl table tfoot td.bad{color:var(--error,#c83d4a)!important;font-weight:750;}
+#view-lfl table td.muted,#view-lfl table tfoot td.muted{color:var(--muted)!important;}
+
+/* v3.84 — Independent multi-period LFL comparison scenarios */
+.lflScenarioCompareHead{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:14px 16px 4px}
+.lflScenarioCompareHead>.lflSectionHead{margin:0;min-width:0}
+.lflScenarioCompareActions{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex:none;flex-wrap:wrap}
+.lflScenarioCompareIntro{margin:0 16px 12px;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card2);color:var(--muted);font-size:10.5px;line-height:1.5}
+.lflScenarioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:10px;padding:0 16px 14px}
+.lflScenarioCard{min-width:0;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,color-mix(in srgb,var(--card) 96%,var(--primary) 4%),var(--card));padding:11px;box-shadow:0 1px 0 rgba(0,0,0,.02);transition:border-color .16s var(--ease),box-shadow .16s var(--ease),transform .16s var(--ease)}
+.lflScenarioCard:hover{border-color:var(--line2);box-shadow:0 8px 22px rgba(15,23,42,.07);transform:translateY(-1px)}
+.lflScenarioCard.hasNoData{background:var(--card)}
+.lflScenarioCardHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+.lflScenarioCardHead>div:first-child{display:flex;align-items:center;gap:8px;min-width:0}
+.lflScenarioCardHead strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lflScenarioIndex{display:grid;place-items:center;width:22px;height:22px;border-radius:7px;background:var(--acc-bg);color:var(--acc-ink);font-size:10px;font-weight:800;flex:none}
+.lflScenarioCardActions{display:flex;gap:3px;flex:none}
+.lflScenarioIconBtn{display:grid;place-items:center;width:27px;height:27px;padding:0;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer;transition:background .14s var(--ease),color .14s var(--ease),border-color .14s var(--ease)}
+.lflScenarioIconBtn:hover{background:var(--hover);border-color:var(--line);color:var(--ink)}
+.lflScenarioIconBtn.isDanger:hover{color:var(--bad);background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.lflScenarioIconBtn:disabled{opacity:.35;cursor:not-allowed}
+.lflScenarioIconBtn .ic{width:14px;height:14px}
+.lflScenarioPeriods{display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);align-items:center;gap:5px;padding:8px;border:1px solid var(--line);border-radius:9px;background:var(--card2)}
+.lflScenarioPeriods>div{display:grid;gap:2px;min-width:0}
+.lflScenarioPeriods small,.lflScenarioResult small{font-size:10px;letter-spacing:.055em;text-transform:uppercase;color:var(--muted);font-weight:750}
+.lflScenarioPeriods span{font-size:10.5px;font-weight:650;line-height:1.35;overflow:hidden;text-overflow:ellipsis}
+.lflScenarioPeriods>.ic{width:13px;height:13px;color:var(--muted)}
+.lflScenarioScopeChips{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}
+.lflScenarioScopeChips span{max-width:100%;padding:3px 6px;border-radius:999px;background:var(--acc-bg);color:var(--acc-ink);font-size:10px;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lflScenarioResult{display:grid;grid-template-columns:1fr 1fr .75fr;gap:6px}
+.lflScenarioResult>div{display:grid;gap:2px;min-width:0;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.lflScenarioResult strong{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lflScenarioResult em{font-style:normal;font-size:10px;color:var(--muted)}
+.lflScenarioDelta.good{background:color-mix(in srgb,var(--good) 8%,var(--paper));border-color:color-mix(in srgb,var(--good) 30%,var(--line))}
+.lflScenarioDelta.bad{background:color-mix(in srgb,var(--bad) 7%,var(--paper));border-color:color-mix(in srgb,var(--bad) 28%,var(--line))}
+.lflScenarioDelta.good strong{color:var(--good)}.lflScenarioDelta.bad strong{color:var(--bad)}
+.lflScenarioEditor[hidden]{display:none!important}
+.lflScenarioEditor{position:fixed;inset:0;z-index:980;display:grid;place-items:center;padding:24px}
+.lflScenarioEditorBackdrop{position:absolute;inset:0;background:rgba(15,23,42,.48);backdrop-filter:blur(4px)}
+.lflScenarioEditorDialog{position:relative;width:min(980px,calc(100vw - 32px));max-height:min(860px,calc(100vh - 32px));display:grid;grid-template-rows:auto minmax(0,1fr) auto;border:1px solid var(--line2);border-radius:16px;background:var(--card);box-shadow:0 28px 80px rgba(0,0,0,.28);overflow:hidden}
+.lflScenarioEditorHead,.lflScenarioEditorFoot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border-bottom:1px solid var(--line)}
+.lflScenarioEditorHead h3{margin:0;font-size:15px}.lflScenarioEditorHead p{margin:3px 0 0;color:var(--muted);font-size:10.5px}
+.lflScenarioEditorFoot{justify-content:flex-end;border-top:1px solid var(--line);border-bottom:0;background:var(--card2)}
+.lflScenarioEditorBody{overflow:auto;padding:14px;display:grid;gap:12px}
+.lflScenarioIdentity{display:grid;grid-template-columns:minmax(260px,1fr) minmax(280px,1fr);gap:12px;align-items:end}
+.lflScenarioIdentity .lflField input{height:32px;width:100%;border:1px solid var(--line2);border-radius:8px;background:var(--paper);color:var(--ink);padding:0 10px;font:inherit;font-size:11.5px}
+.lflScenarioSwitch{min-height:44px;display:grid;grid-template-columns:34px minmax(0,1fr);align-items:center;gap:9px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:var(--card2);cursor:pointer}
+.lflScenarioSwitch>input{position:absolute;opacity:0;pointer-events:none}.lflScenarioSwitch>span{position:relative;width:32px;height:18px;border-radius:999px;background:var(--line2);transition:background .15s}.lflScenarioSwitch>span:after{content:"";position:absolute;left:2px;top:2px;width:14px;height:14px;border-radius:50%;background:white;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .15s}.lflScenarioSwitch>input:checked+span{background:var(--primary)}.lflScenarioSwitch>input:checked+span:after{transform:translateX(14px)}
+.lflScenarioSwitch>div{display:grid;gap:1px}.lflScenarioSwitch strong{font-size:10.5px}.lflScenarioSwitch small{font-size:10px;color:var(--muted)}
+.lflScenarioPeriodGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lflScenarioPeriodBlock,.lflScenarioFilterEditor{border:1px solid var(--line);border-radius:11px;background:var(--card2);padding:10px}
+.lflScenarioPeriodHead,.lflScenarioFilterHead,.lflScenarioValuePickerHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.lflScenarioPeriodHead>div:first-child,.lflScenarioFilterHead>div:first-child,.lflScenarioValuePickerHead>div:first-child{display:grid;gap:1px}.lflScenarioPeriodHead strong,.lflScenarioFilterHead strong,.lflScenarioValuePickerHead strong{font-size:11px}.lflScenarioPeriodHead small,.lflScenarioFilterHead small,.lflScenarioValuePickerHead span{font-size:10px;color:var(--muted)}
+.lflScenarioPeriodActions{display:flex;gap:5px}
+.lflScenarioMiniBtn{height:25px;padding:0 7px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:10px;font-weight:700;cursor:pointer}.lflScenarioMiniBtn:hover{background:var(--hover)}.lflScenarioMiniBtn:disabled{opacity:.4;cursor:not-allowed}
+.lflScenarioMonthGrid{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;max-height:132px;overflow:auto}
+.lflScenarioMonthOption{cursor:pointer}.lflScenarioMonthOption input{position:absolute;opacity:0;pointer-events:none}.lflScenarioMonthOption span{display:block;padding:5px 7px;border:1px solid var(--line);border-radius:7px;background:var(--paper);font-size:10px;font-weight:600}.lflScenarioMonthOption:hover span{border-color:var(--muted)}.lflScenarioMonthOption.isSelected span{background:var(--acc-bg);border-color:var(--acc-lite);color:var(--acc-ink)}
+.lflScenarioFilterHead select{height:29px;min-width:170px;border:1px solid var(--line2);border-radius:7px;background:var(--paper);color:var(--ink);font:inherit;font-size:10.5px;padding:0 7px}
+.lflScenarioFilterChips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px;min-height:25px;align-items:center}
+.lflScenarioFilterChip{display:flex;align-items:center;gap:5px;height:25px;padding:0 5px 0 8px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);font:inherit;font-size:10px;cursor:pointer}.lflScenarioFilterChip.isActive{border-color:var(--acc-lite);background:var(--acc-bg);color:var(--acc-ink)}.lflScenarioFilterChip strong{min-width:16px;height:16px;display:grid;place-items:center;border-radius:999px;background:color-mix(in srgb,currentColor 12%,transparent);font-size:10px}.lflScenarioFilterChip .ic{width:12px;height:12px}
+.lflScenarioFilterEmpty{font-size:10px;color:var(--muted)}
+.lflScenarioValuePicker{border-top:1px solid var(--line);padding-top:9px}
+.lflScenarioValuePicker>input{width:100%;height:29px;border:1px solid var(--line2);border-radius:7px;background:var(--paper);color:var(--ink);padding:0 9px;font:inherit;font-size:10.5px;margin-bottom:7px}
+.lflScenarioValueOptions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;max-height:260px;overflow:auto}
+.lflScenarioValueOption{display:grid;grid-template-columns:15px minmax(0,1fr);align-items:center;gap:7px;padding:6px 7px;border:1px solid var(--line);border-radius:8px;background:var(--paper);cursor:pointer;min-width:0}.lflScenarioValueOption:hover{border-color:var(--muted)}.lflScenarioValueOption.isSelected{border-color:var(--acc-lite);background:var(--acc-bg);color:var(--acc-ink)}.lflScenarioValueOption input{width:14px;height:14px;margin:0;accent-color:var(--primary)}.lflScenarioValueOption>span{display:grid;gap:1px;min-width:0}.lflScenarioValueOption strong{font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lflScenarioValueOption small{font-size:10px;color:var(--muted)}
+.lflScenarioNoOption{grid-column:1/-1;padding:18px;text-align:center;color:var(--muted);font-size:10px}
+.lflScenarioEditorOpen{overflow:hidden}
+.lflLegacyCustomCompareControls[hidden]{display:none!important}
+@media(max-width:860px){.lflScenarioIdentity,.lflScenarioPeriodGrid{grid-template-columns:1fr}.lflScenarioValueOptions{grid-template-columns:repeat(2,minmax(0,1fr))}.lflScenarioEditor{padding:10px}.lflScenarioEditorDialog{width:calc(100vw - 20px);max-height:calc(100vh - 20px)}}
+@media(max-width:560px){.lflScenarioCompareHead{align-items:stretch;flex-direction:column}.lflScenarioCards{grid-template-columns:1fr;padding-left:10px;padding-right:10px}.lflScenarioResult{grid-template-columns:1fr 1fr}.lflScenarioDelta{grid-column:1/-1}.lflScenarioValueOptions{grid-template-columns:1fr}.lflScenarioPeriods{grid-template-columns:1fr}.lflScenarioPeriods>.ic{display:none}.lflScenarioEditorBody{padding:10px}}
+
+
+/* ===================== LFL TRIAL / SIMULATION BASKET ===================== */
+#lflTrialBtn.isOn{border-color:var(--acc,#6941C6);background:var(--acc-bg,#F4EBFF);color:var(--acc-ink,#53389E)}
+#lflFabricDetailsBtn.isOn{border-color:var(--blue,#3973D8);background:color-mix(in srgb,var(--blue,#3973D8) 11%,var(--card));color:var(--blue,#3973D8)}
+.lflTrialBanner{display:flex;align-items:center;gap:10px;margin:0 0 12px;padding:9px 14px;border:1px solid var(--acc,#6941C6);background:var(--acc-bg,#F4EBFF);color:var(--acc-ink,#53389E);border-radius:var(--r-md);font-size:12.5px;font-weight:600}
+.lflTrialBanner .ic{width:16px;height:16px;flex:0 0 16px}.lflTrialBanner.isPaused{border-color:var(--line);background:var(--card2);color:var(--muted)}.lflTrialBannerOff{margin-left:auto;border:1px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:4px 11px;font-size:11.5px;font-weight:700;cursor:pointer;min-width:94px;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:background .16s ease,color .16s ease,border-color .16s ease}.lflTrialBannerOff::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 0 2px color-mix(in srgb,currentColor 18%,transparent)}.lflTrialBannerOff:hover{filter:brightness(.96)}
+.lflTrialImpact{margin:0 0 12px;padding:0;overflow:hidden;border-color:var(--acc-lite,var(--line2))}.lflTrialImpact[hidden]{display:none!important}
+.lflTrialImpactHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--acc-bg,#F4EBFF),var(--card))}.lflTrialImpactHead>div{display:grid;gap:2px}.lflTrialImpactHead strong{font-size:12px}.lflTrialImpactHead span{font-size:10px;color:var(--muted)}.lflTrialImpactEdit{border:1px solid var(--acc-lite,var(--line2));background:var(--paper);color:var(--acc-ink,var(--ink));border-radius:7px;padding:5px 9px;font:inherit;font-size:10.5px;font-weight:700;cursor:pointer}
+.lflTrialImpactMetrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line)}.lflTrialImpactMetrics>div{display:grid;gap:4px;padding:10px 12px;background:var(--card)}.lflTrialImpactMetrics span{font-size:10px;color:var(--muted)}.lflTrialImpactMetrics strong{font-size:14px}.lflTrialImpactMetrics .isSimulated{background:color-mix(in srgb,var(--acc-bg,#F4EBFF) 55%,var(--card))}.lflTrialImpactMetrics .isGood strong{color:var(--green)}.lflTrialImpactMetrics .isBad strong{color:var(--red)}
+.lflTrialOverlay{z-index:1080;padding:12px}.lflTrialStudio{overflow:hidden;padding:0}.lflTrialStudio--compact{width:min(920px,calc(100vw - 24px));height:min(780px,calc(100vh - 24px));max-height:none;display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto}
+.lflTrialStudioHead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:14px 16px;border-bottom:1px solid var(--line)}.lflTrialStudioHead h2{margin:0;font-size:17px}.lflTrialStudioHead p{margin:4px 0 0;font-size:11px;color:var(--muted)}
+.lflTrialScopeBar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 16px;background:var(--card2);border-bottom:1px solid var(--line);font-size:10.5px;color:var(--ink2)}
+.lflTrialCompactStats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-bottom:1px solid var(--line)}.lflTrialCompactStats>div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;background:var(--card)}.lflTrialCompactStats span{font-size:10px;color:var(--muted)}.lflTrialCompactStats strong{font-size:15px;color:var(--ink)}.lflTrialCompactStats .isReady strong{color:var(--green)}.lflTrialCompactStats .isIssue{background:color-mix(in srgb,var(--red) 5%,var(--card))}.lflTrialCompactStats .isIssue strong{color:var(--red)}
+.lflTrialIssueList{min-height:0;overflow:auto;padding:12px;display:grid;align-content:start;gap:9px;background:var(--card2)}
+.lflTrialIssueCard{border:1px solid color-mix(in srgb,var(--red) 42%,var(--line));border-radius:11px;background:var(--card);box-shadow:0 1px 2px rgba(16,24,40,.04);overflow:hidden}.lflTrialIssueCard>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 11px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--red) 4%,var(--card))}.lflTrialIssueCard>header>div{display:flex;align-items:baseline;gap:8px;min-width:0}.lflTrialIssueCard>header strong{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lflTrialIssueCard>header span{font-size:10px;color:var(--red);white-space:nowrap}.lflTrialIssueCard>header button{width:26px;height:26px;display:grid;place-items:center;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer}.lflTrialIssueCard>header button:hover{background:var(--hover);color:var(--red)}.lflTrialIssueCard>header .ic{width:14px;height:14px}
+.lflTrialIssueTags{display:flex;flex-wrap:wrap;gap:5px;padding:8px 10px 0}.lflTrialIssueTags span{display:inline-flex;align-items:center;min-height:20px;padding:2px 7px;border:1px solid color-mix(in srgb,var(--red) 28%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--red) 6%,var(--card));color:var(--red);font-size:10px;font-weight:700}
+.lflTrialIssueFields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;padding:9px 10px 11px}.lflTrialIssueFields label{display:grid;gap:4px;min-width:0}.lflTrialIssueFields label>span{font-size:10px;font-weight:700;color:var(--muted)}.lflTrialIssueFields input,.lflTrialIssueFields select{width:100%;height:31px;min-width:0;padding:0 8px;border:1px solid var(--line2);border-radius:7px;background:var(--paper);color:var(--ink);font:inherit;font-size:10px}.lflTrialIssueFields input:focus,.lflTrialIssueFields select:focus{outline:0;border-color:var(--acc);box-shadow:var(--focus-ring)}
+.lflTrialAllReady,.lflTrialEmpty{min-height:220px;display:grid;place-items:center;align-content:center;gap:6px;padding:20px;text-align:center;color:var(--muted)}.lflTrialAllReady .ic,.lflTrialEmpty .ic{width:30px;height:30px}.lflTrialAllReady .ic{color:var(--green)}.lflTrialAllReady strong,.lflTrialEmpty strong{font-size:13px;color:var(--ink)}.lflTrialAllReady span,.lflTrialEmpty span{font-size:10px;max-width:420px}
+.lflTrialStudioFoot{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:10px 12px;border-top:1px solid var(--line);background:var(--card2)}.lflTrialStudioFoot>span{margin-right:auto;font-size:10px;color:var(--muted)}.lflTrialStudioFoot .lflButton{height:30px}.lflTrialStudioFoot .lflButton:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:1050px){.lflTrialImpactMetrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.lflTrialStudio--compact{width:calc(100vw - 12px);height:calc(100vh - 12px)}.lflTrialCompactStats{grid-template-columns:1fr}.lflTrialIssueFields{grid-template-columns:1fr}.lflTrialScopeBar{align-items:flex-start;flex-direction:column;gap:4px;padding:8px 12px}.lflTrialIssueList{padding:8px}.lflTrialImpactMetrics{grid-template-columns:1fr 1fr}.lflTrialStudioFoot{flex-wrap:wrap}.lflTrialStudioFoot>span{width:100%;margin:0}}
+.lflTrialBanner:not(.isPaused) .lflTrialBannerOff[aria-pressed="true"]{background:var(--acc,#6941C6);border-color:var(--acc,#6941C6);color:#fff}.lflTrialBanner.isPaused .lflTrialBannerOff{background:var(--card);color:var(--ink);border-color:var(--line)}
+#lflTrialBtn.isPaused{border-style:dashed;color:var(--muted)}
+
+/* Trial düzeltme önerileri ve Koleksiyon'a yazma akışı */
+.lflTrialScopeBar .isWarning{color:var(--red);font-weight:700}
+.lflTrialIssueCard>header .lflTrialIssueActions{display:flex;align-items:center;gap:5px;flex:0 0 auto}
+.lflTrialIssueCard>header .lflTrialUseCardSuggestions{width:auto;height:26px;padding:0 8px;border:1px solid var(--acc-lite,var(--line2));border-radius:6px;background:var(--acc-bg,var(--card2));color:var(--acc-ink,var(--ink));font:inherit;font-size:10px;font-weight:700;white-space:nowrap}
+.lflTrialIssueCard>header .lflTrialUseCardSuggestions:hover{background:color-mix(in srgb,var(--acc-bg,#F4EBFF) 70%,var(--hover));color:var(--acc-ink,var(--ink))}
+.lflTrialIssueCard>header .lflTrialUseCardSuggestions:disabled{opacity:.45;cursor:not-allowed}
+.lflTrialIssueCard>header .lflTrialRemoveModel{width:26px;height:26px;padding:0}
+.lflTrialFieldEditor{display:grid;grid-template-rows:auto auto;gap:5px;min-width:0;padding:7px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.lflTrialFieldEditor>label{min-width:0}
+.lflTrialSuggestion{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"tag value button" "tag reason button";align-items:center;column-gap:6px;row-gap:1px;min-height:34px;padding:5px 6px;border:1px solid var(--acc-lite,var(--line2));border-radius:7px;background:var(--acc-bg,var(--card2));color:var(--acc-ink,var(--ink));min-width:0}
+.lflTrialSuggestion>span{grid-area:tag;align-self:start;padding-top:2px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lflTrialSuggestion>strong{grid-area:value;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px}
+.lflTrialSuggestion>small{grid-area:reason;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;color:var(--muted)}
+.lflTrialSuggestion>button{grid-area:button;height:24px;padding:0 7px;border:1px solid currentColor;border-radius:6px;background:var(--paper);color:inherit;font:inherit;font-size:10px;font-weight:800;cursor:pointer;white-space:nowrap}
+.lflTrialSuggestion>button:hover{background:var(--card)}
+.lflTrialSuggestion>button:disabled{opacity:.45;cursor:not-allowed}
+.lflTrialSuggestion.isEmpty{grid-template-columns:auto 1fr;grid-template-areas:"tag reason";border-style:dashed;background:var(--card2);color:var(--muted)}
+.lflTrialSuggestion.isEmpty>span{align-self:center;padding-top:0}
+.lflTrialSuggestion.isEmpty>small{white-space:normal}
+@media(max-width:700px){.lflTrialSuggestion{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"tag value" "reason reason" "button button"}.lflTrialSuggestion>button{width:100%}.lflTrialIssueCard>header{align-items:flex-start}.lflTrialIssueCard>header>div:first-child{display:grid;gap:2px}.lflTrialIssueCard>header .lflTrialIssueActions{align-items:flex-end;flex-direction:column}}
+
+
+/* v3.98 — LFL layout consolidation and content-driven analysis heights */
+#view-lfl .lflBottomInfoGrid{margin-top:12px;margin-bottom:0;}
+#view-lfl .lflAnalysisGrid{align-items:start;}
+#view-lfl .lflAnalysisGrid>.lflCard{align-self:start;height:auto;}
+#view-lfl .lflAnalysisGrid .lflTableWrap.tablewrap,
+#view-lfl .lflAnalysisGrid .lflManufacturerVolume{height:auto;max-height:none;overflow-x:auto;overflow-y:visible;}
+.lflDetailAccessPanel .lflPortfolioModalHead{margin-bottom:0;align-items:flex-start;}
+.lflDetailAccessPanel .lflCpTableTools{margin-left:auto;order:2;}
+.lflDetailAccessPanel .lflPortfolioModalActions{order:3;}
+.lflDetailAccessPanel .lflPortfolioModalTableWrap{border-top:0;}
+.lflDetailAccessPanel #lflDetailAccessTable{min-width:1460px;}
+@media(max-width:760px){.lflDetailAccessPanel .lflCpTableTools{order:3;width:100%;}.lflDetailAccessPanel .lflPortfolioModalActions{position:absolute;right:10px;top:10px;}}
+
+/* v3.99 — Simulation Basket: growing list, error groups and filter-only notices */
+.lflTrialOverlay{align-items:flex-start;overflow-y:auto;overflow-x:hidden;padding:16px 12px;}
+.lflTrialStudio--compact{width:min(920px,calc(100vw - 24px));height:auto;min-height:0;max-height:none;margin:0 auto;display:grid;grid-template-rows:auto auto auto auto auto;overflow:visible;}
+.lflTrialCompactStats{grid-template-columns:repeat(4,minmax(0,1fr));}
+.lflTrialCompactStats .isNotice{background:color-mix(in srgb,var(--primary) 5%,var(--card));}
+.lflTrialCompactStats .isNotice strong{color:var(--primary);}
+.lflTrialIssueList{min-height:220px;overflow:visible;padding:12px;display:block;background:var(--card2);}
+.lflTrialIssueList>*+*{margin-top:10px;}
+.lflTrialIssueGroup{overflow:hidden;border:1px solid color-mix(in srgb,var(--red) 38%,var(--line));border-radius:11px;background:var(--card);box-shadow:0 1px 2px rgba(16,24,40,.04);}
+.lflTrialIssueGroupHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--red) 5%,var(--card));}
+.lflTrialIssueGroupHead>div{display:grid;gap:2px;min-width:0;}
+.lflTrialIssueGroupHead strong{font-size:11px;color:var(--red);}
+.lflTrialIssueGroupHead span{font-size:10px;color:var(--muted);}
+.lflTrialAutoGroup{height:28px;padding:0 10px;border:1px solid var(--acc-lite,var(--line2));border-radius:7px;background:var(--acc-bg,var(--card2));color:var(--acc-ink,var(--ink));font:inherit;font-size:10px;font-weight:800;white-space:nowrap;cursor:pointer;}
+.lflTrialAutoGroup:hover:not(:disabled){filter:brightness(.97);}
+.lflTrialAutoGroup:disabled{opacity:.42;cursor:not-allowed;}
+.lflTrialIssueModels{display:grid;gap:8px;padding:9px;}
+.lflTrialIssueModel{overflow:hidden;border:1px solid var(--line);border-radius:9px;background:var(--paper);}
+.lflTrialIssueModel>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 9px;border-bottom:1px solid var(--line);background:var(--card);}
+.lflTrialIssueModel>header>div{display:grid;gap:2px;min-width:0;}
+.lflTrialIssueModel>header strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10.5px;}
+.lflTrialIssueModel>header span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;color:var(--muted);}
+.lflTrialIssueModel .lflTrialRemoveModel{width:26px;height:26px;display:grid;place-items:center;flex:0 0 auto;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;}
+.lflTrialIssueModel .lflTrialRemoveModel:hover{background:var(--hover);color:var(--red);}
+.lflTrialIssueModel .lflTrialRemoveModel .ic{width:14px;height:14px;}
+.lflTrialIssueModel .lflTrialIssueFields{grid-template-columns:minmax(0,1fr);padding:8px 9px 9px;}
+.lflTrialNoticeGroup{overflow:hidden;border:1px solid color-mix(in srgb,var(--primary) 30%,var(--line));border-radius:11px;background:var(--card);}
+.lflTrialNoticeGroup>header{padding:10px 12px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--primary) 5%,var(--card));}
+.lflTrialNoticeGroup>header>div{display:grid;gap:2px;}
+.lflTrialNoticeGroup>header strong{font-size:11px;color:var(--primary);}
+.lflTrialNoticeGroup>header span,.lflTrialNoticeGroup>p{font-size:10px;color:var(--muted);}
+.lflTrialNoticeGroup>p{margin:0;padding:8px 12px;border-bottom:1px solid var(--line);}
+.lflTrialNoticeModels{display:grid;gap:6px;padding:9px;}
+.lflTrialNoticeModel{display:grid;grid-template-columns:minmax(190px,.75fr) minmax(0,1.25fr);gap:10px;align-items:center;padding:8px 9px;border:1px solid var(--line);border-radius:8px;background:var(--paper);}
+.lflTrialNoticeModel>div:first-child{display:grid;gap:2px;min-width:0;}
+.lflTrialNoticeModel>div:first-child strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;}
+.lflTrialNoticeModel>div:first-child span{font-size:10px;color:var(--green);font-weight:700;}
+.lflTrialNoticeModel>div:last-child{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px;}
+.lflTrialNoticeModel>div:last-child span{display:inline-flex;align-items:center;min-height:20px;padding:2px 7px;border:1px solid color-mix(in srgb,var(--primary) 22%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--primary) 5%,var(--card));color:var(--primary);font-size:10px;font-weight:700;}
+.lflTrialStudioFoot{position:static;}
+@media(max-width:700px){
+  .lflTrialOverlay{padding:6px;}
+  .lflTrialStudio--compact{width:calc(100vw - 12px);height:auto;}
+  .lflTrialCompactStats{grid-template-columns:1fr 1fr;}
+  .lflTrialIssueGroupHead{align-items:flex-start;}
+  .lflTrialNoticeModel{grid-template-columns:1fr;}
+  .lflTrialNoticeModel>div:last-child{justify-content:flex-start;}
+}
+
+/* v4.00 — Simulation Basket sekmeleri, görünür model listeleri ve akıcı öneriler */
+.lflTrialOverlay{align-items:flex-start;justify-content:center;overflow-y:auto;overflow-x:hidden;padding:12px;}
+.lflTrialStudio--compact{width:min(960px,calc(100vw - 24px));height:auto;min-height:0;max-height:none;margin:0 auto;display:block;overflow:visible;}
+.lflTrialStudioHead,.lflTrialScopeBar,.lflTrialCompactStats{position:relative;z-index:2;}
+.lflTrialCompactStats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border-bottom:1px solid var(--line);}
+.lflTrialCompactStats>button{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:11px 14px;border:0;border-radius:0;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer;}
+.lflTrialCompactStats>button:hover{background:var(--hover);}
+.lflTrialCompactStats>button:focus-visible{outline:0;box-shadow:inset 0 0 0 2px var(--acc);z-index:2;}
+.lflTrialCompactStats>button::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:2px;border-radius:2px 2px 0 0;background:transparent;}
+.lflTrialCompactStats>button.isActive{background:color-mix(in srgb,var(--acc-bg,var(--card2)) 62%,var(--card));}
+.lflTrialCompactStats>button.isActive::after{background:var(--acc);}
+.lflTrialCompactStats>button span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;color:var(--muted);}
+.lflTrialCompactStats>button strong{font-size:15px;color:var(--ink);}
+.lflTrialCompactStats>button.isReady strong{color:var(--green);}
+.lflTrialCompactStats>button.isIssue{background:color-mix(in srgb,var(--red) 5%,var(--card));}
+.lflTrialCompactStats>button.isIssue strong{color:var(--red);}
+.lflTrialCompactStats>button.isNotice{background:color-mix(in srgb,var(--primary) 5%,var(--card));}
+.lflTrialCompactStats>button.isNotice strong{color:var(--primary);}
+.lflTrialIssueList{min-height:220px;overflow:visible;padding:12px;display:block;background:var(--card2);}
+.lflTrialIssueList>*+*{margin-top:10px;}
+.lflTrialStudioFoot{position:sticky;bottom:0;z-index:5;box-shadow:0 -8px 18px rgba(16,24,40,.06);}
+.lflTrialModelList{display:grid;gap:7px;padding:9px;}
+.lflTrialIssueList>.lflTrialModelList{padding:0;}
+.lflTrialModelRow{overflow:hidden;border:1px solid var(--line);border-radius:9px;background:var(--paper);}
+.lflTrialModelRow>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;background:var(--card);}
+.lflTrialModelRow>header>div{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;flex:1;}
+.lflTrialModelRow>header strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10.5px;}
+.lflTrialModelStatuses{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:5px;}
+.lflTrialModelStatuses span,.lflTrialModelDetails span{display:inline-flex;align-items:center;min-height:20px;padding:2px 7px;border:1px solid var(--line);border-radius:999px;background:var(--card2);font-size:10px;font-weight:700;}
+.lflTrialModelStatuses .isReady{border-color:color-mix(in srgb,var(--green) 30%,var(--line));background:color-mix(in srgb,var(--green) 6%,var(--card));color:var(--green);}
+.lflTrialModelStatuses .isIssue,.lflTrialModelDetails .isIssue{border-color:color-mix(in srgb,var(--red) 30%,var(--line));background:color-mix(in srgb,var(--red) 6%,var(--card));color:var(--red);}
+.lflTrialModelStatuses .isNotice,.lflTrialModelDetails .isNotice{border-color:color-mix(in srgb,var(--primary) 25%,var(--line));background:color-mix(in srgb,var(--primary) 5%,var(--card));color:var(--primary);}
+.lflTrialModelDetails{display:flex;flex-wrap:wrap;gap:5px;padding:0 10px 9px;}
+.lflTrialModelRow .lflTrialRemoveModel{width:26px;height:26px;display:grid;place-items:center;flex:0 0 auto;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;}
+.lflTrialModelRow .lflTrialRemoveModel:hover{background:var(--hover);color:var(--red);}
+.lflTrialModelRow .lflTrialRemoveModel .ic{width:14px;height:14px;}
+.lflTrialSuggestion.isLoading{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"tag reason";border-style:dashed;color:var(--muted);}
+.lflTrialSuggestion.isLoading>span{align-self:center;padding-top:0;}
+.lflTrialSuggestion.isLoading>small{white-space:normal;}
+@media(max-width:700px){
+  .lflTrialOverlay{padding:6px;}
+  .lflTrialStudio--compact{width:calc(100vw - 12px);}
+  .lflTrialCompactStats{grid-template-columns:1fr 1fr;}
+  .lflTrialCompactStats>button{padding:9px 10px;}
+  .lflTrialModelRow>header>div{align-items:flex-start;flex-direction:column;gap:5px;}
+  .lflTrialModelStatuses{justify-content:flex-start;}
+}
+
+/* v4.01 — Simulation Basket tabpanel görünürlüğü */
+#lflTrialDraftList.lflTrialIssueList{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  height:auto!important;
+  max-height:none!important;
+  overflow:visible!important;
+  contain:none!important;
+  content-visibility:visible!important;
+}
+#lflTrialDraftList.lflTrialIssueList>.lflTrialIssueGroup,
+#lflTrialDraftList.lflTrialIssueList>.lflTrialNoticeGroup,
+#lflTrialDraftList.lflTrialIssueList>.lflTrialModelList,
+#lflTrialDraftList.lflTrialIssueList>.lflTrialEmpty{display:block;visibility:visible;opacity:1;}
+#lflTrialDraftList .lflTrialEmpty{display:grid;}
+
+/* v6.64 — Üretici & Ülke Sipariş Analizi */
+.lflOrderAnalytics{margin-top:16px;padding:0;overflow:visible;content-visibility:auto;contain-intrinsic-size:980px}
+.lflOrderAnalyticsHead{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:20px 22px 14px;border-bottom:1px solid var(--line)}
+.lflOrderAnalyticsHead h3{margin:2px 0 4px;font-size:20px}.lflOrderAnalyticsHead p{margin:0;color:var(--muted);font-size:13px;max-width:760px}.lflOrderAnalyticsEyebrow{font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--acc)}.lflOrderAnalyticsHeadActions{display:flex;gap:8px;flex:0 0 auto}
+.lflOrderAnalyticsFilters{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr)) auto;gap:10px;padding:14px 22px 10px;background:color-mix(in srgb,var(--surface) 94%,var(--acc) 6%)}
+.lflOrderAnalyticsFilters label,.lflOrderAnalyticsControls label{display:flex;flex-direction:column;gap:4px;font-size:10px;font-weight:700;color:var(--muted)}
+.lflOrderAnalyticsFilters select,.lflOrderAnalyticsControls select,.lflOrderAnalyticsControls input{height:34px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);padding:0 9px;min-width:0;font:inherit;font-size:12px}.lflOrderAnalyticsFilters .lflButton{align-self:end;height:34px;white-space:nowrap}
+.lflOrderAnalyticsPeriod{display:flex;align-items:center;gap:8px;padding:8px 22px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}.lflOrderAnalyticsPeriod strong{color:var(--text)}.lflOrderAnalyticsPeriod b{color:var(--acc)}.lflOrderAnalyticsPeriod em{margin-left:auto;font-style:normal;color:var(--good);font-weight:700}
+.lflOrderAnalyticsTabs{display:flex;gap:4px;padding:12px 22px 0;overflow-x:auto}.lflOrderAnalyticsTabs button{border:0;background:transparent;color:var(--muted);font-weight:700;padding:9px 13px;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer}.lflOrderAnalyticsTabs button[aria-selected="true"]{color:var(--acc);border-color:var(--acc)}
+.lflOrderAnalyticsControls{position:relative;display:flex;align-items:center;gap:10px;padding:10px 22px;border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent);border-bottom:1px solid var(--line)}.lflOrderAnalyticsView{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}.lflOrderAnalyticsView button{height:32px;border:0;border-right:1px solid var(--line);background:var(--surface);color:var(--muted);padding:0 11px;cursor:pointer}.lflOrderAnalyticsView button:last-child{border:0}.lflOrderAnalyticsView button.isActive{background:var(--acc);color:var(--on-acc,#fff);font-weight:800;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--on-acc,#fff) 18%,transparent)}
+.lflOrderAnalyticsSearch{position:relative;flex:1;max-width:260px}.lflOrderAnalyticsSearch .ic{position:absolute;width:15px;height:15px;left:9px;bottom:9px;color:var(--muted)}.lflOrderAnalyticsSearch input{padding-left:30px;width:100%}.lflOrderAnalyticsControls>label:not(.lflOrderAnalyticsSearch){flex-direction:row;align-items:center;gap:6px;font-size:11px}.lflOrderAnalyticsControls>label select{width:64px}.lflStableSetting{margin-left:auto}.lflStableSetting input{width:58px}
+.lflOrderAnalyticsColumnPanel{position:absolute;right:22px;top:calc(100% + 5px);z-index:40;width:220px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:0 14px 34px rgba(15,23,42,.18);display:grid;grid-template-columns:1fr 1fr;gap:7px}.lflOrderAnalyticsColumnPanel[hidden]{display:none}.lflOrderAnalyticsColumnPanel label{display:flex;flex-direction:row;align-items:center;gap:6px;font-size:11px;color:var(--text)}
+.lflOrderAnalyticsBody{padding:16px 22px 22px}.lflOrderKpiGrid{display:grid;grid-template-columns:repeat(7,minmax(115px,1fr));gap:10px;margin-bottom:14px}.lflOrderKpi{min-width:0;padding:13px;border:1px solid var(--line);border-radius:11px;background:var(--surface)}.lflOrderKpi span{display:block;color:var(--muted);font-size:10px;font-weight:700}.lflOrderKpi strong{display:block;margin:5px 0 2px;font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lflOrderKpi small{display:block;color:var(--muted);font-size:10px}.lflOrderKpi.isGood strong{color:var(--good)}.lflOrderKpi.isBad strong{color:var(--bad)}
+.lflOrderOverviewGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.lflOrderMiniCard,.lflOrderChartCard{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:15px}.lflOrderMiniCard h4,.lflOrderChartCard h4,.lflOrderDimensionHead h4{margin:0 0 8px;font-size:14px}.lflOrderStatusStrip{display:flex;height:62px;border-radius:8px;overflow:hidden;background:var(--soft)}.lflOrderStatusStrip>div{width:max(var(--share),8%);min-width:50px;padding:9px 8px;color:#fff;display:flex;flex-direction:column;justify-content:center}.lflOrderStatusStrip strong{font-size:17px}.lflOrderStatusStrip span{font-size:10px;font-weight:800}.isNew{background:#2563eb}.isGrowing{background:#059669}.isStable{background:#64748b}.isDeclining{background:#d97706}.isExit{background:#dc2626}.lflOrderLegend{font-size:10px;color:var(--muted);margin-top:8px}
+.lflOrderInsightList{display:grid;gap:7px}.lflOrderInsightList>div{display:flex;gap:7px;font-size:11px;line-height:1.35}.lflOrderInsightList span{color:var(--acc);font-weight:900}.lflOrderChartCard{margin:12px 0}.lflOrderChartHead{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.lflOrderChartHead h4{margin-bottom:2px}.lflOrderChartHead p,.lflOrderDimensionHead p{margin:0;color:var(--muted);font-size:10px}.lflOrderChartLegend{display:flex;gap:12px;font-size:10px}.lflOrderChartLegend span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px}.lflOrderChartLegend .current:before{background:#2563eb}.lflOrderChartLegend .previous:before{background:#94a3b8}
+.lflOrderChartLayout{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:22px;align-items:center;margin-top:12px}.lflOrderBars{display:grid;gap:5px;max-height:350px;overflow:auto}.lflOrderBarRow{display:grid;grid-template-columns:minmax(90px,180px) minmax(160px,1fr) 70px;align-items:center;gap:9px;border:0;background:transparent;color:var(--text);padding:3px;cursor:pointer;text-align:left}.lflOrderBarRow:hover{background:var(--soft)}.lflOrderBarLabel{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px}.lflOrderBarTrack{display:block;position:relative;height:14px}.lflOrderBarTrack i{position:absolute;left:0;height:6px;border-radius:0 4px 4px 0}.lflOrderBarTrack .current{top:0;background:#2563eb}.lflOrderBarTrack .previous{bottom:0;background:#94a3b8}.lflOrderBarRow strong{text-align:right;font-size:10px}.lflOrderDonut{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;margin:auto;border:1px solid color-mix(in srgb,var(--line) 80%,transparent)}.lflOrderDonut:before{content:"";grid-area:1/1;width:88px;height:88px;border-radius:50%;background:var(--surface)}.lflOrderDonut span{grid-area:1/1;z-index:1;text-align:center}.lflOrderDonut strong{display:block;font-size:17px}.lflOrderDonut small{color:var(--muted);font-size:10px}
+.lflOrderTrend{display:block;width:100%;height:180px}.lflOrderTrend path{fill:none;stroke-width:2.5;vector-effect:non-scaling-stroke}.lflOrderTrend path.current{stroke:#2563eb}.lflOrderTrend path.previous{stroke:#94a3b8}.lflOrderTrend circle.current{fill:#2563eb}.lflOrderTrendLabels{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;overflow:hidden}.lflOrderDimensionHead{display:flex;justify-content:space-between;margin-bottom:8px}
+.lflOrderTableWrap,.lflOrderMatrixWrap{overflow:auto;max-height:540px;border:1px solid var(--line);border-radius:10px;overscroll-behavior:contain}.lflOrderTable,.lflOrderMatrix{width:max-content;min-width:100%;border-collapse:separate;border-spacing:0;font-size:11px;table-layout:auto}.lflOrderTable th,.lflOrderTable td,.lflOrderMatrix th,.lflOrderMatrix td{padding:8px 9px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);white-space:nowrap;min-width:112px;max-width:240px;overflow:hidden;text-overflow:ellipsis}.lflOrderTable th:first-child,.lflOrderTable td:first-child{min-width:180px;max-width:280px}.lflOrderMatrix thead th:not(:first-child),.lflOrderMatrix td{min-width:138px;max-width:190px}.lflOrderMatrix thead th:first-child,.lflOrderMatrix tbody th{min-width:210px;max-width:300px;overflow:hidden;text-overflow:ellipsis}.lflOrderTable thead th,.lflOrderMatrix thead th{position:sticky;top:0;z-index:3;background:var(--soft);text-align:left;cursor:pointer}.lflOrderTable tbody tr{content-visibility:auto;contain-intrinsic-size:34px}.lflOrderTable tbody tr:hover{background:color-mix(in srgb,var(--acc) 7%,var(--surface))}.lflOrderTable .num,.lflOrderMatrix .num{text-align:right;font-variant-numeric:tabular-nums}.lflOrderTable tfoot td{position:sticky;bottom:0;background:var(--soft);font-weight:800}.lflOrderStatus{display:inline-block;color:#fff;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:800}.lflOrderTable td.empty{text-align:center;color:var(--muted);padding:22px}
+.lflOrderMatrixControls{display:flex;gap:10px;margin-bottom:10px}.lflOrderMatrixControls label{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}.lflOrderMatrixControls select{height:32px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--text);padding:0 8px}.lflOrderMatrix thead th,.lflOrderMatrix tbody th{background:var(--soft);position:sticky;z-index:2}.lflOrderMatrix thead th{top:0}.lflOrderMatrix tbody th{left:0;text-align:left;z-index:2}.lflOrderMatrix td{background:color-mix(in srgb,#2563eb calc(var(--heat)*100%),var(--surface));text-align:right;cursor:pointer;font-variant-numeric:tabular-nums}.lflOrderMatrix td:hover{outline:2px solid var(--acc);outline-offset:-2px}
+/* v6.68 — opak sticky katmanlar: kaydırılan metinler sabit hücrelerin altından görünmez. */
+.lflOrderTableWrap,.lflOrderMatrixWrap{position:relative;isolation:isolate;background:var(--card)}
+.lflOrderTable thead th{z-index:5;background:var(--card2-strong);background-clip:padding-box}
+.lflOrderTable tfoot td{z-index:4;background:var(--card2);background-clip:padding-box;box-shadow:0 -1px 0 var(--line),0 -8px 12px -14px rgba(15,23,42,.55)}
+.lflOrderMatrix thead th{top:0;z-index:5;background:var(--card2-strong);background-clip:padding-box}
+.lflOrderMatrix tbody th{left:0;z-index:4;background:var(--card2);background-clip:padding-box;box-shadow:1px 0 0 var(--line),8px 0 12px -12px rgba(15,23,42,.55)}
+.lflOrderMatrix thead th:first-child{left:0;z-index:7;background:var(--card2-strong);box-shadow:1px 0 0 var(--line),0 1px 0 var(--line),8px 0 12px -12px rgba(15,23,42,.55)}
+.lflOrderChartEmpty{padding:34px;text-align:center;color:var(--muted);font-size:12px}.lflOrderMatrixBars{display:grid;gap:7px;margin-top:12px}.lflOrderMatrixBar{display:grid;grid-template-columns:minmax(170px,300px) minmax(180px,1fr) 100px;gap:10px;align-items:center;width:100%;border:0;background:transparent;color:var(--text);padding:5px 6px;border-radius:7px;cursor:pointer;text-align:left}.lflOrderMatrixBar:hover{background:var(--soft)}.lflOrderMatrixBar>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px}.lflOrderMatrixBar>span b{color:var(--muted);font-weight:700}.lflOrderMatrixBar>i{display:block;height:9px;background:var(--soft);border-radius:999px;overflow:hidden}.lflOrderMatrixBar>i em{display:block;height:100%;background:var(--acc);border-radius:999px}.lflOrderMatrixBar.isNegative>i em{background:var(--bad)}.lflOrderMatrixBar>strong{text-align:right;font-size:10px;font-variant-numeric:tabular-nums}.lflOrderMatrixChart .lflOrderChartHead>strong{font-size:10px;color:var(--muted)}
+@media(max-width:1200px){.lflOrderAnalyticsFilters{grid-template-columns:repeat(4,minmax(130px,1fr))}.lflOrderKpiGrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.lflOrderMatrixBar{grid-template-columns:minmax(120px,1fr) 90px 72px}.lflOrderTable th,.lflOrderTable td,.lflOrderMatrix th,.lflOrderMatrix td{min-width:100px}.lflOrderAnalyticsHead,.lflOrderAnalyticsControls{flex-wrap:wrap}.lflOrderAnalyticsFilters{grid-template-columns:repeat(2,minmax(120px,1fr))}.lflOrderKpiGrid{grid-template-columns:repeat(2,1fr)}.lflOrderOverviewGrid{grid-template-columns:1fr}.lflOrderChartLayout{grid-template-columns:1fr}.lflOrderDonut{display:none}.lflStableSetting{margin-left:0}.lflOrderAnalyticsBody{padding:12px}.lflOrderAnalyticsHead,.lflOrderAnalyticsFilters,.lflOrderAnalyticsTabs,.lflOrderAnalyticsControls,.lflOrderAnalyticsPeriod{padding-left:12px;padding-right:12px}}
+
+/* v6.66 LFL dynamic ASAS breakdown picker */
+.lflAsasFieldChoice{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;text-align:left;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);padding:9px 11px;cursor:pointer}.lflAsasFieldChoice:hover{border-color:var(--acc);background:var(--acc-bg)}.lflAsasFieldChoice strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lflAsasFieldChoice span{color:var(--muted);font-size:10px}.lflAsasFieldChoice em{font-style:normal;font-size:10px;color:var(--good);font-weight:800}
+
+/* v7.0.106 — selectable LFL comparison periods */
+#view-lfl .lflPeriodDimWrap{
+  display:inline-flex;
+  align-items:stretch;
+  gap:0;
+}
+#view-lfl .lflPeriodDimWrap .lflDateFieldSelect{
+  flex:0 0 auto;
+  height:34px;
+  min-width:98px;
+  max-width:122px;
+  padding:0 24px 0 8px;
+  border:1px solid var(--line);
+  border-right:0;
+  border-radius:7px 0 0 7px;
+  background:var(--card2);
+  color:var(--ink);
+  font:600 10.5px/1 var(--sans);
+  outline:none;
+}
+#view-lfl .lflPeriodDimWrap .lflDateFieldSelect:focus{
+  position:relative;
+  z-index:2;
+  border-color:var(--acc);
+  box-shadow:var(--focus-ring);
+}
+#view-lfl .lflPeriodDimWrap>.lflDimBtn{
+  border-radius:0 7px 7px 0;
+}
+#view-lfl :is(#lflGroupTable,#lflManufacturerVolumeTable) thead tr.colRow th{
+  height:auto!important;
+  min-height:42px;
+  vertical-align:middle;
+  white-space:normal!important;
+}
+#view-lfl :is(#lflGroupTable,#lflManufacturerVolumeTable) thead tr.colRow th .thInner{
+  min-height:34px;
+  align-items:flex-start;
+}
+#view-lfl :is(#lflGroupTable,#lflManufacturerVolumeTable) thead tr.colRow th .thLabel{
+  display:block;
+  min-width:0;
+  white-space:pre-line!important;
+  overflow:visible;
+  text-overflow:clip;
+  line-height:1.28;
+}
+#view-lfl :is(#lflGroupTable,#lflManufacturerVolumeTable) thead tr.colRow th .thFilterBtn{
+  flex:none;
+  margin-top:1px;
+}
+@media(max-width:760px){
+  #view-lfl .lflPeriodDimWrap{width:100%;}
+  #view-lfl .lflPeriodDimWrap .lflDateFieldSelect{min-width:104px;}
+  #view-lfl .lflPeriodDimWrap>.lflDimBtn{flex:1;min-width:0;}
+}
+
