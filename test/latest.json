@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.148",
-  "publishedAt": "2026-09-27T09:00:14.208Z",
-  "artifact": "releases/BuyerLog-7.0.148.zip",
-  "sha256": "33e178fd236ea4b8a21f53836243360890e8ee4c47bfc28b9b74a484eac36d8e",
-  "size": 49217474,
+  "version": "7.0.149",
+  "publishedAt": "2026-09-27T09:54:49.771Z",
+  "artifact": "releases/BuyerLog-7.0.149.zip",
+  "sha256": "aa9e0f24cdeb255d91d717566d535bde86276c1803c09a4ffd693b414727667f",
+  "size": 49224765,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.148: Earth 3D artık varsayılan olarak ücretsiz ve anahtarsız NASA GIBS görüntülerini kullanır. NASA Kabartmalı Dünya ve NASA Blue Marble modları eklendi; tamamen çevrimdışı yerel küre korunur. Google Map Tiles yalnız isteğe bağlı sağlayıcı olarak bırakıldı; Google anahtarı yoksa ücretli modlar API anahtarı istemek yerine ücretsiz NASA görünümüne düşer. Moderatör sağlayıcı ayarları Free / Offline / optional Google olarak güncellendi. Mevcut Global Flow rota, araç, clustering, hover ve seçim davranışları korunmuş, tam Buyer Log regression paketi başarıyla geçmiştir.",
+  "releaseNotes": "Buyer Log 7.0.149: Data Matching Rules alanında ASAS ve IAS veritabanı sütun seçicileri artık yalnız Buyer Log Field Mapping başlıklarıyla sınırlı değildir. Kullanıcı sütun alanını açtığında seçilen database kaynağının gerçek şeması lazy olarak okunur ve database’deki tüm erişilebilir sütunlar tablo adıyla birlikte seçilebilir. Gereksiz maliyeti önlemek için yalnız seçilen kaynak taranır; şema okunamazsa mevcut Field Mapping listesi ve manuel giriş desteği korunur. İlgili regresyon testleri eklenmiş ve tam Buyer Log test paketi başarıyla geçmiştir.",
   "minimumUpdaterVersion": "1.0.0"
 }
