@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.152",
-  "publishedAt": "2026-09-27T13:09:51.650Z",
-  "artifact": "releases/BuyerLog-7.0.152.zip",
-  "sha256": "d15447bd3c8676f938048c42740a39a54565ee63be15492da6519b646ff55e7d",
+  "version": "7.0.153",
+  "publishedAt": "2026-09-27T12:39:28.629Z",
+  "artifact": "releases/BuyerLog-7.0.153.zip",
+  "sha256": "734db9c33675121afd3260e9b7b2c133b13699a340c4a8a5c4958d7ef3e72b3b",
   "size": 49321869,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.152: License Royalty Calculations tek sözleşme modeline geçirildi; eski TR / Non-TR kayıtları efektif fiyatlar korunarak Royalty + TR Komisyon % + YD Komisyon % + Hologram Cost yapısına migrate edilir. Fiyat Kontrolü Supp. FOB, Final FOB YD ve Final FOB TR sonuçlarını birlikte gösterir ve sipariş ülkesine göre doğru komisyonu uygular. OAB oturum kalıcılığı, LFL Trial FOB kaynağı, kayıtlı LFL özetlerini aynı filtrelerle yenileme, IAS/ASAS Field Mapping onarım akışı, seçilebilir Backup/Restore kapsamları, Backlog grafik/Excel canlı görünür aralık ve eksen iyileştirmeleri ile son bekleyen düzeltmeler aynı sürümde birleştirildi.",
+  "releaseNotes": "Buyer Log 7.0.153: 7.0.152 paketleme hatası giderildi; güncelleme paketi updater'ın zorunlu tuttuğu deterministic STORE ZIP formatında üretilip byte-for-byte doğrulanır. Bugünkü tüm aktif Buyer Log çalışmaları korunur: kalıcı OAB oturumu, License Royalty + TR/YD komisyon modeli ve eski veri migrasyonu, LFL Trial/Comparison yenileme, IAS/ASAS Field Mapping onarımı, Data Inspector diagnostics, seçilebilir Backup/Restore, Backlog analiz/grafik iyileştirmeleri ve Global Flow/Earth güncellemeleri dahildir.",
   "minimumUpdaterVersion": "1.0.0"
 }
