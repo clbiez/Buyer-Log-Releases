@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.145",
-  "publishedAt": "2026-09-27T06:44:46.496Z",
-  "artifact": "releases/BuyerLog-7.0.145.zip",
-  "sha256": "a33eda8c7d164e2ac3e233e2d5a9c74f83184665cc14caf9fed018ac98325b52",
-  "size": 37584781,
+  "version": "7.0.146",
+  "publishedAt": "2026-09-27T07:26:53.870Z",
+  "artifact": "releases/BuyerLog-7.0.146.zip",
+  "sha256": "afe6281681532bee405248792fb87d84b08f54fd50c794ffa42893eaf13dd108",
+  "size": 37594753,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.145: Claude'un Global Flow ve performans geliştirmeleri güncel main ile birleştirildi. Global Flow artık CP/Orders için tam veri sağlayıcılarını kullanıyor; parsiyel bazlı sevkiyat modeli, Gemi Ad bazlı araç gruplama, Bangladesh/India Colombo aktarmalı Gemi+Uçak rotaları, ortak rota segmentleri, Critical/hızlı filtreler ve çoklu panel filtreleri eklendi. Mevcut 2D 2:1 harita oranı, geniş zoom aralığı, 3D inertia ve aydınlık tema kontrastı korundu. Ortak detay çekmecesinde büyük veri kümeleri parça parça çiziliyor, arama geciktiriliyor ve görsel indeksi tek kez kuruluyor; sayfa bazlı sütun tercihleri, panel genişletme ve Tüm/Görünen Sütunlar Excel aktarımı korunuyor. İlgili regression ve performans testleri güncellendi.",
+  "releaseNotes": "Buyer Log 7.0.146: Global Flow haritasında yakın gemi/uçak/tır simgeleri zoom seviyesine göre kümeleniyor ve yakınlaştırıldıkça ayrışıyor. Ortak rota koridorları tek hat olarak birleştiriliyor; ortak hatta tıklanınca Bangladesh · Sea / India · Sea / Combined benzeri ülke-taşıma seçenekleriyle ilgili sipariş ve parsiyeller açılıyor. 3D sürükleme yönü doğal yüzey sürükleme davranışına çevrildi; 2D/3D maksimum zoom artırıldı. Overview dünya saatlerinde ülke/saat dilimi araması eklendi; yeni saat kartları aynı satırda okunabilirliği koruyarak adaptif daralıyor. İlgili regresyon testleri eklendi ve tam Buyer Log test paketi geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
