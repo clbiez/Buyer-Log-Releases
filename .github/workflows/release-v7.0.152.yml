@@ -1,0 +1,209 @@
+name: Buyer Log 7.0.152 public release
+
+on:
+  push:
+    branches:
+      - staging-v7.0.152
+    paths:
+      - '.github/workflows/release-v7.0.152.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: buyer-log-public-release-7-0-152
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      VERSION: 7.0.152
+      BASE_VERSION: 7.0.149
+      BASE_SHA256: aa9e0f24cdeb255d91d717566d535bde86276c1803c09a4ffd693b414727667f
+      RELEASE_NOTES: >-
+        Buyer Log 7.0.152: License Royalty Calculations tek sözleşme modeline geçirildi; eski TR / Non-TR kayıtları efektif fiyatlar korunarak Royalty + TR Komisyon % + YD Komisyon % + Hologram Cost yapısına migrate edilir. Fiyat Kontrolü Supp. FOB, Final FOB YD ve Final FOB TR sonuçlarını birlikte gösterir ve sipariş ülkesine göre doğru komisyonu uygular. OAB oturum kalıcılığı, LFL Trial FOB kaynağı, kayıtlı LFL özetlerini aynı filtrelerle yenileme, IAS/ASAS Field Mapping onarım akışı, seçilebilir Backup/Restore kapsamları, Backlog grafik/Excel canlı görünür aralık ve eksen iyileştirmeleri ile son bekleyen düzeltmeler aynı sürümde birleştirildi.
+    steps:
+      - name: Checkout staged source delta
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild full app from verified TEST 7.0.149 baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work dist
+          curl -fL --retry 5 --retry-delay 2             -o /tmp/BuyerLog-${BASE_VERSION}.zip             "https://github.com/${GITHUB_REPOSITORY}/releases/download/test-v${BASE_VERSION}/BuyerLog-${BASE_VERSION}.zip"
+          echo "${BASE_SHA256}  /tmp/BuyerLog-${BASE_VERSION}.zip" | sha256sum -c -
+          unzip -q /tmp/BuyerLog-${BASE_VERSION}.zip -d work
+          test -f work/app/package.json
+          cp -a "staging/${VERSION}/resources/app/." work/app/
+          test "$(node -p "require('./work/app/package.json').version")" = "${VERSION}"
+          test ! -d work/app/server/data
+
+      - name: Syntax gate for changed runtime files
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            work/app/electron/main.js
+            work/app/public/app-main.js
+            work/app/public/backlog-chart.js
+            work/app/public/backup-manager.js
+            work/app/public/business-rules.js
+            work/app/public/data-management-mapping.js
+            work/app/public/data-management.js
+            work/app/public/lfl.js
+            work/app/public/license-royalty-commissions.js
+            work/app/public/user-access-ui.js
+            work/app/server/db.js
+            work/app/server/lib/backup-service.js
+            work/app/server/lib/corporate-integration-lab.js
+            work/app/server/lib/model-refresh.js
+            work/app/server/lib/user-restore-service.js
+            work/app/server/server.js
+          )
+          for file in "${files[@]}"; do node --check "$file"; done
+
+      - name: Regression gate for all touched features
+        shell: bash
+        working-directory: work/app
+        run: |
+          set -euo pipefail
+          node --test             tests/backlog-dynamic-chart.test.js             tests/corporate-integration-lab.test.js             tests/data-management-ui-v781.test.js             tests/lfl-period-date-fields-v70106.test.js             tests/lfl-saved-scenario-refresh.test.js             tests/lfl-table-height-resize.test.js             tests/lfl-trial-collection-fob.test.js             tests/license-royalty-commission-v2.test.js             tests/oab-desktop-auth-v20260921.test.js             tests/refresh-field-mapping-repair.test.js             tests/selective-backup-restore-v7148.test.js
+
+      - name: Build and verify immutable full ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf work/app/tests work/app/dist-updates work/app/.desktop-dev work/app/server/data
+          (
+            cd work
+            zip -q -r "../dist/BuyerLog-${VERSION}.zip" app
+          )
+          unzip -t "dist/BuyerLog-${VERSION}.zip" >/dev/null
+          test "$(unzip -p "dist/BuyerLog-${VERSION}.zip" app/package.json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).version))")" = "${VERSION}"
+          for required in app/electron/launcher.js app/electron/main.js app/server/server.js app/public/index.html; do
+            unzip -l "dist/BuyerLog-${VERSION}.zip" "$required" | grep -q "$required"
+          done
+          if unzip -l "dist/BuyerLog-${VERSION}.zip" | grep -q 'app/server/data/'; then
+            echo "server/data must not be shipped" >&2
+            exit 1
+          fi
+          SHA="$(sha256sum "dist/BuyerLog-${VERSION}.zip" | awk '{print $1}')"
+          SIZE="$(stat -c%s "dist/BuyerLog-${VERSION}.zip")"
+          echo "ARTIFACT_SHA=${SHA}" >> "$GITHUB_ENV"
+          echo "ARTIFACT_SIZE=${SIZE}" >> "$GITHUB_ENV"
+
+      - name: Create TEST and STABLE manifests
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs');
+          const version=process.env.VERSION, sha256=process.env.ARTIFACT_SHA, size=Number(process.env.ARTIFACT_SIZE), notes=process.env.RELEASE_NOTES;
+          for(const channel of ['test','stable']){
+            const manifest={
+              schemaVersion:1,
+              channel,
+              version,
+              publishedAt:new Date().toISOString(),
+              artifact:`releases/BuyerLog-${version}.zip`,
+              sha256,
+              size,
+              mandatory:false,
+              releaseNotes:notes,
+              minimumUpdaterVersion:'1.0.0',
+            };
+            fs.mkdirSync(`dist/${channel}`,{recursive:true});
+            fs.writeFileSync(`dist/${channel}/BuyerLog-${version}.json`,JSON.stringify(manifest,null,2)+'\n');
+            fs.writeFileSync(`dist/${channel}/latest.json`,JSON.stringify(manifest,null,2)+'\n');
+          }
+          NODE
+
+      - name: Publish TEST release and verify remote bytes
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="test-v${VERSION}"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --target "$GITHUB_SHA" --title "Buyer Log TEST ${VERSION}" --notes "TEST release for ${VERSION}"
+          gh release upload "$TAG" "dist/BuyerLog-${VERSION}.zip" "dist/test/BuyerLog-${VERSION}.json" --clobber
+          rm -f /tmp/test-remote.zip
+          curl -fL --retry 8 --retry-delay 2 -o /tmp/test-remote.zip "https://github.com/${GITHUB_REPOSITORY}/releases/download/${TAG}/BuyerLog-${VERSION}.zip"
+          echo "${ARTIFACT_SHA}  /tmp/test-remote.zip" | sha256sum -c -
+
+      - name: Promote identical bytes to STABLE
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="stable-v${VERSION}"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --target "$GITHUB_SHA" --title "Buyer Log STABLE ${VERSION}" --notes "Promoted from TEST ${VERSION}; SHA-256 ${ARTIFACT_SHA}"
+          gh release upload "$TAG" "dist/BuyerLog-${VERSION}.zip" "dist/stable/BuyerLog-${VERSION}.json" --clobber
+          rm -f /tmp/stable-remote.zip
+          curl -fL --retry 8 --retry-delay 2 -o /tmp/stable-remote.zip "https://github.com/${GITHUB_REPOSITORY}/releases/download/${TAG}/BuyerLog-${VERSION}.zip"
+          echo "${ARTIFACT_SHA}  /tmp/stable-remote.zip" | sha256sum -c -
+          cmp /tmp/test-remote.zip /tmp/stable-remote.zip
+
+      - name: Advance raw-dist TEST and STABLE mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin raw-dist
+          rm -rf /tmp/buyerlog-raw
+          git worktree add --detach /tmp/buyerlog-raw origin/raw-dist
+          mkdir -p /tmp/buyerlog-raw/test /tmp/buyerlog-raw/stable
+          rm -f /tmp/buyerlog-raw/test/BuyerLog-*.zip /tmp/buyerlog-raw/stable/BuyerLog-*.zip
+          cp "dist/BuyerLog-${VERSION}.zip" "/tmp/buyerlog-raw/test/BuyerLog-${VERSION}.zip"
+          cp "dist/BuyerLog-${VERSION}.zip" "/tmp/buyerlog-raw/stable/BuyerLog-${VERSION}.zip"
+          node <<'NODE'
+          const fs=require('fs');
+          const index={
+            schemaVersion:1,
+            publishedAt:new Date().toISOString(),
+            channels:{
+              test:{version:process.env.VERSION,sha256:process.env.ARTIFACT_SHA,size:Number(process.env.ARTIFACT_SIZE),file:`BuyerLog-${process.env.VERSION}.zip`},
+              stable:{version:process.env.VERSION,sha256:process.env.ARTIFACT_SHA,size:Number(process.env.ARTIFACT_SIZE),file:`BuyerLog-${process.env.VERSION}.zip`},
+            },
+          };
+          fs.writeFileSync('/tmp/buyerlog-raw/index.json',JSON.stringify(index,null,2)+'\n');
+          NODE
+          git -C /tmp/buyerlog-raw add -A
+          git -C /tmp/buyerlog-raw -c user.name="Buyer Log Release Bot" -c user.email="buyer-log-release-bot@users.noreply.github.com" commit -m "Publish raw Buyer Log ${VERSION} TEST and STABLE"
+          git -C /tmp/buyerlog-raw push origin HEAD:raw-dist
+
+      - name: Advance public latest manifests
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          rm -rf /tmp/buyerlog-main
+          git worktree add --detach /tmp/buyerlog-main origin/main
+          mkdir -p /tmp/buyerlog-main/test /tmp/buyerlog-main/stable
+          cp "dist/test/latest.json" /tmp/buyerlog-main/test/latest.json
+          cp "dist/stable/latest.json" /tmp/buyerlog-main/stable/latest.json
+          git -C /tmp/buyerlog-main add test/latest.json stable/latest.json
+          git -C /tmp/buyerlog-main -c user.name="Buyer Log Release Bot" -c user.email="buyer-log-release-bot@users.noreply.github.com" commit -m "Publish Buyer Log ${VERSION} TEST and STABLE"
+          git -C /tmp/buyerlog-main push origin HEAD:main
+
+      - name: Final public verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          for channel in test stable; do
+            for attempt in 1 2 3 4 5 6 7 8; do
+              if curl -fsSL "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${channel}/latest.json?attempt=${attempt}" -o "/tmp/${channel}-latest.json"; then
+                FOUND="$(node -p "require('/tmp/${channel}-latest.json').version")"
+                [ "$FOUND" = "${VERSION}" ] && break
+              fi
+              sleep 2
+            done
+            test "$(node -p "require('/tmp/${channel}-latest.json').version")" = "${VERSION}"
+            test "$(node -p "require('/tmp/${channel}-latest.json').sha256")" = "${ARTIFACT_SHA}"
+          done
+          echo "Buyer Log ${VERSION} published to TEST and STABLE: ${ARTIFACT_SHA}"
