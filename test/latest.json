@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.147",
-  "publishedAt": "2026-09-27T08:33:36.372Z",
-  "artifact": "releases/BuyerLog-7.0.147.zip",
-  "sha256": "3a648142d782116abd08a66c979dbd059a4e95021172b9404ef863d84eba3ffb",
-  "size": 49214325,
+  "version": "7.0.148",
+  "publishedAt": "2026-09-27T09:00:14.208Z",
+  "artifact": "releases/BuyerLog-7.0.148.zip",
+  "sha256": "33e178fd236ea4b8a21f53836243360890e8ee4c47bfc28b9b74a484eac36d8e",
+  "size": 49217474,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.147: Global Flow'a lazy yüklenen CesiumJS tabanlı Earth 3D görünümü ve Buyer Log ⇄ Earth harita motoru geçişi eklendi. Earth runtime/provider ayarları, Moderatör kontrollü sağlayıcı yapılandırması, görünürlük/sekme/daraltma durumlarına göre pause-resume ve soğuk WebGL kapatma yaşam döngüsü, çevrimdışı/fallback davranışı ve ilgili ayar API'leri eklendi. Mevcut Global Flow tam rota hover vurgusu, zoom seviyesine bağlı araç kümeleri, gruplu araçlarda ortalama transit günü, ortak koridor seçim çekmecesi, geniş 2D/3D zoom ve doğal globe sürükleme davranışı korunarak birleştirildi. Earth route modülü repo sözleşmesine hizalandı ve tam Buyer Log regression paketi geçti.",
+  "releaseNotes": "Buyer Log 7.0.148: Earth 3D artık varsayılan olarak ücretsiz ve anahtarsız NASA GIBS görüntülerini kullanır. NASA Kabartmalı Dünya ve NASA Blue Marble modları eklendi; tamamen çevrimdışı yerel küre korunur. Google Map Tiles yalnız isteğe bağlı sağlayıcı olarak bırakıldı; Google anahtarı yoksa ücretli modlar API anahtarı istemek yerine ücretsiz NASA görünümüne düşer. Moderatör sağlayıcı ayarları Free / Offline / optional Google olarak güncellendi. Mevcut Global Flow rota, araç, clustering, hover ve seçim davranışları korunmuş, tam Buyer Log regression paketi başarıyla geçmiştir.",
   "minimumUpdaterVersion": "1.0.0"
 }
