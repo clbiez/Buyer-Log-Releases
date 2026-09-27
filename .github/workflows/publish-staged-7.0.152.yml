@@ -37,7 +37,7 @@ jobs:
           set -euo pipefail
           mkdir -p work out
           curl -fL --retry 3 --retry-delay 2 \
-            "https://raw.githubusercontent.com/\${GITHUB_REPOSITORY}/raw-dist/test/BuyerLog-\${BASE_VERSION}.zip" \
+            "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/raw-dist/test/BuyerLog-${BASE_VERSION}.zip" \
             -o baseline.zip
           unzip -q baseline.zip -d work
           test -f work/app/package.json
@@ -53,7 +53,7 @@ jobs:
           set -euo pipefail
           cd work/app
           npm run version:assert
-          test "$(node -p "require('./package.json').version")" = "\${VERSION}"
+          test "$(node -p "require('./package.json').version")" = "${VERSION}"
           while IFS= read -r -d '' file; do
             node --check "$file"
           done < <(find ../../staging/7.0.152/resources/app -type f -name '*.js' ! -path '*/tests/*' -print0)
@@ -82,15 +82,15 @@ jobs:
           set -euo pipefail
           rm -rf work/app/tests work/app/server/data work/app/dist-updates work/app/.desktop-dev
           rm -f work/app/.release-pending.json
-          (cd work && zip -qr "../out/BuyerLog-\${VERSION}.zip" app)
-          unzip -tq "out/BuyerLog-\${VERSION}.zip"
-          unzip -p "out/BuyerLog-\${VERSION}.zip" app/package.json > out/package.json
-          test "$(node -p "require('./out/package.json').version")" = "\${VERSION}"
-          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/electron/launcher.js$')"
-          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/electron/main.js$')"
-          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/server/server.js$')"
-          test -n "$(unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep '^app/public/index.html$')"
-          if unzip -Z1 "out/BuyerLog-\${VERSION}.zip" | grep -q '^app/server/data/'; then
+          (cd work && zip -qr "../out/BuyerLog-${VERSION}.zip" app)
+          unzip -tq "out/BuyerLog-${VERSION}.zip"
+          unzip -p "out/BuyerLog-${VERSION}.zip" app/package.json > out/package.json
+          test "$(node -p "require('./out/package.json').version")" = "${VERSION}"
+          test -n "$(unzip -Z1 "out/BuyerLog-${VERSION}.zip" | grep '^app/electron/launcher.js$')"
+          test -n "$(unzip -Z1 "out/BuyerLog-${VERSION}.zip" | grep '^app/electron/main.js$')"
+          test -n "$(unzip -Z1 "out/BuyerLog-${VERSION}.zip" | grep '^app/server/server.js$')"
+          test -n "$(unzip -Z1 "out/BuyerLog-${VERSION}.zip" | grep '^app/public/index.html$')"
+          if unzip -Z1 "out/BuyerLog-${VERSION}.zip" | grep -q '^app/server/data/'; then
             echo "server/data must not be packaged" >&2
             exit 1
           fi
@@ -99,8 +99,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          SHA="$(sha256sum "out/BuyerLog-\${VERSION}.zip" | awk '{print $1}')"
-          SIZE="$(stat -c%s "out/BuyerLog-\${VERSION}.zip")"
+          SHA="$(sha256sum "out/BuyerLog-${VERSION}.zip" | awk '{print $1}')"
+          SIZE="$(stat -c%s "out/BuyerLog-${VERSION}.zip")"
           SHA="$SHA" SIZE="$SIZE" node <<'NODE'
           const fs=require('fs');
           const manifest={
@@ -123,16 +123,16 @@ jobs:
       - name: Publish GitHub TEST release assets
         shell: bash
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          TAG="test-v\${VERSION}"
+          TAG="test-v${VERSION}"
           if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release upload "$TAG" "out/BuyerLog-\${VERSION}.zip" "out/BuyerLog-\${VERSION}.json" --clobber
+            gh release upload "$TAG" "out/BuyerLog-${VERSION}.zip" "out/BuyerLog-${VERSION}.json" --clobber
           else
-            gh release create "$TAG" "out/BuyerLog-\${VERSION}.zip" "out/BuyerLog-\${VERSION}.json" \
-              --title "Buyer Log TEST \${VERSION}" \
-              --notes "TEST release for \${VERSION} · source \${SOURCE_SHA}"
+            gh release create "$TAG" "out/BuyerLog-${VERSION}.zip" "out/BuyerLog-${VERSION}.json" \
+              --title "Buyer Log TEST ${VERSION}" \
+              --notes "TEST release for ${VERSION} · source ${SOURCE_SHA}"
           fi
 
       - name: Checkout raw mirror
@@ -148,13 +148,13 @@ jobs:
           set -euo pipefail
           mkdir -p raw/test
           rm -f raw/test/BuyerLog-*.zip
-          cp "out/BuyerLog-\${VERSION}.zip" raw/test/
+          cp "out/BuyerLog-${VERSION}.zip" raw/test/
           cd raw
           git config user.name "Buyer Log Release Bot"
           git config user.email "buyer-log-release-bot@users.noreply.github.com"
           git add test
           if ! git diff --cached --quiet; then
-            git commit -m "Mirror test \${VERSION}"
+            git commit -m "Mirror test ${VERSION}"
             git push origin HEAD:raw-dist
           fi
 
@@ -176,6 +176,6 @@ jobs:
           git config user.email "buyer-log-release-bot@users.noreply.github.com"
           git add test/latest.json
           if ! git diff --cached --quiet; then
-            git commit -m "Publish test latest \${VERSION}"
+            git commit -m "Publish test latest ${VERSION}"
             git push origin HEAD:main
           fi
