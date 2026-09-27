@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.146",
-  "publishedAt": "2026-09-27T07:26:53.870Z",
-  "artifact": "releases/BuyerLog-7.0.146.zip",
-  "sha256": "afe6281681532bee405248792fb87d84b08f54fd50c794ffa42893eaf13dd108",
-  "size": 37594753,
+  "version": "7.0.147",
+  "publishedAt": "2026-09-27T08:33:36.372Z",
+  "artifact": "releases/BuyerLog-7.0.147.zip",
+  "sha256": "3a648142d782116abd08a66c979dbd059a4e95021172b9404ef863d84eba3ffb",
+  "size": 49214325,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.146: Global Flow haritasında yakın gemi/uçak/tır simgeleri zoom seviyesine göre kümeleniyor ve yakınlaştırıldıkça ayrışıyor. Ortak rota koridorları tek hat olarak birleştiriliyor; ortak hatta tıklanınca Bangladesh · Sea / India · Sea / Combined benzeri ülke-taşıma seçenekleriyle ilgili sipariş ve parsiyeller açılıyor. 3D sürükleme yönü doğal yüzey sürükleme davranışına çevrildi; 2D/3D maksimum zoom artırıldı. Overview dünya saatlerinde ülke/saat dilimi araması eklendi; yeni saat kartları aynı satırda okunabilirliği koruyarak adaptif daralıyor. İlgili regresyon testleri eklendi ve tam Buyer Log test paketi geçti.",
+  "releaseNotes": "Buyer Log 7.0.147: Global Flow'a lazy yüklenen CesiumJS tabanlı Earth 3D görünümü ve Buyer Log ⇄ Earth harita motoru geçişi eklendi. Earth runtime/provider ayarları, Moderatör kontrollü sağlayıcı yapılandırması, görünürlük/sekme/daraltma durumlarına göre pause-resume ve soğuk WebGL kapatma yaşam döngüsü, çevrimdışı/fallback davranışı ve ilgili ayar API'leri eklendi. Mevcut Global Flow tam rota hover vurgusu, zoom seviyesine bağlı araç kümeleri, gruplu araçlarda ortalama transit günü, ortak koridor seçim çekmecesi, geniş 2D/3D zoom ve doğal globe sürükleme davranışı korunarak birleştirildi. Earth route modülü repo sözleşmesine hizalandı ve tam Buyer Log regression paketi geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
