@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buyer Log</title>
+<script>window.BL_APP_VERSION="__BL_CANONICAL_VERSION__";window.BL_DISPLAY_VERSION="__BL_DISPLAY_VERSION__";window.BL_ASSET_VERSION="__BL_ASSET_VERSION__";window.__BL_DOCUMENT_BOOT_AT=(window.performance&&performance.now)?performance.now():Date.now();</script>
+<style id="blBootGuardStyle">
+  #blBootGuard{position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:#f6f7f9;color:#1f2937;font:500 14px/1.45 "Barlow",system-ui,-apple-system,sans-serif}
+  #blBootGuard .blBootCard{min-width:250px;max-width:420px;margin:20px;padding:22px 24px;text-align:center;background:#fff;border:1px solid #e5e7eb;border-radius:0;box-shadow:none}
+  #blBootGuard .blBootDot{width:34px;height:34px;margin:0 auto 14px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.9) 0 8%,rgba(255,255,255,.3) 18%,transparent 42%),conic-gradient(#356a96,#6f6fd8,#2f9f96,#356a96);box-shadow:inset 0 -3px 6px rgba(10,20,40,.22),0 6px 18px rgba(80,90,200,.28);animation:blBootSpin 2.4s linear infinite}
+  #blBootGuard[data-failed="1"] .blBootDot{display:none}
+  #blBootGuard button{margin-top:14px;padding:8px 14px;border:1px solid #3f6488;border-radius:0;background:#3f6488;color:#fff;cursor:pointer;font:inherit}
+  @keyframes blBootSpin{to{transform:rotate(360deg)}}
+  html[data-theme="dark"] #blBootGuard{background:#131417;color:#f3f4f6}
+  html[data-theme="dark"] #blBootGuard .blBootCard{background:#1d1f23;border-color:#34373d}
+</style>
+<script>
+(function(){
+  'use strict';
+  var RETRY_KEY='buyerlog.bootRetry.v__BL_DISPLAY_VERSION__',finished=false,timer=null,lastFailure='';
+  function guard(){return document.getElementById('blBootGuard');}
+  function ensureGuard(){
+    if(finished||guard()||!document.body)return;
+    var el=document.createElement('div');el.id='blBootGuard';el.setAttribute('role','status');el.setAttribute('aria-live','polite');
+    el.innerHTML='<div class="blBootCard"><div class="blBootDot"></div><div data-boot-message>Buyer Log hazırlanıyor…</div></div>';
+    document.body.appendChild(el);
+  }
+  function message(text,failed){
+    ensureGuard();var el=guard();if(!el)return;
+    var msg=el.querySelector('[data-boot-message]');if(msg)msg.textContent=text;
+    if(failed){
+      el.dataset.failed='1';
+      var card=el.querySelector('.blBootCard');
+      if(card&&!card.querySelector('button')){var b=document.createElement('button');b.type='button';b.textContent='Tekrar dene';b.onclick=function(){try{sessionStorage.removeItem(RETRY_KEY);}catch(_){}location.replace('/?boot='+Date.now());};card.appendChild(b);}
+    }
+  }
+  function ready(){
+    if(finished)return;finished=true;if(timer)clearTimeout(timer);
+    try{sessionStorage.removeItem(RETRY_KEY);}catch(_){}
+    var el=guard();if(el)el.remove();
+  }
+  async function recover(reason){
+    if(finished)return;lastFailure=reason||lastFailure||'startup-timeout';
+    message('Açılış tamamlanamadı, bağlantı yeniden kontrol ediliyor…',false);
+    var count=0;try{count=Number(sessionStorage.getItem(RETRY_KEY)||0)||0;}catch(_){}
+    try{
+      var res=await fetch('/api/status?boot='+Date.now(),{cache:'no-store',credentials:'same-origin'});
+      var data=await res.json();
+      if(res.ok&&data&&data.app==='Buyer Log'&&count<1){
+        try{sessionStorage.setItem(RETRY_KEY,String(count+1));}catch(_){}
+        location.replace('/?boot='+Date.now());return;
+      }
+    }catch(_){}
+    message('Buyer Log açılamadı. Yeniden denemek için düğmeye basın.',true);
+    try{console.error('Buyer Log boot recovery failed:',lastFailure);}catch(_){}
+  }
+  window.addEventListener('error',function(ev){try{
+    if(!ev||!ev.message)return;
+    var box=document.getElementById('blErrBox');
+    if(!box){box=document.createElement('div');box.id='blErrBox';box.style.cssText='position:fixed;left:8px;bottom:8px;z-index:2147483647;max-width:60vw;background:#7f1d1d;color:#fff;font:12px/1.5 monospace;padding:8px 12px;white-space:pre-wrap;';document.documentElement.appendChild(box);}
+    box.textContent+='JS HATA: '+ev.message+' @ '+(ev.filename||'').split('/').pop()+':'+ev.lineno+'\n';
+  }catch(_){}});
+  window.addEventListener('unhandledrejection',function(ev){try{
+    var box=document.getElementById('blErrBox');
+    if(!box){box=document.createElement('div');box.id='blErrBox';box.style.cssText='position:fixed;left:8px;bottom:8px;z-index:2147483647;max-width:60vw;background:#7f1d1d;color:#fff;font:12px/1.5 monospace;padding:8px 12px;white-space:pre-wrap;';document.documentElement.appendChild(box);}
+    box.textContent+='PROMISE HATA: '+String(ev.reason&&ev.reason.message||ev.reason)+'\n';
+  }catch(_){}});
+  window.BLBootGuard={ready:ready,recover:recover,noteFailure:function(reason){lastFailure=String(reason||'resource-error');}};
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensureGuard,{once:true});else ensureGuard();
+  window.addEventListener('error',function(ev){var t=ev&&ev.target;if(t&&(t.tagName==='SCRIPT'||t.tagName==='LINK'))window.BLBootGuard.noteFailure((t.src||t.href||t.tagName)+' yüklenemedi.');},true);
+  timer=setTimeout(function(){recover(lastFailure||'core-not-ready');},12000);
+})();
+</script>
+<script src="perf-runtime.js?v=__BL_ASSET_VERSION__&rev=8"></script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_LOCAL_CONTEXT_START');</script>
+<script src="/user-context.js"></script>
+<script src="user-storage.js?v=__BL_ASSET_VERSION__"></script>
+<script src="preset-store.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script>(function(){try{var t=BLStorage.getItem('lcw_theme');if(!t)t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.dataset.theme=(t==='dark'||t==='grey')?t:'light';var r=BLStorage.getItem('lcw_rail');document.documentElement.dataset.rail=(r==='min')?'min':'max';var f=Number(BLStorage.getItem('lcw_font_step')||0);f=f>=0&&f<=3?Math.trunc(f):0;document.documentElement.dataset.fontStep=String(f);document.documentElement.dataset.uiScale=['standard','large','xl','compact'][f];}catch(e){document.documentElement.dataset.fontStep='0';document.documentElement.dataset.uiScale='standard';}})();</script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_LOCAL_CONTEXT_READY');</script>
+<script src="business-rules.js?v=__BL_ASSET_VERSION__"></script>
+<script src="order-decision-engine.js?v=__BL_ASSET_VERSION__"></script>
+<script src="revision-display.js?v=__BL_ASSET_VERSION__"></script>
+<script src="backlog-excel-formulas.js?v=__BL_ASSET_VERSION__"></script>
+<script src="freight-calc.js?v=__BL_ASSET_VERSION__"></script>
+<script src="excel-date-utils.js?v=__BL_ASSET_VERSION__"></script>
+<script src="table-export.js?v=__BL_ASSET_VERSION__"></script>
+<script src="table-column-resize.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="grid-clipboard.js?v=__BL_ASSET_VERSION__&rev=2"></script>
+<script src="grid-range-select.js?v=__BL_ASSET_VERSION__"></script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_XLSX_DEFERRED');</script>
+<!-- Ağır dışa aktarma/PDF motorları ilk açılışta değil, kullanıldığında yüklenir. -->
+<script src="analysis-cache.js?v=__BL_ASSET_VERSION__"></script>
+<script src="model-image-cache.js?v=__BL_ASSET_VERSION__&rev=3"></script>
+<!-- Güncel görünüm model varlık kapsamı: görsel taşıyan her görünüm kendi
+     kanonik kimlik kümesini buraya bildirir. Modül başına ayrı indirici yok. -->
+<script src="model-asset-scope.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="excel-workbook-guards.js?v=__BL_ASSET_VERSION__"></script>
+<!-- Capacity Request dışa aktarımı alanları canonical kayıt defterinden okur;
+     kayıt defteri bu yüzden burada açıkça yüklenir (lazy enjeksiyona bırakılmaz). -->
+<script src="canonical-fields.js?v=__BL_ASSET_VERSION__" data-bl-canonical-fields="1"></script>
+<script src="capacity-request-export.js?v=__BL_ASSET_VERSION__"></script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_CORE_RESOURCES_READY');</script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F7F9">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131417">
+<script>
+/* --- Yaşam döngüsü: sekme açıkken sunucuya kalp atışı, kapanırken veda --- */
+(function(){
+  var CID = Math.random().toString(36).slice(2)+Date.now().toString(36);
+  window.BL_CLIENT_ID = CID; // v6.44 — canlı senkron (SSE) kendi olaylarını bununla ayırt eder
+  var gone = false, started = false, heartbeatTimer = null;
+  function beat(){
+    if(gone) return;
+    try{ fetch('/api/heartbeat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:CID}),keepalive:true}).catch(function(){}); }catch(e){}
+  }
+  function bye(){
+    if(!started || gone) return; gone = true;
+    var payload = JSON.stringify({id:CID});
+    // sendBeacon en güvenilir yol; tarayıcı kapanırken de teslim edilir.
+    var sent = false;
+    try{ sent = navigator.sendBeacon('/api/goodbye', new Blob([payload],{type:'application/json'})); }catch(e){}
+    // Beacon reddedilirse keepalive fetch ile dene.
+    if(!sent){
+      try{ fetch('/api/goodbye',{method:'POST',headers:{'Content-Type':'application/json'},body:payload,keepalive:true}).catch(function(){}); }catch(e){}
+    }
+  }
+  window.BL_START_HEARTBEAT = function(){
+    if(started) return;
+    started = true;
+    beat();
+    heartbeatTimer = setInterval(beat, 20000);
+  };
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden && started){ gone = false; beat(); }
+  });
+  // pagehide her zaman tetiklenmeyebilir (özellikle tüm tarayıcı kapatılırken);
+  // beforeunload ve unload ile birlikte kullanılır. gone bayrağı mükerrer
+  // gönderimi engeller, sekme yenilemede visibilitychange sıfırlar.
+  window.addEventListener('pagehide', bye);
+  window.addEventListener('beforeunload', bye);
+  window.addEventListener('unload', bye);
+  /* --- PWA: tarayıcıya "uygulama olarak yükle" imkânı --- */
+  window.BL_REGISTER_SERVICE_WORKER = function(){
+    if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function(){});
+  };
+})();
+</script>
+<link rel="stylesheet" href="app.css?v=__BL_ASSET_VERSION__&rev=8003">
+<link rel="stylesheet" href="table-search-help.css?v=__BL_ASSET_VERSION__&rev=SEARCH-HELP-V1">
+<link rel="stylesheet" href="open-costing.css?v=__BL_ASSET_VERSION__">
+<link rel="stylesheet" href="lfl.css?v=__BL_ASSET_VERSION__">
+<link rel="stylesheet" href="collection-analytics.css?v=__BL_ASSET_VERSION__&rev=7143">
+<link rel="stylesheet" href="pricing-workspace.css?v=__BL_ASSET_VERSION__&rev=4">
+<link rel="stylesheet" href="data-maintenance.css?v=__BL_ASSET_VERSION__&rev=1">
+<link rel="stylesheet" href="data-management.css?v=__BL_ASSET_VERSION__&rev=1">
+<link rel="stylesheet" href="backlog-delivery-analysis.css?v=__BL_ASSET_VERSION__&rev=20260926-1">
+<link rel="stylesheet" href="backlog-plan-actual.css?v=__BL_ASSET_VERSION__&rev=1">
+<link rel="stylesheet" href="cp-overview-assistant.css?v=__BL_ASSET_VERSION__&rev=7142">
+<link rel="stylesheet" href="design.css?v=__BL_ASSET_VERSION__&rev=7181">
+<link rel="stylesheet" href="design-butunluk.css?v=__BL_ASSET_VERSION__">
+<link rel="stylesheet" href="collection-spreadsheet.css?v=__BL_ASSET_VERSION__&rev=7">
+<link rel="stylesheet" href="excel-import.css?v=__BL_ASSET_VERSION__&rev=1">
+<link rel="stylesheet" href="user-management.css?v=__BL_ASSET_VERSION__">
+<link rel="stylesheet" href="copilot.css?v=__BL_ASSET_VERSION__">
+<link rel="stylesheet" href="outlook-mail.css?v=__BL_ASSET_VERSION__&rev=7160">
+<link rel="stylesheet" href="experience.css?v=__BL_ASSET_VERSION__&rev=2">
+<link rel="stylesheet" href="overview-radar.css?v=__BL_ASSET_VERSION__&rev=1">
+<link rel="stylesheet" href="overview-global-flow.css?v=__BL_ASSET_VERSION__&rev=5">
+<link rel="stylesheet" href="detail-drawer.css?v=__BL_ASSET_VERSION__&rev=3">
+</head>
+<body data-active-tab="overview">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-layout-dashboard" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="7" rx="1.5"/><rect x="4" y="15" width="6" height="5" rx="1.5"/><rect x="14" y="4" width="6" height="5" rx="1.5"/><rect x="14" y="13" width="6" height="7" rx="1.5"/></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></symbol>
+  <symbol id="i-rosette-discount-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></symbol>
+  <symbol id="i-chart-histogram" viewBox="0 0 24 24"><path d="M3 20h18M5.5 20v-6M10 20V8M14.5 20v-9M19 20V5"/></symbol>
+  <symbol id="i-binary-tree-2" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1.2"/><rect x="3" y="16" width="6" height="5" rx="1.2"/><rect x="15" y="16" width="6" height="5" rx="1.2"/><path d="M12 8v4M12 12H6v4M12 12h6v4"/></symbol>
+  <symbol id="i-ship" viewBox="0 0 24 24"><path d="M4 13.5l1.6 4.5h12.8l1.6-4.5-8-2.6z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M4 13.5l1.6 4.5h12.8l1.6-4.5-8-2.6-8 2.6zM12 4v7M12 4l5 2.6L12 9"/><path d="M2.5 21c1.6 1 3.2 1 4.75 0s3.15-1 4.75 0 3.15 1 4.75 0 3.15-1 4.75 0"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14A8.5 8.5 0 1 1 10 3.5a7 7 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></symbol>
+  <symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-moon-stars" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/><path d="M18 3.5l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6-1.6-.7 1.6-.7z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-arrows-down-up" viewBox="0 0 24 24"><path d="M7.5 4v16M4.5 17l3 3 3-3M16.5 20V4M13.5 7l3-3 3 3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="M20.5 20.5l-4.9-4.9"/></symbol>
+  <symbol id="i-reload" viewBox="0 0 24 24"><path d="M19.9 13.4A8 8 0 1 1 18 6.5"/><path d="M18.4 2.8v4h-4"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M4 11a8 8 0 0 1 13.6-4.9M20 13a8 8 0 0 1-13.6 4.9"/><path d="M17.6 2.5v3.8h-3.8M6.4 21.5v-3.8h3.8"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6.5 7.2V18l-3 1v-6.8L4 5z"/></symbol>
+  <symbol id="i-layout-sidebar-left-collapse" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M16 10l-2.5 2 2.5 2"/></symbol>
+  <symbol id="i-layout-sidebar-left-expand" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M13.5 10l2.5 2-2.5 2"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9.5 5.5L16 12l-6.5 6.5"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M14.5 5.5L8 12l6.5 6.5"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M5.5 9.5L12 16l6.5-6.5"/></symbol>
+  <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="M5.5 14.5L12 8l6.5 6.5"/></symbol>
+  <symbol id="i-chevrons-left" viewBox="0 0 24 24"><path d="M11.5 6L6 12l5.5 6M18 6l-5.5 6 5.5 6"/></symbol>
+  <symbol id="i-chevrons-right" viewBox="0 0 24 24"><path d="M6.5 6L12 12l-5.5 6M13 6l5.5 6-5.5 6"/></symbol>
+  <symbol id="i-bl-overview" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="9" height="9" rx="2.2" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><rect x="3.5" y="3.5" width="9" height="9" rx="2.2"/><rect x="14.5" y="3.5" width="6" height="6" rx="2"/><rect x="14.5" y="11.5" width="6" height="9" rx="2"/><rect x="3.5" y="14.5" width="9" height="6" rx="2"/></symbol>
+  <symbol id="i-bl-cp" viewBox="0 0 24 24"><path d="M5.5 4h13A2.5 2.5 0 0 1 21 6.5V9H3V6.5A2.5 2.5 0 0 1 5.5 4z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 13h5M7 16.5h3M14.5 16l1.7 1.7 3-3.4"/></symbol>
+  <symbol id="i-bl-orders" viewBox="0 0 24 24"><rect x="8" y="3" width="12" height="14.5" rx="2" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M8.5 3H18a2 2 0 0 1 2 2v10.5"/><rect x="4" y="6.5" width="12.5" height="14.5" rx="2"/><path d="M7.5 11h5.5M7.5 14.3h5.5M7.5 17.6h3"/></symbol>
+  <symbol id="i-bl-backlog" viewBox="0 0 24 24"><path d="M12 3.2l8.8 4.4L12 12 3.2 7.6z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M12 3.2l8.8 4.4L12 12 3.2 7.6z"/><path d="M3.2 12L12 16.4l8.8-4.4M3.2 16.4L12 20.8l8.8-4.4"/></symbol>
+  <symbol id="i-bl-collection" viewBox="0 0 24 24"><path d="M12 10.2 4 14.8a1.8 1.8 0 0 0 .9 3.4h14.2a1.8 1.8 0 0 0 .9-3.4z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M12 10.2V7.8a2.2 2.2 0 1 1 2.2 2.2"/><path d="M12 10.2 4 14.8a1.8 1.8 0 0 0 .9 3.4h14.2a1.8 1.8 0 0 0 .9-3.4z"/></symbol>
+  <symbol id="i-bl-quotes" viewBox="0 0 24 24"><path d="M3 11.8V5a2 2 0 0 1 2-2h6.8a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8l-6.8 6.8a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 11.8z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M3 11.8V5a2 2 0 0 1 2-2h6.8a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8l-6.8 6.8a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 11.8z"/><circle cx="7.6" cy="7.6" r="1.2"/><path d="M10.5 14.5l4-4"/></symbol>
+  <symbol id="i-bl-history" viewBox="0 0 24 24"><circle cx="12.5" cy="12" r="8" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M4.6 13.2A8 8 0 1 0 6.7 6.4"/><path d="M4.2 3.8v3.9h3.9"/><path d="M12.5 8v4.3l2.8 1.8"/></symbol>
+  <symbol id="i-bl-analysis" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.8" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><circle cx="10.5" cy="10.5" r="6.8"/><path d="M15.5 15.5 21 21M7.8 13v-2M10.5 13V8.5M13.2 13V10"/></symbol>
+  <symbol id="i-bl-lfl" viewBox="0 0 24 24"><path d="M12 7.3a5.6 5.6 0 0 1 0 9.4 5.6 5.6 0 0 1 0-9.4z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><circle cx="8.8" cy="12" r="5.6"/><circle cx="15.2" cy="12" r="5.6"/></symbol>
+  <symbol id="i-bl-costing" viewBox="0 0 24 24"><rect x="7.5" y="5.5" width="9" height="4" rx="1" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><rect x="4.5" y="2.5" width="15" height="19" rx="2.6"/><rect x="7.5" y="5.5" width="9" height="4" rx="1"/><path d="M8.5 13.5h.01M12 13.5h.01M15.5 13.5h.01M8.5 17h.01M12 17h.01M15.5 17h.01"/></symbol>
+  <symbol id="i-bl-automation" viewBox="0 0 24 24"><path d="M13.2 2.5 5.5 13h5.6l-1 8.5L18.5 11h-5.6z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M13.2 2.5 5.5 13h5.6l-1 8.5L18.5 11h-5.6z"/></symbol>
+  <symbol id="i-bl-source" viewBox="0 0 24 24"><ellipse cx="11" cy="5.6" rx="7" ry="2.6" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><ellipse cx="11" cy="5.6" rx="7" ry="2.6"/><path d="M4 5.6v12.8c0 1.4 3.1 2.6 7 2.6M18 5.6v5.2M4 12c0 1.4 3.1 2.6 7 2.6M14.5 17.5h6.5M18.5 15l2.5 2.5-2.5 2.5"/></symbol>
+  <symbol id="i-bl-recycle" viewBox="0 0 24 24"><path d="M6.3 7.5h11.4l-1 11.6a2 2 0 0 1-2 1.9H9.3a2 2 0 0 1-2-1.9z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M4 7.5h16M9.5 7.5V5a1.2 1.2 0 0 1 1.2-1.2h2.6A1.2 1.2 0 0 1 14.5 5v2.5"/><path d="M6.3 7.5l1 11.6a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9l1-11.6"/><path d="M10 13.6a2.2 2.2 0 0 1 3.9-1.3M14 15.7a2.2 2.2 0 0 1-3.9 1.3M13.9 10.9v1.5h-1.5M10.1 18.4v-1.5h1.5"/></symbol>
+  <symbol id="i-bl-sync" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><circle cx="12" cy="12" r="3.6"/><path d="M20 12a8 8 0 0 1-13.6 5.7M4 12a8 8 0 0 1 13.6-5.7"/><path d="M17.9 3.3v3.1h-3.1M6.1 20.7v-3.1h3.1"/></symbol>
+  <symbol id="i-bl-tools" viewBox="0 0 24 24"><path d="M16.8 2.8l1.2 2.5 2.5 1.2-2.5 1.2-1.2 2.5-1.2-2.5-2.5-1.2 2.5-1.2z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M16.8 2.8l1.2 2.5 2.5 1.2-2.5 1.2-1.2 2.5-1.2-2.5-2.5-1.2 2.5-1.2z"/><path d="M3.8 20.2l9.4-9.4M6.5 4.5v2.6M5.2 5.8h2.6M19.5 14v2.6M18.2 15.3h2.6"/></symbol>
+  <symbol id="i-bl-filter-clear" viewBox="0 0 24 24"><path d="M4 4.5h16l-6.2 7.6v6.3l-3.6 1.9v-8.2z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M4 4.5h16l-6.2 7.6v6.3l-3.6 1.9v-8.2z"/><path d="M16.6 15.6l4 4M20.6 15.6l-4 4"/></symbol>
+  <symbol id="i-arrow-back-up" viewBox="0 0 24 24"><circle cx="14.5" cy="14.5" r="5.5" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H10"/></symbol>
+  <symbol id="i-arrow-forward-up" viewBox="0 0 24 24"><circle cx="9.5" cy="14.5" r="5.5" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-copy-plus" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2M14 11v6M11 14h6"/></symbol>
+  <symbol id="i-hanger" viewBox="0 0 24 24"><path d="M12 9V6a2 2 0 1 1 2 2"/><path d="M12 9 3.8 13.6A2 2 0 0 0 4.8 17.3h14.4a2 2 0 0 0 1-3.7L12 9z"/></symbol>
+  <symbol id="i-checklist" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 5.5l1 1 2-2M4 11.5l1 1 2-2M4 17.5l1 1 2-2"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0v4.5l2 3H4l2-3z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M6 9a6 6 0 0 1 12 0v4.5l2 3H4l2-3V9z"/><path d="M9.5 19a2.7 2.7 0 0 0 5 0"/></symbol>
+  <symbol id="i-notebook" viewBox="0 0 24 24"><path d="M9 3h9a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H9z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><rect x="5" y="3" width="15" height="18" rx="2"/><path d="M9 3v18M3.5 7H7M3.5 12H7M3.5 17H7M12 8h5M12 12h5M12 16h4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9S9.5 5.6 12 3z"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .4-7.98A6 6 0 0 0 6.2 8.4 4 4 0 0 0 7 18z"/></symbol>
+  <symbol id="i-cloud-off" viewBox="0 0 24 24"><path d="M7.5 18H6a4 4 0 0 1-.8-7.9A7 7 0 0 1 17.9 8a5 5 0 0 1 1.6 9.7"/><path d="M3 3l18 18"/></symbol>
+  <symbol id="i-users-group" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19v-1.3A4.7 4.7 0 0 1 8.2 13h1.6a4.7 4.7 0 0 1 4.7 4.7V19"/><circle cx="17" cy="9" r="2.3"/><path d="M15.5 14.2h1.8a3.7 3.7 0 0 1 3.7 3.7V19"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20v-1.6A5.4 5.4 0 0 1 10.4 13h3.2a5.4 5.4 0 0 1 5.4 5.4V20"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M4 4h7l9 9-7 7-9-9V4z"/><circle cx="8.2" cy="8.2" r="1"/></symbol>
+  <!-- v7.31 — #i-settings sprite'ta yoktu; ona başvuran düğmeler boş çiziliyordu. -->
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.2a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H2.8a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V2.8a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1h.2a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-photo-size" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M3.5 17l4.8-4.6a1.6 1.6 0 0 1 2.2 0L15 16.6"/><path d="M14 14.2l1.7-1.6a1.6 1.6 0 0 1 2.2 0l2.6 2.5"/></symbol>
+  <!-- v7.31 — sprite denetiminde eksik bulundu: #i-picture (3 yerde "Model
+       Görsellerini Güncelle") ve #i-calendar (LFL "1 Yıl Öncesini Seç") de
+       tanımsızdı, o düğmeler de simgesiz çiziliyordu. -->
+  <symbol id="i-picture" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M3.5 17l4.8-4.6a1.6 1.6 0 0 1 2.2 0l6 5.8"/><path d="M14.5 14.5l1.6-1.5a1.6 1.6 0 0 1 2.2 0l2.2 2.1"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3.2v3.6M16 3.2v3.6"/><path d="M7.5 14h3v3h-3z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-hierarchy" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1.2"/><rect x="3" y="16" width="6" height="5" rx="1.2"/><rect x="15" y="16" width="6" height="5" rx="1.2"/><path d="M12 8v4M12 12H6v4M12 12h6v4"/></symbol>
+  <symbol id="i-calculator" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2"/><rect x="6.5" y="5" width="11" height="4" rx="0.6"/><circle cx="7.2" cy="12.5" r="1"/><circle cx="12" cy="12.5" r="1"/><circle cx="16.8" cy="12.5" r="1"/><circle cx="7.2" cy="16.5" r="1"/><circle cx="12" cy="16.5" r="1"/><circle cx="16.8" cy="16.5" r="1"/></symbol>
+  <symbol id="i-mail-send" viewBox="0 0 24 24"><rect x="2.5" y="5" width="15" height="13" rx="1.8"/><path d="M2.5 6.5l7.5 6 7.5-6"/><path d="M15 19.5l6-3.5-6-3.5v2.4c-3 0-5 1-6.5 3.1 1-3.6 3.3-5 6.5-5V19.5z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1-4.6L15.4 5 19 8.6 8.6 19 4 20z"/><path d="M13 7l4 4"/></symbol>
+  <symbol id="i-eraser" viewBox="0 0 24 24"><path d="M19 20H8.6l-4.3-4.3a2 2 0 0 1 0-2.8l8.7-8.7a2 2 0 0 1 2.8 0l4.2 4.2a2 2 0 0 1 0 2.8L13 18.6"/><path d="M8.4 9.6l6 6"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 .3 18c1.4 0 1.9-.9 1.9-1.9 0-.9-.6-1.4-.1-2 .6-.7 3.9.6 5.2-1.6C21.4 12.6 21 3 12 3z"/><circle cx="7.8" cy="10.5" r="1.1"/><circle cx="12" cy="7.6" r="1.1"/><circle cx="16.2" cy="10.5" r="1.1"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+  <symbol id="i-device-floppy" viewBox="0 0 24 24"><path d="M8 4v5h7V4z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M6 4h10l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 4v5h7V4"/><circle cx="12" cy="15" r="2.4"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M6.5 7h11l-1 13h-9z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M4 7h16M10 7V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2M6.5 7l1 13h9l1-13M10 11v5.5M14 11v5.5"/></symbol>
+  <symbol id="i-columns-3" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-file-export" viewBox="0 0 24 24"><path d="M7 3h6l5 5v4.5h-4V21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M13 3v5h5"/><path d="M13 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M14 16h7M18.5 13.5 21 16l-2.5 2.5"/></symbol>
+  <symbol id="i-file-import" viewBox="0 0 24 24"><path d="M7 3h6l5 5v4.5h-4V21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" style="fill:var(--ic-tint,currentColor);fill-opacity:var(--ic-tint-o,.2);stroke:none"/><path d="M13 3v5h5"/><path d="M13 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M21 16h-7M16.5 13.5 14 16l2.5 2.5"/></symbol>
+  <symbol id="i-paperclip" viewBox="0 0 24 24"><path d="M8.5 12.5l6.8-6.8a3.2 3.2 0 0 1 4.5 4.5l-8.7 8.7a5 5 0 0 1-7.1-7.1l8.2-8.2"/><path d="M8.2 15.8l8.3-8.3"/></symbol>
+  <symbol id="i-table-import" viewBox="0 0 24 24"><path d="M20 12V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/><path d="M4 10h16M10 4v16"/><path d="M21 17h-6M17.5 14.5L15 17l2.5 2.5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 11.5L12 16l4.5-4.5M5 20h14"/></symbol>
+  <symbol id="i-database-import" viewBox="0 0 24 24"><ellipse cx="11" cy="6" rx="7" ry="3"/><path d="M4 6v6c0 1.6 3.1 3 7 3 .7 0 1.4 0 2-.1M4 12v6c0 1.6 3.1 3 7 3 .8 0 1.6-.1 2.3-.2"/><path d="M22 15h-6M18.5 12.5L16 15l2.5 2.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 6.5"/></symbol>
+  <symbol id="i-snowflake" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/><path d="M12 6.6l2.2-2.2M12 6.6L9.8 4.4M12 17.4l2.2 2.2M12 17.4l-2.2 2.2"/><path d="M6.9 9.1l-3-.8M6.9 9.1l-.8-3M17.1 14.9l3 .8M17.1 14.9l.8 3"/><path d="M17.1 9.1l3-.8M17.1 9.1l.8-3M6.9 14.9l-3 .8M6.9 14.9l-.8 3"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="6" rx="6" ry="2.6"/><path d="M3 6v5c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6V6"/><path d="M3 11v4c0 1.4 2.7 2.6 6 2.6.7 0 1.4-.05 2-.15"/><ellipse cx="16.5" cy="15" rx="5" ry="2.3"/><path d="M11.5 15v3.5c0 1.2 2.2 2.2 5 2.2s5-1 5-2.2V15"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.8" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.8" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="3"/><path d="M12 3v4M9 3h6M8 12h.01M16 12h.01M8 16h8M2 11v5M22 11v5"/></symbol>
+  <symbol id="i-octopus" viewBox="0 0 24 24">
+    <g stroke="currentColor" stroke-width="1.9">
+      <path d="M8.6 8 C 5.2 7, 3 4.8, 4.9 3.1"/>
+      <path d="M15.4 8 C 18.8 7, 21 4.8, 19.1 3.1"/>
+      <path d="M7.67 11 C 4.4 11.4, 2.2 12.6, 3 14.9"/>
+      <path d="M16.33 11 C 19.6 11.4, 21.8 12.6, 21 14.9"/>
+      <path d="M9.8 14.4 C 8 17, 5.9 19.2, 7.4 21.3"/>
+      <path d="M14.2 14.4 C 16 17, 18.1 19.2, 16.6 21.3"/>
+      <path d="M12 5.2 L16.33 7.7 L16.33 12.7 L12 15.2 L7.67 12.7 L7.67 7.7 Z"/>
+      <path d="M12 10.2 L12 5.2 M12 10.2 L7.67 12.7 M12 10.2 L16.33 12.7" stroke-width="1.5" opacity=".75"/>
+    </g>
+  </symbol>
+  <symbol id="i-octopus-mark" viewBox="0 0 64 64">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M32 3 L57 17.5 L57 46.5 L32 61 L7 46.5 L7 17.5 Z" stroke="var(--octo-frame,#b7b7ba)" stroke-width="1.4"/>
+      <g stroke="var(--octo-arm,#3f6488)" stroke-width="4.6">
+        <path d="M29 29 C 18 25, 16 12, 23.3 9.9"/>
+        <path d="M35 29 C 46 25, 48 12, 40.7 9.9"/>
+        <path d="M27 29 C 18 27, 12 27, 9.4 23.3"/>
+        <path d="M37 29 C 46 27, 52 27, 54.6 23.3"/>
+        <path d="M27 35 C 18 37, 12 37, 9.4 40.7"/>
+        <path d="M37 35 C 46 37, 52 37, 54.6 40.7"/>
+        <path d="M29 37 C 19 43, 18 52, 23.3 54.1"/>
+        <path d="M35 37 C 45 43, 46 52, 40.7 54.1"/>
+      </g>
+      <g stroke="var(--octo-joint,#1d2d3d)" stroke-width="4.6" stroke-dasharray="1.1 3.2" opacity=".5">
+        <path d="M29 29 C 18 25, 16 12, 23.3 9.9"/>
+        <path d="M35 29 C 46 25, 48 12, 40.7 9.9"/>
+        <path d="M27 29 C 18 27, 12 27, 9.4 23.3"/>
+        <path d="M37 29 C 46 27, 52 27, 54.6 23.3"/>
+        <path d="M27 35 C 18 37, 12 37, 9.4 40.7"/>
+        <path d="M37 35 C 46 37, 52 37, 54.6 40.7"/>
+        <path d="M29 37 C 19 43, 18 52, 23.3 54.1"/>
+        <path d="M35 37 C 45 43, 46 52, 40.7 54.1"/>
+      </g>
+      <g fill="var(--octo-bulb,#7fa3c6)" stroke="var(--octo-contour,#1d2d3d)" stroke-width="1.3">
+        <circle cx="23.3" cy="8.1" r="3.3"/>
+        <circle cx="40.7" cy="8.1" r="3.3"/>
+        <circle cx="7.6" cy="23.3" r="3.3"/>
+        <circle cx="56.4" cy="23.3" r="3.3"/>
+        <circle cx="7.6" cy="40.7" r="3.3"/>
+        <circle cx="56.4" cy="40.7" r="3.3"/>
+        <circle cx="23.3" cy="55.9" r="3.3"/>
+        <circle cx="40.7" cy="55.9" r="3.3"/>
+      </g>
+      <g stroke="var(--octo-contour,#1d2d3d)" stroke-width="1.5">
+        <path d="M24.4 24.5 L25.6 17.2 L28.2 23.0 Z" fill="var(--octo-face-top,#7fa3c6)"/>
+        <path d="M30.4 21.5 L32 15.0 L33.6 21.5 Z" fill="var(--octo-face-top,#7fa3c6)"/>
+        <path d="M35.8 23.0 L38.4 17.2 L39.6 24.5 Z" fill="var(--octo-face-top,#7fa3c6)"/>
+        <path d="M32 20 L43.6 26 L32 32 L20.4 26 Z" fill="var(--octo-face-top,#7fa3c6)"/>
+        <path d="M20.4 26 L32 32 L32 43 L20.4 36.6 Z" fill="var(--octo-face-left,#3f6488)"/>
+        <path d="M43.6 26 L32 32 L32 43 L43.6 36.6 Z" fill="var(--octo-face-right,#1d2d3d)"/>
+      </g>
+    </g>
+  </symbol>
+</svg>
+
+<aside class="rail">
+  <div class="railTop">
+    <div class="brandMark" title="Buyer Log">BL</div>
+    <div class="brandName">Buyer Log<small id="appVersionBtn" class="appVersionBtn" role="button" tabindex="0" title="Sürüm geçmişini gör" data-i18n-title-tr="Sürüm geçmişini gör" data-i18n-title-en="View version history">Version __BL_DISPLAY_VERSION__</small></div>
+    <button class="railCollapse" id="railCollapse" title="Menüyü daralt" data-i18n-title-tr="Menüyü daralt" data-i18n-title-en="Collapse menu"><svg class="ic"><use href="#i-layout-sidebar-left-collapse"/></svg></button>
+  </div>
+  <nav class="tabs" aria-label="Ana modüller" data-i18n-aria-label-tr="Ana modüller" data-i18n-aria-label-en="Main modules">
+    <span class="railGroupLabel" data-i18n-tr="Ana Sayfa" data-i18n-en="Home">Ana Sayfa</span>
+    <button data-tab="overview" class="active" title="Overview" aria-current="page"><svg class="ic"><use href="#i-bl-overview"/></svg><span data-i18n-tr="Overview" data-i18n-en="Overview">Overview</span></button>
+
+    <span class="railGroupLabel" data-i18n-tr="Planla &amp; Yürüt" data-i18n-en="Plan &amp; Execute">Planla &amp; Yürüt</span>
+    <button data-tab="cp" title="CP Tracker"><svg class="ic"><use href="#i-bl-cp"/></svg><span data-i18n-tr="CP Tracker" data-i18n-en="CP Tracker">CP Tracker</span></button>
+    <button data-tab="orders" title="Siparişler" data-i18n-title-tr="Siparişler" data-i18n-title-en="Orders"><svg class="ic"><use href="#i-bl-orders"/></svg><span data-i18n-tr="Siparişler" data-i18n-en="Orders">Siparişler</span></button>
+    <button data-tab="backlog" title="Backlog"><svg class="ic"><use href="#i-bl-backlog"/></svg><span data-i18n-tr="Backlog" data-i18n-en="Backlog">Backlog</span></button>
+    <button data-tab="shipping" title="Nakliye Kıyaslama" data-i18n-title-tr="Nakliye Kıyaslama" data-i18n-title-en="Shipping Comparison"><svg class="ic"><use href="#i-ship"/></svg><span data-i18n-tr="Nakliye Kıyaslama" data-i18n-en="Shipping Comparison">Nakliye Kıyaslama</span></button>
+
+    <span class="railGroupLabel" data-i18n-tr="Ticari" data-i18n-en="Commercial">Ticari</span>
+    <button data-tab="koleksiyon" title="Koleksiyon" data-i18n-title-tr="Koleksiyon" data-i18n-title-en="Collection"><svg class="ic"><use href="#i-bl-collection"/></svg><span data-i18n-tr="Koleksiyon" data-i18n-en="Collection">Koleksiyon</span></button>
+    <button data-tab="quotations" title="Quotations"><svg class="ic"><use href="#i-bl-quotes"/></svg><span data-i18n-tr="Quotations" data-i18n-en="Quotations">Quotations</span></button>
+    <button data-tab="pricinghistory" title="Fiyat Geçmişi" data-i18n-title-tr="Fiyat Geçmişi" data-i18n-title-en="Pricing History"><svg class="ic"><use href="#i-bl-history"/></svg><span data-i18n-tr="Fiyat Geçmişi" data-i18n-en="Pricing History">Fiyat Geçmişi</span></button>
+    <button data-tab="priceanalysis" title="Fiyat &amp; Üretici Analizi" data-i18n-title-tr="Fiyat &amp; Üretici Analizi" data-i18n-title-en="Price &amp; Supplier Analysis"><svg class="ic"><use href="#i-bl-analysis"/></svg><span data-i18n-tr="Fiyat &amp; Üretici Analizi" data-i18n-en="Price &amp; Supplier Analysis">Fiyat &amp; Üretici Analizi</span></button>
+    <button data-tab="lfl" title="Like For Like"><svg class="ic"><use href="#i-bl-lfl"/></svg><span data-i18n-tr="LFL Analizi" data-i18n-en="LFL Analysis">LFL Analizi</span></button>
+    <button data-tab="opencosting" title="Ön Maliyet" data-i18n-title-tr="Ön Maliyet" data-i18n-title-en="Open Costing"><svg class="ic"><use href="#i-bl-costing"/></svg><span data-i18n-tr="Ön Maliyet" data-i18n-en="Open Costing">Ön Maliyet</span></button>
+
+    <span class="railGroupLabel" data-i18n-tr="Operasyonlar" data-i18n-en="Operations">Operasyonlar</span>
+    <button data-tab="automations" title="Otomasyonlar" data-i18n-title-tr="Otomasyonlar" data-i18n-title-en="Automations"><svg class="ic"><use href="#i-bl-automation"/></svg><span data-i18n-tr="Otomasyonlar" data-i18n-en="Automations">Otomasyonlar</span></button>
+
+    <span class="railGroupLabel" data-i18n-tr="Sistem" data-i18n-en="System">Sistem</span>
+    <button data-tab="source" title="Veri Yönetimi" data-i18n-title-tr="Veri Yönetimi" data-i18n-title-en="Data Management"><svg class="ic"><use href="#i-bl-source"/></svg><span data-i18n-tr="Veri Yönetimi" data-i18n-en="Data Management">Veri Yönetimi</span></button>
+  </nav>
+  <div class="railFoot">
+    <button id="railLangBtn" title="Switch language / Dil değiştir"><svg class="ic"><use href="#i-globe"/></svg><span id="railLangLabel" data-i18n-tr="Dil: TR" data-i18n-en="Language: EN">Dil: TR</span></button>
+    <button id="railThemeBtn" title="Tema: Aydınlık → Kurşun → Karanlık"><svg class="ic"><use href="#i-moon"/></svg><span data-i18n-tr="Tema" data-i18n-en="Theme">Tema</span></button>
+    <button id="railFontSizeBtn" title="Arayüz boyutu: Standard → Büyük → Çok Büyük → Kompakt" data-i18n-title-tr="Arayüz boyutu: Standard → Büyük → Çok Büyük → Kompakt" data-i18n-title-en="Interface size: Standard → Large → XL → Compact"><b class="railFontGlyph" aria-hidden="true">A</b><span id="railFontSizeLabel">Arayüz: Standard</span></button>
+  </div>
+</aside>
+
+<header class="appTop">
+  <h1 id="pageTitle" data-i18n-tr="Genel Bakış" data-i18n-en="Overview">Genel Bakış</h1>
+  <div class="kolScopeBar" id="kolScopeBar" aria-label="Görünüm ve Yetkiler">
+    <div class="kolScopeFilters" id="kolScopeFilters"></div>
+  </div>
+  <!-- Sayfanın temel (boyut) filtreleri başlığın hemen yanında durur; ayrı bir
+       eylem şeridi (vfBar) açmaya gerek kalmaz. İçerik JS ile buraya taşınır. -->
+  <div class="pageTitleFilters" id="pageTitleFilters" hidden aria-hidden="true"></div>
+  <!-- v7.81 — Kaynak Veri şeridinden taşındı. refreshWarnChips() uyarı çipini
+       bu kimliğe basıyor; şeritle birlikte silinseydi yenileme uyarıları
+       hiçbir yerde görünmezdi. Uyarılar yenilemeden doğduğu için başlıkta,
+       Yenile düğmesinin yakınında duruyor. -->
+  <span class="topSourceStatus" id="sourceStatusInline" role="status" aria-live="polite" hidden aria-hidden="true"></span>
+  <div class="topDirtyNotice" id="cpDirtyNotice" role="status" aria-live="polite" aria-hidden="true">
+    <span id="cpDirtyNoticeText">0 satırda değişiklik var</span>
+    <button type="button" id="cpDirtyRevert">Değişiklikleri geri al</button>
+  </div>
+  <!-- v7.26: başlıktaki "Uygulamada Ara" kutusu kullanıcı talebiyle kaldırıldı. -->
+  <button class="iconbtn notificationHistoryBtn" id="notificationsBtn" title="Bildirim Geçmişi" aria-label="Bildirim Geçmişi" data-i18n-title-tr="Bildirim Geçmişi" data-i18n-title-en="Notification History"><svg class="ic"><use href="#i-bell"/></svg><b class="notificationUnreadBadge" id="notificationUnreadBadge" hidden>0</b></button>
+  <button class="iconbtn" id="todoBtn" title="Not Defteri" aria-label="Not Defteri" data-i18n-title-tr="Not Defteri" data-i18n-title-en="Notebook"><svg class="ic"><use href="#i-notebook"/></svg></button>
+  <button class="iconbtn" id="copilotBtn" title="Octopus" aria-label="Octopus" data-i18n-title-tr="Octopus" data-i18n-title-en="Octopus"><svg class="ic"><use href="#i-octopus"/></svg></button>
+  <button class="iconbtn" id="saveAllBtn" title="Tüm değişiklikleri şimdi kaydet" data-i18n-title-tr="Tüm değişiklikleri şimdi kaydet" data-i18n-title-en="Save all changes now"><svg class="ic"><use href="#i-device-floppy"/></svg></button>
+  <button class="iconbtn" id="topRefreshBtn" title="Veri Modelinden Güncelle" data-i18n-title-tr="Veri Modelinden Güncelle" data-i18n-title-en="Refresh from data model"><svg class="ic"><use href="#i-reload"/></svg></button>
+  <button class="iconbtn syncStatusBtn" id="syncStatusBtn" title="Offline" aria-label="Offline"><span class="syncStatusBadge is-offline" id="syncStatusBadge"><svg class="ic" aria-hidden="true"><use href="#i-cloud-off"/></svg></span></button>
+  <span class="accessModeBadge" id="accessModeBadge"></span><button type="button" class="userAvatar userAvatarBtn" id="currentUserBtn" title="Kullanıcı menüsü" data-i18n-title-tr="Kullanıcı menüsü" data-i18n-title-en="User menu"><span id="currentUserInitials">?</span></button>
+</header>
+
+<!-- v7.81 — "KAYNAK VERİ" ŞERİDİ KALDIRILDI.
+
+     Karar veren her denetimi Veri Yönetimi ekranına taşıdıktan sonra şerit
+     boş kaldı: açılan panelde yalnız bir süre sayacı ve iki gizli dosya
+     girdisi vardı. Boş bir çekmeceyi açan bir düğme, kullanıcıya öğretecek
+     hiçbir şeyi olmayan bir tıklamadır.
+
+     Süre sayacı ve durum satırı Veri Yönetimi › Yenileme bölümünde.
+     Gizli dosya girdileri aşağıda duruyor: Araçlar bölümündeki "Kur Excel’i"
+     ve Antrepo yükleme yolları onları tetikliyor. -->
+<div class="blHiddenInputs" hidden>
+  <input type="file" id="fileAntrepo" accept=".xlsx" hidden>
+  <input type="file" id="sourceFxFile" accept=".xlsx,.xls" hidden>
+</div>
+<div class="hint" id="cpImportProgress" style="display:none;"></div>
+
+<div class="vfBar">
+  <span style="width:10px;"></span>
+  <span id="vfSharedActionsStart" class="vfSharedActionAnchor" aria-hidden="true"></span>
+  <button class="navActionBtn" id="undoBtn" title="Geri al (Ctrl+Z)" data-i18n-title-tr="Geri al (Ctrl+Z)" data-i18n-title-en="Undo (Ctrl+Z)" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-arrow-back-up"/></svg> <span data-i18n-tr="Geri" data-i18n-en="Undo">Geri</span></button>
+  <button class="navActionBtn" id="redoBtn" title="İleri al (Ctrl+Y)" data-i18n-title-tr="İleri al (Ctrl+Y)" data-i18n-title-en="Redo (Ctrl+Y)" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-arrow-forward-up"/></svg> <span data-i18n-tr="İleri" data-i18n-en="Redo">İleri</span></button>
+  <button class="navActionBtn" id="cpCopyToKolBtn" title="Seçili CP satırlarını Koleksiyon sayfasına kopyala" disabled data-tb-priority="secondary"><svg class="ic"><use href="#i-copy-plus"/></svg> <span data-i18n-tr="Koleksiyona Kopyala" data-i18n-en="Copy to Collection">Koleksiyona Kopyala</span></button>
+  <button class="navActionBtn" id="navCopy" title="Kopyala (başlıklarla) — Ctrl+C" data-i18n-title-tr="Kopyala (başlıklarla) — Ctrl+C" data-i18n-title-en="Copy with headers — Ctrl+C" data-tb-priority="secondary" data-tb-compact="icon"><svg class="ic"><use href="#i-copy"/></svg> <span data-i18n-tr="Kopyala" data-i18n-en="Copy">Kopyala</span></button>
+  <button class="navActionBtn gridClipboardMenuBtn" id="navCopyMenuBtn" type="button" title="Kopyalama seçenekleri" data-i18n-title-tr="Kopyalama seçenekleri" data-i18n-title-en="Copy options" aria-haspopup="menu" aria-expanded="false" data-tb-priority="secondary">▾</button>
+  <span id="gridSelectionStatus" class="gridSelectionStatus" aria-live="polite" data-tb-overflow="never"></span>
+  <button class="navActionBtn" id="navExcelBtn" title="Ekrandaki tabloyu (filtre, sütun ve işaretleme seçimine göre) hücre biçimleriyle Excel'e aktar" data-tb-priority="secondary" data-tb-compact="icon"><svg class="ic"><use href="#i-file-export"/></svg><span id="navExcelBtnLabel">Excel'e Aktar</span></button>
+  <span class="vfGroupLabel" id="vfSelLabel" data-i18n-tr="Seçilenler" data-i18n-en="Selected" aria-hidden="true">Seçilenler</span>
+  <button class="navActionBtn" id="cpCreateOcBtn" title="Seçili satırlardan ön maliyet oluştur" disabled><svg class="ic"><use href="#i-calculator"/></svg> <span data-i18n-tr="Maliyet Oluştur" data-i18n-en="Create OC">Maliyet Oluştur</span></button>
+  <button class="navActionBtn" id="cpQuotationsBtn" title="CP fiyatlandırma taleplerini ve tekliflerini takip et"><svg class="ic"><use href="#i-coins"/></svg> <span data-i18n-tr="Fiyat Çalışmaları" data-i18n-en="Quotations">Fiyat Çalışmaları</span></button>
+  <button class="navActionBtn" id="cpPriceHistoryBtn" disabled><svg class="ic"><use href="#i-coins"/></svg> Fiyat Geçmişi</button>
+  <button class="navActionBtn" id="selectedBacklogBtn" title="Seçili siparişlerin Backlog raporunu göster" disabled><svg class="ic"><use href="#i-search"/></svg> <span data-i18n-tr="Backlog Raporu" data-i18n-en="Backlog Report">Backlog Raporu</span></button>
+  <button class="navActionBtn" id="cpSendPricingBtn" hidden aria-hidden="true" tabindex="-1" disabled><svg class="ic"><use href="#i-mail-send"/></svg> Fiyatlamaya Gönder</button>
+  <button class="navActionBtn" id="cpProdStatusBtn" title="Seçili siparişler için e-posta taslağı hazırla" disabled><svg class="ic"><use href="#i-mail-send"/></svg> <span data-i18n-tr="E-Posta Hazırla" data-i18n-en="Prepaire E-Mail">E-Posta Hazırla</span></button>
+  <button class="navActionBtn" id="navToShipping" title="Seçili (tikli) satırları Nakliye Tipine Göre Maliyet Kıyaslaması tablosuna aktar" disabled><svg class="ic"><use href="#i-ship"/></svg> <span data-i18n-tr="Nakliye Kıyaslama" data-i18n-en="Shipping Comparison">Nakliye Kıyaslama</span></button>
+  <button class="navActionBtn" id="navFitColumnsBtn" title="Tüm sütunları en dar okunabilir genişliğe getir" data-i18n-title-tr="Tüm sütunları en dar okunabilir genişliğe getir" data-i18n-title-en="Fit all columns to the narrowest readable width"><svg class="ic"><use href="#i-columns-3"/></svg> <span data-i18n-tr="Sütunları Sığdır" data-i18n-en="Fit Column Width">Sütunları Sığdır</span></button>
+  <button class="navActionBtn" id="navFreezeBtn" title="Sütun dondur (Excel'deki Bölmeleri Dondur gibi)"><svg class="ic"><use href="#i-snowflake"/></svg> <span data-i18n-tr="Sütunları Dondur" data-i18n-en="Freeze Columns">Sütunları Dondur</span></button>
+  <button class="navActionBtn toolbarFramedAction" id="navClearFilters" title="Tüm filtreleri temizle" data-tb-priority="utility" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-filter-clear"/></svg> <span data-i18n-tr="Filtreleri Temizle" data-i18n-en="Clear Filters">Filtreleri Temizle</span></button>
+  <div class="colPanelWrap navColsRight">
+    <button class="navActionBtn" id="navColsBtn" title="Sütunları yönet" data-i18n-title-tr="Sütunları yönet" data-i18n-title-en="Manage columns" aria-haspopup="true" aria-expanded="false"><svg class="ic"><use href="#i-columns-3"/></svg> <span data-i18n-tr="Sütunlar" data-i18n-en="Columns">Sütunlar</span></button>
+    <div class="colPanel" id="navColPanel"></div>
+  </div>
+  <span id="vfSharedActionsEnd" class="vfSharedActionAnchor" aria-hidden="true"></span>
+  <div class="vfProfileStaging" hidden>
+    <span style="color:var(--muted);">Görünüm:</span>
+    <select id="viewSelect" style="max-width:220px;"><option value="">— seçilmedi —</option></select>
+    <button class="navActionBtn" id="viewFavBtn" title="Seçili görünümü favori yap (her açılışta otomatik gelir)"><svg class="ic"><use href="#i-star"/></svg> Favori</button>
+    <button class="navActionBtn" id="viewSaveBtn" title="Seçili görünümün üzerine kaydet"><svg class="ic"><use href="#i-device-floppy"/></svg> Kaydet</button>
+    <button class="navActionBtn" id="viewSaveAsBtn" title="Yeni isimle kaydet"><svg class="ic"><use href="#i-copy-plus"/></svg> Farklı kaydet</button>
+    <button class="navActionBtn" id="viewRenameBtn" title="Seçili görünümün adını değiştir"><svg class="ic"><use href="#i-pencil"/></svg> Adlandır</button>
+    <button class="navActionBtn" id="viewResetBtn" title="Sistem varsayılan görünümüne dön"><svg class="ic"><use href="#i-refresh"/></svg> Varsayılana dön</button>
+    <button class="navActionBtn" id="viewDeleteBtn" title="Seçili görünümü sil"><svg class="ic"><use href="#i-trash"/></svg></button>
+    <span style="color:var(--muted);">Filtre:</span>
+    <select id="filterSelect" style="max-width:220px;"><option value="">— seçilmedi —</option></select>
+    <button class="navActionBtn" id="filterFavBtn" title="Seçili filtreyi favori yap (her açılışta otomatik gelir)"><svg class="ic"><use href="#i-star"/></svg> Favori</button>
+    <button class="navActionBtn" id="filterSaveBtn" title="Seçili filtrenin üzerine kaydet"><svg class="ic"><use href="#i-device-floppy"/></svg> Kaydet</button>
+    <button class="navActionBtn" id="filterSaveAsBtn" title="Yeni isimle kaydet"><svg class="ic"><use href="#i-copy-plus"/></svg> Farklı kaydet</button>
+    <button class="navActionBtn" id="filterRenameBtn" title="Seçili filtrenin adını değiştir"><svg class="ic"><use href="#i-pencil"/></svg> Adlandır</button>
+    <button class="navActionBtn" id="filterResetBtn" title="Sistem varsayılan filtrelerine dön"><svg class="ic"><use href="#i-refresh"/></svg> Varsayılana dön</button>
+    <button class="navActionBtn" id="filterDeleteBtn" title="Seçili filtreyi sil"><svg class="ic"><use href="#i-trash"/></svg></button>
+  </div>
+  <div class="vfBarRowBreak" data-dimbreak="1"></div>
+  <div class="cpDimFilterGroup" id="cpDimFilterGroup">
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="cpDimBtn_buyerGrup" data-cpdim="buyerGrup" aria-expanded="false"><svg class="ic"><use href="#i-users-group"/></svg><span class="dimBtnText">Buying Group: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel cpDimPanel" id="cpDimPanel_buyerGrup" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="cpDimBtn_buyer" data-cpdim="buyer" aria-expanded="false"><svg class="ic"><use href="#i-user"/></svg><span class="dimBtnText">Buyer: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel cpDimPanel" id="cpDimPanel_buyer" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="cpDimBtn_country" data-cpdim="country" aria-expanded="false"><svg class="ic"><use href="#i-globe"/></svg><span class="dimBtnText">Country: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel cpDimPanel" id="cpDimPanel_country" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="cpDimBtn_merch" data-cpdim="merch" aria-expanded="false"><svg class="ic"><use href="#i-hierarchy"/></svg><span class="dimBtnText">MAG: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel cpDimPanel" id="cpDimPanel_merch" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="cpDimBtn_ageGroup" data-cpdim="ageGroup" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="dimBtnText">MMYG: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel cpDimPanel" id="cpDimPanel_ageGroup" style="display:none;"></div>
+    </div>
+  </div>
+  <div class="ordersDimFilterGroup" id="ordersDimFilterGroup">
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="ordersDimBtn_buyerGrup" data-ordersdim="buyerGrup" aria-expanded="false"><svg class="ic"><use href="#i-users-group"/></svg><span class="dimBtnText">Buying Group: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel ordersDimPanel" id="ordersDimPanel_buyerGrup" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="ordersDimBtn_buyer" data-ordersdim="buyer" aria-expanded="false"><svg class="ic"><use href="#i-user"/></svg><span class="dimBtnText">Buyer: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel ordersDimPanel" id="ordersDimPanel_buyer" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="ordersDimBtn_country" data-ordersdim="country" aria-expanded="false"><svg class="ic"><use href="#i-globe"/></svg><span class="dimBtnText">Country: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel ordersDimPanel" id="ordersDimPanel_country" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="ordersDimBtn_merch" data-ordersdim="merch" aria-expanded="false"><svg class="ic"><use href="#i-hierarchy"/></svg><span class="dimBtnText">MAG: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel ordersDimPanel" id="ordersDimPanel_merch" style="display:none;"></div>
+    </div>
+    <div class="colPanelWrap" style="display:inline-block;">
+      <button class="navActionBtn dimFilterBtn" id="ordersDimBtn_ageGroup" data-ordersdim="ageGroup" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="dimBtnText">MMYG: hepsi</span><svg class="ic dimChevron"><use href="#i-chevron-down"/></svg></button>
+      <div class="colPanel ordersDimPanel" id="ordersDimPanel_ageGroup" style="display:none;"></div>
+    </div>
+  </div>
+  <div class="vfBarRowBreak" data-dimbreak="1"></div>
+</div>
+
+<main>
+  <section id="view-overview" class="active">
+    <div id="ovEmpty" class="empty"><div class="uiState uiState--loading" role="status" aria-live="polite" aria-atomic="true" aria-busy="true"><span class="uiStateSpinner blOrb uiStateOrb" data-state="thinking" aria-hidden="true"></span><div class="uiStateBody"><b data-i18n-tr="Veriler ekranlara yükleniyor." data-i18n-en="Loading data into the screens.">Veriler ekranlara yükleniyor.</b><span data-i18n-tr="Aktif filtre kapsamı ve veri hacmine göre bekleme süresi uzayabilir." data-i18n-en="The wait may increase with the active filter scope and data volume.">Aktif filtre kapsamı ve veri hacmine göre bekleme süresi uzayabilir.</span></div></div></div>
+    <div class="ovDashboardToolbar">
+      <button type="button" id="ovLayoutEditBtn" class="navActionBtn"><svg class="ic"><use href="#i-layout-dashboard"/></svg><span data-i18n-tr="Düzeni Düzenle" data-i18n-en="Edit Layout">Düzeni Düzenle</span></button>
+      <div id="ovLayoutEditPanel" class="ovLayoutEditPanel" hidden>
+        <span data-i18n-tr="Modül ekle" data-i18n-en="Add module">Modül ekle</span>
+        <select id="ovLayoutAddSelect" aria-label="Add Overview module"></select>
+        <button type="button" id="ovLayoutAddBtn" class="tbtn" data-i18n-tr="Ekle" data-i18n-en="Add">Ekle</button>
+        <button type="button" id="ovLayoutResetBtn" class="tbtn" data-i18n-tr="Varsayılan düzen" data-i18n-en="Reset layout">Varsayılan düzen</button>
+        <button type="button" id="ovLayoutDoneBtn" class="tbtn primary" data-i18n-tr="Tamam" data-i18n-en="Done">Tamam</button>
+      </div>
+    </div>
+    <div id="ovDashboardGrid" class="ovDashboardGrid">
+    <section id="ovLaunchpad" data-overview-widget="launchpad" class="ovLaunchpad" aria-label="Dünya Saatleri" data-i18n-aria-label-tr="Dünya Saatleri" data-i18n-aria-label-en="World Clocks"></section>
+    <section id="globalFlowMapWidget" data-overview-widget="globalFlowMap" class="globalFlowMapWidget" aria-label="Global Flow Map">
+      <div class="globalFlowHead">
+        <p class="globalFlowTitle">
+          <svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg>
+          <span class="globalFlowTitleText"><span>Global Flow Map</span><small data-i18n-tr="Siparişlerin global üretim ve sevkiyat akışı" data-i18n-en="Global production and shipment flow">Siparişlerin global üretim ve sevkiyat akışı</small></span>
+        </p>
+        <div id="globalFlowControls" class="globalFlowControls"></div>
+        <button type="button" class="ovNotesCollapseBtn" id="globalFlowCollapseBtn" aria-expanded="true" title="Global Flow Map'i daralt" data-i18n-title-tr="Global Flow Map'i daralt" data-i18n-title-en="Collapse Global Flow Map"><svg class="ic"><use href="#i-chevron-up"/></svg></button>
+      </div>
+      <div id="globalFlowBody" class="globalFlowBody">
+        <div id="globalFlowMeta" class="globalFlowMeta" role="status" aria-live="polite"></div>
+        <div id="globalFlowFilters" class="globalFlowFilters" hidden></div>
+        <div class="globalFlowStage">
+          <div id="globalFlowCanvasWrap" class="globalFlowCanvasWrap">
+            <canvas id="globalFlowCanvas" aria-label="Global shipment flow map"></canvas>
+            <div id="globalFlowKpis" class="globalFlowKpis"></div>
+            <div class="globalFlowLegend" aria-hidden="true">
+              <span><i></i><b data-i18n-tr="Üretim" data-i18n-en="Production">Üretim</b></span>
+              <span class="sea"><i></i><b data-i18n-tr="Gemi" data-i18n-en="Sea">Gemi</b></span>
+              <span class="air"><i></i><b data-i18n-tr="Uçak" data-i18n-en="Air">Uçak</b></span>
+              <span class="road"><i></i><b data-i18n-tr="Tır" data-i18n-en="Road">Tır</b></span>
+              <span class="critical"><i></i><b data-i18n-tr="Kritik" data-i18n-en="Critical">Kritik</b></span>
+            </div>
+            <div id="globalFlowTooltip" class="globalFlowTooltip" hidden></div>
+          </div>
+        </div>
+        <div class="globalFlowFoot">
+          <strong data-i18n-tr="Etkileşim" data-i18n-en="Interaction">Etkileşim</strong>
+          <span data-i18n-tr="Sürükle: hareket · Tekerlek: yakınlaştır · Tıkla: detay" data-i18n-en="Drag: move · Wheel: zoom · Click: details">Sürükle: hareket · Tekerlek: yakınlaştır · Tıkla: detay</span>
+          <span class="gfSpacer"></span>
+          <span data-i18n-tr="Rotalar operasyonel yaklaşımdır; canlı GPS/AIS değildir." data-i18n-en="Routes are operational approximations, not live GPS/AIS.">Rotalar operasyonel yaklaşımdır; canlı GPS/AIS değildir.</span>
+        </div>
+      </div>
+      <aside id="globalFlowDrawer" class="globalFlowDrawer" aria-hidden="true"></aside>
+    </section>
+    <section id="ovPriorityReminder" data-overview-widget="notes" class="ovPriorityReminder" aria-live="polite" style="display:none">
+        <div class="ovPriorityHeader">
+          <div>
+            <p class="cardTitle ovPriorityTitle"><svg class="ic" aria-hidden="true"><use href="#i-notebook"/></svg><span data-i18n-tr="Not Hatırlatıcısı" data-i18n-en="Notes Reminder">Not Hatırlatıcısı</span></p>
+            <p id="ovPriorityIntro" class="ovPriorityIntro"></p>
+          </div>
+          <div class="ovPriorityHeaderActions">
+            <button type="button" id="ovNotesSortBtn" class="ovNotesSortBtn" title="Notları eskiden yeniye sırala" data-i18n-title-tr="Notları eskiden yeniye sırala" data-i18n-title-en="Sort notes oldest to newest" aria-label="Not sıralaması">
+              <svg class="ic" aria-hidden="true"><use href="#i-arrows-down-up"/></svg><span>Eski → Yeni</span>
+            </button>
+            <button type="button" id="ovNotesCollapseBtn" class="ovNotesCollapseBtn" title="Not Hatırlatıcısını daralt" aria-label="Not Hatırlatıcısını daralt" aria-expanded="true">
+              <svg class="ic" aria-hidden="true"><use href="#i-chevron-up"/></svg>
+            </button>
+            <div id="ovPriorityStats" class="ovPriorityStats"></div>
+          </div>
+        </div>
+        <div id="ovPriorityList" class="ovPriorityList"></div>
+        <p id="ovPriorityMethod" class="ovPriorityMethod"></p>
+    </section>
+    <section id="ovCollectionSummary" data-overview-widget="collectionSummary" class="ovCollectionSummary" aria-live="polite">
+      <div class="ovCollectionSummaryHeader">
+        <div class="ovCollectionSummaryHeading">
+          <p class="cardTitle ovCollectionSummaryTitle"><svg class="ic" aria-hidden="true"><use href="#i-table"/></svg><span data-i18n-tr="Koleksiyon" data-i18n-en="Collection">Koleksiyon</span></p>
+          <p id="ovCollectionSummaryIntro" class="ovCollectionSummaryIntro"></p>
+        </div>
+        <div class="ovCollectionSummaryHeaderActions">
+          <div id="ovCollectionSummaryScope" class="ovCollectionSummaryScope">
+            <span id="ovCollectionSummaryScopeLabel" class="ovCollectionSummaryScopeLabel" tabindex="0" role="button" title="Filtre sütununu değiştirmek için çift tıkla" data-i18n-title-tr="Filtre sütununu değiştirmek için çift tıkla" data-i18n-title-en="Double-click to change the filter column">In Store Month</span>
+            <button type="button" id="ovCollectionSummaryScopeTrigger" class="ovCollectionSummaryScopeTrigger" aria-haspopup="listbox" aria-expanded="false"><span id="ovCollectionSummaryScopeValue">Tümü</span><span class="ovCollectionScopeChevron" aria-hidden="true">▾</span></button>
+            <div id="ovCollectionSummaryScopePopover" class="ovCollectionSummaryScopePopover" hidden></div>
+          </div>
+          <button type="button" id="ovCollectionSummaryCollapseBtn" class="ovNotesCollapseBtn" title="Koleksiyon Özetini daralt" aria-label="Koleksiyon Özetini daralt" aria-expanded="true"><svg class="ic" aria-hidden="true"><use href="#i-chevron-up"/></svg></button>
+        </div>
+      </div>
+      <div class="ovCollectionSummaryBody">
+        <div id="ovCollectionSummaryKpi" class="ovCollectionSummaryKpi"></div>
+        <div class="ovCollectionStatusSection">
+          <div class="ovCollectionStatusSectionHead"><div><b data-i18n-tr="Status Dağılımı" data-i18n-en="Status Distribution">Status Dağılımı</b><span data-i18n-tr="Koleksiyon akışının hangi aşamada yoğunlaştığını gösterir." data-i18n-en="Shows where the Collection workflow is concentrated.">Koleksiyon akışının hangi aşamada yoğunlaştığını gösterir.</span></div><span id="ovCollectionSummaryScopeMeta"></span></div>
+          <div id="ovCollectionSummaryDistributionBar" class="ovCollectionSummaryDistributionBar" aria-label="Status distribution"></div>
+          <div id="ovCollectionSummaryStatusDistribution" class="ovCollectionSummaryStatusDistribution"></div>
+        </div>
+      </div>
+    </section>
+    <!-- OAB (Order-Assortment-Budget) — kasıtlı olarak ovEmpty/ovContent'ten
+         BAĞIMSIZ: CP verisi yüklenmemiş/hatalı olsa bile OAB kendi başına
+         çalışabilmeli (test senaryosu: "Overview açıldığında OAB mevcut diğer
+         Overview fonksiyonlarını bozmuyor" ve tersi). -->
+    <div id="oabSection" data-overview-widget="oab" class="cardBox oabSection">
+      <div class="oabHeader">
+        <div class="oabHeaderMain">
+          <p class="cardTitle ovSectionTitle"><svg class="ic" aria-hidden="true"><use href="#i-chart-histogram"/></svg><span data-i18n-tr="OAB" data-i18n-en="OAB">OAB</span></p>
+        </div>
+        <div class="oabHeaderActions">
+          <button type="button" class="ovNotesCollapseBtn" id="oabCollapseBtn" data-overview-collapse="oab" aria-expanded="true" title="OAB'ı daralt" aria-label="OAB'ı daralt" data-i18n-title-tr="OAB'ı daralt" data-i18n-title-en="Collapse OAB"><svg class="ic" aria-hidden="true"><use href="#i-chevron-up"/></svg></button>
+          <button type="button" class="navActionBtn" id="oabSettingsBtn" title="OAB Ayarları" data-i18n-title-tr="OAB Ayarları" data-i18n-title-en="OAB Settings"><svg class="ic"><use href="#i-pencil"/></svg></button>
+        </div>
+      </div>
+      <div class="oabAuthBar" id="oabAuthBar"></div>
+      <!-- v7.20 — Season/MAG/Buyer Group ÇOKLU seçim. OAB sitesi bu üç filtreyi
+           tek seçime kapatıyor; Buyer Log çoklu seçtirip seçilen kombinasyonların
+           tamamını arka planda çekiyor ve tek rapor olarak birleştiriyor. -->
+      <div class="oabFilterBar">
+        <div class="oabFilterField oabMultiField">
+          <button type="button" class="oabMultiTrigger" id="oabSeasonTrigger" data-oab-multi="season" disabled aria-haspopup="listbox" aria-expanded="false" aria-label="Season" title="Season" data-i18n-title-tr="Season" data-i18n-title-en="Season"><span class="oabMultiLabel" id="oabSeasonLabel">—</span><span class="oabMultiChevron" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="oabFilterField oabMultiField">
+          <button type="button" class="oabMultiTrigger" id="oabMagTrigger" data-oab-multi="mag" disabled aria-haspopup="listbox" aria-expanded="false" aria-label="MAG" title="MAG" data-i18n-title-tr="MAG" data-i18n-title-en="MAG"><span class="oabMultiLabel" id="oabMagLabel">—</span><span class="oabMultiChevron" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="oabFilterField oabMultiField">
+          <button type="button" class="oabMultiTrigger" id="oabBuyerGroupTrigger" data-oab-multi="buyerGroup" disabled aria-haspopup="listbox" aria-expanded="false" aria-label="Buyer Group" title="Buyer Group" data-i18n-title-tr="Buyer Group" data-i18n-title-en="Buyer Group"><span class="oabMultiLabel" id="oabBuyerGroupLabel">—</span><span class="oabMultiChevron" aria-hidden="true">▾</span></button>
+        </div>
+        <button type="button" class="navActionBtn" id="oabGetBtn" disabled data-i18n-tr="Get OAB" data-i18n-en="Get OAB">Get OAB</button>
+        <button type="button" class="navActionBtn" id="oabRefreshBtn" disabled title="Refresh OAB" data-i18n-title-tr="Refresh OAB" data-i18n-title-en="Refresh OAB"><svg class="ic"><use href="#i-refresh"/></svg></button>
+        <button type="button" class="navActionBtn oabCancelBtn" id="oabCancelBtn" hidden data-i18n-tr="İptal" data-i18n-en="Cancel">İptal</button>
+        <div class="oabViewTabs oabTopActions">
+          <button type="button" class="navActionBtn active" data-oab-view="pivot" data-i18n-tr="Pivot" data-i18n-en="Pivot">Pivot</button>
+          <button type="button" class="navActionBtn" data-oab-view="raw" data-i18n-tr="Raw Data" data-i18n-en="Raw Data">Raw Data</button>
+          <button type="button" class="navActionBtn oabGroupAction" id="oabCollapseAllBtn" title="Tüm grupları daralt" data-i18n-title-tr="Tüm grupları daralt" data-i18n-title-en="Collapse all groups"><svg class="ic"><use href="#i-chevrons-left"/></svg></button>
+          <button type="button" class="navActionBtn oabGroupAction" id="oabExpandAllBtn" title="Tüm grupları genişlet" data-i18n-title-tr="Tüm grupları genişlet" data-i18n-title-en="Expand all groups"><svg class="ic"><use href="#i-chevrons-right"/></svg></button>
+          <button type="button" class="navActionBtn" id="oabExcelExportBtn" title="OAB Raw Data ve Pivot tablolarını Excel'e aktar" data-i18n-title-tr="OAB Raw Data ve Pivot tablolarını Excel'e aktar" data-i18n-title-en="Export OAB Raw Data and Pivot tables to Excel"><svg class="ic"><use href="#i-file-export"/></svg><span data-i18n-tr="Excel'e Aktar" data-i18n-en="Export Excel">Excel'e Aktar</span></button>
+        </div>
+      </div>
+      <!-- Maliyet, seçim yapıldıkça sunucudaki PLANDAN gelir: ekranda görünen
+           sayı ile gerçekte çekilecek istek sayısı ayrışamaz. -->
+      <div class="oabPlanBar" id="oabPlanBar" hidden></div>
+      <div class="oabProgressBar" id="oabProgressBar" hidden>
+        <div class="oabProgressTrack"><div class="oabProgressFill" id="oabProgressFill"></div></div>
+        <span class="oabProgressText" id="oabProgressText"></span>
+      </div>
+      <div id="oabStatus" class="oabStatus" hidden></div>
+      <div id="oabBody" class="oabBody" hidden>
+        <div class="oabLocalFilterBar" id="oabLocalFilterBar"></div>
+        <div class="cardBox oabTableWrap" id="oabTableWrap"><table class="miniTable" id="oabTable"></table></div>
+      </div>
+    </div>
+    <!-- INTAKE — OAB ile aynı Overview yüzeyinde, kendi veri/cache hata sınırıyla. -->
+    <div id="intakeSection" data-overview-widget="intake" class="cardBox intakeSection">
+      <div class="intakeHeader">
+        <div class="intakeHeaderMain">
+          <p class="cardTitle ovSectionTitle"><svg class="ic" aria-hidden="true"><use href="#i-database-import"/></svg><span data-i18n-tr="INTAKE" data-i18n-en="INTAKE">INTAKE</span></p>
+          <span id="intakeStateMeta" class="intakeStateMeta"></span>
+        </div>
+        <div class="intakeHeaderActions">
+          <button type="button" class="navActionBtn" id="intakeResetBtn" data-i18n-tr="Varsayılana dön" data-i18n-en="Reset view">Varsayılana dön</button>
+          <button type="button" class="navActionBtn" id="intakeRefreshBtn" title="INTAKE verisini yenile" data-i18n-title-tr="INTAKE verisini yenile" data-i18n-title-en="Refresh INTAKE"><svg class="ic"><use href="#i-refresh"/></svg><span data-i18n-tr="Yenile" data-i18n-en="Refresh">Yenile</span></button>
+          <button type="button" class="navActionBtn intakeFiltersBtn" id="intakeFiltersBtn" aria-expanded="false" aria-controls="intakeFilterPanel" title="INTAKE filtreleri" data-i18n-title-tr="INTAKE filtreleri" data-i18n-title-en="INTAKE filters"><svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg></button>
+          <button type="button" class="navActionBtn oabGroupAction" id="intakeCollapseAllBtn" hidden title="Tüm grupları daralt" data-i18n-title-tr="Tüm grupları daralt" data-i18n-title-en="Collapse all groups"><svg class="ic"><use href="#i-chevrons-left"/></svg></button>
+          <button type="button" class="navActionBtn oabGroupAction" id="intakeExpandAllBtn" hidden title="Tüm grupları genişlet" data-i18n-title-tr="Tüm grupları genişlet" data-i18n-title-en="Expand all groups"><svg class="ic"><use href="#i-chevrons-right"/></svg></button>
+          <button type="button" class="ovNotesCollapseBtn" id="intakeCollapseBtn" data-overview-collapse="intake" aria-expanded="true" title="INTAKE'i daralt" aria-label="INTAKE'i daralt" data-i18n-title-tr="INTAKE'i daralt" data-i18n-title-en="Collapse INTAKE"><svg class="ic" aria-hidden="true"><use href="#i-chevron-up"/></svg></button>
+          <button type="button" class="navActionBtn" id="intakeFieldsBtn" title="INTAKE pivot satır, sütun, ölçü ve filtre alanlarını düzenle" aria-label="Pivot ayarları" data-i18n-title-tr="INTAKE pivot satır, sütun, ölçü ve filtre alanlarını düzenle" data-i18n-title-en="Edit INTAKE pivot rows, columns, measures and filters"><svg class="ic" aria-hidden="true"><use href="#i-pencil"/></svg></button>
+        </div>
+      </div>
+      <div id="intakeHorizonBadge" class="horizonBadge" data-horizon-target="intake"></div>
+      <div id="intakeStatus" class="intakeStatus" hidden></div>
+      <div id="intakeFilterPanel" class="intakeFilterPanel" hidden><div id="intakeFilterBar" class="intakeFilterBar"></div></div>
+      <div id="intakeBody" class="intakeBody" hidden>
+        <div class="cardBox intakeTableWrap"><table class="miniTable" id="intakeTable"></table></div>
+      </div>
+    </div>
+    <div id="ovContent" data-overview-widget="overviewContent" style="display:none">
+      <section id="ovRefreshResult" class="ovRefreshResult" aria-live="polite" hidden></section>
+      <div id="ovDetailGrid" class="ovDetailGrid">
+        <div class="ovDetailWidget" data-overview-detail-widget="productionFocus">
+          <div id="cpAssistant"></div>
+        </div>
+        <div class="cardBox ovDetailWidget" data-overview-detail-widget="priorityRadar">
+          <div class="ovDetailHeader">
+            <p class="cardTitle"><svg class="ic" aria-hidden="true"><use href="#i-chart-histogram"/></svg><span data-i18n-tr="CP Öncelik Radarı" data-i18n-en="CP Priority Radar">CP Öncelik Radarı</span></p>
+            <button type="button" class="ovDetailCollapseBtn" data-ov-detail-collapse="priorityRadar" aria-expanded="true" title="Daralt"><svg class="ic"><use href="#i-chevron-up"/></svg></button>
+          </div>
+          <div class="ovDetailWidgetBody"><div id="ovPriorityRadar" class="ovRadarHost" aria-live="polite"></div></div>
+        </div>
+        <div class="ovDetailWidget" data-overview-detail-widget="attention">
+          <div id="cpAssistantAttention"></div>
+        </div>
+        <div class="ovDetailWidget" data-overview-detail-widget="dataCoverage">
+          <div id="cpAssistantCoverage"></div>
+        </div>
+        <div class="cardBox ovDetailWidget" data-overview-detail-widget="country">
+          <div class="ovDetailHeader">
+            <p class="cardTitle" data-i18n-tr="Ülke Bazlı Aktif Siparişler" data-i18n-en="Active Orders by Country">Ülke Bazlı Aktif Siparişler</p>
+            <button type="button" class="ovDetailCollapseBtn" data-ov-detail-collapse="country" aria-expanded="true" title="Daralt"><svg class="ic"><use href="#i-chevron-up"/></svg></button>
+          </div>
+          <div class="ovDetailWidgetBody"><table class="miniTable" id="tblCountry"></table></div>
+        </div>
+        <div class="cardBox ovDetailWidget" data-overview-detail-widget="subManufacturer">
+          <div class="ovDetailHeader">
+            <p class="cardTitle" data-i18n-tr="Alt Üreticiye Göre Aktif Siparişler" data-i18n-en="Active Orders by Sub-Manufacturer">Alt Üreticiye Göre Aktif Siparişler</p>
+            <button type="button" class="ovDetailCollapseBtn" data-ov-detail-collapse="subManufacturer" aria-expanded="true" title="Daralt"><svg class="ic"><use href="#i-chevron-up"/></svg></button>
+          </div>
+          <div class="ovDetailWidgetBody"><table class="miniTable" id="tblLicense"></table></div>
+        </div>
+        <div class="cardBox ovDetailWidget" data-overview-detail-widget="season">
+          <div class="ovDetailHeader">
+            <p class="cardTitle"><span data-i18n-tr="Sezon Bazlı Aktif Sipariş Özeti" data-i18n-en="Active Orders by Season">Sezon Bazlı Aktif Sipariş Özeti</span></p>
+            <div class="ovDetailHeaderActions"><button type="button" class="ovEditBtn" data-ovfilter-trigger title="Filtreler"><svg class="ic"><use href="#i-pencil"/></svg></button><button type="button" class="ovDetailCollapseBtn" data-ov-detail-collapse="season" aria-expanded="true" title="Daralt"><svg class="ic"><use href="#i-chevron-up"/></svg></button></div>
+          </div>
+          <div class="ovDetailWidgetBody"><table class="miniTable" id="tblSeason"></table></div>
+        </div>
+        <div class="cardBox ovDetailWidget" data-overview-detail-widget="buyingGroup">
+          <div class="ovDetailHeader">
+            <p class="cardTitle"><span data-i18n-tr="Group Bazlı Özet" data-i18n-en="Overview per Buying Group">Group Bazlı Özet</span></p>
+            <div class="ovDetailHeaderActions"><button type="button" class="ovEditBtn" data-ovfilter-trigger="bg" title="Filtreler"><svg class="ic"><use href="#i-pencil"/></svg></button><button type="button" class="ovDetailCollapseBtn" data-ov-detail-collapse="buyingGroup" aria-expanded="true" title="Daralt"><svg class="ic"><use href="#i-chevron-up"/></svg></button></div>
+          </div>
+          <div class="ovDetailWidgetBody"><table class="miniTable" id="tblBuyingGroup"></table><div id="ovFilterBadgeBg" style="display:none;margin-top:8px;font-size:11.5px;color:var(--acc-ink);background:var(--acc-bg);border:1px solid var(--acc-lite);border-radius:8px;padding:8px 12px;"></div></div>
+        </div>
+      </div>
+      <div class="kpirow" id="kpiOrders" hidden aria-hidden="true" style="display:none!important"></div>
+      <div id="ovFilterBadge" style="display:none;margin-top:10px;font-size:11.5px;color:var(--acc-ink);background:var(--acc-bg);border:1px solid var(--acc-lite);border-radius:8px;padding:8px 12px;"></div>
+    </div>
+    </div>
+  </section>
+
+  <section id="view-cp">
+    <div class="horizonBadge" id="cpHorizonBadge"><span class="horizonBadgeLabel">Model ufku</span><span class="horizonBadgeText">ortak/yerel horizon — tüm veri kaynağı</span></div>
+    <div id="cpEmpty" class="empty">CP verisini yüklemek için Kaynak Veri panelini kullan.</div>
+    <div id="cpContent" style="display:none">
+      <div class="kpirow" id="cpKpi"></div>
+      <div class="panel">
+        <div class="workspaceContextBar" aria-label="CP workspace context" data-i18n-aria-label-tr="CP çalışma alanı bağlamı" data-i18n-aria-label-en="CP workspace context">
+          <span class="workspaceContextMeta" id="cpWorkspaceMeta">—</span>
+          <div class="tableViewActions" id="cpTableViewActions" role="group" aria-label="Table view">
+            <span class="tableViewLabel" data-i18n-tr="GÖRÜNÜM" data-i18n-en="VIEW">GÖRÜNÜM</span>
+            <button type="button" class="tableViewPreset" data-table-view-preset="focus" data-table-key="cp" aria-pressed="false"><span data-i18n-tr="Odak" data-i18n-en="Focus">Odak</span></button>
+            <button type="button" class="tableViewPreset" data-table-view-preset="extended" data-table-key="cp" aria-pressed="false"><span data-i18n-tr="Extended" data-i18n-en="Extended">Extended</span></button>
+            <button type="button" class="tableViewPreset" data-table-view-preset="all" data-table-key="cp" aria-pressed="false"><span data-i18n-tr="Tümü" data-i18n-en="All">Tümü</span></button>
+            <button type="button" class="tableViewPreset tablePartialViewToggle" data-partial-view-toggle="cp" aria-pressed="false" title="Status etiketlerini ayrı satırlarda göster" data-i18n-title-tr="Status etiketlerini ayrı satırlarda göster" data-i18n-title-en="Show each status label on a separate row"><span>Partial View</span></button>
+          </div>
+        </div>
+        <div class="activeFilterBar" id="cpActiveFilters" role="region" aria-label="Active table filters" data-i18n-aria-label-tr="Aktif tablo filtreleri" data-i18n-aria-label-en="Active table filters">
+          <span class="activeFilterLabel" data-i18n-tr="TABLO FİLTRELERİ" data-i18n-en="TABLE FILTERS">TABLO FİLTRELERİ</span>
+          <div class="activeFilterTokens" id="cpActiveFilterTokens" aria-live="polite"></div>
+          <button type="button" class="activeFilterClear" data-active-filter-clear="cp" hidden><svg class="ic"><use href="#i-eraser"/></svg><span data-i18n-tr="Tablo filtrelerini temizle" data-i18n-en="Clear table filters">Tablo filtrelerini temizle</span></button>
+        </div>
+        <div class="toolbar tableActionToolbar" id="cpTableToolbar" data-responsive-toolbar="cp" data-overflow-menu="cpMoreMenu" data-overflow-trigger="cpMoreWrap">
+          <input type="search" id="cpSearch" placeholder="PLM ID, model, lisans, üretici, alt üretici, özel kod, renk kodu, sipariş kodu ara…" aria-label="CP Tracker'da ara" data-i18n-aria-label-tr="CP Tracker'da ara" data-i18n-aria-label-en="Search CP Tracker">
+          <button type="button" id="cpRefreshBtn" class="tbtn primary" data-action-role="primary" data-i18n-title-tr="Yalnız CP Tracker verisini yenile" data-i18n-title-en="Refresh CP Tracker data only" title="Yalnız CP Tracker verisini yenile" data-tb-priority="primary" data-tb-compact="icon"><svg class="ic"><use href="#i-refresh"/></svg><span data-i18n-tr="CP'yi Yenile" data-i18n-en="Refresh CP">CP'yi Yenile</span></button>
+          <div class="tableToolbarActions" id="cpTableActions" aria-label="CP table actions"></div>
+          <!-- "Araçlar": eskiden vfBar'daki "Seçilenler" grubunda duran, seçime bağlı
+               işlemler. Düğmeler paylaşılan tekil düğümlerdir; sekmeye göre buraya taşınır. -->
+          <!-- PLM Sync: model linki + model görseli. Koleksiyon'dan FARKLI olarak
+               burada tablo alanlarına (line/category/fabric…) DOKUNULMAZ. -->
+          <div class="toolbarMoreWrap" id="cpPlmSyncWrap" data-tb-priority="utility" data-tb-overflow="never">
+            <button type="button" class="tbtn" id="cpPlmSyncBtn" title="PLM ve ASAS senkronizasyon işlemlerini aç" data-i18n-title-tr="PLM ve ASAS senkronizasyon işlemlerini aç" data-i18n-title-en="Open PLM and ASAS synchronization actions" aria-haspopup="true" aria-expanded="false" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-sync"/></svg> <span>PLM SYNC</span></button>
+            <div class="toolbarMoreMenu" id="cpPlmSyncMenu" hidden>
+              <div class="toolbarMoreLabel">PLM SYNC</div>
+              <button type="button" class="tbtn" data-plm-sync-category="plm" data-plm-sync-page="cp"><svg class="ic"><use href="#i-refresh"/></svg><span data-i18n-tr="PLM Senkronizasyonu" data-i18n-en="PLM Synchronization">PLM Senkronizasyonu</span></button>
+              <button type="button" class="tbtn" data-plm-sync-category="asas" data-plm-sync-page="cp"><svg class="ic"><use href="#i-picture"/></svg><span data-i18n-tr="ASAS Senkronizasyonu" data-i18n-en="ASAS Synchronization">ASAS Senkronizasyonu</span></button>
+              <button type="button" class="tbtn" data-plmops-open><svg class="ic"><use href="#i-checklist"/></svg><span data-i18n-tr="Operasyon Merkezi" data-i18n-en="Operations Center">Operasyon Merkezi</span></button>
+            </div>
+          </div>
+          <div class="toolbarMoreWrap" id="cpToolsWrap" data-tb-priority="utility" data-tb-overflow="never">
+            <button type="button" class="tbtn" id="cpToolsBtn" title="Seçili satırlar için işlemler" data-i18n-title-tr="Seçili satırlar için işlemler" data-i18n-title-en="Actions for selected rows" aria-haspopup="true" aria-expanded="false" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-tools"/></svg> <span data-i18n-tr="Araçlar" data-i18n-en="Tools">Araçlar</span></button>
+            <div class="toolbarMoreMenu" id="cpToolsMenu" hidden>
+              <button type="button" class="navActionBtn" id="cpLicenseRoyaltyBtn" data-license-royalty title="License Royalty hesaplarını düzenle"><svg class="ic"><use href="#i-calculator"/></svg><span data-i18n-tr="License Royalty Calculations" data-i18n-en="License Royalty Calculations">License Royalty Calculations</span></button>
+              <button type="button" class="tbtn" id="cpCapacityRequestBtn" title="Seçili satırları Capacity Request formatında Excel'e aktar" data-i18n-title-tr="Seçili satırları Capacity Request formatında Excel'e aktar" data-i18n-title-en="Export selected rows in Capacity Request format"><svg class="ic"><use href="#i-file-export"/></svg><span data-i18n-tr="Create Capacity Request Excel" data-i18n-en="Create Capacity Request Excel">Create Capacity Request Excel</span></button>
+              <button type="button" class="tbtn" id="cpExcelImportBtn" data-excel-import="cp" title="Kendi Excel dosyanızdaki sütunları CP alanlarına eşleyerek içeri aktarın" data-i18n-title-tr="Kendi Excel dosyanızdaki sütunları CP alanlarına eşleyerek içeri aktarın" data-i18n-title-en="Map columns from your own Excel workbook onto CP fields and import them"><svg class="ic"><use href="#i-file-import"/></svg><span data-i18n-tr="Kullanıcı Excelini İçeri Aktar" data-i18n-en="Import Your Excel">Kullanıcı Excelini İçeri Aktar</span></button>
+            </div>
+          </div>
+          <div class="toolbarMoreWrap" id="cpMoreWrap" data-tb-priority="pinned" data-tb-overflow="never">
+            <button type="button" class="tbtn" id="cpMoreBtn" title="Daha fazla işlem" data-i18n-title-tr="Daha fazla işlem" data-i18n-title-en="More actions" aria-haspopup="true" aria-expanded="false"><svg class="ic"><use href="#i-dots"/></svg></button>
+            <div class="toolbarMoreMenu" id="cpMoreMenu" hidden></div>
+          </div>
+          <select id="cpFPriority" style="display:none"><option value="">Priority: hepsi</option></select>
+          <select id="cpFCountry" style="display:none"><option value="">Ülke: hepsi</option></select>
+          <select id="cpFLicense" style="display:none"><option value="">Lisans: hepsi</option></select>
+          <select id="cpFDelType" style="display:none"><option value="">Del. Type: hepsi</option></select>
+          <select id="cpFStatus" style="display:none"><option value="">STATUS: hepsi</option></select>
+          <select id="cpFSeason" style="display:none"><option value="">Season: hepsi</option></select>
+          <span class="count" id="cpCount" hidden data-tb-overflow="never"></span>
+        </div>
+        <div class="tablewrap" id="cpTableWrap"><table id="cpTable"><colgroup></colgroup><thead></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-orders">
+    <div class="horizonBadge" id="ordersHorizonBadge"><span class="horizonBadgeLabel">Model ufku</span><span class="horizonBadgeText">ortak/yerel horizon — tüm veri kaynağı</span></div>
+    <div id="ordersEmpty" class="empty" data-i18n-tr="Siparişler verisi henüz yüklenmedi." data-i18n-en="Orders data has not been loaded yet.">Siparişler verisi henüz yüklenmedi.</div>
+    <div id="ordersContent" style="display:none">
+      <div class="kpirow" id="ordersKpi"></div>
+      <div class="panel">
+        <div class="workspaceContextBar" aria-label="Orders workspace context">
+          <span class="workspaceContextMeta" id="ordersWorkspaceMeta">—</span>
+          <div class="tableViewActions" id="ordersTableViewActions" role="group" aria-label="Table view">
+            <span class="tableViewLabel" data-i18n-tr="GÖRÜNÜM" data-i18n-en="VIEW">GÖRÜNÜM</span>
+            <button type="button" class="tableViewPreset" data-table-view-preset="focus" data-table-key="orders" aria-pressed="false"><span data-i18n-tr="Odak" data-i18n-en="Focus">Odak</span></button>
+            <button type="button" class="tableViewPreset" data-table-view-preset="extended" data-table-key="orders" aria-pressed="false"><span data-i18n-tr="Extended" data-i18n-en="Extended">Extended</span></button>
+            <button type="button" class="tableViewPreset" data-table-view-preset="all" data-table-key="orders" aria-pressed="false"><span data-i18n-tr="Tümü" data-i18n-en="All">Tümü</span></button>
+            <button type="button" class="tableViewPreset tablePartialViewToggle" data-partial-view-toggle="orders" aria-pressed="false" title="Status etiketlerini ayrı satırlarda göster" data-i18n-title-tr="Status etiketlerini ayrı satırlarda göster" data-i18n-title-en="Show each status label on a separate row"><span>Partial View</span></button>
+          </div>
+        </div>
+        <div class="activeFilterBar" id="ordersActiveFilters" role="region" aria-label="Active table filters" data-i18n-aria-label-tr="Aktif tablo filtreleri" data-i18n-aria-label-en="Active table filters">
+          <span class="activeFilterLabel" data-i18n-tr="TABLO FİLTRELERİ" data-i18n-en="TABLE FILTERS">TABLO FİLTRELERİ</span>
+          <div class="activeFilterTokens" id="ordersActiveFilterTokens" aria-live="polite"></div>
+          <button type="button" class="activeFilterClear" data-active-filter-clear="orders" hidden><svg class="ic"><use href="#i-eraser"/></svg><span data-i18n-tr="Tablo filtrelerini temizle" data-i18n-en="Clear table filters">Tablo filtrelerini temizle</span></button>
+        </div>
+        <div class="toolbar tableActionToolbar" id="ordersTableToolbar" data-responsive-toolbar="orders" data-overflow-menu="ordersMoreMenu" data-overflow-trigger="ordersMoreWrap">
+          <input type="search" id="ordersSearch" placeholder="PLM ID, model, lisans, üretici, alt üretici, özel kod, renk kodu, sipariş kodu ara…" aria-label="Siparişlerde ara" data-i18n-aria-label-tr="Siparişlerde ara" data-i18n-aria-label-en="Search Orders">
+          <button type="button" id="ordersRefreshBtn" class="tbtn primary" data-action-role="primary" data-i18n-title-tr="Yalnız Siparişler verisini yenile" data-i18n-title-en="Refresh Orders data only" title="Yalnız Siparişler verisini yenile" data-tb-priority="primary" data-tb-compact="icon"><svg class="ic"><use href="#i-refresh"/></svg><span data-i18n-tr="Siparişleri Yenile" data-i18n-en="Refresh Orders">Siparişleri Yenile</span></button>
+          <div class="tableToolbarActions" id="ordersTableActions" aria-label="Orders table actions"></div>
+          <!-- PLM Sync: model linki + model görseli. Koleksiyon'dan FARKLI olarak
+               burada tablo alanlarına (line/category/fabric…) DOKUNULMAZ. -->
+          <div class="toolbarMoreWrap" id="ordersPlmSyncWrap" data-tb-priority="utility" data-tb-overflow="never">
+            <button type="button" class="tbtn" id="ordersPlmSyncBtn" title="PLM ve ASAS senkronizasyon işlemlerini aç" data-i18n-title-tr="PLM ve ASAS senkronizasyon işlemlerini aç" data-i18n-title-en="Open PLM and ASAS synchronization actions" aria-haspopup="true" aria-expanded="false" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-sync"/></svg> <span>PLM SYNC</span></button>
+            <div class="toolbarMoreMenu" id="ordersPlmSyncMenu" hidden>
+              <div class="toolbarMoreLabel">PLM SYNC</div>
+              <button type="button" class="tbtn" data-plm-sync-category="plm" data-plm-sync-page="orders"><svg class="ic"><use href="#i-refresh"/></svg><span data-i18n-tr="PLM Senkronizasyonu" data-i18n-en="PLM Synchronization">PLM Senkronizasyonu</span></button>
+              <button type="button" class="tbtn" data-plm-sync-category="asas" data-plm-sync-page="orders"><svg class="ic"><use href="#i-picture"/></svg><span data-i18n-tr="ASAS Senkronizasyonu" data-i18n-en="ASAS Synchronization">ASAS Senkronizasyonu</span></button>
+              <button type="button" class="tbtn" data-plmops-open><svg class="ic"><use href="#i-checklist"/></svg><span data-i18n-tr="Operasyon Merkezi" data-i18n-en="Operations Center">Operasyon Merkezi</span></button>
+            </div>
+          </div>
+          <div class="toolbarMoreWrap" id="ordersToolsWrap" data-tb-priority="utility" data-tb-overflow="never">
+            <button type="button" class="tbtn" id="ordersToolsBtn" title="Seçili satırlar için işlemler" data-i18n-title-tr="Seçili satırlar için işlemler" data-i18n-title-en="Actions for selected rows" aria-haspopup="true" aria-expanded="false" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-tools"/></svg> <span data-i18n-tr="Araçlar" data-i18n-en="Tools">Araçlar</span></button>
+            <div class="toolbarMoreMenu" id="ordersToolsMenu" hidden>
+              <button type="button" class="navActionBtn" id="ordersLicenseRoyaltyBtn" data-license-royalty title="License Royalty hesaplarını düzenle"><svg class="ic"><use href="#i-calculator"/></svg><span data-i18n-tr="License Royalty Calculations" data-i18n-en="License Royalty Calculations">License Royalty Calculations</span></button>
+              <button class="tbtn" id="ordersEndeksmatikBtn" title="Seçili siparişin 1 yıl sonraki Endeksmatik fiyatını hesapla" data-i18n-title-tr="Seçili siparişin 1 yıl sonraki Endeksmatik fiyatını hesapla" data-i18n-title-en="Calculate the selected order’s Endeksmatik price one year later" disabled><svg class="ic"><use href="#i-calculator"/></svg><span>Endeksmatik</span></button>
+            </div>
+          </div>
+          <div class="toolbarMoreWrap" id="ordersMoreWrap" data-tb-priority="pinned" data-tb-overflow="never">
+            <button type="button" class="tbtn" id="ordersMoreBtn" title="Daha fazla işlem" data-i18n-title-tr="Daha fazla işlem" data-i18n-title-en="More actions" aria-haspopup="true" aria-expanded="false"><svg class="ic"><use href="#i-dots"/></svg></button>
+            <div class="toolbarMoreMenu" id="ordersMoreMenu" hidden></div>
+          </div>
+          <select id="ordersFPriority" style="display:none"><option value="">Priority: hepsi</option></select>
+          <select id="ordersFCountry" style="display:none"><option value="">Ülke: hepsi</option></select>
+          <select id="ordersFLicense" style="display:none"><option value="">Lisans: hepsi</option></select>
+          <select id="ordersFDelType" style="display:none"><option value="">Del. Type: hepsi</option></select>
+          <select id="ordersFStatus" style="display:none"><option value="">STATUS: hepsi</option></select>
+          <select id="ordersFSeason" style="display:none"><option value="">Season: hepsi</option></select>
+          <span class="count" id="ordersCount" hidden data-tb-overflow="never"></span>
+        </div>
+        <div class="tablewrap" id="ordersTableWrap"><table id="ordersTable"><colgroup></colgroup><thead></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  <section id="view-koleksiyon">
+    <div class="kpirow" id="kolQuickFilters" style="margin-bottom:10px;"></div>
+    <div class="panel">
+      <div class="workspaceContextBar" aria-label="Collection workspace context">
+        <span class="workspaceContextMeta" id="kolWorkspaceMeta">—</span>
+        <div class="tableViewActions" id="kolTableViewActions" role="group" aria-label="Table view">
+          <span class="tableViewLabel" data-i18n-tr="GÖRÜNÜM" data-i18n-en="VIEW">GÖRÜNÜM</span>
+          <button type="button" class="tableViewPreset" data-table-view-preset="focus" data-table-key="koleksiyon" aria-pressed="false"><span data-i18n-tr="Odak" data-i18n-en="Focus">Odak</span></button>
+          <button type="button" class="tableViewPreset" data-table-view-preset="extended" data-table-key="koleksiyon" aria-pressed="false"><span data-i18n-tr="Extended" data-i18n-en="Extended">Extended</span></button>
+          <button type="button" class="tableViewPreset" data-table-view-preset="all" data-table-key="koleksiyon" aria-pressed="false"><span data-i18n-tr="Tümü" data-i18n-en="All">Tümü</span></button>
+        </div>
+      </div>
+      <div class="activeFilterBar" id="kolActiveFilters" role="region" aria-label="Active table filters" data-i18n-aria-label-tr="Aktif tablo filtreleri" data-i18n-aria-label-en="Active table filters">
+        <span class="activeFilterLabel" data-i18n-tr="TABLO FİLTRELERİ" data-i18n-en="TABLE FILTERS">TABLO FİLTRELERİ</span>
+        <div class="activeFilterTokens" id="kolActiveFilterTokens" aria-live="polite"></div>
+        <button type="button" class="activeFilterClear" data-active-filter-clear="koleksiyon" hidden><svg class="ic"><use href="#i-eraser"/></svg><span data-i18n-tr="Tablo filtrelerini temizle" data-i18n-en="Clear table filters">Tablo filtrelerini temizle</span></button>
+      </div>
+      <div class="toolbar tableActionToolbar" id="kolTableToolbar" data-responsive-toolbar="collection" data-overflow-menu="kolMoreMenu" data-overflow-trigger="kolMoreWrap">
+        <input type="search" id="kolSearch" placeholder="Model adı, lisans, kategori, licensor ara…" aria-label="Koleksiyonda ara" data-i18n-aria-label-tr="Koleksiyonda ara" data-i18n-aria-label-en="Search Collection">
+        <div class="tableToolbarActions" id="kolTableActions" aria-label="Collection table actions">
+          <button id="kolAddRowBtn" class="tbtn primary" data-action-role="primary" data-tb-priority="primary"><svg class="ic"><use href="#i-copy-plus"/></svg> <span data-i18n-tr="Yeni Model Ekle" data-i18n-en="Add New Model">Yeni Model Ekle</span></button>
+          <button class="navActionBtn" id="kolUndoBtn" data-action-role="ghost" title="Geri al (Ctrl+Z)" data-i18n-title-tr="Geri al (Ctrl+Z)" data-i18n-title-en="Undo (Ctrl+Z)" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-arrow-back-up"/></svg> <span data-i18n-tr="Geri" data-i18n-en="Undo">Geri</span></button>
+          <button class="navActionBtn" id="kolRedoBtn" data-action-role="ghost" title="İleri al (Ctrl+Y)" data-i18n-title-tr="İleri al (Ctrl+Y)" data-i18n-title-en="Redo (Ctrl+Y)" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-arrow-forward-up"/></svg> <span data-i18n-tr="İleri" data-i18n-en="Redo">İleri</span></button>
+          <button class="tbtn" id="kolSpreadsheetPasteBtn" title="Excel'den veya panodan aktif hücreye yapıştır" data-i18n-title-tr="Excel'den veya panodan aktif hücreye yapıştır" data-i18n-title-en="Paste from Excel or clipboard into the active cell" data-tb-priority="secondary" data-tb-compact="icon"><svg class="ic"><use href="#i-file-import"/></svg><span data-i18n-tr="Yapıştır" data-i18n-en="Paste">Yapıştır</span></button>
+          <button class="tbtn" id="kolRecycleBinBtn" title="Silinen modeller 30 gün saklanır" data-i18n-title-tr="Silinen modeller 30 gün saklanır" data-i18n-title-en="Deleted models are kept for 30 days" data-tb-priority="utility" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-recycle"/></svg> <span data-i18n-tr="Geri Dönüşüm Kutusu" data-i18n-en="Recycle Bin">Geri Dönüşüm Kutusu</span></button>
+          <button class="tbtn" id="kolExportImgBtn" title="Model görselleriyle birlikte Excel'e aktar" data-i18n-title-tr="Model görselleriyle birlikte Excel'e aktar" data-i18n-title-en="Export to Excel with model images" data-tb-priority="secondary" data-tb-compact="icon"><svg class="ic"><use href="#i-file-export"/></svg><span data-i18n-tr="Excel'e Aktar" data-i18n-en="Export to Excel">Excel'e Aktar</span></button>
+          <span class="kolSelectedGroupLabel" data-tb-priority="selection" data-tb-overflow="never" data-i18n-tr="Seçili modeller" data-i18n-en="Selected models">Seçili modeller</span>
+          <button class="tbtn" id="kolCopySelectedBtn" title="Seçili satırları başlıkları ve biçimleriyle kopyala — Ctrl+C" data-i18n-title-tr="Seçili satırları başlıkları ve biçimleriyle kopyala — Ctrl+C" data-i18n-title-en="Copy selected rows with headers and formatting — Ctrl+C" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-copy"/></svg><span data-i18n-tr="Kopyala" data-i18n-en="Copy">Kopyala</span></button>
+          <button class="tbtn" id="kolDuplicateBtn" title="Seçili satırların kopyalarını koleksiyona ekle" data-i18n-title-tr="Seçili satırların kopyalarını koleksiyona ekle" data-i18n-title-en="Duplicate selected rows in Collection" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-copy-plus"/></svg><span data-i18n-tr="Çoğalt" data-i18n-en="Duplicate">Çoğalt</span></button>
+          <button class="tbtn" id="kolDropSelectedBtn" title="Seçili modelleri iptal edilmiş olarak işaretle" data-i18n-title-tr="Seçili modelleri iptal edilmiş olarak işaretle" data-i18n-title-en="Mark selected models as dropped" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-x"/></svg> <span data-i18n-tr="İptal Et" data-i18n-en="Drop">İptal Et</span></button>
+          <button id="kolDelRowBtn" class="tbtn actionDanger" data-action-role="danger" title="Seçilileri sil" data-i18n-title-tr="Seçilileri sil" data-i18n-title-en="Delete selected" disabled data-tb-priority="selection" data-tb-compact="icon"><svg class="ic"><use href="#i-trash"/></svg> <span data-i18n-tr="Seçilileri Sil" data-i18n-en="Delete Selected">Seçilileri Sil</span></button>
+        </div>
+        <!-- PLM Sync: Excel'e ihtiyaç duymadan CoreNectum PLM'den doğrudan
+             veri çeker/günceller. "PLM Excelinden Aktar" bu menünün İÇİNE
+             taşındı (aynı id'ler, aynı işlev) — PLM erişimi geçici olarak
+             kullanılamazsa yedek/offline yol olarak kalır (bkz. §28). -->
+        <div class="toolbarMoreWrap" id="kolPlmSyncWrap" data-tb-priority="utility" data-tb-overflow="never">
+            <button type="button" class="tbtn" id="kolPlmSyncBtn" title="PLM ve ASAS senkronizasyon işlemlerini aç" data-i18n-title-tr="PLM ve ASAS senkronizasyon işlemlerini aç" data-i18n-title-en="Open PLM and ASAS synchronization actions" aria-haspopup="true" aria-expanded="false" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-sync"/></svg> <span>PLM SYNC</span></button>
+            <div class="toolbarMoreMenu" id="kolPlmSyncMenu" hidden>
+              <div class="toolbarMoreLabel">PLM SYNC</div>
+              <button type="button" class="tbtn" data-plm-sync-category="plm" data-plm-sync-page="kol"><svg class="ic"><use href="#i-refresh"/></svg><span data-i18n-tr="PLM Senkronizasyonu" data-i18n-en="PLM Synchronization">PLM Senkronizasyonu</span></button>
+              <button type="button" class="tbtn" data-plm-sync-category="asas" data-plm-sync-page="kol"><svg class="ic"><use href="#i-picture"/></svg><span data-i18n-tr="ASAS Senkronizasyonu" data-i18n-en="ASAS Synchronization">ASAS Senkronizasyonu</span></button>
+              <button type="button" class="tbtn" data-plmops-open><svg class="ic"><use href="#i-checklist"/></svg><span data-i18n-tr="Operasyon Merkezi" data-i18n-en="Operations Center">Operasyon Merkezi</span></button>
+            </div>
+          </div>
+        <!-- "Araçlar": seçime bağlı işlemler + model dosyaları ve fiyat çalışmaları. -->
+        <input type="file" id="kolPlmImportFile" accept=".xlsx" hidden>
+          <div class="toolbarMoreWrap" id="kolToolsWrap" data-tb-priority="utility" data-tb-overflow="never">
+          <button type="button" class="tbtn" id="kolToolsBtn" title="Koleksiyon araçları" data-i18n-title-tr="Koleksiyon araçları" data-i18n-title-en="Collection tools" aria-haspopup="true" aria-expanded="false" data-tb-compact="icon"><svg class="ic"><use href="#i-bl-tools"/></svg> <span data-i18n-tr="Araçlar" data-i18n-en="Tools">Araçlar</span></button>
+          <div class="toolbarMoreMenu" id="kolToolsMenu" hidden>
+            <button class="tbtn" id="kolSendPricingBtn" title="Seçili modelleri fiyatlamaya gönder" data-i18n-title-tr="Seçili modelleri fiyatlamaya gönder" data-i18n-title-en="Send selected models to pricing" disabled><svg class="ic"><use href="#i-mail-send"/></svg><span data-i18n-tr="Fiyatlamaya Gönder" data-i18n-en="Send to Pricing">Fiyatlamaya Gönder</span></button>
+            <button class="tbtn" id="kolSendShippingBtn" title="Seçili modelleri Nakliye Kıyaslama'ya gönder" data-i18n-title-tr="Seçili modelleri Nakliye Kıyaslama'ya gönder" data-i18n-title-en="Send selected models to Shipping Comparison" disabled><svg class="ic"><use href="#i-ship"/></svg><span data-i18n-tr="Nakliye Kıyaslamaya Gönder" data-i18n-en="Send to Shipping Comparison">Nakliye Kıyaslamaya Gönder</span></button>
+            <hr class="toolbarMoreDivider" role="separator">
+            <button type="button" class="tbtn" id="kolManageStatusesBtn" title="Collection statuslarını ve renklerini yönet" data-i18n-title-tr="Collection statuslarını ve renklerini yönet" data-i18n-title-en="Manage Collection statuses and colors"><svg class="ic"><use href="#i-settings"/></svg><span data-i18n-tr="Statusları Yönet" data-i18n-en="Manage Statuses">Statusları Yönet</span></button>
+            <button type="button" class="navActionBtn" id="kolLicenseRoyaltyBtn" data-license-royalty title="License Royalty hesaplarını düzenle"><svg class="ic"><use href="#i-calculator"/></svg><span data-i18n-tr="License Royalty Calculations" data-i18n-en="License Royalty Calculations">License Royalty Calculations</span></button>
+            <button class="tbtn" id="kolModelFilesBtn" title="Model dosyalarını yönet" data-i18n-title-tr="Model dosyalarını yönet" data-i18n-title-en="Manage model files"><svg class="ic"><use href="#i-folder"/></svg> <span data-i18n-tr="Dosyalar" data-i18n-en="TPs">Dosyalar</span></button>
+            <button class="tbtn" id="kolPricingExcelColsBtn" title="Fiyatlama e-postasına eklenecek Excel sütunlarını seç"><svg class="ic"><use href="#i-columns-3"/></svg> Pricing Excel Columns</button>
+            <label class="tbtn" id="endeksmatikUploadBtn" title="Yeni ENDEKSMATİK Excel dosyasını doğrulayıp programa yükle" data-i18n-title-tr="Yeni ENDEKSMATİK Excel dosyasını doğrulayıp programa yükle" data-i18n-title-en="Validate and load a new ENDEKSMATIK Excel workbook" style="cursor:pointer;"><svg class="ic"><use href="#i-file-import"/></svg><span data-i18n-tr="Endeksmatik Güncelle" data-i18n-en="Update Endeksmatik">Endeksmatik Güncelle</span><input type="file" id="endeksmatikUploadFile" accept=".xlsx,.xlsm" style="display:none;"></label>
+            <button class="tbtn" id="kolCreateOcBtn" title="Seçili modellerden ön maliyet oluştur" disabled><svg class="ic"><use href="#i-calculator"/></svg><span data-i18n-tr="Maliyet Oluştur" data-i18n-en="Create OC">Maliyet Oluştur</span></button>
+            <button class="tbtn" id="kolLflTrialBtn" title="Seçili modelleri LFL Trial simülasyonuna gönder" disabled><svg class="ic"><use href="#i-chart-histogram"/></svg><span data-i18n-tr="LFL Trial" data-i18n-en="LFL Trial">LFL Trial</span></button>
+            <button class="tbtn" id="kolCapacityRequestBtn" title="Seçili modelleri Capacity Request formatında Excel'e aktar" data-i18n-title-tr="Seçili modelleri Capacity Request formatında Excel'e aktar" data-i18n-title-en="Export selected models in Capacity Request format"><svg class="ic"><use href="#i-file-export"/></svg><span data-i18n-tr="Create Capacity Request Excel" data-i18n-en="Create Capacity Request Excel">Create Capacity Request Excel</span></button>
+            <button class="tbtn" id="kolMbExportBtn" title="Seçili modelleri MB Listesi formatında Excel'e aktar"><svg class="ic"><use href="#i-file-export"/></svg><span data-i18n-tr="MB Listesi Excel'i" data-i18n-en="MB List Excel">MB Listesi Excel'i</span></button>
+            <button type="button" class="tbtn" id="kolExcelImportBtn" data-excel-import="collection" title="Kendi Excel dosyanızdaki sütunları Koleksiyon alanlarına eşleyerek içeri aktarın" data-i18n-title-tr="Kendi Excel dosyanızdaki sütunları Koleksiyon alanlarına eşleyerek içeri aktarın" data-i18n-title-en="Map columns from your own Excel workbook onto Collection fields and import them"><svg class="ic"><use href="#i-file-import"/></svg><span data-i18n-tr="Kullanıcı Excelini İçeri Aktar" data-i18n-en="Import Your Excel">Kullanıcı Excelini İçeri Aktar</span></button>
+          </div>
+        </div>
+        <div class="toolbarMoreWrap" id="kolMoreWrap" data-tb-priority="pinned" data-tb-overflow="never">
+          <button type="button" class="tbtn" id="kolMoreBtn" title="Daha fazla işlem" data-i18n-title-tr="Daha fazla işlem" data-i18n-title-en="More actions" aria-haspopup="true" aria-expanded="false"><svg class="ic"><use href="#i-dots"/></svg></button>
+          <div class="toolbarMoreMenu" id="kolMoreMenu" hidden></div>
+        </div>
+        <span class="count" id="kolCount" hidden data-tb-overflow="never"></span>
+      </div>
+      <div class="kolSpreadsheetHelper" id="kolSpreadsheetHelper">
+        <span class="kolSpreadsheetBusinessSelection" id="kolSelectedCount">0 models selected</span>
+      </div>
+      <div class="tablewrap"><table id="kolTable" role="grid" tabindex="0"><colgroup></colgroup><thead></thead><tbody></tbody></table><div id="kolEmptyState" class="kolEmptyState" aria-live="polite" hidden></div></div>
+      <div id="kolSpreadsheetStatusBar" class="kolSpreadsheetStatusBar" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="view-quotations" class="pricingWorkspaceView">
+    <div id="quotationWorkspacePage" class="pricingWorkspaceHost" aria-live="polite"></div>
+  </section>
+
+  <section id="view-pricinghistory" class="pricingWorkspaceView">
+    <div id="pricingHistoryWorkspacePage" class="pricingWorkspaceHost" aria-live="polite"></div>
+  </section>
+
+  <section id="view-priceanalysis">
+    <div class="horizonBadge" id="priceAnalysisHorizonBadge"><span class="horizonBadgeLabel">Model ufku</span><span class="horizonBadgeText">ortak/yerel horizon — tüm veri kaynağı</span></div>
+    <div class="priceSupplierAnalysis" id="priceSupplierAnalysis" aria-live="polite"></div>
+  </section>
+
+  <section id="view-lfl">
+    <div class="horizonBadge" id="lflHorizonBadge"><span class="horizonBadgeLabel">Model ufku</span><span class="horizonBadgeText">ortak/yerel horizon — tüm veri kaynağı</span></div>
+    <div class="lflToolbar">
+      <button type="button" class="lflButton" id="lflRefreshBtn" title="LFL için tanımlanan ASAS veri modeli kapsamını yeniler." data-i18n-title-tr="LFL için tanımlanan ASAS veri modeli kapsamını yeniler." data-i18n-title-en="Refreshes the ASAS data-model scope defined for LFL."><svg class="ic"><use href="#i-refresh"/></svg><span data-i18n-tr="LFL Verisini Yenile" data-i18n-en="Refresh LFL Data">LFL Verisini Yenile</span></button>
+      <button type="button" class="lflButton lflButton--tonal" id="lflCurrentPortfolioBtn" disabled><svg class="ic"><use href="#i-table"/></svg><span data-i18n-tr="Seçili Portföy" data-i18n-en="Selected Portfolio">Seçili Portföy</span></button>
+      <button type="button" class="lflButton lflButton--tonal" id="lflComparePortfolioBtn" disabled><svg class="ic"><use href="#i-table"/></svg><span data-i18n-tr="Kıyaslanan Portföy" data-i18n-en="Compared Portfolio">Kıyaslanan Portföy</span></button>
+      <button type="button" class="lflButton" id="lflExportBtn"><svg class="ic"><use href="#i-file-export"/></svg><span>Analizi Excel'e Aktar</span></button>
+      <button type="button" class="lflButton lflButton--tonal" id="lflTrialBtn" title="Koleksiyon modelleriyle gerçek veriyi değiştirmeden LFL simülasyonu oluştur"><svg class="ic"><use href="#i-hanger"/></svg><span id="lflTrialBtnText">Trial LFL</span></button>
+      <button type="button" class="lflButton lflButton--tonal" id="lflFabricDetailsBtn" aria-pressed="false" title="Portföy detaylarında ana kumaş bilgilerini göster veya gizle"><svg class="ic"><use href="#i-columns-3"/></svg><span id="lflFabricDetailsBtnText">Kumaş Detayları</span></button>
+      <span class="lflToolbarSpacer"></span>
+      <div class="lflSourceBadge" id="lflSourceBadge">LFL verisi bekleniyor</div>
+    </div>
+
+    <div class="lflTrialBanner" id="lflTrialBanner" hidden>
+      <svg class="ic"><use href="#i-hanger"/></svg>
+      <span id="lflTrialBannerText"></span>
+      <button type="button" class="lflTrialBannerOff" id="lflTrialBannerOff" aria-pressed="true">Trial'ı kapat</button>
+    </div>
+    <div class="lflTrialImpact lflCard" id="lflTrialImpact" hidden></div>
+    <div class="lflCard lflFilterCard">
+      <div class="lflSectionHead">
+        <div><h2>Like For Like Analiz Koşulları</h2><p>Seçili portföyün ağırlıklı FOB'unu Güncel ve Kıyas tarafında seçilen tarih alanı ve dönemlere göre karşılaştırır.</p></div>
+      </div>
+      <div class="lflFilterGrid">
+        <div class="lflField"><label>Güncel Sezon</label><select id="lflCurrentSeason"></select></div>
+        <div class="lflField"><label>Karşılaştırma Sezonu</label><select id="lflCompareSeason"></select></div>
+        <div class="lflField"><label>Hızlı Dönem Eşleştirme</label><button type="button" class="lflButton lflButton--tonal lflShiftYearBtn" id="lflShiftYear" title="Güncel dönem aylarını 1 yıl geri kaydırarak kıyas tarafına kopyala"><svg class="ic"><use href="#i-calendar"/></svg><span>1 Yıl Öncesini Seç</span></button></div>
+        <div class="lflField"><label id="lflBreakdownLabel">Analiz Kırılımı</label><div class="lflBreakdownPicker"><button type="button" class="lflBreakdownBtn" id="lflBreakdownBtn" aria-expanded="false"><span id="lflBreakdownText">MAG · MMYG · Klasman</span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflBreakdownPanel" id="lflBreakdownPanel" hidden></div></div></div>
+      </div>
+      <div class="lflFacetBar" id="lflFacetBar">
+        <div class="lflDimWrap lflPeriodDimWrap"><select id="lflCurrentDateField" class="lflDateFieldSelect" aria-label="Güncel karşılaştırma tarih alanı"><option value="inStore">In-Store</option><option value="opd">OPD</option><option value="retailDate">Retail Date</option></select><button type="button" class="lflDimBtn" id="lflDimBtn_currentMonth" data-lfldim="currentMonth" aria-expanded="false"><svg class="ic"><use href="#i-calendar"/></svg><span class="lflDimText">Güncel In-Store</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_currentMonth" hidden></div></div>
+        <div class="lflDimWrap lflPeriodDimWrap"><select id="lflCompareDateField" class="lflDateFieldSelect" aria-label="Kıyas karşılaştırma tarih alanı"><option value="inStore">In-Store</option><option value="opd">OPD</option><option value="retailDate">Retail Date</option></select><button type="button" class="lflDimBtn" id="lflDimBtn_compareMonth" data-lfldim="compareMonth" aria-expanded="false"><svg class="ic"><use href="#i-calendar"/></svg><span class="lflDimText">Kıyas In-Store</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_compareMonth" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_country" data-lfldim="country" aria-expanded="false"><svg class="ic"><use href="#i-globe"/></svg><span class="lflDimText">Ülke</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_country" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_mag" data-lfldim="mag" aria-expanded="false"><svg class="ic"><use href="#i-hierarchy"/></svg><span class="lflDimText">MAG</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_mag" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_mmyg" data-lfldim="mmyg" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText">MMYG</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_mmyg" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_brandDirectorate" data-lfldim="brandDirectorate" aria-expanded="false"><svg class="ic"><use href="#i-users-group"/></svg><span class="lflDimText">Marka Müdürlükleri</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_brandDirectorate" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_classification" data-lfldim="classification" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText">Klasman</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_classification" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_productDescription" data-lfldim="productDescription" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText" data-i18n-tr="Ürün Tanım" data-i18n-en="Product Description">Ürün Tanım</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_productDescription" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_manufacturer" data-lfldim="manufacturer" aria-expanded="false"><svg class="ic"><use href="#i-hanger"/></svg><span class="lflDimText">Üretici</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_manufacturer" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_buyingGroup" data-lfldim="buyingGroup" aria-expanded="false"><svg class="ic"><use href="#i-users-group"/></svg><span class="lflDimText">Buying Group</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_buyingGroup" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_buyer" data-lfldim="buyer" aria-expanded="false"><svg class="ic"><use href="#i-user"/></svg><span class="lflDimText">Buyer</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_buyer" hidden></div></div>
+        <!-- Kumaşla ilgili 7 filtre tek bir "Kumaş Özellikleri" düğmesinin altında
+             toplandı; düğmeye basınca alt başlıklar olarak açılırlar. Kapsayıcı da
+             .lflDimWrap taşır, böylece lfl.js'in "dışarı tıklayınca kapat" koruması
+             (bkz. lfl.js closePanels bağlaması) bu grubu da kendi içinde sayar. -->
+        <div class="lflDimWrap lflFabricGroup">
+          <button type="button" class="lflDimBtn" id="lflFabricGroupBtn" aria-haspopup="true" aria-expanded="false" title="Kumaşla ilgili tüm filtreler" data-i18n-title-tr="Kumaşla ilgili tüm filtreler" data-i18n-title-en="All fabric related filters"><svg class="ic"><use href="#i-hanger"/></svg><span class="lflDimText" data-i18n-tr="Kumaş Özellikleri" data-i18n-en="Fabric Properties">Kumaş Özellikleri</span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button>
+          <div class="lflDimPanel lflFabricGroupPanel" id="lflFabricGroupPanel" hidden>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_fabricCategory" data-lfldim="fabricCategory" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText">Kumaş Kategorisi</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_fabricCategory" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_fabricSupplierCountry" data-lfldim="fabricSupplierCountry" aria-expanded="false"><svg class="ic"><use href="#i-globe"/></svg><span class="lflDimText">Kumaşçı Ülkesi</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_fabricSupplierCountry" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_fabricSupplier" data-lfldim="fabricSupplier" aria-expanded="false"><svg class="ic"><use href="#i-hanger"/></svg><span class="lflDimText">Kumaşçı</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_fabricSupplier" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_kumasTipi" data-lfldim="kumasTipi" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText">Kumaş Tipi</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_kumasTipi" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_iplikNo" data-lfldim="iplikNo" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText">İplik No</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_iplikNo" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_fabricWeight" data-lfldim="fabricWeight" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText">Gramaj</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_fabricWeight" hidden></div></div>
+        <div class="lflDimWrap"><button type="button" class="lflDimBtn" id="lflDimBtn_karisim" data-lfldim="karisim" aria-expanded="false"><svg class="ic"><use href="#i-tag"/></svg><span class="lflDimText">Karışım</span><span class="lflDimCount" hidden></span><svg class="ic lflDimChevron"><use href="#i-chevron-down"/></svg></button><div class="lflDimPanel" id="lflDimPanel_karisim" hidden></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lflFilterActions">
+        <span class="lflFilterHint">Güncel ve kıyas sezonu için In-Store aylarını ayrı seçebilirsin. Her tarafta seçilen ayların tüm siparişleri tek ağırlıklı ortalamada birlikte hesaplanır.</span>
+        <div class="lflReadyWrap"><button type="button" class="lflButton" id="lflReadyFiltersBtn" aria-expanded="false"><svg class="ic"><use href="#i-star"/></svg><span data-i18n-tr="Hazır Filtreler" data-i18n-en="Ready Filters">Hazır Filtreler</span></button><div class="lflReadyPanel" id="lflReadyFiltersPanel" hidden></div></div>
+        <button type="button" class="lflButton lflButton--ghost" id="lflResetBtn"><svg class="ic"><use href="#i-eraser"/></svg>Tüm Filtreleri Temizle</button>
+      </div>
+    </div>
+
+    <div id="lflEmpty" class="lflCard lflStatusEmpty" hidden>
+      <svg class="ic"><use href="#i-chart-histogram"/></svg>
+      <h3>LFL verisi bulunamadı</h3>
+      <p>Data Model Connection içindeki ana ASAS bağlantısında LFL kapsamını ve gerekli alan eşlemelerini tanımlayıp “LFL Verisini Yenile” butonuna bas.</p>
+    </div>
+
+    <div id="lflContent" hidden>
+      <div class="lflKpiGrid" id="lflKpis"></div>
+      <div class="lflAnalysisGrid">
+        <div class="lflCard lflTableCard lflAnalysisResizableCard"><div class="lflSectionHead"><div><h3 id="lflGroupTitle">Grup Bazlı Kıyas</h3><p>Ağırlıklı ortalama = Σ(FOB × Quantity) / Σ(Quantity)</p></div></div><div class="tablewrap lflTableWrap"><table id="lflGroupTable"><colgroup></colgroup><thead></thead><tbody></tbody></table></div><div class="lflHeightHandle" id="lflGroupHeightHandle" role="separator" aria-orientation="horizontal" aria-valuemin="120" aria-valuemax="760" tabindex="0" aria-label="Comparison tablo yüksekliğini ayarla" title="Sürükleyerek tablo yüksekliğini ayarla; çift tık veya Home ile otomatiğe dön"><span></span></div></div>
+        <div class="lflSplitHandle" id="lflAnalysisSplit" role="separator" aria-orientation="vertical" tabindex="0" aria-label="Panel genişliğini ayarla" data-i18n-title-tr="İki paneli ayıran çizgiyi sürükleyerek genişlikleri ayarla" data-i18n-title-en="Drag the divider to resize the two panels" title="İki paneli ayıran çizgiyi sürükleyerek genişlikleri ayarla"><span></span></div>
+        <div class="lflCard lflManufacturerVolumeCard lflAnalysisResizableCard">
+          <div class="lflSectionHead"><div><h3 id="lflManufacturerVolumeTitle">Üretici Sipariş Hacimleri</h3><p id="lflManufacturerVolumeSubtitle">Güncel sezon ve kıyas sezonundaki sipariş adetleri üretici bazında karşılaştırılır.</p></div></div>
+          <div class="tablewrap lflTableWrap lflManufacturerVolume" id="lflManufacturerVolume"><table id="lflManufacturerVolumeTable"><colgroup></colgroup><thead></thead><tbody></tbody></table></div>
+          <div class="lflHeightHandle" id="lflManufacturerHeightHandle" role="separator" aria-orientation="horizontal" aria-valuemin="120" aria-valuemax="760" tabindex="0" aria-label="Manufacturer tablo yüksekliğini ayarla" title="Sürükleyerek tablo yüksekliğini ayarla; çift tık veya Home ile otomatiğe dön"><span></span></div>
+        </div>
+      </div>
+      <div class="lflCard lflCustomCompareCard">
+        <div class="lflScenarioCompareHead">
+          <div class="lflSectionHead"><div><h3 id="lflCustomCompareTitle">Çok Boyutlu Karşılaştırma · Bağımsız Senaryolar</h3><p id="lflCustomCompareSubtitle">Farklı dönem ve portföy kapsamlarını ayrı senaryolar olarak yan yana karşılaştır.</p></div></div>
+          <div class="lflScenarioCompareActions">
+            <button type="button" class="lflButton lflButton--tonal" id="lflScenarioRefreshBtn" title="Kayıtlı karşılaştırmaları aynı kapsam ve filtrelerle güncel LFL verisine göre yeniden hesapla"><svg class="ic"><use href="#i-refresh"/></svg><span>Özetleri Yenile</span></button>
+            <button type="button" class="lflButton lflButton--tonal" id="lflScenarioAddBtn"><svg class="ic"><use href="#i-copy-plus"/></svg><span>Karşılaştırma Ekle</span></button>
+          </div>
+        </div>
+        <div class="lflScenarioCompareIntro" id="lflCustomCompareScope">Her senaryo kendi sezon, In-Store ayları ve portföy filtreleriyle bağımsız ağırlıklı ortalama hesaplar.</div>
+        <div class="lflScenarioCards" id="lflScenarioCards"></div>
+        <div class="lflCustomCompareBody">
+          <div class="tablewrap lflTableWrap lflCustomCompareTableWrap"><table id="lflCustomCompareTable"><colgroup></colgroup><thead></thead><tbody></tbody></table></div>
+        </div>
+        <!-- v3.83 ve daha eski kayıtların güvenli taşınması için eski kontrol kimlikleri korunur. -->
+        <div class="lflLegacyCustomCompareControls" hidden aria-hidden="true">
+          <select id="lflCustomCompareDimension0"></select><button id="lflCustomCompareValueBtn0"></button><span id="lflCustomCompareValueText0"></span><span id="lflCustomCompareValueCount0"></span><div id="lflCustomComparePanel0"></div>
+          <select id="lflCustomCompareDimension1"></select><button id="lflCustomCompareValueBtn1"></button><span id="lflCustomCompareValueText1"></span><span id="lflCustomCompareValueCount1"></span><div id="lflCustomComparePanel1"></div>
+          <select id="lflCustomCompareDimension2"></select><button id="lflCustomCompareValueBtn2"></button><span id="lflCustomCompareValueText2"></span><span id="lflCustomCompareValueCount2"></span><div id="lflCustomComparePanel2"></div>
+          <select id="lflCustomCompareReference"></select>
+        </div>
+      </div>
+      <div class="lflScenarioEditor" id="lflScenarioEditor" hidden aria-hidden="true">
+        <div class="lflScenarioEditorBackdrop" data-scenario-close></div>
+        <div class="lflScenarioEditorDialog" role="dialog" aria-modal="true" aria-labelledby="lflScenarioEditorTitle">
+          <div class="lflScenarioEditorHead"><div><h3 id="lflScenarioEditorTitle">Karşılaştırmayı Düzenle</h3><p>İki dönemin ağırlıklı FOB sonuçlarını bağımsız kapsamlarla karşılaştır.</p></div><button type="button" class="lflScenarioIconBtn" data-scenario-close aria-label="Kapat"><svg class="ic"><use href="#i-x"/></svg></button></div>
+          <div class="lflScenarioEditorBody" id="lflScenarioEditorBody"></div>
+          <div class="lflScenarioEditorFoot"><button type="button" class="lflButton lflButton--tonal" data-scenario-close>Vazgeç</button><button type="button" class="lflButton" id="lflScenarioSaveBtn"><svg class="ic"><use href="#i-device-floppy"/></svg>Uygula</button></div>
+        </div>
+      </div>
+      <div class="lflCard lflOrderAnalytics" id="lflOrderAnalytics" role="region" aria-label="Üretici ve ülke sipariş analizi"></div>
+      <div class="lflTopGrid lflBottomInfoGrid">
+        <div class="lflCard lflInsights"><div class="lflSectionHead"><div><h3>Otomatik Yorumlar</h3><p>Fiyat düşüşü iyileştirme, fiyat artışı kayıp olarak değerlendirilir.</p></div></div><div class="lflInsightList" id="lflInsightList"></div></div>
+        <div class="lflCard lflSourceInfo"><div class="lflSectionHead"><div><h3>Kaynak Veri Kontrolü</h3><p>Okunan LFL Excel ve veri kalitesi özeti.</p></div></div><div id="lflSourceInfo"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-opencosting">
+    <div class="ocToolbar">
+      <button type="button" class="ocButton ocButton--secondary" id="ocNewBtn"><svg class="ic"><use href="#i-copy-plus"/></svg><span data-i18n-tr="Yeni Maliyet" data-i18n-en="New Costing">Yeni Maliyet</span></button>
+      <button type="button" class="ocButton ocButton--secondary" id="ocDuplicateBtn"><svg class="ic"><use href="#i-copy"/></svg><span data-i18n-tr="Çoğalt" data-i18n-en="Duplicate">Çoğalt</span></button>
+      <button type="button" class="ocButton ocButton--danger" id="ocDeleteBtn"><svg class="ic"><use href="#i-trash"/></svg><span data-i18n-tr="Sil" data-i18n-en="Delete">Sil</span></button>
+      <button type="button" class="ocButton ocButton--secondary" id="ocCompareBtn"><svg class="ic"><use href="#i-chart-histogram"/></svg><span data-i18n-tr="Karşılaştır" data-i18n-en="Compare">Karşılaştır</span></button>
+      <button type="button" class="ocButton ocButton--secondary" id="ocFxBtn"><svg class="ic"><use href="#i-coins"/></svg><span data-i18n-tr="Kur Güncelle" data-i18n-en="Update FX">Kur Güncelle</span></button>
+      <span class="ocDirtyBadge" id="ocDirtyBadge">Kaydedilmemiş değişiklik</span>
+      <span class="ocSpacer"></span>
+      <button type="button" class="ocButton ocButton--secondary" id="ocImportBtn" title="Bu ekrandan aktarılmış bir Excel dosyasını geri yükle"><svg class="ic"><use href="#i-file-import"/></svg><span data-i18n-tr="İçeri Aktar" data-i18n-en="Import">İçeri Aktar</span></button>
+      <input type="file" id="ocImportFile" accept=".xlsx,.xlsm" hidden>
+      <button type="button" class="ocButton ocButton--secondary" id="ocExportBtn" title="Formülleri ve biçimlendirmesiyle Excel'e aktar"><svg class="ic"><use href="#i-file-export"/></svg><span data-i18n-tr="Dışarı Aktar" data-i18n-en="Export">Dışarı Aktar</span></button>
+      <button type="button" class="ocButton ocButton--primary" id="ocSaveBtn" disabled><svg class="ic"><use href="#i-device-floppy"/></svg><span data-i18n-tr="Kaydet" data-i18n-en="Save">Kaydet</span></button>
+    </div>
+    <div class="ocShell">
+      <aside class="ocSidebar">
+        <div class="ocSidebarHead">
+          <h3 data-i18n-tr="Maliyet Çalışmaları" data-i18n-en="Costing Sheets">Maliyet Çalışmaları</h3>
+          <div class="ocSearchWrap"><svg class="ic"><use href="#i-search"/></svg><input type="search" id="ocSearch" placeholder="Model, üretici veya sezon ara…" aria-label="Maliyet Çalışmalarında ara" data-i18n-aria-label-tr="Maliyet Çalışmalarında ara" data-i18n-aria-label-en="Search Costing Sheets"></div>
+        </div>
+        <div class="ocRecordList" id="ocRecordList"></div>
+      </aside>
+      <div class="ocWorkspace">
+        <div class="ocWorkspaceEmpty" id="ocWorkspaceEmpty"></div>
+        <div class="ocEditor" id="ocEditor" hidden>
+          <div class="ocHeaderCard">
+            <h3 class="ocSectionTitle"><svg class="ic"><use href="#i-notebook"/></svg><span data-i18n-tr="Model ve Teklif Bilgileri" data-i18n-en="Style and Quotation Information">Model ve Teklif Bilgileri</span></h3>
+            <div class="ocStyleInfoLayout">
+              <div class="ocImagePanel">
+                <button type="button" class="ocImageStage" id="ocImageStage" title="Tek tık: Ctrl+V hedefi · Çift tık: dosya seç">
+                  <img id="ocStyleImage" alt="Model görseli">
+                  <span class="ocImageOverlay"><svg class="ic"><use href="#i-file-import"/></svg><span data-i18n-tr="Görsel Ekle" data-i18n-en="Add Image">Görsel Ekle</span></span>
+                </button>
+                <div class="ocImageActions">
+                  <button type="button" class="ocButton ocButton--secondary ocButton--small" id="ocPlmSyncBtn" title="Eksik model görsellerini PLM'den tamamla" data-i18n-title-tr="Eksik model görsellerini PLM'den tamamla" data-i18n-title-en="Complete missing model images from PLM"><svg class="ic"><use href="#i-picture"/></svg><span>PLM SYNC</span></button>
+                  <button type="button" class="ocButton ocButton--secondary ocButton--small ocImageIconAction" id="ocImageUploadBtn" title="Dosya Seç" aria-label="Dosya Seç" data-i18n-title-tr="Dosya Seç" data-i18n-title-en="Choose File"><svg class="ic"><use href="#i-file-import"/></svg></button>
+                  <button type="button" class="ocButton ocButton--ghost ocButton--small ocImageIconAction" id="ocImageRemoveBtn" title="Kaldır" aria-label="Kaldır" data-i18n-title-tr="Kaldır" data-i18n-title-en="Remove"><svg class="ic"><use href="#i-x"/></svg></button>
+                </div>
+                <div class="ocImageStatus" id="ocImageStatus">Tek tık: yapıştırma hedefi · Çift tık: dosya seç</div>
+                <input id="ocImageInput" type="file" accept="image/*" hidden>
+              </div>
+              <div class="ocMetaGrid">
+              <div class="ocField span2"><label data-i18n-tr="Maliyet Çalışması Adı" data-i18n-en="Costing Sheet Name">Maliyet Çalışması Adı</label><input id="ocTitle" type="text"></div>
+              <div class="ocField"><label data-i18n-tr="Model / Style" data-i18n-en="Model / Style">Model / Style</label><input class="ocSuggestInput" data-oc-meta="modelCode" data-kind="oc-meta-suggest" data-options="ocModelOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label>PLM ID</label><input data-oc-meta="plmId" type="text"></div>
+              <div class="ocField"><label data-i18n-tr="Üretici" data-i18n-en="Manufacturer">Üretici</label><input class="ocSuggestInput" data-oc-meta="manufacturer" data-kind="oc-meta-suggest" data-options="ocManufacturerOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label data-i18n-tr="Ülke" data-i18n-en="Country">Ülke</label><input class="ocSuggestInput" data-oc-meta="country" data-kind="oc-meta-suggest" data-options="ocCountryOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label data-i18n-tr="Sezon" data-i18n-en="Season">Sezon</label><input class="ocSuggestInput" data-oc-meta="season" data-kind="oc-meta-suggest" data-options="ocSeasonOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label data-i18n-tr="Lisans" data-i18n-en="License">Lisans</label><input class="ocSuggestInput" data-oc-meta="license" data-kind="oc-meta-suggest" data-options="ocLicenseOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label data-i18n-tr="Kategori" data-i18n-en="Category">Kategori</label><input class="ocSuggestInput" data-oc-meta="category" data-kind="oc-meta-suggest" data-options="ocCategoryOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label data-i18n-tr="Sipariş Adedi" data-i18n-en="Order Quantity">Sipariş Adedi</label><input data-oc-meta="quantity" data-oc-number="integer" type="text" inputmode="numeric" placeholder="0"></div>
+              <div class="ocField"><label data-i18n-tr="Para Birimi" data-i18n-en="Currency">Para Birimi</label><input class="ocSuggestInput" data-oc-meta="currency" data-kind="oc-meta-suggest" data-options="ocCurrencyOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label data-i18n-tr="Kur Ayı" data-i18n-en="FX Month">Kur Ayı</label><input class="ocSuggestInput ocFxMonthInput" data-oc-meta="fxMonth" data-kind="oc-meta-suggest" data-options="ocFxMonthOptions" autocomplete="off" type="text" placeholder="Yaz veya seç…"></div>
+              <div class="ocField"><label data-i18n-tr="Hedef FOB" data-i18n-en="Target FOB">Hedef FOB</label><input data-oc-meta="targetFob" data-oc-number="money2" type="text" inputmode="decimal" placeholder="0,00"></div>
+              <div class="ocField span4"><label data-i18n-tr="Notlar" data-i18n-en="Notes">Notlar</label><textarea data-oc-meta="notes" placeholder="Varsayımlar, termin, kalite veya teklif notları…"></textarea></div>
+              </div>
+            </div>
+          </div>
+          <div class="ocContentGrid">
+            <div class="ocSections" id="ocSections"></div>
+            <aside class="ocSummary">
+              <div class="ocSummaryHead"><h3 data-i18n-tr="Maliyet Özeti" data-i18n-en="Cost Summary">Maliyet Özeti</h3></div>
+              <div class="ocSummaryBody" id="ocSummaryBody"></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <datalist id="ocModelOptions"></datalist>
+    <datalist id="ocManufacturerOptions"></datalist>
+    <datalist id="ocCountryOptions"></datalist>
+    <datalist id="ocSeasonOptions"></datalist>
+    <datalist id="ocLicenseOptions"></datalist>
+    <datalist id="ocCategoryOptions"></datalist>
+    <datalist id="ocCurrencyOptions"></datalist>
+    <datalist id="ocFxMonthOptions"></datalist>
+    <datalist id="ocUnitOptions"><option value="kg"><option value="gr"><option value="m"><option value="cm"><option value="adet"><option value="set"><option value="çift"><option value="dakika"><option value="saat"><option value="lot"><option value="paket"><option value="koli"></datalist>
+
+    <div class="ocCompareOverlay" id="ocCompareOverlay" hidden>
+      <div class="ocCompareCard" role="dialog" aria-modal="true" aria-labelledby="ocCompareTitle">
+        <div class="ocCompareHead">
+          <div class="ocCompareHeadText">
+            <h2 id="ocCompareTitle" data-i18n-tr="Maliyet Karşılaştırma" data-i18n-en="Costing Comparison">Maliyet Karşılaştırma</h2>
+            <p class="ocCompareSub" data-i18n-tr="İki veya daha fazla ön maliyeti yan yana karşılaştır. Baz alınan çalışmaya göre farklar hesaplanır." data-i18n-en="Compare two or more costings side by side. Differences are calculated against the chosen baseline.">İki veya daha fazla ön maliyeti yan yana karşılaştır. Baz alınan çalışmaya göre farklar hesaplanır.</p>
+          </div>
+          <button type="button" class="ocIconButton" id="ocCompareClose" title="Kapat" aria-label="Kapat"><svg class="ic"><use href="#i-x"/></svg></button>
+        </div>
+        <div class="ocComparePicker" id="ocComparePicker"></div>
+        <div class="ocCompareResult" id="ocCompareResult"></div>
+      </div>
+    </div>
+
+    <div class="ocCompareOverlay" id="ocFxOverlay" hidden>
+      <div class="ocCompareCard ocFxCard" role="dialog" aria-modal="true" aria-labelledby="ocFxTitle">
+        <div class="ocCompareHead">
+          <div class="ocCompareHeadText">
+            <h2 id="ocFxTitle" data-i18n-tr="Döviz Kurları" data-i18n-en="FX Rates">Döviz Kurları</h2>
+            <p class="ocCompareSub" data-i18n-tr="Kur Tahmin Raporu Excel dosyasını yükleyerek tüm aylık kurları güncelle. Her ön maliyette kullanılacak kur ayını ayrıca seçebilirsin. Yön: 1 USD = X döviz." data-i18n-en="Load the FX forecast Excel to update rates for every month. You can choose the FX month used by each costing. Direction: 1 USD = X currency.">Kur Tahmin Raporu Excel dosyasını yükleyerek tüm aylık kurları güncelle. Her ön maliyette kullanılacak kur ayını ayrıca seçebilirsin. Yön: 1 USD = X döviz.</p>
+          </div>
+          <button type="button" class="ocIconButton" id="ocFxClose" title="Kapat" aria-label="Kapat"><svg class="ic"><use href="#i-x"/></svg></button>
+        </div>
+        <div class="ocFxResult" id="ocFxBody"></div>
+        <div class="ocFxFooter">
+          <label class="ocButton ocButton--secondary ocFxFileBtn"><svg class="ic"><use href="#i-file-import"/></svg><span data-i18n-tr="Kur Excel'i Seç" data-i18n-en="Pick FX Excel">Kur Excel'i Seç</span><input type="file" id="ocFxFile" accept=".xlsx,.xls" hidden></label>
+          <span class="ocFxStatus" id="ocFxStatus"></span>
+          <span class="ocSpacer"></span>
+          <button type="button" class="ocButton ocButton--secondary" id="ocFxCancel" data-i18n-tr="Kapat" data-i18n-en="Close">Kapat</button>
+          <button type="button" class="ocButton ocButton--primary" id="ocFxSave" disabled><svg class="ic"><use href="#i-device-floppy"/></svg><span data-i18n-tr="Kurları Kaydet" data-i18n-en="Save Rates">Kurları Kaydet</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="view-backlog">
+    <div class="horizonBadge" id="backlogHorizonBadge"><span class="horizonBadgeLabel">Model ufku</span><span class="horizonBadgeText">ortak/yerel horizon — tüm veri kaynağı</span></div>
+    <!-- Backlog filtre/pivot ayarlarının kalıcı veri alanları. Kullanıcıya
+         görünmez; düzenleme OAB-parite Pivot Ayarları modalından yapılır. -->
+    <div id="backlogFilterState" hidden aria-hidden="true">
+      <input type="date" id="backlogFrom">
+      <input type="date" id="backlogTo">
+      <input type="date" id="backlogInStoreFrom">
+      <input type="date" id="backlogInStoreTo">
+      <input type="date" id="backlogAntrepoFrom">
+      <input type="date" id="backlogAntrepoTo">
+    </div>
+    <div id="backlogEmpty" class="empty">Backlog raporu, veri modeli yenilendiğinde ("Veri Modelinden Güncelle") otomatik oluşur.</div>
+    <div id="backlogDetailModal" class="backlogDetailOverlay" hidden></div>
+    <div id="backlogContent" style="display:none">
+      <div class="kpirow" id="backlogKpi"></div>
+      <div id="backlogChartPanel" class="panel backlogChartPanel" hidden></div>
+      <div id="backlogPlanActualModule" class="panel bpaModule">
+        <div id="backlogPlanActualHead" class="bpaModuleHead">
+          <button type="button" class="bpaModuleToggle" id="backlogPlanActualToggle" aria-expanded="false" aria-controls="backlogPlanActual">
+            <svg class="ic"><use href="#i-arrows-down-up"/></svg>
+            <span class="bpaModuleTitle" data-i18n-tr="Planlanan &amp; Gerçekleşen Analizi" data-i18n-en="Planned vs Actual Analysis">Planlanan &amp; Gerçekleşen Analizi</span>
+            <span class="bpaModuleHint" data-i18n-tr="Snapshot farkları · yalnız değişenler" data-i18n-en="Snapshot differences · changes only">Snapshot farkları · yalnız değişenler</span>
+          </button>
+          <div class="bpaMoveTools" aria-label="Panel konumu">
+            <button type="button" class="tbtn bpaMoveBtn" id="backlogPlanActualMoveUp" title="Paneli yukarı taşı" data-i18n-title-tr="Paneli yukarı taşı" data-i18n-title-en="Move panel up"><svg class="ic"><use href="#i-chevron-up"/></svg></button>
+            <button type="button" class="tbtn bpaMoveBtn" id="backlogPlanActualMoveDown" title="Paneli aşağı taşı" data-i18n-title-tr="Paneli aşağı taşı" data-i18n-title-en="Move panel down"><svg class="ic"><use href="#i-chevron-down"/></svg></button>
+          </div>
+        </div>
+        <div id="backlogPlanActual" hidden></div>
+      </div>
+      <!-- Teslimat Riski Analizi Backlog ile birlikte otomatik görünür.
+           Ayrı aç/kapat düğmesi yoktur; analiz aynı filtrelenmiş kümeyi kullanır. -->
+      <div id="backlogAnalysis"></div>
+      <div class="panel">
+        <div class="toolbar backlogTreeToolbar">
+          <span class="backlogTreeCtlGroup">
+            <button class="tbtn backlogTreeCtl" id="backlogCollapseAllBtn" title="Tümünü daralt" aria-label="Tümünü daralt"><svg class="ic"><use href="#i-chevrons-left"/></svg></button>
+            <button class="tbtn backlogTreeCtl" id="backlogCollapseLevelBtn" title="Kademe daralt" aria-label="Kademe daralt"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+            <button class="tbtn backlogTreeCtl" id="backlogExpandLevelBtn" title="Kademe genişlet" aria-label="Kademe genişlet"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+            <button class="tbtn backlogTreeCtl" id="backlogExpandAllBtn" title="Tümünü genişlet" aria-label="Tümünü genişlet"><svg class="ic"><use href="#i-chevrons-right"/></svg></button>
+          </span>
+          <span class="backlogTreeSpacer"></span>
+          <button class="tbtn" id="backlogPivotSettingsBtn" title="Backlog pivot ve ön filtre ayarları" data-i18n-title-tr="Backlog pivot ve ön filtre ayarları" data-i18n-title-en="Backlog pivot and pre-filter settings"><svg class="ic"><use href="#i-settings"/></svg> <span data-i18n-tr="Pivot ayarları" data-i18n-en="Pivot settings">Pivot ayarları</span></button>
+          <button class="tbtn" id="backlogChartBtn" title="Adet / zaman grafiğini oluştur veya düzenle" data-i18n-title-tr="Adet / zaman grafiğini oluştur veya düzenle" data-i18n-title-en="Create or edit quantity / time chart"><svg class="ic"><use href="#i-chart-histogram"/></svg> <span data-i18n-tr="Grafik" data-i18n-en="Chart">Grafik</span></button>
+          <button class="tbtn" id="backlogExcelOptionsBtn" title="Excel sütun ve formül seçenekleri"><svg class="ic"><use href="#i-settings"/></svg> <span data-i18n-tr="Excel seçenekleri" data-i18n-en="Excel options">Excel seçenekleri</span></button>
+          <button class="tbtn" id="backlogExportBtn" title="Mevcut Backlog pivot raporunu Excel olarak indir"><svg class="ic"><use href="#i-download"/></svg> <span data-i18n-tr="Excel'e aktar" data-i18n-en="Export to Excel">Excel'e aktar</span></button>
+        </div>
+        <div class="tablewrap"><table id="backlogTreeTable" class="backlogTreeTable"><colgroup>
+          <col id="backlogColGroup"><col id="backlogColQty"><col id="backlogColOrders"><col class="backlogColDetail">
+        </colgroup><thead><tr>
+          <th class="backlogTh backlogTh--group" id="backlogTreeHeaderLabel">Grup</th>
+          <th class="backlogTh backlogTh--num" id="backlogThQty">Adet</th>
+          <th class="backlogTh backlogTh--num" id="backlogThOrders">Sipariş Sayısı</th>
+          <th class="backlogTh backlogTh--detail">Detay</th>
+        </tr></thead><tbody id="backlogTreeBody"></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="view-automations">
+    <div id="automationStudio" class="automationStudio" aria-live="polite"></div>
+  </section>
+
+  <section id="view-shipping">
+    <div class="toolbar" id="shipSecondaryToolbar" style="margin-bottom:10px;">
+      <button class="tbtn" id="shipExportBtn" title="Mevcut verileri orijinal Excel şablonuna doldurup indir"><svg class="ic"><use href="#i-file-export"/></svg> <span data-i18n-tr="Excel'e aktar" data-i18n-en="Export to Excel">Excel'e aktar</span></button>
+      <button class="tbtn" id="shipPlmSyncBtn" title="Eksik model görsellerini PLM'den tamamla" data-i18n-title-tr="Eksik model görsellerini PLM'den tamamla" data-i18n-title-en="Complete missing model images from PLM"><svg class="ic"><use href="#i-picture"/></svg><span>PLM SYNC</span></button>
+      <span class="count" id="shipCount"></span>
+      <span style="flex:1"></span>
+      <button class="tbtn" id="shipFreightBtn" title="Seçili satır için koli ve ağırlık bilgisinden charchable weight ve Landed navlun maliyetini hesapla" data-i18n-title-tr="Seçili satır için koli ve ağırlık bilgisinden charchable weight ve Landed navlun maliyetini hesapla" data-i18n-title-en="Calculate chargeable weight and landed freight cost for the selected row"><svg class="ic"><use href="#i-calculator"/></svg><span data-i18n-tr="Navlun Hesapla" data-i18n-en="Freight Calculator">Navlun Hesapla</span></button>
+      <button class="tbtn" id="shipUpdateFxBtn" title="Seçili satırların Kur hücresini Ex-Factory ayına göre güncelle" disabled><svg class="ic"><use href="#i-coins"/></svg><span data-i18n-tr="Kur Güncelle" data-i18n-en="Update FX">Kur Güncelle</span></button>
+      <button class="tbtn" id="shipDeleteBtn" title="İşaretlenen satırları tablodan sil"><svg class="ic"><use href="#i-trash"/></svg> <span data-i18n-tr="Seçilenleri Sil" data-i18n-en="Delete Selected">Seçilenleri Sil</span></button>
+      <div class="colPanelWrap" id="shipColsWrap">
+        <button class="tbtn" id="shipColsBtn" title="Sütunlar"><svg class="ic"><use href="#i-columns-3"/></svg> Sütunlar</button>
+        <div class="colPanel" id="shipColPanel"></div>
+      </div>
+      <button class="tbtn" id="shipResetWidthsBtn" title="Kıyaslama tablosunun sütun genişliklerini varsayılana döndür" data-i18n-title-tr="Kıyaslama tablosunun sütun genişliklerini varsayılana döndür" data-i18n-title-en="Reset comparison column widths"><svg class="ic"><use href="#i-columns-3"/></svg><span data-i18n-tr="Sütunları Sıfırla" data-i18n-en="Reset Widths">Sütunları Sıfırla</span></button>
+      <div class="colPanelWrap" id="shipHiddenRowsWrap">
+        <button class="tbtn" id="shipHiddenRowsBtn" aria-expanded="false" title="Gizlenen satırları göster/geri getir" data-i18n-title-tr="Gizlenen satırları göster/geri getir" data-i18n-title-en="Show/restore hidden rows"><svg class="ic"><use href="#i-checklist"/></svg><span data-i18n-tr="Gizlenenler" data-i18n-en="Hidden">Gizlenenler</span><span id="shipHiddenCount"></span></button>
+        <div class="colPanel" id="shipHiddenRowsPanel"></div>
+      </div>
+      <button class="tbtn" id="shipCopyCompareBtn" title="Kıyaslama tablosunu Excel veya e-postaya yapıştırılabilir biçimde kopyala" data-i18n-title-tr="Kıyaslama tablosunu Excel veya e-postaya yapıştırılabilir biçimde kopyala" data-i18n-title-en="Copy the comparison table for Excel or e-mail"><svg class="ic"><use href="#i-copy"/></svg><span data-i18n-tr="Kıyası Kopyala" data-i18n-en="Copy Comparison">Kıyası Kopyala</span></button>
+      <button class="tbtn" id="shipTableToggle" title="Kart listesi uzunken tabloyu gizleyebilirsin" aria-pressed="true"><svg class="ic"><use href="#i-table"/></svg><span data-i18n-tr="Tabloyu Gizle" data-i18n-en="Hide Table">Tabloyu Gizle</span></button>
+    </div>
+    <div id="shipEmpty" class="empty">CP Tracker'da satır işaretleyip (soldaki kutucuk) üstteki <b>Nakliye kıyasına aktar</b> butonuna basarak buraya aktarabilirsin.</div>
+    <div id="shipContent" style="display:none">
+      <div id="shipDecision" class="shipDecision" hidden></div>
+      <div class="panel" id="shipTablePanel">
+        <div class="tablewrap"><table id="shipTable"><colgroup></colgroup><thead></thead><tbody id="shipTableBody"></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- v7.81 — VERİ YÖNETİMİ.
+       İçerik data-management.js tarafından çizilir; burada yalnız kabuk var.
+       İçeride <section> KULLANILMAZ (bkz. CLAUDE.md §4): app.css'teki
+       `section{display:none}` kuralı, kendisine display veren bir kural
+       bulamayan her section'ı sessizce yok eder. Kapsayıcılar <div>. -->
+  <section id="view-source">
+    <div id="dataManagementRoot" class="dataMgmt" aria-live="polite">
+      <div class="dataMgmtBooting empty" data-i18n-tr="Veri Yönetimi yükleniyor…" data-i18n-en="Loading Data Management…">Veri Yönetimi yükleniyor…</div>
+    </div>
+  </section>
+</main>
+<div class="dropzone" id="dropzone" data-i18n-tr="Dosyayı buraya bırak" data-i18n-en="Drop the file here">Dosyayı buraya bırak</div>
+
+<script src="date-dimension.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="column-schema.js?v=__BL_ASSET_VERSION__"></script>
+<script src="overview-layout.js?v=__BL_ASSET_VERSION__"></script>
+<script src="model-option-stats.js?v=__BL_ASSET_VERSION__"></script>
+<script src="collection-status-catalog.js?v=__BL_ASSET_VERSION__"></script>
+<script src="overview-collection-summary.js?v=__BL_ASSET_VERSION__"></script>
+<script src="overview-collection-dashboard.js?v=__BL_ASSET_VERSION__"></script>
+<script src="overview-launchpad.js?v=__BL_ASSET_VERSION__&rev=3"></script>
+<script src="overview-radar-charts.js?v=__BL_ASSET_VERSION__&rev=2"></script>
+<script src="detail-drawer.js?v=__BL_ASSET_VERSION__&rev=4"></script>
+<script src="thinking-orb-working.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="overview-global-flow.js?v=__BL_ASSET_VERSION__&rev=5"></script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_APP_SCRIPTS_START');</script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_APP_MAIN_START');</script>
+<script src="plm-colour-utils.js?v=__BL_ASSET_VERSION__&rev=2"></script>
+<script src="plm-licence-utils.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="collection-model-groups.js?v=__BL_ASSET_VERSION__&rev=2"></script>
+<script src="ui-primitives.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="ui-tooltip.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="layer-system.js?v=__BL_ASSET_VERSION__"></script>
+<script src="toolbar-responsive.js?v=__BL_ASSET_VERSION__&rev=2"></script>
+<script src="tab-system.js?v=__BL_ASSET_VERSION__"></script>
+<script src="plm-auth-recovery.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="app-main.js?v=__BL_ASSET_VERSION__&rev=COLLECTION-STATUS-CATALOG-V1"></script>
+<script src="license-royalty-commissions.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="backlog-chart.js?v=__BL_ASSET_VERSION__&rev=3"></script>
+<script src="backlog-plan-actual.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="backlog-radar-layout.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="collection-plm-drag-import.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="table-search-help.js?v=__BL_ASSET_VERSION__&rev=SEARCH-HELP-V1"></script>
+<script src="table-toolbar-action-cleanup.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="collection-status-ui.js?v=__BL_ASSET_VERSION__"></script>
+<script src="collection-spreadsheet-engine.js?v=__BL_ASSET_VERSION__&rev=2"></script>
+<script src="collection-spreadsheet.js?v=__BL_ASSET_VERSION__&rev=9"></script>
+<!-- Kullanıcı Excel'i içeri aktarma: deterministik motor + sihirbaz arayüzü.
+     CP ve Koleksiyon AYNI motoru kullanır (bkz. BLExcelImportBridge). -->
+<script src="excel-import-workbook.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="excel-import-mapping.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="excel-import-match.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="excel-import-plan.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="excel-import-profiles.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script src="excel-import-wizard.js?v=__BL_ASSET_VERSION__&rev=1"></script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_APP_MAIN_READY');</script>
+
+<script>
+
+/* ============ Kabuk davranışları (ray + üst bar) ============ */
+(function shell(){
+  const TITLES={overview:{tr:'Genel Bakış',en:'Overview'},cp:{tr:'CP Tracker',en:'CP Tracker'},orders:{tr:'Siparişler',en:'Orders'},koleksiyon:{tr:'Koleksiyon',en:'Collection'},quotations:{tr:'Quotations',en:'Quotations'},pricinghistory:{tr:'Fiyat Geçmişi',en:'Pricing History'},priceanalysis:{tr:'Fiyat & Üretici Analizi',en:'Price & Supplier Analysis'},lfl:{tr:'LFL analizi',en:'LFL Analysis'},opencosting:{tr:'Ön Maliyet',en:'Open Costing'},backlog:{tr:'Backlog',en:'Backlog'},shipping:{tr:'Nakliye kıyaslama',en:'Shipping Comparison'},automations:{tr:'Otomasyonlar',en:'Automations'},source:{tr:'Veri Yönetimi',en:'Data Management'}};
+  const titleEl=document.getElementById('pageTitle');
+  function syncTitle(){
+    if(typeof syncActivePageTitle==='function'){syncActivePageTitle();return;}
+    const b=document.querySelector('nav.tabs button.active');
+    if(titleEl){ const item=TITLES[b?.dataset.tab]; titleEl.textContent=item ? (appLang==='en'?item.en:item.tr) : 'Buyer Log'; }
+  }
+  document.querySelector('nav.tabs')?.addEventListener('click',()=>setTimeout(syncTitle));
+  syncTitle();
+
+  const collapseBtn=document.getElementById('railCollapse');
+  function syncRailIcon(){
+    const min=document.documentElement.dataset.rail==='min';
+    if(!collapseBtn) return;
+    collapseBtn.innerHTML=min
+      ? '<svg class="ic"><use href="#i-layout-sidebar-left-expand"/></svg>'
+      : '<svg class="ic"><use href="#i-layout-sidebar-left-collapse"/></svg>';
+    const title=document.documentElement.lang==='en'
+      ? (min?'Expand menu':'Collapse menu')
+      : (min?'Menüyü genişlet':'Menüyü daralt');
+    collapseBtn.title=title;
+    collapseBtn.setAttribute('aria-label',title);
+  }
+  collapseBtn?.addEventListener('click',()=>{
+    const html=document.documentElement;
+    html.dataset.rail = html.dataset.rail==='min' ? 'max' : 'min';
+    try{BLStorage.setItem('lcw_rail',html.dataset.rail);}catch(e){}
+    syncRailIcon();
+    requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+    setTimeout(()=>{try{if(typeof fitTableHeights==='function')fitTableHeights();}catch(e){}},170);
+  });
+  syncRailIcon();
+
+  /* v7.81 — Kaynak Veri şeridi kaldırıldı; konumlandırma ve aç-kapat kodu
+     da onunla birlikte gitti. */
+
+  document.getElementById('railThemeBtn')?.addEventListener('click',()=>{
+    applyTheme(nextTheme());
+  });
+
+  document.getElementById('topRefreshBtn')?.addEventListener('click',e=>{
+    e.preventDefault();e.stopPropagation();
+    // Yenileme sürerken aynı düğme Refresh Stages panelini gösterir/odaklar.
+    openTopRefreshMenu(e.currentTarget);
+  });
+
+  function goCpSearch(){
+    try{ switchTab('cp'); }catch(e){}
+    setTimeout(()=>document.getElementById('cpSearch')?.focus(), 30);
+  }
+  document.addEventListener('keydown',e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){ e.preventDefault(); goCpSearch(); }
+  });
+
+  /* --- Biçimli Excel dışa aktarımları --- */
+  document.getElementById('navExcelBtn')?.addEventListener('click',async()=>{ try{
+    if(window.BLPerf?.ensureLibrary) await window.BLPerf.ensureLibrary('xlsx');
+    if(document.body.dataset.activeTab==='cp') await exportCpTableWithLightTheme();
+    else await exportActiveTableStyled();
+  }catch(e){ showToast('Dışa aktarım hatası: '+e.message); } });
+})();
+
+</script>
+
+<script>
+(function finalProductUpgrade(){
+  // Sidebar: LOG + collapse
+  const side=document.querySelector('.cySidebar');
+  if(side){
+    const logo=side.querySelector('.cySideLogo'); if(logo) logo.textContent='LOG';
+    const brand=side.querySelector('.cySideBrand');
+    if(brand&&!document.getElementById('cyCollapseBtn')){const b=document.createElement('button');b.id='cyCollapseBtn';b.className='cyCollapseBtn';b.title='Menüyü daralt/genişlet';b.textContent='≡';brand.appendChild(b);b.addEventListener('click',()=>{document.body.classList.toggle('sidebarCollapsed');BLStorage.setItem('lcw_sidebar_collapsed',document.body.classList.contains('sidebarCollapsed')?'1':'0')});}
+    if(BLStorage.getItem('lcw_sidebar_collapsed')==='1')document.body.classList.add('sidebarCollapsed');
+  }
+  // Source becomes bottom-right toggle drawer
+  // v7.81 — Kaynak Veri şeridi kaldırıldı; alt-sağ çekmece davranışı da gitti.
+  // Theme selector is only on bottom-left sidebar button
+  const shortcut=document.getElementById('cyThemeShortcut'), panel=document.getElementById('themePanel');
+  if(shortcut&&panel){
+    const dock=document.createElement('div');dock.className='themeDock';document.body.appendChild(dock);dock.appendChild(panel);
+    shortcut.addEventListener('click',e=>{e.stopImmediatePropagation();renderThemePanel();panel.style.display=panel.style.display==='block'?'none':'block'},true);
+  }
+  // View / Filter popovers
+  const bar=document.querySelector('.vfBar');
+  const VF_PAD=8, VF_GAP=6, VF_WIDTH=248;
+  function clampVf(n,min,max){return Math.max(min,Math.min(max,n));}
+  function closeVfMenu(menu){
+    if(!menu)return;
+    menu.classList.remove('open');
+    menu.style.visibility='';
+    menu.previousElementSibling?.setAttribute('aria-expanded','false');
+  }
+  function positionVfMenu(menu,trigger){
+    if(!menu||!trigger||!menu.classList.contains('open'))return;
+    const vw=window.innerWidth,vh=window.innerHeight;
+    const width=Math.max(180,Math.min(VF_WIDTH,vw-(VF_PAD*2)));
+    menu.style.width=width+'px';
+    menu.style.maxWidth=(vw-(VF_PAD*2))+'px';
+    menu.style.maxHeight=(vh-(VF_PAD*2))+'px';
+    const ar=trigger.getBoundingClientRect();
+    const height=Math.min(menu.scrollHeight||menu.offsetHeight||120,vh-(VF_PAD*2));
+    let left=ar.right-width;
+    left=clampVf(left,VF_PAD,Math.max(VF_PAD,vw-width-VF_PAD));
+    let top=ar.bottom+VF_GAP;
+    if(top+height>vh-VF_PAD && ar.top-height-VF_GAP>=VF_PAD) top=ar.top-height-VF_GAP;
+    top=clampVf(top,VF_PAD,Math.max(VF_PAD,vh-height-VF_PAD));
+    menu.style.left=Math.round(left)+'px';
+    menu.style.top=Math.round(top)+'px';
+    menu.style.right='auto';
+    menu.style.bottom='auto';
+    menu.style.visibility='visible';
+  }
+  function closeAllVfMenus(except=null){
+    document.querySelectorAll('.vfMenu.open').forEach(menu=>{if(menu!==except)closeVfMenu(menu)});
+  }
+  function buildMenu(kind,label,selectId,ids){
+    const select=document.getElementById(selectId); if(!bar||!select)return;
+    const wrap=document.createElement('div');wrap.className='vfMenuWrap';wrap.dataset.vfKind=kind;wrap.id=kind==='view'?'vfViewMenuWrap':'vfFilterMenuWrap';
+    const trigger=document.createElement('button');trigger.type='button';trigger.className='vfMenuTrigger';trigger.dataset.vfKind=kind;trigger.textContent=label+' ▾';
+    const menu=document.createElement('div');menu.className='vfMenu';const actions=document.createElement('div');actions.className='vfActions';
+    menu.appendChild(select);ids.forEach(id=>{const el=document.getElementById(id);if(el)actions.appendChild(el)});menu.appendChild(actions);wrap.append(trigger,menu);
+    const rowBreak=bar.querySelector('.vfBarRowBreak[data-dimbreak="1"]');
+    if(rowBreak)bar.insertBefore(wrap,rowBreak);else bar.appendChild(wrap);
+    trigger.setAttribute('aria-haspopup','menu');trigger.setAttribute('aria-expanded','false');
+    menu.addEventListener('click',e=>e.stopPropagation());
+    trigger.addEventListener('click',e=>{
+      e.preventDefault();e.stopPropagation();
+      const willOpen=!menu.classList.contains('open');
+      closeAllVfMenus(menu);
+      if(!willOpen){closeVfMenu(menu);return;}
+      menu.style.visibility='hidden';
+      menu.classList.add('open');
+      trigger.setAttribute('aria-expanded','true');
+      positionVfMenu(menu,trigger);
+    });
+  }
+  buildMenu('view','Görünüm','viewSelect',['viewFavBtn','viewSaveBtn','viewSaveAsBtn','viewRenameBtn','viewResetBtn','viewDeleteBtn']);
+  buildMenu('filter','Filtre','filterSelect',['filterFavBtn','filterSaveBtn','filterSaveAsBtn','filterRenameBtn','filterResetBtn','filterDeleteBtn']);
+  if(typeof syncVfMenuLanguage==='function')syncVfMenuLanguage();
+  if(typeof syncTableToolbarActions==='function')syncTableToolbarActions(document.body.dataset.activeTab||'overview');
+  [...bar.querySelectorAll('span')].forEach(x=>{if(['Görünüm:','Filtre:'].includes(x.textContent.trim()))x.remove()});
+  document.addEventListener('click',()=>closeAllVfMenus());
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAllVfMenus();});
+  window.addEventListener('resize',()=>closeAllVfMenus());
+  window.addEventListener('scroll',e=>{if(!e.target?.closest?.('.vfMenu'))closeAllVfMenus();},true);
+  // Active tab state and backlog-specific controls
+  function activeTab(){const t=document.querySelector('nav.tabs button.active')?.dataset.tab||'overview';document.body.dataset.activeTab=t;return t;}
+  document.querySelector('nav.tabs')?.addEventListener('click',()=>setTimeout(activeTab,0));activeTab();
+  const initialBar=document.querySelector('.vfBar');
+  if(initialBar){const allowed=['cp','orders','shipping','koleksiyon'].includes(activeTab());initialBar.hidden=!allowed;initialBar.style.display=allowed?'flex':'none';initialBar.setAttribute('aria-hidden',allowed?'false':'true');}
+  // Backlog picker initialization is owned by app-main after all backlog constants
+  // are ready; do not read its lexical bindings from this inline bootstrap script.
+  // Pivot indentation is rendered by the tree component itself.
+})();
+
+// Toggle-close + Excel-style value/number filters
+(function upgradeExcelFilters(){
+  const NUM_TYPES=new Set(['money','moneyEdit','pct','int','num']);
+  let activeAnchor=null;
+  const oldClose=closeHeaderFilter;
+  closeHeaderFilter=function(){oldClose();activeAnchor=null;};
+  const oldPass=passesColFilters;
+  function numericRawValue(col,row){
+    // v5.99: burada eskiden `cfForRow(row)` çağrılıyordu; o yardımcı kaldırılmış
+    // olduğu için Ex→Retail sütununun filtresine dokunmak
+    // "cfForRow is not defined" hatasıyla çöküyordu. Değer zaten satırın
+    // kendisinde hesaplanmış olarak duruyor (CP satırı kurulurken yazılıyor).
+    return row[col.k];
+  }
+  function numericValueKey(v,col){
+    const n=numericFilterValue(v,col);
+    return n==null ? '' : String(n);
+  }
+  passesColFilters=function(tableKey,row){
+    const filters=state.colFilters[tableKey]||{};const cols=COLS_BY_TABLE[tableKey]||[];
+    for(const [k,entry] of Object.entries(filters)){
+      // v6.34 — revizyon filtresi (revize var / revize yok). Bu geçersiz kılma
+      // app-main'deki passesColFilters'ı TAMAMEN değiştirdiği için, orada eklenen
+      // her yeni filtre türünün burada da tanınması gerekir; aksi halde filtre
+      // panelde görünür ama hiçbir satırı etkilemez.
+      const revMode=(typeof revisionFilterMode==='function')?revisionFilterMode(entry):'';
+      if(revMode){
+        if(!revisionFilterPasses(revMode,k,row))return false;
+        if(!colFilterHasValueTest(entry))continue;
+      }
+      // Priority artık CP/Orders boyunca tek kanonik Action Priority'dir.
+      // Header ve hızlı filtreler aynı internal code kümesini kullanır; eski
+      // Handover/Delay gibi çoklu warning token eşleşmesi yoktur.
+      if((tableKey==='cp'||tableKey==='orders')&&k==='Priority'){
+        if(!entry.values||![...entry.values].some(flag=>priorityHas(row['Priority'],flag)))return false;
+        continue;
+      }
+      if(tableKey==='cp'&&k==='Ex-factory'&&entry.quickExf){
+        if(!entry.values||![...entry.values].some(period=>matchesQuickExFactory(row,period)))return false;
+        continue;
+      }
+      const col=cols.find(c=>c.k===k)||{k,type:'ro'};
+      if(entry.range){
+        // Yüzde aralığı filtresi (app-main). Bu geçersiz kılma onu bilmediği
+        // için aralık filtresi hiç uygulanmıyordu.
+        const raw=numericRawValue(col,row);
+        if(raw==null||raw==='')return false;
+        const n=Number(raw); if(!Number.isFinite(n))return false;
+        if(entry.range.min!=null&&n<entry.range.min)return false;
+        if(entry.range.max!=null&&n>entry.range.max)return false;
+        continue;
+      }
+      if(entry.numericRule){
+        if(!numericFilterRulePasses(entry.numericRule,numericRawValue(col,row),col))return false;
+      } else {
+        const val=entry.granularity
+          ? dateBucketKey(row[k],entry.granularity)
+          : (NUM_TYPES.has(col.type) ? numericValueKey(numericRawValue(col,row),col) : cellPlainText(col,row));
+        if(k==='Del. Type'){
+          const actual=comparableColumnFilterValue(k,val);
+          if(entry.values&&![...entry.values].some(v=>comparableColumnFilterValue(k,v)===actual))return false;
+        }else if(entry.values&&!entry.values.has(val))return false;
+      }
+    }
+    return true;
+  };
+  const originalOpen=openHeaderFilter;
+  openHeaderFilter=function(tableKey,key,anchorEl,rerenderOuter){
+    if(_openFilterPanel&&activeAnchor===anchorEl){closeHeaderFilter();return;}
+    closeHeaderFilter();activeAnchor=anchorEl;
+    const col=(COLS_BY_TABLE[tableKey]||[]).find(c=>c.k===key)||{k:key,type:'ro'};
+    // Yüzde sütunları buradaki sayı panelini KULLANMAZ: değerler 0,8 / 0,75 gibi
+    // ondalık kesir olduğu için hem liste okunaksız hem de girilen "%80" anlamsız
+    // oluyordu. Bunlar app-main'deki yüzde aralığı paneline gider (v5.99).
+    if(!NUM_TYPES.has(col.type)||col.type==='pct'){originalOpen(tableKey,key,anchorEl,rerenderOuter);activeAnchor=anchorEl;return;}
+    const base=(typeof rowsForFilterUniverse==='function')?rowsForFilterUniverse(tableKey,key):(state.cp?.rows||[]);
+    const nums=base.map(r=>numericFilterValue(numericRawValue(col,r),col)).filter(n=>n!=null);const avg=nums.length?nums.reduce((a,b)=>a+b,0)/nums.length:0;
+    const panel=document.createElement('div');panel.className='colFilterPanel';document.body.appendChild(panel);_openFilterPanel=panel;
+    if(typeof window.positionBuyerLogPopup==='function')window.positionBuyerLogPopup(panel,anchorEl,{gap:5});
+    const ex=state.colFilters[tableKey][key]?.numericRule||{};
+    panel.innerHTML=`<div class="filterSectionTitle">Sayı Filtreleri</div><div class="excelFilterTop"><select class="numOp"><option value="eq">Eşittir</option><option value="neq">Eşit değildir</option><option value="gt">Büyüktür</option><option value="gte">Büyük veya eşittir</option><option value="lt">Küçüktür</option><option value="lte">Küçük veya eşittir</option><option value="between">Belirli aralık</option><option value="aboveAvg">Ortalamanın üstünde</option><option value="belowAvg">Ortalamanın altında</option></select><div class="numFilterRow"><input class="numA" type="number" step="any" placeholder="Değer"><input class="numB" type="number" step="any" placeholder="Üst sınır"></div><button class="numFilterApply">Uygula</button><button class="numFilterClear">Sayı filtresini temizle</button></div><div class="filterSectionTitle">Değer seçimi</div><div class="numericValueList"></div>`;
+    const op=panel.querySelector('.numOp'),a=panel.querySelector('.numA'),b=panel.querySelector('.numB');op.value=ex.op||'eq';a.value=ex.a??'';b.value=ex.b??'';
+    function sync(){const need=!['aboveAvg','belowAvg'].includes(op.value);a.style.display=need?'':'none';b.style.display=op.value==='between'?'':'none'}op.addEventListener('change',sync);sync();
+    panel.querySelector('.numFilterApply').onclick=()=>{state.colFilters[tableKey][key]={values:new Set(),numericRule:{op:op.value,a:a.value,b:b.value,avg}};rerenderOuter?.();closeHeaderFilter()};
+    panel.querySelector('.numFilterClear').onclick=()=>{delete state.colFilters[tableKey][key];rerenderOuter?.();closeHeaderFilter()};
+    const list=panel.querySelector('.numericValueList');
+    const vals=[...new Set(nums)].sort((x,y)=>x-y);
+    const existingValues=state.colFilters[tableKey][key]?.values;
+    list.innerHTML=`<input class="cfpSearch" placeholder="Ara…"><div class="cfpHeader"><button type="button" class="cfpAll" data-v="all">Tümü</button><button type="button" class="cfpAll" data-v="none">Temizle</button></div><div class="cfpList">${vals.map(v=>{const k=numericValueKey(v,col);const checked=!existingValues||existingValues.has(k);const display=v.toLocaleString('tr-TR',{maximumFractionDigits:6});return `<label class="cfpItem" data-txt="${escapeHtml(display.toLowerCase())}"><input type="checkbox" value="${escapeHtml(k)}" ${checked?'checked':''}> ${escapeHtml(display)}</label>`}).join('')}</div>`;
+    const boxes=[...list.querySelectorAll('input[type=checkbox]')];
+    const applyVals=()=>{
+      const checked=boxes.filter(x=>x.checked).map(x=>x.value);
+      const listed=new Set(boxes.map(x=>x.value));
+      const exv=state.colFilters[tableKey][key]?.values;
+      const preserved=exv?[...exv].filter(v=>!listed.has(v)):[];
+      const next=new Set([...checked,...preserved]);
+      if(checked.length===boxes.length && preserved.length===0) delete state.colFilters[tableKey][key];
+      else state.colFilters[tableKey][key]={values:next};
+      rerenderOuter?.();
+    };
+    boxes.forEach(x=>x.onchange=applyVals);
+    list.querySelector('[data-v=all]').onclick=()=>{boxes.forEach(x=>x.checked=true);applyVals()};
+    list.querySelector('[data-v=none]').onclick=()=>{boxes.forEach(x=>x.checked=false);applyVals()};
+    list.querySelector('.cfpSearch').oninput=e=>{const q=e.target.value.trim().toLocaleLowerCase('tr-TR');list.querySelectorAll('.cfpItem').forEach(x=>x.style.display=!q||x.dataset.txt.includes(q)?'':'none')};
+  };
+  const originalCheck=openCheckFilter;
+  openCheckFilter=function(tableKey,anchorEl,rerenderOuter){if(_openFilterPanel&&activeAnchor===anchorEl){closeHeaderFilter();return;}closeHeaderFilter();activeAnchor=anchorEl;originalCheck(tableKey,anchorEl,rerenderOuter);activeAnchor=anchorEl;};
+})();
+
+// Antrepo Giriş Tarihi üst araç çubuğundaki tarih aralığından filtrelenir.
+// Hiyerarşi satırında yinelenen filtre düğmesi bilinçli olarak gösterilmez.
+
+</script>
+
+<script>
+(function initDelTypeDropdown(){
+  let menu=null, trigger=null;
+  function closeMenu(){
+    if(trigger) trigger.setAttribute('aria-expanded','false');
+    if(menu) menu.remove();
+    menu=null; trigger=null;
+  }
+  function choose(value){
+    if(!trigger) return;
+    const id=Number(trigger.dataset.id), key=trigger.dataset.key;
+    const row=state.cp.rows.find(r=>r._id===id);
+    if(!row){closeMenu();return;}
+    const prev=row[key], next=value;
+    row[key]=next;
+    syncCpProductionLogisticSegment(row,next);
+    applyFormulas(row); markDirty(id);
+    pushUndo({id,fields:[{key,prev,next}]});
+    closeMenu();
+    refreshRowEverywhere(id);
+  }
+  function openMenu(btn){
+    if(trigger===btn){closeMenu();return;}
+    closeMenu(); trigger=btn; btn.setAttribute('aria-expanded','true');
+    const rect=btn.getBoundingClientRect();
+    menu=document.createElement('div');
+    menu.className='delTypeMenu'; menu.setAttribute('role','listbox');
+    const current=btn.dataset.value||'';
+    const values=['',...DELTYPE_OPTS];
+    menu.innerHTML=values.map(v=>`<button type="button" class="delTypeOption" role="option" aria-selected="${v===current}" data-value="${escapeHtml(v)}">${escapeHtml(v?transitDelTypeDisplay(v):'—')}</button>`).join('');
+    document.body.appendChild(menu);
+    const width=Math.max(rect.width,150);
+    menu.style.width=width+'px';
+    const maxH=Math.min(220,window.innerHeight-20);menu.style.maxHeight=maxH+'px';
+    if(typeof window.positionBuyerLogPopup==='function')window.positionBuyerLogPopup(menu,btn,{gap:4});
+    menu.querySelectorAll('.delTypeOption').forEach(opt=>opt.addEventListener('click',e=>{e.stopPropagation();choose(opt.dataset.value||'');}));
+    requestAnimationFrame(()=>menu.querySelector('[aria-selected="true"]')?.focus());
+  }
+  document.addEventListener('click',e=>{
+    const btn=e.target.closest('.delTypeTrigger');
+    if(btn){e.preventDefault();e.stopPropagation();openMenu(btn);return;}
+    if(menu && !menu.contains(e.target)) closeMenu();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&menu){e.preventDefault();closeMenu();}
+    if(menu&&(e.key==='ArrowDown'||e.key==='ArrowUp')){
+      e.preventDefault(); const opts=[...menu.querySelectorAll('.delTypeOption')]; const i=opts.indexOf(document.activeElement);
+      opts[(i+(e.key==='ArrowDown'?1:-1)+opts.length)%opts.length]?.focus();
+    }
+    if(menu&&e.key==='Enter'&&document.activeElement?.classList.contains('delTypeOption')){e.preventDefault();choose(document.activeElement.dataset.value||'');}
+  });
+  window.addEventListener('resize',closeMenu);
+  window.addEventListener('scroll',event=>{if(event.target instanceof Element&&event.target.closest('.delTypeMenu'))return;closeMenu();},true);
+})();
+
+</script>
+
+<script>
+(function initViewportSafeDropdowns(){
+  const PAD=8;
+  let openProfileMenu=null;
+  let openProfileTrigger=null;
+  let lastFloatingAnchor=null;
+
+  function clamp(n,min,max){ return Math.max(min,Math.min(max,n)); }
+  function isVisible(el){
+    if(!el || !el.isConnected) return false;
+    const st=getComputedStyle(el);
+    return st.display!=='none' && st.visibility!=='hidden';
+  }
+  function positionFloating(panel,anchor,{alignRight=false,gap=5}={}){
+    if(!panel||!anchor||!anchor.isConnected) return;
+    panel.style.visibility='hidden';
+    panel.style.display='block';
+    panel.style.maxWidth=`calc(100vw - ${PAD*2}px)`;
+    panel.style.maxHeight=`calc(100vh - ${PAD*2}px)`;
+    const ar=anchor.getBoundingClientRect();
+    const pw=Math.min(panel.offsetWidth||220,window.innerWidth-PAD*2);
+    const ph=Math.min(panel.offsetHeight||220,window.innerHeight-PAD*2);
+    // Varsayılan bütün filtre/seçim menülerinde düğme merkezidir. Sadece
+    // ekran sınırına yaklaşınca clamp ile içeride tutulur. alignRight yalnız
+    // gerçekten sağ hizası istenen eski özel menüler için korunur.
+    let left=alignRight ? ar.right-pw : ar.left+(ar.width-pw)/2;
+    left=clamp(left,PAD,Math.max(PAD,window.innerWidth-pw-PAD));
+    let top=ar.bottom+gap;
+    if(top+ph>window.innerHeight-PAD && ar.top-ph-gap>=PAD) top=ar.top-ph-gap;
+    else top=clamp(top,PAD,Math.max(PAD,window.innerHeight-ph-PAD));
+    panel.style.left=Math.round(left)+'px';
+    panel.style.top=Math.round(top)+'px';
+    panel.style.right='auto';
+    panel.style.bottom='auto';
+    panel.style.visibility='visible';
+  }
+  window.positionBuyerLogPopup=positionFloating;
+
+  function popupOwnsScrollTarget(target){
+    return target instanceof Element && !!target.closest(
+      '.colPanel,.colFilterPanel,.profileSelectMenu,.modelConnFieldPanel,.vfMenu,'+
+      '.pricingRuleSeasonPanel,.topRefreshMenu,.lflMultiPanel'
+    );
+  }
+
+  function closeProfileMenu(){
+    if(openProfileTrigger) openProfileTrigger.setAttribute('aria-expanded','false');
+    if(openProfileMenu) openProfileMenu.remove();
+    openProfileMenu=null;openProfileTrigger=null;
+  }
+  function syncPicker(select){
+    if(!select) return;
+    const trigger=select.closest('.profileSelectWrap')?.querySelector('.profileSelectTrigger');
+    if(!trigger) return;
+    const opt=select.options[select.selectedIndex]||select.options[0];
+    trigger.textContent=opt?.textContent||'— seçilmedi —';
+    trigger.title=trigger.textContent;
+  }
+  window.syncProfilePicker=syncPicker;
+
+  function buildProfilePicker(select){
+    if(!select || select.dataset.profilePickerReady==='1') return;
+    select.dataset.profilePickerReady='1';
+    select.classList.add('profileNativeSelect');
+    const wrap=document.createElement('div');
+    wrap.className='profileSelectWrap';
+    select.parentNode.insertBefore(wrap,select);
+    wrap.appendChild(select);
+    const trigger=document.createElement('button');
+    trigger.type='button';
+    trigger.className='profileSelectTrigger';
+    trigger.setAttribute('aria-haspopup','listbox');
+    trigger.setAttribute('aria-expanded','false');
+    wrap.appendChild(trigger);
+
+    function openMenu(){
+      if(openProfileTrigger===trigger){closeProfileMenu();return;}
+      closeProfileMenu();
+      syncPicker(select);
+      const menu=document.createElement('div');
+      menu.className='profileSelectMenu';
+      if(select.closest('.warnOverlay')) menu.classList.add('profileSelectMenuModal');
+      menu.setAttribute('role','listbox');
+      menu.innerHTML=[...select.options].map(opt=>`<button type="button" class="profileSelectOption" role="option" aria-selected="${opt.value===select.value}" data-value="${escapeHtml(opt.value)}" title="${escapeHtml(opt.textContent||'')}">${escapeHtml(opt.textContent||'')}</button>`).join('');
+      document.body.appendChild(menu);
+      openProfileMenu=menu;openProfileTrigger=trigger;
+      trigger.setAttribute('aria-expanded','true');
+      menu.style.minWidth=Math.max(170,trigger.getBoundingClientRect().width)+'px';
+      positionFloating(menu,trigger);
+      menu.querySelectorAll('.profileSelectOption').forEach(btn=>btn.addEventListener('click',e=>{
+        e.preventDefault();e.stopPropagation();
+        select.value=btn.dataset.value||'';
+        select.dispatchEvent(new Event('change',{bubbles:true}));
+        syncPicker(select);
+        closeProfileMenu();
+      }));
+      requestAnimationFrame(()=>menu.querySelector('[aria-selected="true"]')?.focus());
+    }
+    trigger.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openMenu();});
+    select.addEventListener('change',()=>syncPicker(select));
+    new MutationObserver(()=>syncPicker(select)).observe(select,{childList:true,subtree:true,attributes:true});
+    syncPicker(select);
+  }
+
+  window.buildProfilePicker=buildProfilePicker;
+  buildProfilePicker(document.getElementById('viewSelect'));
+  buildProfilePicker(document.getElementById('filterSelect'));
+
+  function anchorForPanel(panel){
+    if(panel?._buyerLogAnchor?.isConnected) return panel._buyerLogAnchor;
+    const wrap=panel.closest('.colPanelWrap');
+    if(!wrap) return null;
+    return [...wrap.children].find(el=>el!==panel && (el.matches?.('button,select,[role="button"]'))) || wrap.querySelector('button,select,[role="button"]');
+  }
+  function repositionVisiblePanels(){
+    document.querySelectorAll('.colPanel').forEach(panel=>{
+      if(!isVisible(panel) || panel.closest('.themeDock')) return;
+      const anchor=anchorForPanel(panel);
+      if(!anchor) return;
+      panel.classList.add('viewportFloating');
+      positionFloating(panel,anchor);
+    });
+    if(_openFilterPanel && isVisible(_openFilterPanel) && lastFloatingAnchor){
+      const rect=lastFloatingAnchor.getBoundingClientRect();
+      const tableRect=lastFloatingAnchor.closest('table')?.getBoundingClientRect?.();
+      const anchorVisible=rect.bottom>0&&rect.top<window.innerHeight&&rect.right>0&&rect.left<window.innerWidth;
+      const tableVisible=!tableRect||(tableRect.bottom>0&&tableRect.top<window.innerHeight&&tableRect.right>0&&tableRect.left<window.innerWidth);
+      if(!anchorVisible||!tableVisible){closeHeaderFilter();lastFloatingAnchor=null;}
+      else positionFloating(_openFilterPanel,lastFloatingAnchor);
+    }
+  }
+  window.repositionVisiblePanels=repositionVisiblePanels;
+  // Scroll/resize can emit dozens of events in the same paint frame on the
+  // large spreadsheet pages. Geometry reads are useful once per frame, not
+  // once per DOM event; coalesce them without changing popup semantics.
+  let visiblePanelRepositionRaf=0;
+  function scheduleVisiblePanelReposition(){
+    if(visiblePanelRepositionRaf)return;
+    visiblePanelRepositionRaf=requestAnimationFrame(()=>{
+      visiblePanelRepositionRaf=0;
+      repositionVisiblePanels();
+    });
+  }
+
+  document.addEventListener('pointerdown',e=>{
+    const anchor=e.target.closest('.thFilterBtn,.chkFilterBtn,.backlogDimFilterBtn,[data-cpdim],[data-apprdim],#navColsBtn,#shipColsBtn');
+    if(anchor) lastFloatingAnchor=anchor;
+  },true);
+  document.addEventListener('click',e=>{
+    if(openProfileMenu && !openProfileMenu.contains(e.target) && e.target!==openProfileTrigger) closeProfileMenu();
+    requestAnimationFrame(()=>requestAnimationFrame(repositionVisiblePanels));
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && openProfileMenu){e.preventDefault();closeProfileMenu();}
+    if(openProfileMenu && (e.key==='ArrowDown'||e.key==='ArrowUp')){
+      e.preventDefault();
+      const opts=[...openProfileMenu.querySelectorAll('.profileSelectOption')];
+      const i=opts.indexOf(document.activeElement);
+      opts[(i+(e.key==='ArrowDown'?1:-1)+opts.length)%opts.length]?.focus();
+    }
+    if(openProfileMenu && e.key==='Enter' && document.activeElement?.classList.contains('profileSelectOption')) document.activeElement.click();
+  });
+  new MutationObserver(muts=>{
+    if(muts.some(m=>[...m.addedNodes].some(n=>n.nodeType===1 && (n.matches?.('.colFilterPanel,.colPanel') || n.querySelector?.('.colFilterPanel,.colPanel'))))){
+      requestAnimationFrame(()=>requestAnimationFrame(repositionVisiblePanels));
+    }
+  }).observe(document.body,{childList:true,subtree:true});
+  window.addEventListener('resize',()=>{closeProfileMenu();scheduleVisiblePanelReposition();});
+  window.addEventListener('scroll',event=>{
+    // Panelin kendi listesini kaydırmak tetikleyici geometrisini değiştirmez.
+    // Büyük tablolar aynı frame içinde çok sayıda captured scroll olayı üretir;
+    // tek rAF pass hem tetikleyici takibini korur hem tekrarlı layout ölçümünü önler.
+    if(popupOwnsScrollTarget(event.target)) return;
+    closeProfileMenu();
+    scheduleVisiblePanelReposition();
+  },true);
+})();
+</script>
+
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_UI_SHELL_READY');</script>
+<script>window.BLPerf?.mark?.('PRE_FRONTEND_STEP_APP_SCRIPTS_READY');</script>
+<script>window.BLPerf?.mark?.('FRONTEND_BOOTSTRAP_READY');</script>
+<script>
+(function(){
+  function isSearchLike(input){
+    if(!input||input.tagName!=='INPUT')return false;
+    const text=`${input.type||''} ${input.className||''} ${input.id||''} ${input.placeholder||''}`.toLowerCase();
+    return input.type==='search'||/\bsearch\b|arama|\bara\b/.test(text);
+  }
+  function suppressSavedInfo(root){
+    const nodes=[];
+    if(root&&root.nodeType===1&&root.matches?.('input'))nodes.push(root);
+    root?.querySelectorAll?.('input')?.forEach(input=>nodes.push(input));
+    nodes.filter(isSearchLike).forEach(input=>{
+      input.setAttribute('autocomplete','off');
+      input.setAttribute('autocapitalize','none');
+      input.setAttribute('spellcheck','false');
+      input.setAttribute('data-form-type','other');
+      input.setAttribute('data-lpignore','true');
+      input.setAttribute('data-1p-ignore','true');
+      input.setAttribute('data-bwignore','true');
+      input.setAttribute('aria-autocomplete','none');
+      input.setAttribute('role','searchbox');
+      if(!input.name)input.name=`bl-search-${input.id||Math.random().toString(36).slice(2)}`;
+    });
+  }
+  suppressSavedInfo(document);
+  new MutationObserver(mutations=>mutations.forEach(mutation=>mutation.addedNodes.forEach(node=>{
+    if(node.nodeType===1)suppressSavedInfo(node);
+  }))).observe(document.body,{childList:true,subtree:true});
+
+  let pan=null,suppressContextMenuUntil=0;
+  const PAN_SURFACE_SELECTOR='.tablewrap,.lflTableWrap,.ocTableWrap,.backlogDetailTableWrap,.warningDetailTableWrap,.sourceRefreshTableWrap';
+  const collectionWrap=document.querySelector('#view-koleksiyon .tablewrap');
+  let collectionScrollReleaseTimer=0;
+  function axisScrollable(node,axis){
+    if(!node)return false;
+    return axis==='x'
+      ? node.scrollWidth>node.clientWidth+2
+      : node.scrollHeight>node.clientHeight+2;
+  }
+  function holdCollectionFastScroll(){
+    if(!collectionWrap)return;
+    collectionWrap.classList.add('kolScrollPerfMode');
+    try{if(typeof kolHideImgPopup==='function')kolHideImgPopup();}catch(_){}
+    clearTimeout(collectionScrollReleaseTimer);
+    collectionScrollReleaseTimer=0;
+  }
+  function beginCollectionFastScroll(delay=150){
+    holdCollectionFastScroll();
+    collectionScrollReleaseTimer=setTimeout(()=>{collectionScrollReleaseTimer=0;collectionWrap.classList.remove('kolScrollPerfMode');},delay);
+  }
+  if(collectionWrap){
+    collectionWrap.addEventListener('wheel',()=>beginCollectionFastScroll(190),{passive:true});
+    collectionWrap.addEventListener('scroll',()=>{if(!(pan&&(pan.xTarget===collectionWrap||pan.yTarget===collectionWrap)))beginCollectionFastScroll(150);},{passive:true});
+  }
+  function scrollableAncestor(start,axis){
+    let node=start instanceof Element?start:null;
+    while(node&&node!==document.body&&node!==document.documentElement){
+      const style=getComputedStyle(node);
+      const overflow=axis==='x'?style.overflowX:style.overflowY;
+      // overflow:hidden alanları programatik olarak kayabilir. clip gerçek bir
+      // kaydırma yüzeyi değildir ve özellikle yatay hedefi yanlış seçtirir.
+      if(axisScrollable(node,axis)&&overflow!=='clip')return node;
+      node=node.parentElement;
+    }
+    const doc=document.scrollingElement;
+    if(doc){
+      const viewport=axis==='x'?window.innerWidth:window.innerHeight;
+      const extent=axis==='x'?doc.scrollWidth:doc.scrollHeight;
+      if(extent>viewport+2)return doc;
+    }
+    return null;
+  }
+  function preferredPanTarget(start,axis){
+    const element=start instanceof Element?start:null;
+    const preferred=element?.closest?.(PAN_SURFACE_SELECTOR)||null;
+    // Tablolarda yatay scrollbar çoğunlukla .tablewrap üzerindedir. Önce bu
+    // gerçek yüzeyi seçmek, hücre/input katmanlarının yatay hedefi yutmasını önler.
+    if(preferred&&axisScrollable(preferred,axis))return preferred;
+    return scrollableAncestor(element,axis);
+  }
+  function applyPanFrame(){
+    if(!pan)return;
+    pan.rafId=0;
+    const totalDx=pan.latestX-pan.startX,totalDy=pan.latestY-pan.startY;
+    if(pan.xTarget)pan.xTarget.scrollLeft=pan.xStart-totalDx;
+    if(pan.yTarget)pan.yTarget.scrollTop=pan.yStart-totalDy;
+  }
+  function finishPan(){
+    if(!pan)return;
+    if(pan.rafId){cancelAnimationFrame(pan.rafId);applyPanFrame();}
+    if(pan.pointerTarget&&pan.pointerId!=null&&pan.pointerTarget.releasePointerCapture){
+      try{pan.pointerTarget.releasePointerCapture(pan.pointerId);}catch(_){}
+    }
+    if(pan.moved)suppressContextMenuUntil=Date.now()+350;
+    const touchedCollection=pan.xTarget===collectionWrap||pan.yTarget===collectionWrap;
+    pan=null;
+    document.body.classList.remove('blRightPanActive');
+    if(touchedCollection)beginCollectionFastScroll(90);
+  }
+  // İkincil fare düğmesini olay yolunun en başında (window capture) karşıla.
+  // Böylece sağ tık; input/select odaklama, hücre düzenleme, onay tiki veya diğer
+  // sol-tık işlevlerine hiçbir zaman ulaşmaz. Context menu ayrı bir olay olduğu
+  // için sürükleme yapılmadığında normal sağ tık menüsü çalışmaya devam eder.
+  window.addEventListener('pointerdown',event=>{
+    if(event.button!==2)return;
+    // Görsel sağ tık silme davranışı, tabloyu sağ tuşla sürükleme davranışından
+    // önceliklidir. pointerdown default'u burada engellenirse tarayıcı contextmenu
+    // olayını hiç üretmeyebilir ve CP/Koleksiyon silme sorgusu açılamaz.
+    if(event.target instanceof Element&&event.target.closest('img.kolThumb[data-has-image="1"],img.cpThumb[data-has-image="1"]'))return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    let xTarget=preferredPanTarget(event.target,'x');
+    let yTarget=preferredPanTarget(event.target,'y');
+    // Aynı yüzey iki eksende de kayabiliyorsa iki yönü de mutlaka aynı yüzeye
+    // bağla. Böylece yatay, dikey ve çapraz sürükleme tek pointer akışında çalışır.
+    if(!xTarget&&yTarget&&axisScrollable(yTarget,'x'))xTarget=yTarget;
+    if(!yTarget&&xTarget&&axisScrollable(xTarget,'y'))yTarget=xTarget;
+    if(!xTarget&&!yTarget)return;
+    const pointerTarget=event.target instanceof Element?event.target:null;
+    if(pointerTarget&&pointerTarget.setPointerCapture){
+      try{pointerTarget.setPointerCapture(event.pointerId);}catch(_){}
+    }
+    pan={
+      pointerId:event.pointerId,pointerTarget,
+      startX:event.clientX,startY:event.clientY,
+      xTarget,yTarget,
+      xStart:xTarget?xTarget.scrollLeft:0,
+      yStart:yTarget?yTarget.scrollTop:0,
+      latestX:event.clientX,latestY:event.clientY,
+      rafId:0,moved:false,
+    };
+    if(xTarget===collectionWrap||yTarget===collectionWrap)holdCollectionFastScroll();
+  },true);
+  // PointerEvent üretmeyen/uyumluluk mouse olayı gönderen ortamlarda da sağ
+  // mousedown hedef hücreye ulaşmasın.
+  window.addEventListener('mousedown',event=>{
+    if(event.button!==2)return;
+    if(event.target instanceof Element&&event.target.closest('img.kolThumb[data-has-image="1"],img.cpThumb[data-has-image="1"]'))return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  },true);
+  window.addEventListener('pointermove',event=>{
+    if(!pan||event.pointerId!==pan.pointerId)return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if(!(event.buttons&2)){finishPan();return;}
+    const totalDx=event.clientX-pan.startX,totalDy=event.clientY-pan.startY;
+    if(!pan.moved&&Math.hypot(totalDx,totalDy)<4)return;
+    pan.moved=true;
+    pan.latestX=event.clientX;pan.latestY=event.clientY;
+    document.body.classList.add('blRightPanActive');
+    // Yüksek polling-rate farelerde yüzlerce pointermove olayını DOM'a tek tek
+    // yazmak yerine her animation frame'de yalnız son konumu uygula.
+    if(!pan.rafId)pan.rafId=requestAnimationFrame(applyPanFrame);
+  },true);
+  window.addEventListener('pointerup',event=>{
+    if(!pan||event.pointerId!==pan.pointerId)return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    finishPan();
+  },true);
+  window.addEventListener('pointercancel',event=>{
+    if(!pan||event.pointerId!==pan.pointerId)return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    finishPan();
+  },true);
+  document.addEventListener('contextmenu',event=>{
+    if((pan&&pan.moved)||Date.now()<suppressContextMenuUntil){
+      event.preventDefault();event.stopPropagation();
+    }
+  },true);
+  window.addEventListener('blur',finishPan);
+})();
+</script>
+
+<script>
+(function(){
+  // Acilis saglik kontrolu. Buradaki secicilerin sayfada GERCEKTEN bulunmasi sart:
+  // olmayan bir secici arandiginda uygulama saglikli oldugu halde acilis basarisiz
+  // sayilir ve kullanici "Acilis tamamlanamadi" ekraninda kalir. v3.76'da tam bu oldu —
+  // eski tasarimdan kalma .cySidebar araniyordu, o sinif markup'ta artik yok.
+  // tests/boot-health-selectors-v377.test.js bu seciciler ile markup'i birlikte dogrular.
+  var BOOT_REQUIRED_SELECTORS=['aside.rail','nav.tabs','#view-overview'];
+  var BOOT_REQUIRED_FUNCTIONS=['loadFromServer','renderOverview'];
+  function missingBootPart(){
+    for(var i=0;i<BOOT_REQUIRED_SELECTORS.length;i++){
+      if(!document.querySelector(BOOT_REQUIRED_SELECTORS[i]))return BOOT_REQUIRED_SELECTORS[i];
+    }
+    for(var j=0;j<BOOT_REQUIRED_FUNCTIONS.length;j++){
+      if(typeof window[BOOT_REQUIRED_FUNCTIONS[j]]!=='function')return BOOT_REQUIRED_FUNCTIONS[j]+'()';
+    }
+    return '';
+  }
+  function finishBoot(){
+    if(!document.body){window.BLBootGuard?.recover('Buyer Log ana arayüzü başlatılamadı: document.body');return;}
+    var missing=missingBootPart();
+    if(!missing)window.BLBootGuard?.ready();
+    else window.BLBootGuard?.recover('Buyer Log ana arayüzü başlatılamadı: '+missing+' bulunamadı.');
+  }
+  if(document.readyState==='complete')finishBoot();else window.addEventListener('load',finishBoot,{once:true});
+})();
+</script>
+
+</body>
+</html>
