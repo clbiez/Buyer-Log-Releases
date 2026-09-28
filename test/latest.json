@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.153",
-  "publishedAt": "2026-09-27T12:39:28.629Z",
-  "artifact": "releases/BuyerLog-7.0.153.zip",
-  "sha256": "734db9c33675121afd3260e9b7b2c133b13699a340c4a8a5c4958d7ef3e72b3b",
-  "size": 49321869,
+  "version": "7.0.155",
+  "publishedAt": "2026-09-28T08:54:53.873Z",
+  "artifact": "releases/BuyerLog-7.0.155.zip",
+  "sha256": "21e2412fd9b40c5c4c9c71e69d02d21ca42b140d15a3df1b29eb5a88e072c3ca",
+  "size": 49356237,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.153: 7.0.152 paketleme hatası giderildi; güncelleme paketi updater'ın zorunlu tuttuğu deterministic STORE ZIP formatında üretilip byte-for-byte doğrulanır. Bugünkü tüm aktif Buyer Log çalışmaları korunur: kalıcı OAB oturumu, License Royalty + TR/YD komisyon modeli ve eski veri migrasyonu, LFL Trial/Comparison yenileme, IAS/ASAS Field Mapping onarımı, Data Inspector diagnostics, seçilebilir Backup/Restore, Backlog analiz/grafik iyileştirmeleri ve Global Flow/Earth güncellemeleri dahildir.",
+  "releaseNotes": "Buyer Log 7.0.155: Son iki gündeki başarısız/unmerged çalışmaların main'de eksik kalan parçaları güvenli biçimde geri alındı. Backlog Excel/grafik canlı senkron korumaları, IAS Horizon canlı şema/field mapping onarımı ve PLM Sync sırasında Royalty/Licensor bilgisinin korunması dahil edildi; mevcut OAB external browser ve INTAKE davranışları korunarak regression testleri güncellendi.",
   "minimumUpdaterVersion": "1.0.0"
 }
