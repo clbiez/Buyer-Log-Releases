@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.160",
-  "publishedAt": "2026-09-28T20:03:59.140Z",
-  "artifact": "releases/BuyerLog-7.0.160.zip",
-  "sha256": "23b4cd4e49338ff14798d7631c51e482141563dd80c6e6248522e0cb8c0ae904",
-  "size": 49418405,
+  "version": "7.0.161",
+  "publishedAt": "2026-09-28T20:31:04.639Z",
+  "artifact": "releases/BuyerLog-7.0.161.zip",
+  "sha256": "9ea29f478ce60baeb25d5287a91aa1331c95251b77a212e2b4427e250263c3f0",
+  "size": 49425240,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.160 TEST: Claude tarafından bekleyen aktif geliştirmeler güncel main üzerine güvenli şekilde entegre edildi. Price & Supplier Analysis yeniden inşa ve review düzeltmeleri; kullanıcı menüsünden self-service preset paylaşımı; IAS horizon mapping ve INTAKE filtre/yenileme tutarlılığı; Orders · Backlog · LFL · Price & Supplier için ortak horizon ve bağlı yenileme davranışı eklendi. Eski Global Flow/Earth Claude branchleri daha önce güncel main'e uyarlanarak merge edilmiş olduğundan tekrar uygulanmadı. Tüm birleşik değişiklikler final tam Buyer Log regresyon paketinden başarıyla geçti.",
+  "releaseNotes": "Buyer Log 7.0.161 TEST: Price & Supplier Analysis filtre alanı özelleştirilebilir hale getirildi. Kullanıcı Buying Group, Buyer, MAG, MMYG, Klasman, Ürün Grubu, Ülke ve Üretici filtrelerini ekleyip çıkarabilir; filtre düzeni kalıcıdır. Güncel ve kıyas sezonları için birbirinden bağımsız In-Store / OPD dönem alanı ve ay filtresi eklendi; farklı sezon ve aylar doğru şekilde karşılaştırılabilir. Tam Buyer Log regresyon paketi başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
