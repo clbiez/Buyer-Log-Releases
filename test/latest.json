@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.158",
-  "publishedAt": "2026-09-28T16:24:30.926Z",
-  "artifact": "releases/BuyerLog-7.0.158.zip",
-  "sha256": "e6da0d5c6671301f13e487c660486294dc6bcc8087e8a55389f2ecf90a734675",
-  "size": 49376779,
+  "version": "7.0.159",
+  "publishedAt": "2026-09-28T18:52:31.098Z",
+  "artifact": "releases/BuyerLog-7.0.159.zip",
+  "sha256": "29acbfaa64db86dd09045feb8f77d76207db283fde6aef8c59d8a429f2324e9c",
+  "size": 49377174,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.158: 7.0.155 sonrasındaki main güncellemeleri TEST kanalında yayınlandı. OAB pivot alt detayları ortak sağ detay çekmecesine taşındı ve kalıcı sütun seçimi eklendi; PLM görsel/kimlik eşleştirmeleri OAB için genişletildi. Focus/Extended görünüm tercihleri oturumlar arasında kalıcı hale getirildi, seçili model PLM SYNC kapsamı düzeltildi, hızlı CP veri girişinde arka plan yenilemesinden kaynaklanan veri kaybı riski giderildi, INTAKE ay sıralaması ve sıfır bütçe filtresi düzeltildi, Collection durum renkleri TR/EN ortak katalogla eşlendi ve Global Flow Map gecikmiş sevkiyat sarı çerçeve davranışı güvenli biçimde düzeltildi.",
+  "releaseNotes": "Buyer Log 7.0.159 TEST: 7.0.158 sonrasındaki LFL düzeltmeleri yayınlandı. MAG · MMYG · Classification · Product Description Comparison ve Manufacturer Order Volumes analiz tablolarının yükseklikleri kullanıcı yeniden boyutlandırmadıkça sabit tutuluyor; veri/etkileşim sonrası ekranın altına uzama davranışı engellendi. Multi-dimensional Comparison · Independent Scenarios alanındaki Columns açılır penceresi kendi tetikleyici butonuna doğru şekilde sabitlendi. İlgili regresyon testleri eklendi.",
   "minimumUpdaterVersion": "1.0.0"
 }
