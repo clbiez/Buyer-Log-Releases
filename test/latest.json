@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.159",
-  "publishedAt": "2026-09-28T18:52:31.098Z",
-  "artifact": "releases/BuyerLog-7.0.159.zip",
-  "sha256": "29acbfaa64db86dd09045feb8f77d76207db283fde6aef8c59d8a429f2324e9c",
-  "size": 49377174,
+  "version": "7.0.160",
+  "publishedAt": "2026-09-28T19:57:30.197Z",
+  "artifact": "releases/BuyerLog-7.0.160.zip",
+  "sha256": "23b4cd4e49338ff14798d7631c51e482141563dd80c6e6248522e0cb8c0ae904",
+  "size": 49418405,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.159 TEST: 7.0.158 sonrasındaki LFL düzeltmeleri yayınlandı. MAG · MMYG · Classification · Product Description Comparison ve Manufacturer Order Volumes analiz tablolarının yükseklikleri kullanıcı yeniden boyutlandırmadıkça sabit tutuluyor; veri/etkileşim sonrası ekranın altına uzama davranışı engellendi. Multi-dimensional Comparison · Independent Scenarios alanındaki Columns açılır penceresi kendi tetikleyici butonuna doğru şekilde sabitlendi. İlgili regresyon testleri eklendi.",
+  "releaseNotes": "Buyer Log 7.0.160 TEST: Claude tarafından bekleyen aktif geliştirmeler güncel main üzerine güvenli şekilde entegre edildi. Price & Supplier Analysis yeniden inşa ve review düzeltmeleri; kullanıcı menüsünden self-service preset paylaşımı; IAS horizon mapping ve INTAKE filtre/yenileme tutarlılığı; Orders · Backlog · LFL · Price & Supplier için ortak horizon ve bağlı yenileme davranışı eklendi. Eski Global Flow/Earth Claude branchleri daha önce güncel main'e uyarlanarak merge edilmiş olduğundan tekrar uygulanmadı. Tüm birleşik değişiklikler final tam Buyer Log regresyon paketinden başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
