@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.167",
-  "publishedAt": "2026-09-29T08:31:38.441Z",
-  "artifact": "releases/BuyerLog-7.0.167.zip",
-  "sha256": "56b587af34a6ce4919769c9349982867870f819d52453e5733cdcd4995365aa9",
-  "size": 50106511,
+  "version": "7.0.168",
+  "publishedAt": "2026-09-29T08:53:29.967Z",
+  "artifact": "releases/BuyerLog-7.0.168.zip",
+  "sha256": "54effa963a390ce6cf6b9cf4d3784bf4f87e4d7a068aca68aa73ff7314e1903f",
+  "size": 50107464,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.167 TEST: Güncel main dalından kesildi ve halihazırda merge edilmiş Claude güncellemelerinin tamamını içerir. Önceki 7.0.166 kapsamındaki Collection Status anlık renk yenilemesi, arama/info düzeltmeleri, yeni ikon revizyonu ve eksik model görsellerini açılışta sessiz tamamlama dahil mevcut main içeriği TEST kanalına taşındı. Full Buyer Log regression suite başarıyla geçti. STABLE kanalına terfi edilmedi.",
+  "releaseNotes": "Buyer Log 7.0.168 TEST: Existing Collection model karar ekranına Add as a New / Yeni olarak ekle seçeneği eklendi. Aynı PLM ID, farklı In Store dönemleri için mevcut satır değiştirilmeden ikinci bağımsız Collection satırı olarak yalnız açık kullanıcı seçimiyle eklenebilir. Excel PLM importu ve PLM'de Seçili Modelleri Aktar aynı güvenli oluşturma hattını kullanır; otomatik planner mevcut PLM ID'leri kendiliğinden çoğaltmaz. Full Buyer Log regression suite başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
