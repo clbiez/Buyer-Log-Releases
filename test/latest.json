@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.163",
-  "publishedAt": "2026-09-29T06:12:08.489Z",
-  "artifact": "releases/BuyerLog-7.0.163.zip",
-  "sha256": "2e2f6679752ecd24e585ffc88b06a7b00ed9b4014d5dba9a2d8d73a5fc75b7a0",
-  "size": 49466162,
+  "version": "7.0.166",
+  "publishedAt": "2026-09-29T07:25:07.786Z",
+  "artifact": "releases/BuyerLog-7.0.166.zip",
+  "sha256": "a87ad1a804ff969596804e7471b22bf5793003829107ad1251573d06ca1f3ed2",
+  "size": 50106511,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.163 TEST: Eksik kalan Minimal Icon Library v3 sidebar revizyonu eklendi. Overview BL-N01, CP Tracker BL-N03, Orders BL-N06, Backlog BL-N08, Shipping Comparison BL-N09, Collection BL-N11, Quotations BL-N13, Pricing History BL-N15, Price & Supplier Analysis BL-N17, LFL Analysis BL-N19, Open Costing BL-N21, Automations BL-N23 ve Data Management BL-N25 eşlemeleri uygulandı. Mevcut sidebar boyut, spacing, renk, hover ve alignment davranışı korunmuştur. Tam Buyer Log regresyon paketi başarıyla geçti.",
+  "releaseNotes": "Buyer Log 7.0.166 TEST: Collection Status hücre rengi seçim anında yenilenir; arama kutusu info butonu çoklama hatası giderildi ve uzun aramalar hover/focus ile genişler; yeni Buyer Log ikon seti dahil edildi; eksik model görselleri açılışta sessiz ve kontrollü şekilde otomatik tamamlanır. Güncel main üzerindeki tüm değişiklikler dahil edildi. Full Buyer Log regression suite başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
