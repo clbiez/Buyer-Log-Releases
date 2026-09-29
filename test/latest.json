@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.171",
-  "publishedAt": "2026-09-29T13:17:28.533Z",
-  "artifact": "releases/BuyerLog-7.0.171.zip",
-  "sha256": "2d62266c69cf77d3a3ef624b6f09fa1f5d6756fa1f2e405a7992b394ddf1a394",
-  "size": 50716719,
+  "version": "7.0.172",
+  "publishedAt": "2026-09-29T17:49:38.881Z",
+  "artifact": "releases/BuyerLog-7.0.172.zip",
+  "sha256": "8d5a95f1d42518aa9e45e8c2b9b9c1fdfe74e7ede1825f8a21dd8a3a64706148",
+  "size": 50464490,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.171 TEST: Collection'da Best Price / Conf. Manufacturer hücresindeki ✎ (Enter price manually) düğmesine tek tıklama artık pencereyi arka arkaya defalarca açmıyor; tablo her yeniden çizildiğinde biriken tıklama dinleyicisi tek sefere indirildi ve katalog yüklenirken gelen ikinci tıklama ayrı pencere açmıyor. Ayrıca main'deki denim BL ikon güncellemesi dahildir: daha net ikon, giriş ekranında büyük ikon, kullanıcı avatarında aynı malzeme, görev çubuğu ikonu ve BuyerLog.exe ikonunun bir sonraki açılışta güncellenmesi. Windows Node regression suite başarıyla geçti. STABLE kanalına terfi edilmedi.",
+  "releaseNotes": "Buyer Log 7.0.172 TEST: Endeksmatik yenilendi. Koleksiyon › Araçlar › Endeksmatik Setleri ile birden çok ülke/bölge Endeksmatik dosyası (Bangladeş, Hindistan Kuzey/Güney, Myanmar, Çin) yüklenip saklanır; varsayılan set seçilir, setler adlandırılır/silinir. Yeni USD modeli dosyadan başlığa göre okunur; ENDEKSMATİK formül mantığı (imza) ve Excel önbellekli sonuçları Buyer Log yeniden hesabıyla karşılaştırılır, tutmazsa dosya \"model değişti\" diye reddedilir. Hesap penceresinde set ve hesap seviyesi (Klasman…MMYG) seçilir; TR fiyatı korunur; SING OFF bölümü FOB/landed avantaj ve gerekli fiyatı verir. Sonuç set sürümünü taşır, yeni set gelince \"Yeni veri var\" görünür. Eski TL şablonu çalışmaya devam eder. Ayrıca main'deki satin çelik ikon ve TR/EN/JA/ZH avatar baş harfleri dahildir. Node regression suite (765 dosya) başarıyla geçti. STABLE kanalına terfi edilmedi.",
   "minimumUpdaterVersion": "1.0.0"
 }
