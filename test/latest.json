@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.166",
-  "publishedAt": "2026-09-29T07:25:07.786Z",
-  "artifact": "releases/BuyerLog-7.0.166.zip",
-  "sha256": "a87ad1a804ff969596804e7471b22bf5793003829107ad1251573d06ca1f3ed2",
+  "version": "7.0.167",
+  "publishedAt": "2026-09-29T08:30:26.535Z",
+  "artifact": "releases/BuyerLog-7.0.167.zip",
+  "sha256": "56b587af34a6ce4919769c9349982867870f819d52453e5733cdcd4995365aa9",
   "size": 50106511,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.166 TEST: Collection Status hücre rengi seçim anında yenilenir; arama kutusu info butonu çoklama hatası giderildi ve uzun aramalar hover/focus ile genişler; yeni Buyer Log ikon seti dahil edildi; eksik model görselleri açılışta sessiz ve kontrollü şekilde otomatik tamamlanır. Güncel main üzerindeki tüm değişiklikler dahil edildi. Full Buyer Log regression suite başarıyla geçti.",
+  "releaseNotes": "Buyer Log 7.0.167 TEST: Güncel main dalından kesildi ve halihazırda merge edilmiş Claude güncellemelerinin tamamını içerir. Önceki 7.0.166 kapsamındaki Collection Status anlık renk yenilemesi, arama/info düzeltmeleri, yeni ikon revizyonu ve eksik model görsellerini açılışta sessiz tamamlama dahil mevcut main içeriği TEST kanalına taşındı. Full Buyer Log regression suite başarıyla geçti. STABLE kanalına terfi edilmedi.",
   "minimumUpdaterVersion": "1.0.0"
 }
