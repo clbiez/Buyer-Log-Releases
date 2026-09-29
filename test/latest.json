@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.161",
-  "publishedAt": "2026-09-28T20:29:37.146Z",
-  "artifact": "releases/BuyerLog-7.0.161.zip",
-  "sha256": "9ea29f478ce60baeb25d5287a91aa1331c95251b77a212e2b4427e250263c3f0",
-  "size": 49425240,
+  "version": "7.0.162",
+  "publishedAt": "2026-09-29T05:25:01.842Z",
+  "artifact": "releases/BuyerLog-7.0.162.zip",
+  "sha256": "a9e247c2b7dbdba107ee35f782bf18e6c71206e50621f3e8d328d5f0d8e8a8c3",
+  "size": 49462310,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.161 TEST: Price & Supplier Analysis filtre alanı özelleştirilebilir hale getirildi. Kullanıcı Buying Group, Buyer, MAG, MMYG, Klasman, Ürün Grubu, Ülke ve Üretici filtrelerini ekleyip çıkarabilir; filtre düzeni kalıcıdır. Güncel ve kıyas sezonları için birbirinden bağımsız In-Store / OPD dönem alanı ve ay filtresi eklendi; farklı sezon ve aylar doğru şekilde karşılaştırılabilir. Tam Buyer Log regresyon paketi başarıyla geçti.",
+  "releaseNotes": "Buyer Log 7.0.162 TEST: Claude tarafından hazırlanan Android-style Overview ana ekranı ve review düzeltmeleri entegre edildi; widget yerleşimi, çoklu sayfa, sürükle-bırak, yeniden boyutlandırma, Active Order Breakdown ve senkron layout davranışları güncellendi. LFL ana analiz tablolarının yükseklikleri sabitlendi ve kullanıcı resize ayarı kalıcı hale getirildi. Tam Buyer Log regresyon paketi başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
