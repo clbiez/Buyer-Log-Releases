@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.179",
-  "publishedAt": "2026-09-30T15:22:21.572Z",
-  "artifact": "releases/BuyerLog-7.0.179.zip",
-  "sha256": "8b9caf6263bb12cc4a97f0547f00958c8bfd38ce37fdc9f32c9fe5b9f760e839",
-  "size": 51423112,
+  "version": "7.0.180",
+  "publishedAt": "2026-09-30T19:31:05.907Z",
+  "artifact": "releases/BuyerLog-7.0.180.zip",
+  "sha256": "7f841122267460685dc11b4d3133934b882e83befbf90a08b4fdcf0862d0974f",
+  "size": 51566196,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.179: Klasör kopyalanarak kurulan bilgisayarlar otomatik onarılır — her kurulum kendi cihaz kimliğini alır, kopyalar arasında kaçırılan senkron değişiklikleri gelir, aynı alandaki farklı düzenlemeler sessizce ezilmez, çakışma olarak gösterilir. Başka bilgisayardan kopyalanan sürüm işaretçisi düzeltilir; eski sürüme düşen kullanıcılar güncel özellikleri (ör. PLM → Koleksiyon sürükle-bırak) geri alır. Eksik paketle açılışta anlaşılır hata ve kurulum yönlendirmesi; yeni kullanıcılar için tek parça kurulum paketi. Hesaplanan sütun \"Koşula göre yaz\" birden çok kural (değilse eğer) destekler. Kullanıcı menüsünden herkes STABLE uygulama güncellemesini kontrol edip kurabilir; kanal seçimi yalnız moderatörde. Tam regresyon paketi yerelde ve Windows CI'da geçti.",
+  "releaseNotes": "Buyer Log 7.0.180: Açılışta kullanıcı bilgileri ve ana ekran hazır olana kadar dinamik hazırlık ekranı; 66 konuluk TR/EN görselli kullanım rehberi ve F1 erişimi. Horizon filtrelerinde pencereyi kapatmadan çoklu seçim. Koleksiyon/ASAS eşleşmesinde katalogda olmayan değerler için hücre üzerinde kalıcı görünür uyarı işareti. Global Flow Map'te Gemi + Uçak gibi çoklu taşıma tiplerinde rota hover ve detay başlıklarında tam nakliye tipi gösterimi. 7.0.179 sonrasındaki bekleyen ana dal değişikliklerinin tamamı dahil edilmiştir.",
   "minimumUpdaterVersion": "1.0.0"
 }
