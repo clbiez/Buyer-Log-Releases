@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.166",
-  "publishedAt": "2026-09-29T07:26:12.462Z",
-  "artifact": "releases/BuyerLog-7.0.166.zip",
-  "sha256": "a87ad1a804ff969596804e7471b22bf5793003829107ad1251573d06ca1f3ed2",
-  "size": 50106511,
+  "version": "7.0.176",
+  "publishedAt": "2026-09-30T08:50:47.175Z",
+  "artifact": "releases/BuyerLog-7.0.176.zip",
+  "sha256": "54c1ca074a6b4345f40a9db4c87fe0fc91f7d554db61d02e3ec1c886d86908bf",
+  "size": 51369363,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.166 TEST: Collection Status hücre rengi seçim anında yenilenir; arama kutusu info butonu çoklama hatası giderildi ve uzun aramalar hover/focus ile genişler; yeni Buyer Log ikon seti dahil edildi; eksik model görselleri açılışta sessiz ve kontrollü şekilde otomatik tamamlanır. Güncel main üzerindeki tüm değişiklikler dahil edildi. Full Buyer Log regression suite başarıyla geçti.",
+  "releaseNotes": "Buyer Log 7.0.176: EN/TR dil bütünlüğü — EN kipinde Türkçe, TR kipinde İngilizce kalan arayüz metinleri, tarih seçici, sunucu hata/durum mesajları ve giriş ekranı mesajları seçili dile çevrildi; dil değiştirince eski dilde kalan ekranlar düzeltildi. Otomasyonlar: hazır senaryolar, Hazır mı? paneli, alan denetimi ve AI ile yaz. Manuel fiyat regresyon testi yeni ortak Quotations davranışına hizalandı. Tam regresyon paketi yerelde geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
