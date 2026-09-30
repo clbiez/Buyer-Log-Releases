@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.173",
-  "publishedAt": "2026-09-29T20:32:43.031Z",
-  "artifact": "releases/BuyerLog-7.0.173.zip",
-  "sha256": "b3b5638eb27bf52b3d798872a806c9460a8022213fed9da1b7c1a3bd1400689d",
-  "size": 50468058,
+  "version": "7.0.174",
+  "publishedAt": "2026-09-30T03:25:22.765Z",
+  "artifact": "releases/BuyerLog-7.0.174.zip",
+  "sha256": "39ee650507f06b90aa87094cccbae2d6f2d2cde5d928ebc1169400b079317b10",
+  "size": 50480760,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.173 TEST: Endeksmatik yüklemesi, ENDEKSMATİK ekranındaki hedef hücreleri (E15..E18) farklı kurulmuş gerçek ülke dosyalarını artık reddetmiyor. Fiyatı belirleyen bileşen Δ ve TOPLAM hücreleri (C15..C19) hâlâ imza ve Excel sonuç karşılaştırmasından geçmek zorunda; hedef hücreleri yalnız uyarı olarak raporlanır ve varsayılan düzeltme B21'den alınır (hesapta değiştirilebilir). Endeksmatik Setleri listesinde uyarı sayısı görünür. 7.0.172'deki çoklu Endeksmatik seti, USD modeli, TR fiyatı ve SING OFF özellikleri dahildir. Node regression suite (765 dosya) başarıyla geçti. STABLE kanalına terfi edilmedi.",
+  "releaseNotes": "Buyer Log 7.0.174 TEST: OAB/Get OAB artık PASS sekmesini tekrar tekrar açmıyor; istekler açık PASS sekmesindeki güncel token ile gidiyor, reddedilirse kabul görmüş token ile bir kez yeniden deneniyor. Koleksiyon araç çubuğu ve hiyerarşisi sadeleştirildi (Yeni satır ikon oldu, gereksiz Selected Models etiketi kalktı, eylem geri bildirimi iyileşti); çalışma alanı sekme çubuğundan BL logosu kaldırıldı; Capacity Request dışa aktarımı satır seçilmeden kapalı. 7.0.172-7.0.173 Endeksmatik çoklu set ve USD modeli özellikleri dahildir. Node regression suite (766 dosya) başarıyla geçti. STABLE kanalına terfi edilmedi.",
   "minimumUpdaterVersion": "1.0.0"
 }
