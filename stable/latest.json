@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.176",
-  "publishedAt": "2026-09-30T08:50:47.175Z",
-  "artifact": "releases/BuyerLog-7.0.176.zip",
-  "sha256": "54c1ca074a6b4345f40a9db4c87fe0fc91f7d554db61d02e3ec1c886d86908bf",
-  "size": 51369363,
+  "version": "7.0.177",
+  "publishedAt": "2026-09-30T09:33:59.501Z",
+  "artifact": "releases/BuyerLog-7.0.177.zip",
+  "sha256": "1002bd1b416b92333e597d976fa56c2a32dc9d1cd417bd6d0249b5ae58f686bf",
+  "size": 51377483,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.176: EN/TR dil bütünlüğü — EN kipinde Türkçe, TR kipinde İngilizce kalan arayüz metinleri, tarih seçici, sunucu hata/durum mesajları ve giriş ekranı mesajları seçili dile çevrildi; dil değiştirince eski dilde kalan ekranlar düzeltildi. Otomasyonlar: hazır senaryolar, Hazır mı? paneli, alan denetimi ve AI ile yaz. Manuel fiyat regresyon testi yeni ortak Quotations davranışına hizalandı. Tam regresyon paketi yerelde geçti.",
+  "releaseNotes": "Buyer Log 7.0.177: Aynı bilgisayarda birden fazla kullanıcı — her profil kendi filtre, görünüm ve sütun ayarlarını ayrı kaydeder (hızlı filtre grupları, koleksiyon hızlı boyutları, hesaplanan sütunlar, Excel içe aktarma profilleri, sütun genişlikleri vb.); eski ortak kayıt yalnız ilk açan profile taşınır. Hesaplanan sütun \"Koşula göre yaz\" birden çok koşulu VE / VEYA ile bağlar. Otomasyon AI sözlüğü EN kipinde İngilizce; Sync durum penceresi kopuk render koruması. Tam regresyon paketi yerelde geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
