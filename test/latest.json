@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.175",
-  "publishedAt": "2026-09-30T05:15:25.416Z",
-  "artifact": "releases/BuyerLog-7.0.175.zip",
-  "sha256": "4bca52a420f591d570d267b23927075c71cf1ea274d0a9f80b6ecc7c96e66d12",
-  "size": 50608862,
+  "version": "7.0.176",
+  "publishedAt": "2026-09-30T08:39:55.308Z",
+  "artifact": "releases/BuyerLog-7.0.176.zip",
+  "sha256": "54c1ca074a6b4345f40a9db4c87fe0fc91f7d554db61d02e3ec1c886d86908bf",
+  "size": 51369363,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.175 TEST: Claude ve ChatGPT güncellemeleri birleştirildi. Hesaplanan sütunlar yeniden adlandırmalara dayanıklı kalıcı referanslar kullanıyor; Calculated Column akışı sadeleştirildi, formül sözlüğü/analizi ve AI handoff eklendi; EN/TR sütun adları korunuyor. PLM translation remembered-choice ve sütun display-name/persistence iyileştirmeleri dahil. Çalışma alanı sekme çubuğundaki BL logosu kaldırıldı; Capacity Request Excel seçim yokken disabled/soluk; CP/Orders seçim filtresi ve Collection toolbar/hiyerarşi düzenlemeleri dahil. Full Buyer Log regression suite GitHub Actions üzerinden başarıyla geçti. STABLE kanalına terfi edilmedi.",
+  "releaseNotes": "Buyer Log 7.0.176: EN/TR dil bütünlüğü — EN kipinde Türkçe, TR kipinde İngilizce kalan arayüz metinleri, tarih seçici, sunucu hata/durum mesajları ve giriş ekranı mesajları seçili dile çevrildi; dil değiştirince eski dilde kalan ekranlar düzeltildi. Otomasyonlar: hazır senaryolar, Hazır mı? paneli, alan denetimi ve AI ile yaz. Manuel fiyat regresyon testi yeni ortak Quotations davranışına hizalandı. Tam regresyon paketi yerelde geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
