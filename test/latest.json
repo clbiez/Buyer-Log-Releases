@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.195",
-  "publishedAt": "2026-10-01T22:37:40.793Z",
-  "artifact": "releases/BuyerLog-7.0.195.zip",
-  "sha256": "218d596cd8e6cf89eac7e3ee2d3dc6d932dad89a9323a92e09b453c2440aba77",
-  "size": 52017864,
+  "version": "7.0.196",
+  "publishedAt": "2026-10-01T23:05:39.562Z",
+  "artifact": "releases/BuyerLog-7.0.196.zip",
+  "sha256": "85fe10838b734d379c78980aab98ff83b5c43c2757f689d63b3bfd23651069aa",
+  "size": 52020975,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.195: Backlog alt detay pencereleri CP tablosuyla aynı tasarıma getirildi; Odak/Genişletilmiş/Tümü görünümü, alt satıra sarılan uzun sütun başlıkları, sürüklenerek ayarlanan kalıcı sütun genişlikleri, Sütunları Sığdır ve sütun filtreleri eklendi. Send to Pricing için taslak e-postayı yeniden açma eklendi. Price & Supplier ekranında aranabilir çoklu seçimli filtreler ve tüm alanların filtre olarak eklenebilmesi sağlandı. Dinamik sütun filtreleme ve Product Main Definition desteği eklendi. Sayfa yükleme durumlarında Thinking Orbs göstergesi kullanılıyor. Quotations'ta yeniden kullanılan Koleksiyon satır kimlikleri nedeniyle Best Price/fiyat geçmişinin karışması engellendi.",
+  "releaseNotes": "Buyer Log 7.0.196: Yeni sürüm açılırken ikinci kez başlatılan Buyer Log artık çalışan güncelleme denemesini geri almıyor; tek kopya kilidi güncelleme işlemlerinden önce alınıyor. Check for Updates penceresine, health check sonrası engellenen sürüm için moderatöre özel Tekrar Dene düğmesi eklendi.",
   "minimumUpdaterVersion": "1.0.0"
 }
