@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.183",
-  "publishedAt": "2026-10-01T05:24:19.541Z",
-  "artifact": "releases/BuyerLog-7.0.183.zip",
-  "sha256": "3406d09346c14c725940ea4954c8fae5b31074734eb32595ff95ae55153fc044",
-  "size": 51602129,
+  "version": "7.0.185",
+  "publishedAt": "2026-10-01T07:16:27.151Z",
+  "artifact": "releases/BuyerLog-7.0.185.zip",
+  "sha256": "8d3047d7a8df9973ebeeb135727235198748e1ed50f496ba60d47bf5ed6cf5a9",
+  "size": 51852278,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.183: Horizon (Veri Yönetimi kaynak filtresi) artık kullanıcı bazlı. \"Kaydet (yalnız benim için)\" filtreyi yalnız sizin kaydınıza yazar; Sync klasörü üzerinden başka bilgisayarlara gitmez, başka bir kullanıcının değişikliği sizin filtrenizi bozmaz. Bağlı modüllerde (Orders · Backlog · LFL · Price) kişisel filtre grubun hepsine uygulanır. Ortak varsayılan filtreyi yalnız yönetim yetkisi olanlar \"Herkes için\" düğmesiyle değiştirebilir; kişisel filtre \"Kişisel ×\" rozetinden kaldırılabilir. Tam regresyon paketi yerelde ve Windows CI'da geçti.",
+  "releaseNotes": "Buyer Log 7.0.185: tüm özellikleri gerçekten bilgisayara getiren son güncelleme. İlk açılışta tek seferlik kurulum onarımı çalışır: eski ekran önbelleği temizlenir (filtreler, ayarlar ve oturumlar korunur), güncellemeyi engelleyen eski geri alma kayıtları silinir ve uygulama dosyaları paket içindeki SHA-256 listesiyle tek tek doğrulanır; bozuk dosya varsa temiz kopya hazırlanıp sonraki açılışta uygulanır. Sonuç Sürüm Geçmişi › Güncellemeler panelinde 'Kurulum onarımı' satırında görünür. Yeni sürümün açılış onayı artık yeniden denenir; böylece sürüm sessizce geri alınmaz. 7.0.184 Endeksmatik başlık eşleşmesi düzeltmesi, F1 rehberi/ipuçları ve Horizon çoklu seçim dahil tüm özellikler bu pakettedir. Tam regresyon paketi geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
