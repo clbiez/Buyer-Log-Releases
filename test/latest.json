@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.191",
-  "publishedAt": "2026-10-01T17:55:51.992Z",
-  "artifact": "releases/BuyerLog-7.0.191.zip",
-  "sha256": "e1b62505ef98623997ef4614b18530d8e064a2efd00a50fb0b9faadba1a9219b",
-  "size": 51903503,
+  "version": "7.0.192",
+  "publishedAt": "2026-10-01T19:20:29.256Z",
+  "artifact": "releases/BuyerLog-7.0.192.zip",
+  "sha256": "f0f7cead97cf7a6eabd635e8e919552d8cd33d218fbb7feec0e7b02c706ec419",
+  "size": 51974448,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.191 TEST: INTAKE no longer loses dimension values (blank Dönem Tanım / UrunKlasmanTanım rows) after saving the view; saved field identities, filter values and labels are preserved and snapshots are remapped to current field IDs. Filter value lists no longer report a misleading 'live source unavailable' message. New weighted-average summarization: SEZON OTB (REZERV DAHİL) subtotals and grand total are weighted by Güncel Alım Bütçe. 'Check for Updates' menu label is unified for all users.",
+  "releaseNotes": "Buyer Log 7.0.192 TEST: PLM sample requests (CoreNectum Requests tab: Artwork, Fit Sample, Perfect Sign Off, PPS) are tracked in CP. New read-only CP/Orders column \"PLM Numune\" next to Priority shows each sample type as Approved / Open / Rejected (\"No request\" when PLM has none). New CP › PLM SYNC › Update PLM Sample Status fetches requests for selected (or filtered) CP rows. Checklist PPS / S/Off / critical sample / new Artwork questions close automatically when PLM has an approved request; open or rejected requests are shown with their PLM status; questions without a PLM request are still asked. Right-click a style in CP/Orders › PLM sample requests shows the PLM request table. Collection PLM Sync does not fetch sample requests. Also includes: PLM images — main colour uses the front+back model image, other colours use their Options image (#246); Collection no longer treats hidden columns as read-only when writing or resolving dependencies (#248).",
   "minimumUpdaterVersion": "1.0.0"
 }
