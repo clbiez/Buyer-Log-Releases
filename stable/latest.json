@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.194",
-  "publishedAt": "2026-10-01T21:16:54.039Z",
-  "artifact": "releases/BuyerLog-7.0.194.zip",
-  "sha256": "f94a7c281d3858ba8de3efa56ac5f0db123e45390f8fbf9f787054aaeffbc85d",
-  "size": 51978100,
+  "version": "7.0.195",
+  "publishedAt": "2026-10-01T22:38:43.395Z",
+  "artifact": "releases/BuyerLog-7.0.195.zip",
+  "sha256": "218d596cd8e6cf89eac7e3ee2d3dc6d932dad89a9323a92e09b453c2440aba77",
+  "size": 52017864,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.194: Windows görev çubuğunda Buyer Log penceresinin BL logosu yerine genel beyaz dosya simgesiyle görünmesine neden olabilen AppUserModelID/kısayol eşleşmesi düzeltildi. BuyerLog.exe'yi hedefleyen Desktop, Start Menu ve sabitlenmiş Taskbar kısayollarının appUserModelId değeri artık çalışan Electron uygulamasındaki com.lcw.buyerlog kimliğiyle eşitleniyor. Bu hafif kimlik/simge eşitlemesi ilk BrowserWindow açılmadan önce çalışıyor; ağır EXE ikon yaması arka planda kalıyor. Eksik AppUserModelID için regresyon testi eklendi.",
+  "releaseNotes": "Buyer Log 7.0.195: Backlog alt detay pencereleri CP tablosuyla aynı tasarıma getirildi; Odak/Genişletilmiş/Tümü görünümü, alt satıra sarılan uzun sütun başlıkları, sürüklenerek ayarlanan kalıcı sütun genişlikleri, Sütunları Sığdır ve sütun filtreleri eklendi. Send to Pricing için taslak e-postayı yeniden açma eklendi. Price & Supplier ekranında aranabilir çoklu seçimli filtreler ve tüm alanların filtre olarak eklenebilmesi sağlandı. Dinamik sütun filtreleme ve Product Main Definition desteği eklendi. Sayfa yükleme durumlarında Thinking Orbs göstergesi kullanılıyor. Quotations'ta yeniden kullanılan Koleksiyon satır kimlikleri nedeniyle Best Price/fiyat geçmişinin karışması engellendi.",
   "minimumUpdaterVersion": "1.0.0"
 }
