@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.191",
-  "publishedAt": "2026-10-01T18:06:04.036Z",
-  "artifact": "releases/BuyerLog-7.0.191.zip",
-  "sha256": "e1b62505ef98623997ef4614b18530d8e064a2efd00a50fb0b9faadba1a9219b",
-  "size": 51903503,
+  "version": "7.0.193",
+  "publishedAt": "2026-10-01T20:54:09.839Z",
+  "artifact": "releases/BuyerLog-7.0.193.zip",
+  "sha256": "50160f95d6823c1d786b1f351dc3d0101fd207cb98219a210d5a15b9e90854ab",
+  "size": 51977126,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.191 TEST: INTAKE no longer loses dimension values (blank Dönem Tanım / UrunKlasmanTanım rows) after saving the view; saved field identities, filter values and labels are preserved and snapshots are remapped to current field IDs. Filter value lists no longer report a misleading 'live source unavailable' message. New weighted-average summarization: SEZON OTB (REZERV DAHİL) subtotals and grand total are weighted by Güncel Alım Bütçe. 'Check for Updates' menu label is unified for all users.",
+  "releaseNotes": "Buyer Log 7.0.193: PLM image jobs no longer fail every model one by one when the CoreNectum API token is missing or invalid; Buyer Log renews the PLM session automatically (silent SSO, then the CoreNectum login window) and retries once; if renewal still fails, the PLM User Sign-In screen opens (#250). CP image delete/update also revises the colour-named PLM image key so the old image no longer stays on screen (#249). Fixes: PLM Numune column source catalog entry, Partial View filter source and PLM request route module wiring. Includes everything in 7.0.192 (PLM sample requests in CP).",
   "minimumUpdaterVersion": "1.0.0"
 }
