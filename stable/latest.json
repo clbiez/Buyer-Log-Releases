@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.193",
-  "publishedAt": "2026-10-01T20:54:09.839Z",
-  "artifact": "releases/BuyerLog-7.0.193.zip",
-  "sha256": "50160f95d6823c1d786b1f351dc3d0101fd207cb98219a210d5a15b9e90854ab",
-  "size": 51977126,
+  "version": "7.0.194",
+  "publishedAt": "2026-10-01T21:16:54.039Z",
+  "artifact": "releases/BuyerLog-7.0.194.zip",
+  "sha256": "f94a7c281d3858ba8de3efa56ac5f0db123e45390f8fbf9f787054aaeffbc85d",
+  "size": 51978100,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.193: PLM image jobs no longer fail every model one by one when the CoreNectum API token is missing or invalid; Buyer Log renews the PLM session automatically (silent SSO, then the CoreNectum login window) and retries once; if renewal still fails, the PLM User Sign-In screen opens (#250). CP image delete/update also revises the colour-named PLM image key so the old image no longer stays on screen (#249). Fixes: PLM Numune column source catalog entry, Partial View filter source and PLM request route module wiring. Includes everything in 7.0.192 (PLM sample requests in CP).",
+  "releaseNotes": "Buyer Log 7.0.194: Windows görev çubuğunda Buyer Log penceresinin BL logosu yerine genel beyaz dosya simgesiyle görünmesine neden olabilen AppUserModelID/kısayol eşleşmesi düzeltildi. BuyerLog.exe'yi hedefleyen Desktop, Start Menu ve sabitlenmiş Taskbar kısayollarının appUserModelId değeri artık çalışan Electron uygulamasındaki com.lcw.buyerlog kimliğiyle eşitleniyor. Bu hafif kimlik/simge eşitlemesi ilk BrowserWindow açılmadan önce çalışıyor; ağır EXE ikon yaması arka planda kalıyor. Eksik AppUserModelID için regresyon testi eklendi.",
   "minimumUpdaterVersion": "1.0.0"
 }
