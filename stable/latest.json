@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.185",
-  "publishedAt": "2026-10-01T07:16:27.151Z",
-  "artifact": "releases/BuyerLog-7.0.185.zip",
-  "sha256": "8d3047d7a8df9973ebeeb135727235198748e1ed50f496ba60d47bf5ed6cf5a9",
-  "size": 51852278,
+  "version": "7.0.188",
+  "publishedAt": "2026-10-01T08:55:04.357Z",
+  "artifact": "releases/BuyerLog-7.0.188.zip",
+  "sha256": "1c87f9b800ec05ca886739da46ab99830c240398085ff1ee8fd31ad39da7dae7",
+  "size": 51871277,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.185: tüm özellikleri gerçekten bilgisayara getiren son güncelleme. İlk açılışta tek seferlik kurulum onarımı çalışır: eski ekran önbelleği temizlenir (filtreler, ayarlar ve oturumlar korunur), güncellemeyi engelleyen eski geri alma kayıtları silinir ve uygulama dosyaları paket içindeki SHA-256 listesiyle tek tek doğrulanır; bozuk dosya varsa temiz kopya hazırlanıp sonraki açılışta uygulanır. Sonuç Sürüm Geçmişi › Güncellemeler panelinde 'Kurulum onarımı' satırında görünür. Yeni sürümün açılış onayı artık yeniden denenir; böylece sürüm sessizce geri alınmaz. 7.0.184 Endeksmatik başlık eşleşmesi düzeltmesi, F1 rehberi/ipuçları ve Horizon çoklu seçim dahil tüm özellikler bu pakettedir. Tam regresyon paketi geçti.",
+  "releaseNotes": "Buyer Log 7.0.188 TEST: Global Flow detail drawers now mirror the CP column order, widths and Focus / Extended / All presets. Partial-specific status, handover, shipment quantity and transport values are preserved. Full Buyer Log regression suite passed.",
   "minimumUpdaterVersion": "1.0.0"
 }
