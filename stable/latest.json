@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.190",
-  "publishedAt": "2026-10-01T12:10:34.699Z",
-  "artifact": "releases/BuyerLog-7.0.190.zip",
-  "sha256": "03a8a1e94f7fa69646548983ce95da36b82c435c7bdf7fd0b4bcd55a28d12910",
-  "size": 51892999,
+  "version": "7.0.191",
+  "publishedAt": "2026-10-01T18:06:04.036Z",
+  "artifact": "releases/BuyerLog-7.0.191.zip",
+  "sha256": "e1b62505ef98623997ef4614b18530d8e064a2efd00a50fb0b9faadba1a9219b",
+  "size": 51903503,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.190 TEST: PLM SYNC now resolves category-prefixed OAB option names (e.g. KK.BDY,GARFIELD-1-YD) and not-yet-ordered options via Collection model codes. Backlog detail tables now render images saved by PLM SYNC by reading each row's internal PLM/colour identity.",
+  "releaseNotes": "Buyer Log 7.0.191 TEST: INTAKE no longer loses dimension values (blank Dönem Tanım / UrunKlasmanTanım rows) after saving the view; saved field identities, filter values and labels are preserved and snapshots are remapped to current field IDs. Filter value lists no longer report a misleading 'live source unavailable' message. New weighted-average summarization: SEZON OTB (REZERV DAHİL) subtotals and grand total are weighted by Güncel Alım Bütçe. 'Check for Updates' menu label is unified for all users.",
   "minimumUpdaterVersion": "1.0.0"
 }
