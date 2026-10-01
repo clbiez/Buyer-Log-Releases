@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.192",
-  "publishedAt": "2026-10-01T19:20:29.256Z",
-  "artifact": "releases/BuyerLog-7.0.192.zip",
-  "sha256": "f0f7cead97cf7a6eabd635e8e919552d8cd33d218fbb7feec0e7b02c706ec419",
-  "size": 51974448,
+  "version": "7.0.193",
+  "publishedAt": "2026-10-01T20:49:28.176Z",
+  "artifact": "releases/BuyerLog-7.0.193.zip",
+  "sha256": "50160f95d6823c1d786b1f351dc3d0101fd207cb98219a210d5a15b9e90854ab",
+  "size": 51977126,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.192 TEST: PLM sample requests (CoreNectum Requests tab: Artwork, Fit Sample, Perfect Sign Off, PPS) are tracked in CP. New read-only CP/Orders column \"PLM Numune\" next to Priority shows each sample type as Approved / Open / Rejected (\"No request\" when PLM has none). New CP › PLM SYNC › Update PLM Sample Status fetches requests for selected (or filtered) CP rows. Checklist PPS / S/Off / critical sample / new Artwork questions close automatically when PLM has an approved request; open or rejected requests are shown with their PLM status; questions without a PLM request are still asked. Right-click a style in CP/Orders › PLM sample requests shows the PLM request table. Collection PLM Sync does not fetch sample requests. Also includes: PLM images — main colour uses the front+back model image, other colours use their Options image (#246); Collection no longer treats hidden columns as read-only when writing or resolving dependencies (#248).",
+  "releaseNotes": "Buyer Log 7.0.193: PLM image jobs no longer fail every model one by one when the CoreNectum API token is missing or invalid; Buyer Log renews the PLM session automatically (silent SSO, then the CoreNectum login window) and retries once; if renewal still fails, the PLM User Sign-In screen opens (#250). CP image delete/update also revises the colour-named PLM image key so the old image no longer stays on screen (#249). Fixes: PLM Numune column source catalog entry, Partial View filter source and PLM request route module wiring. Includes everything in 7.0.192 (PLM sample requests in CP).",
   "minimumUpdaterVersion": "1.0.0"
 }
