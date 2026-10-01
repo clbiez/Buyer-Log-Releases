@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.185",
-  "publishedAt": "2026-10-01T07:13:17.058Z",
-  "artifact": "releases/BuyerLog-7.0.185.zip",
-  "sha256": "8d3047d7a8df9973ebeeb135727235198748e1ed50f496ba60d47bf5ed6cf5a9",
-  "size": 51852278,
+  "version": "7.0.186",
+  "publishedAt": "2026-10-01T07:29:15.117Z",
+  "artifact": "releases/BuyerLog-7.0.186.zip",
+  "sha256": "c2169f77bada1e6ad1e9f234a519bd63ffd8f60f18b0d2b8b4f75e64fbafc6f7",
+  "size": 51858743,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.185: tüm özellikleri gerçekten bilgisayara getiren son güncelleme. İlk açılışta tek seferlik kurulum onarımı çalışır: eski ekran önbelleği temizlenir (filtreler, ayarlar ve oturumlar korunur), güncellemeyi engelleyen eski geri alma kayıtları silinir ve uygulama dosyaları paket içindeki SHA-256 listesiyle tek tek doğrulanır; bozuk dosya varsa temiz kopya hazırlanıp sonraki açılışta uygulanır. Sonuç Sürüm Geçmişi › Güncellemeler panelinde 'Kurulum onarımı' satırında görünür. Yeni sürümün açılış onayı artık yeniden denenir; böylece sürüm sessizce geri alınmaz. 7.0.184 Endeksmatik başlık eşleşmesi düzeltmesi, F1 rehberi/ipuçları ve Horizon çoklu seçim dahil tüm özellikler bu pakettedir. Tam regresyon paketi geçti.",
+  "releaseNotes": "Buyer Log 7.0.186 TEST: Overview dünya saatlerine isteğe bağlı resmi tatil bilgisi eklendi. Saatleri düzenle alanındaki ayarla özellik açılıp kapatılabilir; desteklenen ülke saatlerinde önümüzdeki 45 gün içindeki en yakın 2 ulusal resmi tatil, Bugün/Yarın/X gün bilgisiyle saatin altında gösterilir. Tatil servisi erişilemezse saatler normal çalışmaya devam eder. Dünya saatleri resmi tatil kontrolleri ve regresyon testleri dahildir.",
   "minimumUpdaterVersion": "1.0.0"
 }
