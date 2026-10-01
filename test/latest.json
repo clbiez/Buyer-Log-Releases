@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.183",
-  "publishedAt": "2026-10-01T05:23:46.449Z",
-  "artifact": "releases/BuyerLog-7.0.183.zip",
-  "sha256": "3406d09346c14c725940ea4954c8fae5b31074734eb32595ff95ae55153fc044",
-  "size": 51602129,
+  "version": "7.0.184",
+  "publishedAt": "2026-10-01T07:01:11.896Z",
+  "artifact": "releases/BuyerLog-7.0.184.zip",
+  "sha256": "1b4a310754d774973a4ef7f4d71447f8f343a7737d9a5b8531f3082ce5421776",
+  "size": 51604171,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.183: Horizon (Veri Yönetimi kaynak filtresi) artık kullanıcı bazlı. \"Kaydet (yalnız benim için)\" filtreyi yalnız sizin kaydınıza yazar; Sync klasörü üzerinden başka bilgisayarlara gitmez, başka bir kullanıcının değişikliği sizin filtrenizi bozmaz. Bağlı modüllerde (Orders · Backlog · LFL · Price) kişisel filtre grubun hepsine uygulanır. Ortak varsayılan filtreyi yalnız yönetim yetkisi olanlar \"Herkes için\" düğmesiyle değiştirebilir; kişisel filtre \"Kişisel ×\" rozetinden kaldırılabilir. Tam regresyon paketi yerelde ve Windows CI'da geçti.",
+  "releaseNotes": "Buyer Log 7.0.184 TEST: Endeksmatik yüklemesinde KLASMAN LİSTESİ ÖZET ve pivot sütunları artık önce tam başlıkla bulunuyor (\"Klasman Kodu\" gibi bir sütun \"Klasman\"dan önce gelse de doğru sütun okunur). Anahtarlar yine eşleşmezse hata mesajı okunan sütunları, klasman sayılarını, eşleşen sayısını ve örnek anahtarları gösterir. Node regression suite (785 dosya) başarıyla geçti. STABLE kanalına terfi edilmedi.",
   "minimumUpdaterVersion": "1.0.0"
 }
