@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.186",
-  "publishedAt": "2026-10-01T07:29:15.117Z",
-  "artifact": "releases/BuyerLog-7.0.186.zip",
-  "sha256": "c2169f77bada1e6ad1e9f234a519bd63ffd8f60f18b0d2b8b4f75e64fbafc6f7",
-  "size": 51858743,
+  "version": "7.0.187",
+  "publishedAt": "2026-10-01T08:13:03.289Z",
+  "artifact": "releases/BuyerLog-7.0.187.zip",
+  "sha256": "2d9648a4cd42aa63e88152478ff458eec2bf8a10fe6240a07299bc00ed1dacd7",
+  "size": 51861571,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.186 TEST: Overview dünya saatlerine isteğe bağlı resmi tatil bilgisi eklendi. Saatleri düzenle alanındaki ayarla özellik açılıp kapatılabilir; desteklenen ülke saatlerinde önümüzdeki 45 gün içindeki en yakın 2 ulusal resmi tatil, Bugün/Yarın/X gün bilgisiyle saatin altında gösterilir. Tatil servisi erişilemezse saatler normal çalışmaya devam eder. Dünya saatleri resmi tatil kontrolleri ve regresyon testleri dahildir.",
+  "releaseNotes": "Buyer Log 7.0.187 TEST: Overview dünya saatlerindeki resmi tatil görünümü için kullanıcı seçilebilir periyot eklendi. Saatleri düzenle alanından Önümüzdeki 1, 3, 6 veya 12 ay seçilebilir; varsayılan 3 aydır ve tercih kullanıcı bazında saklanır. Seçilen periyottaki ulusal resmi tatiller listelenir; uzun listeler saat kartını büyütmek yerine kendi içinde kaydırılır. Takvim ayı sınırları ve ay sonu tarihleri güvenli şekilde hesaplanır. Tam Buyer Log regresyon testi geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
