@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.180",
-  "publishedAt": "2026-09-30T19:29:59.393Z",
-  "artifact": "releases/BuyerLog-7.0.180.zip",
-  "sha256": "7f841122267460685dc11b4d3133934b882e83befbf90a08b4fdcf0862d0974f",
-  "size": 51566196,
+  "version": "7.0.181",
+  "publishedAt": "2026-10-01T03:47:27.370Z",
+  "artifact": "releases/BuyerLog-7.0.181.zip",
+  "sha256": "fe7a25a8620a98e254ed5a1cab820e39c6fef667b3fa3cd64d13e8d2d7708c4b",
+  "size": 51589277,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.180: Açılışta kullanıcı bilgileri ve ana ekran hazır olana kadar dinamik hazırlık ekranı; 66 konuluk TR/EN görselli kullanım rehberi ve F1 erişimi. Horizon filtrelerinde pencereyi kapatmadan çoklu seçim. Koleksiyon/ASAS eşleşmesinde katalogda olmayan değerler için hücre üzerinde kalıcı görünür uyarı işareti. Global Flow Map'te Gemi + Uçak gibi çoklu taşıma tiplerinde rota hover ve detay başlıklarında tam nakliye tipi gösterimi. 7.0.179 sonrasındaki bekleyen ana dal değişikliklerinin tamamı dahil edilmiştir.",
+  "releaseNotes": "Buyer Log 7.0.181: Yenileme artık sayfa bazlı — CP yenilemesi yalnız CP sorgusunu çalıştırır, en geniş filtreyi (LFL · Fiyat & Üretici) beklemez; ortak filtreyi paylaşan sayfalar birlikte yenilenir, \"Tümünü yenile\" hepsini kapsar. Yeni: Kaynak değişince otomatik güncelleme — ASAS modeli işlendiğinde (son işlenme zamanı metadata ile okunur, ağır sorgu periyodik atılmaz) ekranlar arka planda kendiliğinden yenilenir, önce CP; hücre düzenlenirken veya pencere açıkken beklenir. Veri Yönetimi › Yenileme’den kapatılabilir (varsayılan açık). Kısmi yenilemede Horizon rozetleri korunur; yenileme sonrası ön-hazırlık yalnız yenilenen sayfaları yükler. Tam regresyon paketi yerelde ve Windows CI’da geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
