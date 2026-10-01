@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.184",
-  "publishedAt": "2026-10-01T07:01:11.896Z",
-  "artifact": "releases/BuyerLog-7.0.184.zip",
-  "sha256": "1b4a310754d774973a4ef7f4d71447f8f343a7737d9a5b8531f3082ce5421776",
-  "size": 51604171,
+  "version": "7.0.185",
+  "publishedAt": "2026-10-01T07:13:17.058Z",
+  "artifact": "releases/BuyerLog-7.0.185.zip",
+  "sha256": "8d3047d7a8df9973ebeeb135727235198748e1ed50f496ba60d47bf5ed6cf5a9",
+  "size": 51852278,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.184 TEST: Endeksmatik yüklemesinde KLASMAN LİSTESİ ÖZET ve pivot sütunları artık önce tam başlıkla bulunuyor (\"Klasman Kodu\" gibi bir sütun \"Klasman\"dan önce gelse de doğru sütun okunur). Anahtarlar yine eşleşmezse hata mesajı okunan sütunları, klasman sayılarını, eşleşen sayısını ve örnek anahtarları gösterir. Node regression suite (785 dosya) başarıyla geçti. STABLE kanalına terfi edilmedi.",
+  "releaseNotes": "Buyer Log 7.0.185: tüm özellikleri gerçekten bilgisayara getiren son güncelleme. İlk açılışta tek seferlik kurulum onarımı çalışır: eski ekran önbelleği temizlenir (filtreler, ayarlar ve oturumlar korunur), güncellemeyi engelleyen eski geri alma kayıtları silinir ve uygulama dosyaları paket içindeki SHA-256 listesiyle tek tek doğrulanır; bozuk dosya varsa temiz kopya hazırlanıp sonraki açılışta uygulanır. Sonuç Sürüm Geçmişi › Güncellemeler panelinde 'Kurulum onarımı' satırında görünür. Yeni sürümün açılış onayı artık yeniden denenir; böylece sürüm sessizce geri alınmaz. 7.0.184 Endeksmatik başlık eşleşmesi düzeltmesi, F1 rehberi/ipuçları ve Horizon çoklu seçim dahil tüm özellikler bu pakettedir. Tam regresyon paketi geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
