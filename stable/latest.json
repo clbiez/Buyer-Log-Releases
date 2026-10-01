@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.181",
-  "publishedAt": "2026-10-01T03:48:41.175Z",
-  "artifact": "releases/BuyerLog-7.0.181.zip",
-  "sha256": "fe7a25a8620a98e254ed5a1cab820e39c6fef667b3fa3cd64d13e8d2d7708c4b",
-  "size": 51589277,
+  "version": "7.0.182",
+  "publishedAt": "2026-10-01T04:25:22.832Z",
+  "artifact": "releases/BuyerLog-7.0.182.zip",
+  "sha256": "54e202f171aa65c73f49668184f7d342be12b7fd50739f6b16bc3511abbcaa4d",
+  "size": 51594638,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.181: Yenileme artık sayfa bazlı — CP yenilemesi yalnız CP sorgusunu çalıştırır, en geniş filtreyi (LFL · Fiyat & Üretici) beklemez; ortak filtreyi paylaşan sayfalar birlikte yenilenir, \"Tümünü yenile\" hepsini kapsar. Yeni: Kaynak değişince otomatik güncelleme — ASAS modeli işlendiğinde (son işlenme zamanı metadata ile okunur, ağır sorgu periyodik atılmaz) ekranlar arka planda kendiliğinden yenilenir, önce CP; hücre düzenlenirken veya pencere açıkken beklenir. Veri Yönetimi › Yenileme’den kapatılabilir (varsayılan açık). Kısmi yenilemede Horizon rozetleri korunur; yenileme sonrası ön-hazırlık yalnız yenilenen sayfaları yükler. Tam regresyon paketi yerelde ve Windows CI’da geçti.",
+  "releaseNotes": "Buyer Log 7.0.182: Get OAB ve Veri Yönetimi › Browser & Remote Debugging artık 3–4 tarayıcıyı açıp kapatmaz — tarayıcı sürümü pencere açmadan kurulum klasöründen okunur, tarayıcı tek kez açılır. OAB: açık PASS sekmesi oturumu geçerliyse sekme yenilenmeden kullanılır; sekme yoksa tarayıcının boş başlangıç sekmesi doğrudan PASS'e gider; site raporu kendisi çalıştırmaz, veri sekmenin içinden doğrudan API ile çekilir. Model görselleri tarayıcı önbelleğinde gerçekten kalır: ilk açılış hızlanır, sayfalar arası geçişte görseller kaybolmaz. Tam regresyon paketi yerelde ve Windows CI'da geçti.",
   "minimumUpdaterVersion": "1.0.0"
 }
