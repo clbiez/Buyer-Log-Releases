@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.204",
-  "publishedAt": "2026-10-02T11:32:03.092Z",
-  "artifact": "releases/BuyerLog-7.0.204.zip",
-  "sha256": "b8941f40c809bd8a1bc6d6850b449243d71a530637ef87f81ba568f9bc803749",
-  "size": 52972198,
+  "version": "7.0.205",
+  "publishedAt": "2026-10-02T12:40:50.470Z",
+  "artifact": "releases/BuyerLog-7.0.205.zip",
+  "sha256": "2a98fb46cea1afd8623b8995ce9f84e4f47e0b75d74343d9b75127ceb85ebfc8",
+  "size": 52986861,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.204: Backlog ekranına Backlog Genel Bakış paneli — yüklenen oranı, aşama KPI kartları, Buyer · Buying Group · Üretici · Sezon · Kategori · Ülke · Yükleme Tipi bazında yığılmış aşama barları (fareyle bilgi, tıklayınca sağdan sipariş listesi), Ex-Factory / Antrepo / Retail / In-Store haftalık-aylık akış. Excel butonları: mevcut düzen \"Excel Legacy\" oldu; yeni \"Excel Backlog V3\" grafikli özet, haftalık akış, kırılımlar ve V3 detayıyla birlikte isteğe bağlı Planlanan & Gerçekleşen raporunu ve formülleriyle Legacy BACKLOG tablosunu içerir. PLM / ASAS senkron geri bildirimi standart Buyer Log bildirimleriyle hizalandı; bildirimler PLM işlem şeridinin üstünde konumlanıyor, senkron rehberi tercihi kullanıcı bazında saklanıyor.",
+  "releaseNotes": "Buyer Log 7.0.205: Backlog tarih kayması düzeltildi — soğuk açılıştan sonra Planlanan & Gerçekleşen snapshot'larında Ex-Factory, Retail, In Store ve Handover tarihleri bir gün geri yazılıyordu ve analizde sahte \"-1 gün\" revizyonları çıkıyordu; kaynak veri artık canlı yenilemeyle aynı tiplerde yükleniyor, eski kaymış snapshot'lar okunurken otomatik düzeltiliyor. Sipariş Yerleştirme tarihi Excel Backlog V3'te gerçek tarih. \"Tarih · adet\" değerleri okunur (14.03.2026 · 39.641 adet). Backlog Genel Bakış ve Excel V3'e veri kalitesi uyarısı (boş Sezon, eksik tarih, Retail < Ex-Factory, saatli ham tarih). CP verisinin diğer sayfalar yenilenirken kaybolması düzeltildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
