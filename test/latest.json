@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.208",
-  "publishedAt": "2026-10-02T19:07:32.841Z",
-  "artifact": "releases/BuyerLog-7.0.208.zip",
-  "sha256": "e53b7afacb752e8718bd84ab41275fc378ad24b8d5279192ef97246fb2dcc3e3",
-  "size": 53094320,
+  "version": "7.0.209",
+  "publishedAt": "2026-10-02T19:16:53.074Z",
+  "artifact": "releases/BuyerLog-7.0.209.zip",
+  "sha256": "061dd1ac6b0dea8ad740d8a7ab7e726d3f06e63cfdf2e62d94b9f06854d839c6",
+  "size": 53095987,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.208: TEST kanalındaki güncellemeler artık girişten sonra otomatik kontrol ediliyor (açılış kontrolü giriş öncesi STABLE kanalına düşüyordu). 7.0.207 içeriği dahil: IAS kaynağı DATABASE seçildiğinde veri gelmemesi düzeltildi; Backlog Overview’a CP, ASAS ve IAS filtreleri; Yol Süreleri analizi doğrudan IAS verisinden; timeline düzeltmeleri; ASAS Ex-Factory tarih tamamlama; dil göstergesi düzeltmesi.",
+  "releaseNotes": "Buyer Log 7.0.209: IAS satırlarında Sipariş Kod / Model Adı / Renk Kod boş gelmesi ve ASAS eşleşmesinin 0 kalması düzeltildi. İthalat Dosya No Dim_Ithalat boyut tablosuna bağlı olsa da IAS sorgusu satır granülü olarak yükleme fact tablosunu (Ithalat) kullanır; sipariş alanları her parsiyel satırın kendi siparişinden okunur.",
   "minimumUpdaterVersion": "1.0.0"
 }
