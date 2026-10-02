@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.201",
-  "publishedAt": "2026-10-02T08:29:35.075Z",
-  "artifact": "releases/BuyerLog-7.0.201.zip",
-  "sha256": "a4c5a619b14a9367da7bd65449c34e44bc88c41fffca435d3debb9d782e53079",
-  "size": 52866843,
+  "version": "7.0.202",
+  "publishedAt": "2026-10-02T09:27:13.842Z",
+  "artifact": "releases/BuyerLog-7.0.202.zip",
+  "sha256": "8e7c9121bbfe585827abcd8311d1aa05d570ba703c2f1c83bee993734bab857a",
+  "size": 52880832,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.201: Ex-Factory revizyonları Backlog’da tüm segmentlerde kullanıcı revizyonunu tutarlı gösteriyor; Orijinal Ex-Factory tarihi Focus görünümünde revize tarihinin yanında yer alıyor. IAS/HANDOVER gerçek yükleme ve transit hesabı için ayrı korunuyor. Orders salt-okunur revizyon geçmişi dahil 7.0.200 düzeltmeleri korunmuştur.",
+  "releaseNotes": "Buyer Log 7.0.202: OAB modülüne modül içi işlem rehberi eklendi. Hazırlık, tarayıcı bağlantısı, PASS/OAB girişi, veri çekme, işleme ve tamamlanma aşamaları görünür hale getirildi; tarayıcı kullanılan aşamalarda Edge/Chrome OAB sekmesinin kapatılmaması gerektiği açıkça uyarılıyor. Arayüz yalnız OAB kartı içinde kalıyor ve diğer Overview widget’larını örtmüyor. 7.0.201’deki Ex-Factory/Backlog revizyon düzeltmeleri korunmuştur.",
   "minimumUpdaterVersion": "1.0.0"
 }
