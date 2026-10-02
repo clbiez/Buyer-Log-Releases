@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.206",
-  "publishedAt": "2026-10-02T13:30:50.351Z",
-  "artifact": "releases/BuyerLog-7.0.206.zip",
-  "sha256": "d376657f2aa7eacb9748998f6be50b91c1a542dbe1e13a6468eff156969426b4",
-  "size": 52995745,
+  "version": "7.0.207",
+  "publishedAt": "2026-10-02T18:57:12.976Z",
+  "artifact": "releases/BuyerLog-7.0.207.zip",
+  "sha256": "72953383dcab4611dec6e704819f2d4c9928953ca42348840f8a3a12ad4e4f56",
+  "size": 53093211,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.206: CP › Lojistik akışında Buyer Log'un ASAS bakiyesi için açtığı \"Üretimde kalan\" satırı \"Eksik adet olarak işaretle\" ile kalıcı olarak Eksik Yükleme yapılabilir (parsiyellerin tamamı depodaysa Depoda - Eksik Yükleme); işaret Backlog, CP, Excel ve Planlanan & Gerçekleşen'e yansır, \"Geri al\" ile kaldırılır. ASAS'ta kapanmış ama IAS kaydı olmayan bakiye artık \"Parsiyel\" değil \"ASAS'ta kapanmış bakiye · IAS kaydı yok\" olarak gösterilir. Buyer Log'un açtığı satırların siparişin bütün bilgilerini (Sezon, Buyer, tarihler, kimlikler) taşıdığı testle güvence altında. Diğer sayfalar kısmi yenilenirken CP/Siparişler verisi korunur.",
+  "releaseNotes": "Buyer Log 7.0.207: IAS kaynağı DATABASE seçildiğinde veri gelmemesi düzeltildi (köşeli parantezli sütun başlıkları artık doğru okunuyor; okunamayan sonuç sessizce boş veri yerine hata veriyor). Backlog Overview’a CP, ASAS ve IAS filtreleri eklendi; Backlog teslim riski analizi sadeleştirildi. Yol Süreleri: İthalat Yol Süresi Raporu analizi ve kural önerisi, Excel’siz doğrudan IAS verisinden. Timeline sütun hizalama ve Bugün’e dön; segment oranları düzeltildi. ASAS: Ex-Factory’si boş renk aynı PO’nun diğer renginden tarih alır. Dil göstergesi düzeltildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
