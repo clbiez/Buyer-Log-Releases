@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.203",
-  "publishedAt": "2026-10-02T10:19:05.859Z",
-  "artifact": "releases/BuyerLog-7.0.203.zip",
-  "sha256": "ddb8a5088c9cd93518d2a2458837d9f26e3163b88254684c03e6b30f82f11f42",
-  "size": 52903822,
+  "version": "7.0.204",
+  "publishedAt": "2026-10-02T11:32:03.092Z",
+  "artifact": "releases/BuyerLog-7.0.204.zip",
+  "sha256": "b8941f40c809bd8a1bc6d6850b449243d71a530637ef87f81ba568f9bc803749",
+  "size": 52972198,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.203: PLM SYNC ve ASAS SYNC işlemlerine görsel kullanıcı rehberi eklendi. Senkron öncesinde tarayıcının açık tutulması, Allow Remote Debugging onayının verilmesi ve Remote Debugging bağlantısının hazır olması kullanıcıya adım adım anlatılıyor. Remote Debugging hazır değilse işlem engellenip Browser & Remote Debugging ayarlarına yönlendirme yapılıyor; Edge/Chrome inspect yolu gösteriliyor. Kullanıcı eğitim ekranını “bir daha gösterme” ile kapatabiliyor, ancak kritik bağlantı uyarıları gösterilmeye devam ediyor. Senkron sırasında da kompakt işlem bildirimi tarayıcıyı kapatmama ve Allow onayını hatırlatıyor.",
+  "releaseNotes": "Buyer Log 7.0.204: Backlog ekranına Backlog Genel Bakış paneli — yüklenen oranı, aşama KPI kartları, Buyer · Buying Group · Üretici · Sezon · Kategori · Ülke · Yükleme Tipi bazında yığılmış aşama barları (fareyle bilgi, tıklayınca sağdan sipariş listesi), Ex-Factory / Antrepo / Retail / In-Store haftalık-aylık akış. Excel butonları: mevcut düzen \"Excel Legacy\" oldu; yeni \"Excel Backlog V3\" grafikli özet, haftalık akış, kırılımlar ve V3 detayıyla birlikte isteğe bağlı Planlanan & Gerçekleşen raporunu ve formülleriyle Legacy BACKLOG tablosunu içerir. PLM / ASAS senkron geri bildirimi standart Buyer Log bildirimleriyle hizalandı; bildirimler PLM işlem şeridinin üstünde konumlanıyor, senkron rehberi tercihi kullanıcı bazında saklanıyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
