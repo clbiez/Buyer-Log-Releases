@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.210",
-  "publishedAt": "2026-10-02T20:24:01.777Z",
-  "artifact": "releases/BuyerLog-7.0.210.zip",
-  "sha256": "10d7194944e9f135b8bfd6470b17d1ed08dea43df92666cfff908ed685512db4",
-  "size": 53122123,
+  "version": "7.0.211",
+  "publishedAt": "2026-10-02T21:59:06.135Z",
+  "artifact": "releases/BuyerLog-7.0.211.zip",
+  "sha256": "e27874b43fd03c4e17bd265d84989e1626a3c6cf11d6975b34f5a64f6f836d74",
+  "size": 53172659,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.210: IAS Database kaynağında teknik fact satırları Antrepo Excel iş granülüne normalize edildi. Supplier Portal Statü boş teknik satırlar artık gerçek sevkiyat gibi Backlog'a girmiyor; aynı gerçek parsiyelin teknik alt satırları birleştirilerek Yükleme Toplam Adet toplanıyor, gerçek farklı parsiyeller ayrı kalıyor. Mevcut ASAS–IAS eşleştirme kuralı korunuyor.",
+  "releaseNotes": "Buyer Log 7.0.211: Görsel ve iki dilli stable sürüm arşivi eklendi. Güncelleme sonrası kullanıcı kaçırdığı stable sürümlerdeki değişiklikleri kümülatif tek akışta görür; aynı içerikler Version History üzerinden tekrar açılabilir. Bundan sonraki stable yayınlarda kullanıcıya görünen her değişiklik TR/EN ve gerçek Buyer Log ekran görüntüsü ile release paketine eklenmeden yayın doğrulamasını geçemez.",
   "minimumUpdaterVersion": "1.0.0"
 }
