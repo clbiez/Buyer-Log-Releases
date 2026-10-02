@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.207",
-  "publishedAt": "2026-10-02T18:57:12.976Z",
-  "artifact": "releases/BuyerLog-7.0.207.zip",
-  "sha256": "72953383dcab4611dec6e704819f2d4c9928953ca42348840f8a3a12ad4e4f56",
-  "size": 53093211,
+  "version": "7.0.208",
+  "publishedAt": "2026-10-02T19:07:32.841Z",
+  "artifact": "releases/BuyerLog-7.0.208.zip",
+  "sha256": "e53b7afacb752e8718bd84ab41275fc378ad24b8d5279192ef97246fb2dcc3e3",
+  "size": 53094320,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.207: IAS kaynağı DATABASE seçildiğinde veri gelmemesi düzeltildi (köşeli parantezli sütun başlıkları artık doğru okunuyor; okunamayan sonuç sessizce boş veri yerine hata veriyor). Backlog Overview’a CP, ASAS ve IAS filtreleri eklendi; Backlog teslim riski analizi sadeleştirildi. Yol Süreleri: İthalat Yol Süresi Raporu analizi ve kural önerisi, Excel’siz doğrudan IAS verisinden. Timeline sütun hizalama ve Bugün’e dön; segment oranları düzeltildi. ASAS: Ex-Factory’si boş renk aynı PO’nun diğer renginden tarih alır. Dil göstergesi düzeltildi.",
+  "releaseNotes": "Buyer Log 7.0.208: TEST kanalındaki güncellemeler artık girişten sonra otomatik kontrol ediliyor (açılış kontrolü giriş öncesi STABLE kanalına düşüyordu). 7.0.207 içeriği dahil: IAS kaynağı DATABASE seçildiğinde veri gelmemesi düzeltildi; Backlog Overview’a CP, ASAS ve IAS filtreleri; Yol Süreleri analizi doğrudan IAS verisinden; timeline düzeltmeleri; ASAS Ex-Factory tarih tamamlama; dil göstergesi düzeltmesi.",
   "minimumUpdaterVersion": "1.0.0"
 }
