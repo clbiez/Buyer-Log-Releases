@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.200",
-  "publishedAt": "2026-10-02T08:14:02.400Z",
-  "artifact": "releases/BuyerLog-7.0.200.zip",
-  "sha256": "7f0f462cc575190a8b3a9db7f8b63ba131fcc032394907c0a0c1607b089996cc",
-  "size": 52866535,
+  "version": "7.0.201",
+  "publishedAt": "2026-10-02T08:29:35.075Z",
+  "artifact": "releases/BuyerLog-7.0.201.zip",
+  "sha256": "a4c5a619b14a9367da7bd65449c34e44bc88c41fffca435d3debb9d782e53079",
+  "size": 52866843,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.200: Orders ekranında ekip arkadaşlarına ait salt-okunur siparişlerde Ex-Factory revizyon geçmişi artık orijinal tarih → revize tarih olarak gösteriliyor. Aynı davranış Retail Date ve In-Store tarih revizyonlarında da salt-okunur satırlar için tutarlı hale getirildi; LT ve Ex→Retail mevcut revizyon karşılaştırması korundu.",
+  "releaseNotes": "Buyer Log 7.0.201: Ex-Factory revizyonları Backlog’da tüm segmentlerde kullanıcı revizyonunu tutarlı gösteriyor; Orijinal Ex-Factory tarihi Focus görünümünde revize tarihinin yanında yer alıyor. IAS/HANDOVER gerçek yükleme ve transit hesabı için ayrı korunuyor. Orders salt-okunur revizyon geçmişi dahil 7.0.200 düzeltmeleri korunmuştur.",
   "minimumUpdaterVersion": "1.0.0"
 }
