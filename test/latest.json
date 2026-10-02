@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.199",
-  "publishedAt": "2026-10-02T07:42:40.038Z",
-  "artifact": "releases/BuyerLog-7.0.199.zip",
-  "sha256": "85a74976f12f06a08cc2e2519ac2e0409bd7ab01b01dd44a7d9d2838b999eccc",
-  "size": 52865956,
+  "version": "7.0.200",
+  "publishedAt": "2026-10-02T08:14:02.400Z",
+  "artifact": "releases/BuyerLog-7.0.200.zip",
+  "sha256": "7f0f462cc575190a8b3a9db7f8b63ba131fcc032394907c0a0c1607b089996cc",
+  "size": 52866535,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.199: Backlog › Planlanan & Gerçekleşen — plan penceresi (yüklenmesi planlanıp yüklenmeyen / tarihi geçmiş / geç / zamanında / kısmi), Buyer · Buying Group · MAG · MMYG · Ürün Ana Tanım · Üretici · Sezon bazında yatay yığılmış barlar (fareyle bilgi, tıklayınca sağdan sipariş listesi), plan günü ve Ex-Factory revizyon grafikleri, grafikli ve biçimli Excel dışa aktarımı; Handover tarihi boş yüklemeler artık gerçekleşen sayılıyor. Genel kültür arşivi 2.379 bilgiye çıktı; modül hazır olunca \"… ekranına devam et\"; LFL ve Backlog sayfalarında da bekleme ekranı. CP numune senkronu PLM SYNC gibi adımlı pencerede; açılıştaki Devam düğmesi hizası düzeltildi.",
+  "releaseNotes": "Buyer Log 7.0.200: Orders ekranında ekip arkadaşlarına ait salt-okunur siparişlerde Ex-Factory revizyon geçmişi artık orijinal tarih → revize tarih olarak gösteriliyor. Aynı davranış Retail Date ve In-Store tarih revizyonlarında da salt-okunur satırlar için tutarlı hale getirildi; LT ve Ex→Retail mevcut revizyon karşılaştırması korundu.",
   "minimumUpdaterVersion": "1.0.0"
 }
