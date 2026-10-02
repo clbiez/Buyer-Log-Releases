@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.195",
-  "publishedAt": "2026-10-01T22:38:43.395Z",
-  "artifact": "releases/BuyerLog-7.0.195.zip",
-  "sha256": "218d596cd8e6cf89eac7e3ee2d3dc6d932dad89a9323a92e09b453c2440aba77",
-  "size": 52017864,
+  "version": "7.0.197",
+  "publishedAt": "2026-10-02T04:18:12.173Z",
+  "artifact": "releases/BuyerLog-7.0.197.zip",
+  "sha256": "03c06713698c04166a4bd6f1481f8e97be1844116a09148cd5bc30594a0483fc",
+  "size": 52117743,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.195: Backlog alt detay pencereleri CP tablosuyla aynı tasarıma getirildi; Odak/Genişletilmiş/Tümü görünümü, alt satıra sarılan uzun sütun başlıkları, sürüklenerek ayarlanan kalıcı sütun genişlikleri, Sütunları Sığdır ve sütun filtreleri eklendi. Send to Pricing için taslak e-postayı yeniden açma eklendi. Price & Supplier ekranında aranabilir çoklu seçimli filtreler ve tüm alanların filtre olarak eklenebilmesi sağlandı. Dinamik sütun filtreleme ve Product Main Definition desteği eklendi. Sayfa yükleme durumlarında Thinking Orbs göstergesi kullanılıyor. Quotations'ta yeniden kullanılan Koleksiyon satır kimlikleri nedeniyle Best Price/fiyat geçmişinin karışması engellendi.",
+  "releaseNotes": "Buyer Log 7.0.197: Açılış bekleme ekranında kullanım ipuçları yerine 'Biliyor muydunuz?' kartları gösteriliyor: 14 kategoride 179 az bilinen genel kültür bilgisi, her kategoriye özgü hareketli çizimlerle. Görülmemiş bilgiler önce gelir; kullanım ipuçları F1 Kullanım Rehberi'nde kalmaya devam ediyor. 7.0.196 düzeltmelerini de içerir: ikinci kez başlatılan Buyer Log çalışan güncelleme denemesini geri almıyor; Check for Updates penceresine moderatöre özel Tekrar Dene düğmesi eklendi.",
   "minimumUpdaterVersion": "1.0.0"
 }
