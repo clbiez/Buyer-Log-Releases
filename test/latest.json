@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.205",
-  "publishedAt": "2026-10-02T12:38:16.760Z",
-  "artifact": "releases/BuyerLog-7.0.205.zip",
-  "sha256": "2a98fb46cea1afd8623b8995ce9f84e4f47e0b75d74343d9b75127ceb85ebfc8",
-  "size": 52986861,
+  "version": "7.0.206",
+  "publishedAt": "2026-10-02T13:30:50.351Z",
+  "artifact": "releases/BuyerLog-7.0.206.zip",
+  "sha256": "d376657f2aa7eacb9748998f6be50b91c1a542dbe1e13a6468eff156969426b4",
+  "size": 52995745,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.205: Backlog tarih kayması düzeltildi — soğuk açılıştan sonra Planlanan & Gerçekleşen snapshot'larında Ex-Factory, Retail, In Store ve Handover tarihleri bir gün geri yazılıyordu ve analizde sahte \"-1 gün\" revizyonları çıkıyordu; kaynak veri artık canlı yenilemeyle aynı tiplerde yükleniyor, eski kaymış snapshot'lar okunurken otomatik düzeltiliyor. Sipariş Yerleştirme tarihi Excel Backlog V3'te gerçek tarih. \"Tarih · adet\" değerleri okunur (14.03.2026 · 39.641 adet). Backlog Genel Bakış ve Excel V3'e veri kalitesi uyarısı (boş Sezon, eksik tarih, Retail < Ex-Factory, saatli ham tarih). CP verisinin diğer sayfalar yenilenirken kaybolması düzeltildi.",
+  "releaseNotes": "Buyer Log 7.0.206: CP › Lojistik akışında Buyer Log'un ASAS bakiyesi için açtığı \"Üretimde kalan\" satırı \"Eksik adet olarak işaretle\" ile kalıcı olarak Eksik Yükleme yapılabilir (parsiyellerin tamamı depodaysa Depoda - Eksik Yükleme); işaret Backlog, CP, Excel ve Planlanan & Gerçekleşen'e yansır, \"Geri al\" ile kaldırılır. ASAS'ta kapanmış ama IAS kaydı olmayan bakiye artık \"Parsiyel\" değil \"ASAS'ta kapanmış bakiye · IAS kaydı yok\" olarak gösterilir. Buyer Log'un açtığı satırların siparişin bütün bilgilerini (Sezon, Buyer, tarihler, kimlikler) taşıdığı testle güvence altında. Diğer sayfalar kısmi yenilenirken CP/Siparişler verisi korunur.",
   "minimumUpdaterVersion": "1.0.0"
 }
