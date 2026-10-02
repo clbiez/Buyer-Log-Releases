@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.197",
-  "publishedAt": "2026-10-02T04:16:15.419Z",
-  "artifact": "releases/BuyerLog-7.0.197.zip",
-  "sha256": "03c06713698c04166a4bd6f1481f8e97be1844116a09148cd5bc30594a0483fc",
-  "size": 52117743,
+  "version": "7.0.198",
+  "publishedAt": "2026-10-02T06:14:44.272Z",
+  "artifact": "releases/BuyerLog-7.0.198.zip",
+  "sha256": "94886a7b357d7a11110847820ca32d1f608b96c6b08ddb64825ac959813264bc",
+  "size": 52148736,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.197: Açılış bekleme ekranında kullanım ipuçları yerine 'Biliyor muydunuz?' kartları gösteriliyor: 14 kategoride 179 az bilinen genel kültür bilgisi, her kategoriye özgü hareketli çizimlerle. Görülmemiş bilgiler önce gelir; kullanım ipuçları F1 Kullanım Rehberi'nde kalmaya devam ediyor. 7.0.196 düzeltmelerini de içerir: ikinci kez başlatılan Buyer Log çalışan güncelleme denemesini geri almıyor; Check for Updates penceresine moderatöre özel Tekrar Dene düğmesi eklendi.",
+  "releaseNotes": "Buyer Log 7.0.198: PLM numune onay süreçleri — üretim sonrası aşamadaki veya sevk miktarı olan siparişler PLM'den bağımsız 'Onaylı · Üretim sonrası'; 'Customs & Port Operations' gümrük aşaması olarak tanınıyor; onaylı giriş önceliği ve aşama zinciri (S/Off → Artwork, PPS → Fit/S/Off/Artwork), Sample Evaluation onayı geçerli; CP › PLM SYNC › PLM NUMUNELERİ'nde Seçili / Eksik / Üretimdeki / Tümü; yeni öncelik kuralı: Ex-factory'ye 21 gün kala onaysız PPS; 24 saatten eski numune verisi CP açılışında arka planda tazelenir. Bekleme ekranları: sayfa yüklemelerinde genel kültür kartları, kart içi önceki/sonraki, açılışta 'Buyer Log hazır → Devam et', arşiv bitene kadar tekrar yok, açılıştaki yarım menü görüntüsü giderildi, girişten yumuşak geçiş.",
   "minimumUpdaterVersion": "1.0.0"
 }
