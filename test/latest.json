@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.209",
-  "publishedAt": "2026-10-02T19:16:53.074Z",
-  "artifact": "releases/BuyerLog-7.0.209.zip",
-  "sha256": "061dd1ac6b0dea8ad740d8a7ab7e726d3f06e63cfdf2e62d94b9f06854d839c6",
-  "size": 53095987,
+  "version": "7.0.210",
+  "publishedAt": "2026-10-02T20:24:01.777Z",
+  "artifact": "releases/BuyerLog-7.0.210.zip",
+  "sha256": "10d7194944e9f135b8bfd6470b17d1ed08dea43df92666cfff908ed685512db4",
+  "size": 53122123,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.209: IAS satırlarında Sipariş Kod / Model Adı / Renk Kod boş gelmesi ve ASAS eşleşmesinin 0 kalması düzeltildi. İthalat Dosya No Dim_Ithalat boyut tablosuna bağlı olsa da IAS sorgusu satır granülü olarak yükleme fact tablosunu (Ithalat) kullanır; sipariş alanları her parsiyel satırın kendi siparişinden okunur.",
+  "releaseNotes": "Buyer Log 7.0.210: IAS Database kaynağında teknik fact satırları Antrepo Excel iş granülüne normalize edildi. Supplier Portal Statü boş teknik satırlar artık gerçek sevkiyat gibi Backlog'a girmiyor; aynı gerçek parsiyelin teknik alt satırları birleştirilerek Yükleme Toplam Adet toplanıyor, gerçek farklı parsiyeller ayrı kalıyor. Mevcut ASAS–IAS eşleştirme kuralı korunuyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
