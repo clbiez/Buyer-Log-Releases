@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.225",
-  "publishedAt": "2026-10-03T20:41:14.058Z",
-  "artifact": "releases/BuyerLog-7.0.225.zip",
-  "sha256": "5d3a0a3a8bf1833440c8fb46acbe2a74b9c8e7b86cde8cbc2a8d6d5c12174cfa",
-  "size": 54983051,
+  "version": "7.0.226",
+  "publishedAt": "2026-10-03T21:30:20.658Z",
+  "artifact": "releases/BuyerLog-7.0.226.zip",
+  "sha256": "27cfa5f1d6983d9cd6bbe1d4dc1ffbbe779995fc9d32264ef5c4df5d5859e740",
+  "size": 54994530,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.225: Shared Hub bağlı görünürken kullanıcı adımının 0 kullanıcı / 0 aktif kalmasına neden olan masaüstü kimlik deposu kurtarma hatası giderildi. Portable kurulumlarda data-BACKUP, eski data/auth, migration evidence, legacy server/data ve önceki Windows AppData kullanıcı depoları güvenli ve sınırlı biçimde kontrol edilerek en güçlü geçerli kullanıcı deposu otomatik kurtarılıyor. Ayrıca sıfır kullanıcı artık başarılı Shared Sync olarak gösterilmiyor.",
+  "releaseNotes": "Buyer Log 7.0.226: Kullanıcı dizini kurtarma kapsamı genişletildi. Eski Buyer Log kurulumları, resources/app/data içindeki eski auth yapıları, iç içe migration-evidence kimlik kopyaları, portable AppData ve data-BACKUP konumları güvenli ve sınırlı biçimde taranıyor. Yeni fakat kullanılamaz boş bir cache artık daha eski fakat geçerli kullanıcı deposunun geri yüklenmesini engellemiyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
