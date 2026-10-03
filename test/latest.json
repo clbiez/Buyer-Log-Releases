@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.211",
-  "publishedAt": "2026-10-02T21:59:06.135Z",
-  "artifact": "releases/BuyerLog-7.0.211.zip",
-  "sha256": "e27874b43fd03c4e17bd265d84989e1626a3c6cf11d6975b34f5a64f6f836d74",
-  "size": 53172659,
+  "version": "7.0.212",
+  "publishedAt": "2026-10-03T06:26:51.534Z",
+  "artifact": "releases/BuyerLog-7.0.212.zip",
+  "sha256": "066c7da679ccbfece75f9676f1cff6b723ef9022a6d0405d1a0fdc99f4e973a3",
+  "size": 53207923,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.211: Görsel ve iki dilli stable sürüm arşivi eklendi. Güncelleme sonrası kullanıcı kaçırdığı stable sürümlerdeki değişiklikleri kümülatif tek akışta görür; aynı içerikler Version History üzerinden tekrar açılabilir. Bundan sonraki stable yayınlarda kullanıcıya görünen her değişiklik TR/EN ve gerçek Buyer Log ekran görüntüsü ile release paketine eklenmeden yayın doğrulamasını geçemez.",
+  "releaseNotes": "Buyer Log 7.0.212: Excel ve e-posta tablolarından çok sütunlu veriler satır ilişkisini koruyarak aranabilir. Yapıştırılan satırlar (A; 1), (B; 2) biçiminde bağımsız gruplara dönüşür; parantez içi koşullar birlikte, gruplar birbirine alternatif olarak eşleşir. Mevcut virgüllü ve noktalı virgüllü arama davranışı korunur.",
   "minimumUpdaterVersion": "1.0.0"
 }
