@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.213",
-  "publishedAt": "2026-10-03T06:51:53.773Z",
-  "artifact": "releases/BuyerLog-7.0.213.zip",
-  "sha256": "813f6b900d7fb5c14cd6cb097bb6a87dc5e1dbfbf70662ccd662338354f3801a",
-  "size": 53233167,
+  "version": "7.0.214",
+  "publishedAt": "2026-10-03T07:57:59.924Z",
+  "artifact": "releases/BuyerLog-7.0.214.zip",
+  "sha256": "e2f302268581e75e15440b899535aae6b3d6561ae8de0ed271b92edc0ff51077",
+  "size": 53797495,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.213: Backlog grafiklerinin tasarım dili birleştirildi; Today, hover detayları ve toplam adet görünürlüğü iyileştirildi. Delivery Risk alt kartları KPI tasarımıyla hizalandı. Güncelleme/sürüm notlarında metin okunabilirliği, görsel büyütme ve ileri-geri gezinme geliştirildi.",
+  "releaseNotes": "Buyer Log 7.0.214: Yol Süreleri penceresi ülke ve taşıt bazlı süreleri doğrudan IAS database'inden, seçilebilir tarih aralığıyla (son N hafta/ay/yıl) hesaplıyor; Yenile önbelleği atlayıp veriyi yeniden sorguluyor. Kural ekleme alanı ve kural listesi kompakt, aranabilir ve filtrelenebilir hâle geldi.",
   "minimumUpdaterVersion": "1.0.0"
 }
