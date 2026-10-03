@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.216",
-  "publishedAt": "2026-10-03T09:57:56.475Z",
-  "artifact": "releases/BuyerLog-7.0.216.zip",
-  "sha256": "31710d831f28eb2f796ada5b713a111a46d1b25659bdee374ba26f81fc753774",
-  "size": 54047616,
+  "version": "7.0.217",
+  "publishedAt": "2026-10-03T13:49:37.668Z",
+  "artifact": "releases/BuyerLog-7.0.217.zip",
+  "sha256": "b432e05164c56268e85c64b4b01464a2682ed03e53c254dee829979a40d44d25",
+  "size": 54012203,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.216: Yol Süreleri penceresinde IAS Database kapsamı seçildiğinde yol süresi analizi artık hesaplanıyor; sorgu normal yenilemeyle aynı IAS tablosundan, seçilen tarih aralığıyla çalışıyor. Bir sorun olursa gerçek hata nedeni gösteriliyor ve mümkünse Buyer Log'un okuduğu IAS satırlarıyla devam ediliyor.",
+  "releaseNotes": "Buyer Log 7.0.217: Checklist başlıkları CP'de Checklist grubu altında dinamik sütunlara yansıyor. Seçili CP siparişlerinden üretici checklist Excel'i oluşturulabiliyor ve üreticinin Açık / Tamamlandı / Gerekmiyor güncellemeleri tekrar Buyer Log'a alınabiliyor. Eski Excel dosyalarının daha yeni Buyer Log cevaplarını ezmesi ve değişmiş yükleme tarihli satırların yanlış import edilmesi engelleniyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
