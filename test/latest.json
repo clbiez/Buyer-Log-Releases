@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.215",
-  "publishedAt": "2026-10-03T09:18:59.305Z",
-  "artifact": "releases/BuyerLog-7.0.215.zip",
-  "sha256": "4d97892ed8c44b1d3b8b644c1485ae8adf61719c5edd71d2957aa41aa943e1c7",
-  "size": 53863427,
+  "version": "7.0.216",
+  "publishedAt": "2026-10-03T09:56:26.588Z",
+  "artifact": "releases/BuyerLog-7.0.216.zip",
+  "sha256": "31710d831f28eb2f796ada5b713a111a46d1b25659bdee374ba26f81fc753774",
+  "size": 54047616,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.215: Yenilemeler artık sayfa/horizon kapsamı, veri hacmi ve kaynak moduna benzeyen geçmiş performanstan tahmini süre öğreniyor. SYNC üzerinden anonim ortak örnekler kullanılıyor; median/P80 ve aykırı değer filtresiyle tahmin üretiliyor. Refresh Stages ve mevcut yenileme sayaçlarında tahmini süre/kalan süre gösteriliyor; gerçek ilerleme bilgisi yoksa sahte yüzde kullanılmıyor.",
+  "releaseNotes": "Buyer Log 7.0.216: Yol Süreleri penceresinde IAS Database kapsamı seçildiğinde yol süresi analizi artık hesaplanıyor; sorgu normal yenilemeyle aynı IAS tablosundan, seçilen tarih aralığıyla çalışıyor. Bir sorun olursa gerçek hata nedeni gösteriliyor ve mümkünse Buyer Log'un okuduğu IAS satırlarıyla devam ediliyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
