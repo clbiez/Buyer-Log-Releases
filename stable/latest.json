@@ -1,12 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.226",
-  "publishedAt": "2026-10-03T21:31:48.019Z",
-  "artifact": "releases/BuyerLog-7.0.226.zip",
-  "sha256": "27cfa5f1d6983d9cd6bbe1d4dc1ffbbe779995fc9d32264ef5c4df5d5859e740",
-  "size": 54994530,
+  "version": "7.0.227",
+  "publishedAt": "2026-10-03T22:10:08.153Z",
+  "artifact": "releases/BuyerLog-7.0.227.zip",
+  "sha256": "e03ae0b3a0b5c34de47460ab4c7caf4ce6e67329782a709aea51fdbe8749f965",
+  "size": 53757623,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.226: Kullanıcı dizini kurtarma kapsamı genişletildi. Eski Buyer Log kurulumları, resources/app/data içindeki eski auth yapıları, iç içe migration-evidence kimlik kopyaları, portable AppData ve data-BACKUP konumları güvenli ve sınırlı biçimde taranıyor. Yeni fakat kullanılamaz boş bir cache artık daha eski fakat geçerli kullanıcı deposunun geri yüklenmesini engellemiyor.",
-  "minimumUpdaterVersion": "1.0.0"
+  "releaseNotes": "Buyer Log 7.0.227: Giriş ekranı sadeleştirildi ve hazır güncellemeler için yeniden başlatma eylemi eklendi. Uygulama içi AI asistanı/sağlayıcı katmanı kaldırıldı; update manifestleri Ed25519 imza doğrulamasına geçirildi ve güvenlik sınırları sıkılaştırıldı. Yavaş Overview/CP/Orders ilk ekran projeksiyonu artık doğrulanmış kullanıcıyı açılış perdesinde bekletmiyor; uygulama kabuğu açılırken ağır veri kendi ekranında yüklenmeye devam ediyor.",
+  "minimumUpdaterVersion": "1.0.0",
+  "signature": {
+    "alg": "ed25519",
+    "keyId": "c4b9c0d6f8a4be0d",
+    "value": "oMQAPF7Hl25sL6NebxLbUMJc0CDY7CBT6up5i5vIorynEH9Tn4obq0p4qSeZy0otzBHyrQjgbFvOUF2EUNDMBA=="
+  }
 }
