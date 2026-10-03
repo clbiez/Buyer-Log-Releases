@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.219",
-  "publishedAt": "2026-10-03T15:17:17.064Z",
-  "artifact": "releases/BuyerLog-7.0.219.zip",
-  "sha256": "8f4aa83e18bde6db50e8d6d22601b27904ca6db74395100fcfd5ed1baa9e7fb2",
-  "size": 54401814,
+  "version": "7.0.220",
+  "publishedAt": "2026-10-03T15:24:19.743Z",
+  "artifact": "releases/BuyerLog-7.0.220.zip",
+  "sha256": "599974505ca2f5996c6fd61e5a77f480fbda1b999c09ad5e9f670c3b627e3478",
+  "size": 54589472,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.219: Transit Times IAS Database tarih filtresindeki Date/Text karşılaştırma hatası giderildi ve bağımsız Modül ufku netleştirildi. Checklist yönetimi ile Supplier Checklist Excel akışı geliştirildi. Backlog zaman akışında gecikmiş alt toplam hizası, otomatik Bugün odağı ve üst/alt grafiklerin Yığılmış–Yan yana davranışı düzeltildi.",
+  "releaseNotes": "Buyer Log 7.0.220: Yol Süreleri / İthalat Yol Süresi Analizi artık Global Lojistik Excel raporuyla aynı sütun ve tanımlarla hesaplanıyor (Yükleme = Talep → Fiili Yükleme, Yol = Fiili Yükleme → ETA, Gümrük = ETA → Antrepo Giriş) ve yalnız gerçekleşen Antrepo/Tema Depo girişlerini kullanıyor; tahmini giriş tarihi kullanılmıyor. Varsayılan ortalama rapordaki gibi sevkiyat ortalaması.",
   "minimumUpdaterVersion": "1.0.0"
 }
