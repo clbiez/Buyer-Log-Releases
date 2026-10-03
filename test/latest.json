@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.222",
-  "publishedAt": "2026-10-03T17:23:23.511Z",
-  "artifact": "releases/BuyerLog-7.0.222.zip",
-  "sha256": "15f07804e52d221039cd273d29e8bff102615b3a7e27432f9484c1e624acbaf2",
-  "size": 55858370,
+  "version": "7.0.223",
+  "publishedAt": "2026-10-03T19:34:03.531Z",
+  "artifact": "releases/BuyerLog-7.0.223.zip",
+  "sha256": "202e58e94a2e108a2639ed3a7e334931bb74d57e6e0d0ba8e2f746f28b5d8b85",
+  "size": 54954842,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.222: Checklist/Rules yeniden tasarlandı ve dört durumlu checklist sistemi devreye alındı; IAS Yol Süreleri tüm taşıt tipleri ve Türkiye direkt sevkiyatlarını destekleyecek şekilde genişletildi; Backlog detaylarına model görselleri/PLM Sync eklendi; açılış TR/EN seçimi düzeltildi; Troy otomasyonu ve entegrasyonu uygulamadan tamamen kaldırıldı.",
+  "releaseNotes": "Buyer Log 7.0.223: Checklist onayları PO bazlı veya PLM ID + Model Adı + Colour Code bazında yeniden kullanılabilir hale getirildi; rapor numarası, gerçekleşme tarihi ve attachment kanıtları eklendi; checklist attachment adlandırması standartlaştırıldı; CP checklist değişikliklerinin kaybolmaması için kuyruklu/tekrar denemeli kayıt akışı eklendi; Checklist Excel model görselleri hücreyle taşınır/boyutlanır şekilde gömülüyor; Üreticiye Checklist Exceli Hazırla akışı Checklist Excel + ilgili ekleri Prepare E-Mail'e taşıyor ve 9,5 MB draft attachment kuralını kullanıyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
