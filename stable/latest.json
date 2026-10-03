@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.212",
-  "publishedAt": "2026-10-03T06:27:51.699Z",
-  "artifact": "releases/BuyerLog-7.0.212.zip",
-  "sha256": "066c7da679ccbfece75f9676f1cff6b723ef9022a6d0405d1a0fdc99f4e973a3",
-  "size": 53207923,
+  "version": "7.0.213",
+  "publishedAt": "2026-10-03T06:52:49.584Z",
+  "artifact": "releases/BuyerLog-7.0.213.zip",
+  "sha256": "813f6b900d7fb5c14cd6cb097bb6a87dc5e1dbfbf70662ccd662338354f3801a",
+  "size": 53233167,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.212: Excel ve e-posta tablolarından çok sütunlu veriler satır ilişkisini koruyarak aranabilir. Yapıştırılan satırlar (A; 1), (B; 2) biçiminde bağımsız gruplara dönüşür; parantez içi koşullar birlikte, gruplar birbirine alternatif olarak eşleşir. Mevcut virgüllü ve noktalı virgüllü arama davranışı korunur.",
+  "releaseNotes": "Buyer Log 7.0.213: Backlog grafiklerinin tasarım dili birleştirildi; Today, hover detayları ve toplam adet görünürlüğü iyileştirildi. Delivery Risk alt kartları KPI tasarımıyla hizalandı. Güncelleme/sürüm notlarında metin okunabilirliği, görsel büyütme ve ileri-geri gezinme geliştirildi.",
   "minimumUpdaterVersion": "1.0.0"
 }
