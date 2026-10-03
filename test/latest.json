@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.214",
-  "publishedAt": "2026-10-03T07:57:59.924Z",
-  "artifact": "releases/BuyerLog-7.0.214.zip",
-  "sha256": "e2f302268581e75e15440b899535aae6b3d6561ae8de0ed271b92edc0ff51077",
-  "size": 53797495,
+  "version": "7.0.215",
+  "publishedAt": "2026-10-03T09:18:59.305Z",
+  "artifact": "releases/BuyerLog-7.0.215.zip",
+  "sha256": "4d97892ed8c44b1d3b8b644c1485ae8adf61719c5edd71d2957aa41aa943e1c7",
+  "size": 53863427,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.214: Yol Süreleri penceresi ülke ve taşıt bazlı süreleri doğrudan IAS database'inden, seçilebilir tarih aralığıyla (son N hafta/ay/yıl) hesaplıyor; Yenile önbelleği atlayıp veriyi yeniden sorguluyor. Kural ekleme alanı ve kural listesi kompakt, aranabilir ve filtrelenebilir hâle geldi.",
+  "releaseNotes": "Buyer Log 7.0.215: Yenilemeler artık sayfa/horizon kapsamı, veri hacmi ve kaynak moduna benzeyen geçmiş performanstan tahmini süre öğreniyor. SYNC üzerinden anonim ortak örnekler kullanılıyor; median/P80 ve aykırı değer filtresiyle tahmin üretiliyor. Refresh Stages ve mevcut yenileme sayaçlarında tahmini süre/kalan süre gösteriliyor; gerçek ilerleme bilgisi yoksa sahte yüzde kullanılmıyor.",
   "minimumUpdaterVersion": "1.0.0"
 }
