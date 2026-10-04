@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.227",
-  "publishedAt": "2026-10-03T22:09:07.415Z",
-  "artifact": "releases/BuyerLog-7.0.227.zip",
-  "sha256": "e03ae0b3a0b5c34de47460ab4c7caf4ce6e67329782a709aea51fdbe8749f965",
-  "size": 53757623,
+  "version": "7.0.228",
+  "publishedAt": "2026-10-04T11:45:34.516Z",
+  "artifact": "releases/BuyerLog-7.0.228.zip",
+  "sha256": "307d4cffef16eb7bac95e69f588bbff10ed8d6533ad6de1263e83473d03a7acd",
+  "size": 54204938,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.227: Giriş ekranı sadeleştirildi ve hazır güncellemeler için yeniden başlatma eylemi eklendi. Uygulama içi AI asistanı/sağlayıcı katmanı kaldırıldı; update manifestleri Ed25519 imza doğrulamasına geçirildi ve güvenlik sınırları sıkılaştırıldı. Yavaş Overview/CP/Orders ilk ekran projeksiyonu artık doğrulanmış kullanıcıyı açılış perdesinde bekletmiyor; uygulama kabuğu açılırken ağır veri kendi ekranında yüklenmeye devam ediyor.",
+  "releaseNotes": "Buyer Log 7.0.228: CP ve Koleksiyon'da seçili modellerin görselleri tek işlemde ve kalıcı olarak kaldırılabiliyor. Veri Yönetimi'ne gereksiz dosyaları tarayıp onayla silen Data Temizliği eklendi; Buyer Log haftada bir kendi bayat verisini otomatik temizliyor ve kayda değer veri kaldıysa hatırlatıyor.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "oMQAPF7Hl25sL6NebxLbUMJc0CDY7CBT6up5i5vIorynEH9Tn4obq0p4qSeZy0otzBHyrQjgbFvOUF2EUNDMBA=="
+    "value": "/t0+OvTzIvsFakJfUYBav9KyJ/MAjDgPS7l0VLN12wFTuoDEyMW9bVGVTBG//rBlBPJrZmQOxn8xBPvSJaWcBQ=="
   }
 }
