@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.228",
-  "publishedAt": "2026-10-04T11:45:34.516Z",
-  "artifact": "releases/BuyerLog-7.0.228.zip",
-  "sha256": "307d4cffef16eb7bac95e69f588bbff10ed8d6533ad6de1263e83473d03a7acd",
-  "size": 54204938,
+  "version": "7.0.231",
+  "publishedAt": "2026-10-04T15:47:18.399Z",
+  "artifact": "releases/BuyerLog-7.0.231.zip",
+  "sha256": "7a7dba2d57a5f6ceb74bec34624436728af07c9436510502b2626093fbb52b0d",
+  "size": 56125674,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.228: CP ve Koleksiyon'da seçili modellerin görselleri tek işlemde ve kalıcı olarak kaldırılabiliyor. Veri Yönetimi'ne gereksiz dosyaları tarayıp onayla silen Data Temizliği eklendi; Buyer Log haftada bir kendi bayat verisini otomatik temizliyor ve kayda değer veri kaldıysa hatırlatıyor.",
+  "releaseNotes": "Buyer Log 7.0.231: Üst uygulama çubuğu kaydırmada görünür kalır; yenileme teknik detayları canlı güncellemelerde açık kalır; CP lojistik detayına Ex-Factory ve Yükleme Onay tarihleri eklenir; Checklist alanları hesaplanan sütunlarda kullanılabilir ve CP/Siparişler menüsünde Not Sütunu Ekle erişimi düzeltilir. Release görsel doğrulamasındaki test/validator uyumsuzluğu da güvenli şekilde giderildi.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "/t0+OvTzIvsFakJfUYBav9KyJ/MAjDgPS7l0VLN12wFTuoDEyMW9bVGVTBG//rBlBPJrZmQOxn8xBPvSJaWcBQ=="
+    "value": "LyPcC9AHDzENpwjse5upCfiVuffdBGMqDHFTBweo1UAgGaBssRwCfcKE38nZ6oSnhcz4PDIhZ+2vlXzG6EEaCA=="
   }
 }
