@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.232",
-  "publishedAt": "2026-10-04T16:54:38.441Z",
-  "artifact": "releases/BuyerLog-7.0.232.zip",
-  "sha256": "9b48aa7d3ed3257a52d52bc3598d911bd82e6119d488d55dda26c0158a7ed326",
-  "size": 56835978,
+  "version": "7.0.233",
+  "publishedAt": "2026-10-04T18:26:35.294Z",
+  "artifact": "releases/BuyerLog-7.0.233.zip",
+  "sha256": "acb67c16ee760266cd0c9c8d6f30423ba3c2e3836c1a9877a2dcfd7a29bb5b4b",
+  "size": 57446700,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.232: Koleksiyon, CP ve Siparişler için yeni Alanlar çekmecesi ve yeniden düzenlenen tablo başlıkları; Koleksiyon Checklist desteği; ASAS verisinden üretici kartları, termin performansı ve üretici eşleme özellikleriyle yeni Üreticiler sayfası; otomasyonlarda üretici bazlı ayrı e-posta alıcı akışı.",
+  "releaseNotes": "Buyer Log 7.0.233: LCW AI’dan Destek Al — Hesaplanan Sütun, CP Kuralları ve Otomasyonlar tek merkezi LCW AI motorunu (GPT-6 Sol) kullanır; öneriler Buyer Log doğrulamasından geçer ve yalnız kullanıcı onayıyla uygulanır. Kullanıcı menüsünde Kurumsal Bağlantılar ve LCW AI Girişi eklendi.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "CnayDR+iLJCBC8N4TnwMUcZeY0pfpUaJ3BYuO7RNMIUscXpVr7+70p/q+3OyBbjnml4IrNRePI59/rXhnJa0BQ=="
+    "value": "REipChW6UoW/VZdgPrySPsUhvlORMISmZExPn1uoZl7Ef2NOm9UTUVhn5g1H/eh6tDiY/cRIgh8WhZ0WYruhAA=="
   }
 }
