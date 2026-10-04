@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.236",
-  "publishedAt": "2026-10-04T21:55:49.482Z",
-  "artifact": "releases/BuyerLog-7.0.236.zip",
-  "sha256": "64bdfffed7828476682b9afe74895f12ea0583e6067937e994f5a337bed7b72b",
-  "size": 57306972,
+  "version": "7.0.237",
+  "publishedAt": "2026-10-04T22:11:43.012Z",
+  "artifact": "releases/BuyerLog-7.0.237.zip",
+  "sha256": "b70c3a24d1a5e8325505c2211a6227e45c6ce370cc739bb683f1cee06181955f",
+  "size": 57408968,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.236: LCW AI genel sohbeti artık sorulara cevap veriyor; boş cevap anlaşılır hata olarak gösterilir ve Tekrar Dene boş cevapları biriktirmez. LCW AI chat answers questions again; empty answers show a clear error.",
+  "releaseNotes": "Buyer Log 7.0.237: LCW AI Bağlam Ekle tabloları artık kesilmeden, tüm satır ve sütunlarıyla CSV dosyası olarak gönderilir. Add Context tables are now sent uncut as a CSV file.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "5nx2hD2+CcN6+Bs70qZoWDhBe8+vbliPU80Uu9J4pWPKm9dCGjS3KT+btIcbNp7rhseYVM/t5fpv05kGcR0cCA=="
+    "value": "tAUZCvLbX59liph90BnwxsJmqdjn1AzAxXxlukUPX5DbRe0qeKnfa60P3aBr9pHLN8TY6tEq2zAf7ejH0t+bCg=="
   }
 }
