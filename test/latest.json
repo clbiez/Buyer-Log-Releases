@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.234",
-  "publishedAt": "2026-10-04T20:37:53.099Z",
-  "artifact": "releases/BuyerLog-7.0.234.zip",
-  "sha256": "ca5e69ffbd89f654106ec7698cc036f781b660171267c4f3648ab0f33de3fe2e",
-  "size": 57049405,
+  "version": "7.0.235",
+  "publishedAt": "2026-10-04T21:32:48.318Z",
+  "artifact": "releases/BuyerLog-7.0.235.zip",
+  "sha256": "df9f72acf7d1eb5a02097b7b80519ee7728dc90da83b5e75734114370c516c83",
+  "size": 57487717,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.234: Checklist durumları ve not, rapor numarası, tarih ve PDF ekleri anında kaydedilir; yeniden açılışta ve yükleme tarihi değişince korunur. Bağlantı kesilince kayıtlar cihazda bekletilir ve yeniden gönderilir. Bozuk kayıtların üzerine boş veri yazılması engellendi; son sağlam kopyadan kurtarma eklendi. Excel aktarımında PDF ekleri korunur. Koleksiyon Checklist seçimleri sunucuya hemen kaydedilir. Checklist decisions and evidence save immediately and survive reopening, schedule changes and offline retries.",
+  "releaseNotes": "Buyer Log 7.0.235: LCW AI genel çalışma alanı, bağlam ekleme ve kural desteği güncellemeleri; uygulama simgesi iyileştirmesi; Mağaza Ayı/Hafta terminolojisi uçtan uca Model Bütçe Ayı/Hafta (Model Budget Month/Week) olarak standardize edildi. Eski veri başlıkları geriye dönük uyumluluk için alias olarak korunur.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "/nyEUvNblwK7Ai4N0IdQ65v1Wc9GYtesokOkkqkVTkVMzm+oU86fqiM8xF27BH5XmFMr+ZbERU3cc8o40XP5Aw=="
+    "value": "TeUEtSIKK3qTiGCw5AYTCmIItVpgYjd1J2aeBOorvGGoEsLXm0A5JlvBdXnZ6I57rykUKOSdH2Peo3bSfHRhAg=="
   }
 }
