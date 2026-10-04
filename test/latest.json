@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.231",
-  "publishedAt": "2026-10-04T15:47:18.399Z",
-  "artifact": "releases/BuyerLog-7.0.231.zip",
-  "sha256": "7a7dba2d57a5f6ceb74bec34624436728af07c9436510502b2626093fbb52b0d",
-  "size": 56125674,
+  "version": "7.0.232",
+  "publishedAt": "2026-10-04T16:53:04.700Z",
+  "artifact": "releases/BuyerLog-7.0.232.zip",
+  "sha256": "9b48aa7d3ed3257a52d52bc3598d911bd82e6119d488d55dda26c0158a7ed326",
+  "size": 56835978,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.231: Üst uygulama çubuğu kaydırmada görünür kalır; yenileme teknik detayları canlı güncellemelerde açık kalır; CP lojistik detayına Ex-Factory ve Yükleme Onay tarihleri eklenir; Checklist alanları hesaplanan sütunlarda kullanılabilir ve CP/Siparişler menüsünde Not Sütunu Ekle erişimi düzeltilir. Release görsel doğrulamasındaki test/validator uyumsuzluğu da güvenli şekilde giderildi.",
+  "releaseNotes": "Buyer Log 7.0.232: Koleksiyon, CP ve Siparişler için yeni Alanlar çekmecesi ve yeniden düzenlenen tablo başlıkları; Koleksiyon Checklist desteği; ASAS verisinden üretici kartları, termin performansı ve üretici eşleme özellikleriyle yeni Üreticiler sayfası; otomasyonlarda üretici bazlı ayrı e-posta alıcı akışı.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "LyPcC9AHDzENpwjse5upCfiVuffdBGMqDHFTBweo1UAgGaBssRwCfcKE38nZ6oSnhcz4PDIhZ+2vlXzG6EEaCA=="
+    "value": "CnayDR+iLJCBC8N4TnwMUcZeY0pfpUaJ3BYuO7RNMIUscXpVr7+70p/q+3OyBbjnml4IrNRePI59/rXhnJa0BQ=="
   }
 }
