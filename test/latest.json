@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.233",
-  "publishedAt": "2026-10-04T18:22:23.551Z",
-  "artifact": "releases/BuyerLog-7.0.233.zip",
-  "sha256": "acb67c16ee760266cd0c9c8d6f30423ba3c2e3836c1a9877a2dcfd7a29bb5b4b",
-  "size": 57446700,
+  "version": "7.0.234",
+  "publishedAt": "2026-10-04T20:37:53.099Z",
+  "artifact": "releases/BuyerLog-7.0.234.zip",
+  "sha256": "ca5e69ffbd89f654106ec7698cc036f781b660171267c4f3648ab0f33de3fe2e",
+  "size": 57049405,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.233: LCW AI’dan Destek Al — Hesaplanan Sütun, CP Kuralları ve Otomasyonlar tek merkezi LCW AI motorunu (GPT-6 Sol) kullanır; öneriler Buyer Log doğrulamasından geçer ve yalnız kullanıcı onayıyla uygulanır. Kullanıcı menüsünde Kurumsal Bağlantılar ve LCW AI Girişi eklendi.",
+  "releaseNotes": "Buyer Log 7.0.234: Checklist durumları ve not, rapor numarası, tarih ve PDF ekleri anında kaydedilir; yeniden açılışta ve yükleme tarihi değişince korunur. Bağlantı kesilince kayıtlar cihazda bekletilir ve yeniden gönderilir. Bozuk kayıtların üzerine boş veri yazılması engellendi; son sağlam kopyadan kurtarma eklendi. Excel aktarımında PDF ekleri korunur. Koleksiyon Checklist seçimleri sunucuya hemen kaydedilir. Checklist decisions and evidence save immediately and survive reopening, schedule changes and offline retries.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "REipChW6UoW/VZdgPrySPsUhvlORMISmZExPn1uoZl7Ef2NOm9UTUVhn5g1H/eh6tDiY/cRIgh8WhZ0WYruhAA=="
+    "value": "/nyEUvNblwK7Ai4N0IdQ65v1Wc9GYtesokOkkqkVTkVMzm+oU86fqiM8xF27BH5XmFMr+ZbERU3cc8o40XP5Aw=="
   }
 }
