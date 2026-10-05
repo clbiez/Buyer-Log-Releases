@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.237",
-  "publishedAt": "2026-10-04T22:11:43.012Z",
-  "artifact": "releases/BuyerLog-7.0.237.zip",
-  "sha256": "b70c3a24d1a5e8325505c2211a6227e45c6ce370cc739bb683f1cee06181955f",
-  "size": 57408968,
+  "version": "7.0.238",
+  "publishedAt": "2026-10-05T05:08:38.662Z",
+  "artifact": "releases/BuyerLog-7.0.238.zip",
+  "sha256": "f0b03074acc2fe0878be1100376b4e8adc5b6fde1b434b20230f003094d8587c",
+  "size": 57885459,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.237: LCW AI Bağlam Ekle tabloları artık kesilmeden, tüm satır ve sütunlarıyla CSV dosyası olarak gönderilir. Add Context tables are now sent uncut as a CSV file.",
+  "releaseNotes": "Buyer Log 7.0.238: LCW AI cevapları PDF, PowerPoint, Excel ve HTML dosyası olarak oluşturulur; raporlar canlı ve hareketli; LCW AI PLM gibi arka planda bağlanır. LCW AI answers as PDF/PowerPoint/Excel/HTML files, lively animated reports, background LCW AI session.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "tAUZCvLbX59liph90BnwxsJmqdjn1AzAxXxlukUPX5DbRe0qeKnfa60P3aBr9pHLN8TY6tEq2zAf7ejH0t+bCg=="
+    "value": "Q84vs4xaY44qYJXMd81Wy1W0XVwVypJ0WGHhEmGNnHw6t3YKhYi54Arf1K+d+KppEGiw95cQYxTjXNeRqwOkBw=="
   }
 }
