@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.244",
-  "publishedAt": "2026-10-05T17:58:04.727Z",
-  "artifact": "releases/BuyerLog-7.0.244.zip",
-  "sha256": "2473b1f2b15035db898b247c8cab742c29c0f9371f8770201e6fd87386bf6b3b",
-  "size": 60867299,
+  "version": "7.0.245",
+  "publishedAt": "2026-10-05T18:50:24.634Z",
+  "artifact": "releases/BuyerLog-7.0.245.zip",
+  "sha256": "f89a5b4d6a320901c892776098170c1d4bf2147d765ca00b0927552575927e67",
+  "size": 61255312,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.244: OAB, LFL, Price & Supplier Analysis ve ortak alt detay raporları Backlog düzeninde gruplu, geniş satırlar ve özet kartları kullanır. Arama, alan filtreleri, görseller ve tüm kaynak sütunları korunur; LFL Excel miktar/FOB değerleri sayısaldır. Backlog-style shared detail reports and typed LFL Excel exports.",
+  "releaseNotes": "Buyer Log 7.0.245: LCW AI Layout Kontrolü eklendi. Care Label ve Price Tag PDF'leri otomatik tanınır; model/renk/sipariş/ülke/kompozisyon CP ile doğrulanır, barkod/QR okunur, belirsiz AI bulguları REVIEW olarak ayrılır ve kullanıcı bazlı kontrol geçmişi saklanır. Bu sürüm ayrıca 7.0.244 sonrasındaki CP Tracker test raporu aktarma geliştirmelerini de içerir.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "SMsq3ZOl5qnCIWO6lNOzr2QfSEz77PJnss0DZwS9uPnDV2e0fsUZoygmzSO2LM++1TAvA08F1c06eTMdJ6x5Dg=="
+    "value": "nNQ/9yVa0xhJIBo45XMyZxyEE69W3nc9eefmE0I9x7FBAOKi4iW54XPK3Vjs7rwvrJClwIefnwAi2rvuVoj3Bw=="
   }
 }
