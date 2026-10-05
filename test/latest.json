@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.243",
-  "publishedAt": "2026-10-05T13:56:52.865Z",
-  "artifact": "releases/BuyerLog-7.0.243.zip",
-  "sha256": "5f54245ebabb406930d072285d841b453da16178a738bb07216cc31ece64c365",
-  "size": 59265078,
+  "version": "7.0.244",
+  "publishedAt": "2026-10-05T17:56:59.416Z",
+  "artifact": "releases/BuyerLog-7.0.244.zip",
+  "sha256": "2473b1f2b15035db898b247c8cab742c29c0f9371f8770201e6fd87386bf6b3b",
+  "size": 60867299,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.243: LCW AI ile oluşturulan HTML, PDF, PowerPoint ve Excel dosyalarına Buyer Log’daki gerçek model görselleri eklenir; görseller LCW AI’a gönderilmez. Real model images in LCW AI outputs.",
+  "releaseNotes": "Buyer Log 7.0.244: OAB, LFL, Price & Supplier Analysis ve ortak alt detay raporları Backlog düzeninde gruplu, geniş satırlar ve özet kartları kullanır. Arama, alan filtreleri, görseller ve tüm kaynak sütunları korunur; LFL Excel miktar/FOB değerleri sayısaldır. Backlog-style shared detail reports and typed LFL Excel exports.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "R/+BbhTMfTNTek19WKsPf2xMsQcY4msM0HDzGQkTqD89ODHTYs7g7C9Sy6W8YVBnUYpJqvt3FUHisLnHxGohAA=="
+    "value": "SMsq3ZOl5qnCIWO6lNOzr2QfSEz77PJnss0DZwS9uPnDV2e0fsUZoygmzSO2LM++1TAvA08F1c06eTMdJ6x5Dg=="
   }
 }
