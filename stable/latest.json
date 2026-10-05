@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.240",
-  "publishedAt": "2026-10-05T05:32:08.554Z",
-  "artifact": "releases/BuyerLog-7.0.240.zip",
-  "sha256": "c70e21858ab32d171ef0604cf216700e6ab8b2fa977f77d13e55ae8282943ee7",
-  "size": 57852311,
+  "version": "7.0.241",
+  "publishedAt": "2026-10-05T05:49:54.094Z",
+  "artifact": "releases/BuyerLog-7.0.241.zip",
+  "sha256": "abe6c5939f8609a99c353916e2b5980d5376d80cac3698d1bccef5e0b6e0d0aa",
+  "size": 58029528,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.240: LCW AI ekranına yeniden girildiğinde çalışmayan \"Bağlam Ekle\" menüsü düzeltildi. Fixed the \"Add Context\" menu that stopped working after re-entering the LCW AI screen.",
+  "releaseNotes": "Buyer Log 7.0.241: LCW AI önce girişe, sonra konuşulacak ekranı seçmeye yönlendirir; mesajda ekran adı geçince o ekranın verisi otomatik eklenir. LCW AI guides sign-in and topic choice; naming a screen adds its data automatically.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "fxFuvAoSIwDNgbBaFKDwzEpOYWbFVDrT8EefP127+bY099xzZ3xzVADtPtIIkqJ0k/bUUmGDAF2pVUnHLbIyDA=="
+    "value": "rmuuCR/djxfSWYhEHmoFpj8ETk123nlWpjzw1Bo3VinX/qXRmcfVvUYmPFIIXwsAbnfghDnn978pWAhhXfElAA=="
   }
 }
