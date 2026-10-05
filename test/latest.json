@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.238",
-  "publishedAt": "2026-10-05T05:08:38.662Z",
-  "artifact": "releases/BuyerLog-7.0.238.zip",
-  "sha256": "f0b03074acc2fe0878be1100376b4e8adc5b6fde1b434b20230f003094d8587c",
-  "size": 57885459,
+  "version": "7.0.239",
+  "publishedAt": "2026-10-05T05:15:34.273Z",
+  "artifact": "releases/BuyerLog-7.0.239.zip",
+  "sha256": "0cfa7f5bb2f8905b2acfca6efad23eb2d312a25e2a4399905a6f40a83948261f",
+  "size": 57884000,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.238: LCW AI cevapları PDF, PowerPoint, Excel ve HTML dosyası olarak oluşturulur; raporlar canlı ve hareketli; LCW AI PLM gibi arka planda bağlanır. LCW AI answers as PDF/PowerPoint/Excel/HTML files, lively animated reports, background LCW AI session.",
+  "releaseNotes": "Buyer Log 7.0.239: LCW AI raporlarında başlıklar Buyer Log tablo başlığı grisinde, başlık metinleri logo siyahında. LCW AI report headers now use the Buyer Log table-header grey with logo-black text.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Q84vs4xaY44qYJXMd81Wy1W0XVwVypJ0WGHhEmGNnHw6t3YKhYi54Arf1K+d+KppEGiw95cQYxTjXNeRqwOkBw=="
+    "value": "dncNFsOSV3NX2ZGQGNhRCeS2wQDt6sqiCY5Fwu5PkIlkjO7olSmwFv3w8MWa9U/A5lJVlDWnKEbszCP49KlpBQ=="
   }
 }
