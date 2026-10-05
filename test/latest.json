@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.242",
-  "publishedAt": "2026-10-05T11:44:43.604Z",
-  "artifact": "releases/BuyerLog-7.0.242.zip",
-  "sha256": "fc8574661332290d41f08036fbd7cf9551e5ca44f808149c95db89cb0deaa371",
-  "size": 60201383,
+  "version": "7.0.243",
+  "publishedAt": "2026-10-05T13:56:52.865Z",
+  "artifact": "releases/BuyerLog-7.0.243.zip",
+  "sha256": "5f54245ebabb406930d072285d841b453da16178a738bb07216cc31ece64c365",
+  "size": 59265078,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.242: IASv2 calculated-column processing sorunlarında yenileme artık tüm akışı gereksiz yere durdurmaz; güvenliyse son başarılı IAS snapshot'ını korur. Yenileme hataları artık VPN/ağ varsayımı yapmak yerine gerçek nedeni, kaynağı, sorumlu alanı ve yapılacak aksiyonu net gösterir. Buyer Log 7.0.242: refresh now preserves the last known-good IAS snapshot when safe during IASv2 calculated-column processing issues, and refresh failures clearly identify the real cause, source, owner and next action instead of making generic VPN/network assumptions.",
+  "releaseNotes": "Buyer Log 7.0.243: LCW AI ile oluşturulan HTML, PDF, PowerPoint ve Excel dosyalarına Buyer Log’daki gerçek model görselleri eklenir; görseller LCW AI’a gönderilmez. Real model images in LCW AI outputs.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "/tleywdEFxKcOT8JFsDaaOEDrA35eXCfjJl4+sAq4CFvbWP+K+oBr5OUsddG8hm0Aq2GUL/pIRjCJQKnkeQaCg=="
+    "value": "R/+BbhTMfTNTek19WKsPf2xMsQcY4msM0HDzGQkTqD89ODHTYs7g7C9Sy6W8YVBnUYpJqvt3FUHisLnHxGohAA=="
   }
 }
