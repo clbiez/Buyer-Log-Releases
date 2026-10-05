@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.245",
-  "publishedAt": "2026-10-05T18:49:23.369Z",
-  "artifact": "releases/BuyerLog-7.0.245.zip",
-  "sha256": "f89a5b4d6a320901c892776098170c1d4bf2147d765ca00b0927552575927e67",
-  "size": 61255312,
+  "version": "7.0.246",
+  "publishedAt": "2026-10-05T19:54:19.807Z",
+  "artifact": "releases/BuyerLog-7.0.246.zip",
+  "sha256": "d8c8424d2d74b812c2d039eaeb7e5fd15c74948a2bb05871aaaa68fb2cf10482",
+  "size": 62064817,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.245: LCW AI Layout Kontrolü eklendi. Care Label ve Price Tag PDF'leri otomatik tanınır; model/renk/sipariş/ülke/kompozisyon CP ile doğrulanır, barkod/QR okunur, belirsiz AI bulguları REVIEW olarak ayrılır ve kullanıcı bazlı kontrol geçmişi saklanır. Bu sürüm ayrıca 7.0.244 sonrasındaki CP Tracker test raporu aktarma geliştirmelerini de içerir.",
+  "releaseNotes": "Buyer Log 7.0.246: Koleksiyon sayfasında Artwork Detayı gerçek bir sütun haline getirildi; filtreleme, taşıma, düzenleme ve LCW AI bağlamıyla entegre edildi. PLM CoreNectum bağlantısı ERR_FAILED durumunda oturumu bozmadan önbelleği temizleyip yeniden dener. PLM/ASAS senkron rehberine tek tıkla Remote Debugging açma ve kurulum tamamlandı doğrulama sayfası eklendi.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "nNQ/9yVa0xhJIBo45XMyZxyEE69W3nc9eefmE0I9x7FBAOKi4iW54XPK3Vjs7rwvrJClwIefnwAi2rvuVoj3Bw=="
+    "value": "7rNK2FKsJ/rRZrxbGlyF+80JDgT4BYo4WsQtffx2gkVHUL/SnX28+veLpdlyAHRBA5fkEeMXzP2yuUjJnwEHDA=="
   }
 }
