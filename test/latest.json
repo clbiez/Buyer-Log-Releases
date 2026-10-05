@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.239",
-  "publishedAt": "2026-10-05T05:15:34.273Z",
-  "artifact": "releases/BuyerLog-7.0.239.zip",
-  "sha256": "0cfa7f5bb2f8905b2acfca6efad23eb2d312a25e2a4399905a6f40a83948261f",
-  "size": 57884000,
+  "version": "7.0.240",
+  "publishedAt": "2026-10-05T05:31:08.123Z",
+  "artifact": "releases/BuyerLog-7.0.240.zip",
+  "sha256": "c70e21858ab32d171ef0604cf216700e6ab8b2fa977f77d13e55ae8282943ee7",
+  "size": 57852311,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.239: LCW AI raporlarında başlıklar Buyer Log tablo başlığı grisinde, başlık metinleri logo siyahında. LCW AI report headers now use the Buyer Log table-header grey with logo-black text.",
+  "releaseNotes": "Buyer Log 7.0.240: LCW AI ekranına yeniden girildiğinde çalışmayan \"Bağlam Ekle\" menüsü düzeltildi. Fixed the \"Add Context\" menu that stopped working after re-entering the LCW AI screen.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "dncNFsOSV3NX2ZGQGNhRCeS2wQDt6sqiCY5Fwu5PkIlkjO7olSmwFv3w8MWa9U/A5lJVlDWnKEbszCP49KlpBQ=="
+    "value": "fxFuvAoSIwDNgbBaFKDwzEpOYWbFVDrT8EefP127+bY099xzZ3xzVADtPtIIkqJ0k/bUUmGDAF2pVUnHLbIyDA=="
   }
 }
