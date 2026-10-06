@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.248",
-  "publishedAt": "2026-10-06T08:12:38.427Z",
-  "artifact": "releases/BuyerLog-7.0.248.zip",
-  "sha256": "cf2ea74741871dfe6a348c9b3457a71aa1ea72186a50d4bf31e93ee1300c54f0",
-  "size": 64042728,
+  "version": "7.0.249",
+  "publishedAt": "2026-10-06T10:41:18.343Z",
+  "artifact": "releases/BuyerLog-7.0.249.zip",
+  "sha256": "08e09a6c15412d197fbb7d5a967c2ce87f36cc5381a5a9d5e407b79d2c9eb3ee",
+  "size": 64564010,
   "mandatory": false,
-  "releaseNotes": "TR: Orders priority hesabı, sütunu ve filtresi kaldırıldı; değişmeyen ekranlar ve Backlog kayıtları tekrar kullanılıyor. EN: Removes Orders priority calculation, column and filter; reuses unchanged page results and Backlog records.",
+  "releaseNotes": "TR: Hazır snapshot ile ilk ekran açılışı; CP öncelik hesabının arka planda çalışması; değişmeyen ana snapshot ve refresh karşılaştırmasının yeniden kullanılması.\nEN: Prepared-snapshot first-screen startup; background CP priority calculation; reuse of unchanged main snapshots and refresh comparisons.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "a2q7d7zKr/L05gCKfS0qO85KwrcTJwaVyt20kOZHjbZJOJm7U/3Fpm/H6Ncnhok2Z4oFIGSc0k90pcOiR9YFDg=="
+    "value": "mLDy1ZHIqURx6naTEg/raN5IZeVnxRhtzz9xaVVDRAEBSBaqnVG2LFI6N2MGx2W6rVybuiSj4zXP9NPKf8CYCw=="
   }
 }
