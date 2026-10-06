@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.249",
-  "publishedAt": "2026-10-06T10:41:18.343Z",
-  "artifact": "releases/BuyerLog-7.0.249.zip",
-  "sha256": "08e09a6c15412d197fbb7d5a967c2ce87f36cc5381a5a9d5e407b79d2c9eb3ee",
-  "size": 64564010,
+  "version": "7.0.250",
+  "publishedAt": "2026-10-06T13:58:34.982Z",
+  "artifact": "releases/BuyerLog-7.0.250.zip",
+  "sha256": "bdb667a13c8eaece5b09ea782880576a170397db75c22df94731f63038ba4348",
+  "size": 67768874,
   "mandatory": false,
-  "releaseNotes": "TR: Hazır snapshot ile ilk ekran açılışı; CP öncelik hesabının arka planda çalışması; değişmeyen ana snapshot ve refresh karşılaştırmasının yeniden kullanılması.\nEN: Prepared-snapshot first-screen startup; background CP priority calculation; reuse of unchanged main snapshots and refresh comparisons.",
+  "releaseNotes": "Buyer Log 7.0.250: Sayfa geçişleri hızlandı (CP'ye dönüş ~1,9 sn → ~0,2 sn), açılış ~1 sn kısaldı, merkezi kullanıcı dizininde istek başı bekleme ~60 ms → ~3 ms. Başka uygulamadan dönünce giriş ekranına düşme giderildi. Harita yükleme animasyonu ve tekrarlanan Backlog hesapları uygulamayı yavaşlatmaz.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "mLDy1ZHIqURx6naTEg/raN5IZeVnxRhtzz9xaVVDRAEBSBaqnVG2LFI6N2MGx2W6rVybuiSj4zXP9NPKf8CYCw=="
+    "value": "6bR+s90wnkJdta8O/2RSsHQwz8Mdy+mVtbWvAPvECJcetpK1OUW+EFjERrdBlZsmq9dpY9Ma4cL7Y/jB3KcoDA=="
   }
 }
