@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.245",
-  "publishedAt": "2026-10-05T18:50:24.634Z",
-  "artifact": "releases/BuyerLog-7.0.245.zip",
-  "sha256": "f89a5b4d6a320901c892776098170c1d4bf2147d765ca00b0927552575927e67",
-  "size": 61255312,
+  "version": "7.0.247",
+  "publishedAt": "2026-10-06T05:06:36.406Z",
+  "artifact": "releases/BuyerLog-7.0.247.zip",
+  "sha256": "c691de9fc87a4adc7c347d16cebf7bc1d7c5013bc5abad26d8816222d08dc8ac",
+  "size": 64337759,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.245: LCW AI Layout Kontrolü eklendi. Care Label ve Price Tag PDF'leri otomatik tanınır; model/renk/sipariş/ülke/kompozisyon CP ile doğrulanır, barkod/QR okunur, belirsiz AI bulguları REVIEW olarak ayrılır ve kullanıcı bazlı kontrol geçmişi saklanır. Bu sürüm ayrıca 7.0.244 sonrasındaki CP Tracker test raporu aktarma geliştirmelerini de içerir.",
+  "releaseNotes": "TR: Buyer Log 7.0.247; CP/Siparişler/LFL için 50/100/200/tümü görünür aralık, Üreticiler/rehber/Yol Süreleri oturum snapshotları, daha hızlı sipariş kuralları ve fiyat/görsel analizleri. Native CP/Siparişler Excel aktarımı sayfa dışı seçimi ve oran kilitli, hücreyle taşınıp boyutlanan görselleri korur. EN: Buyer Log 7.0.247 adds 50/100/200/all visible ranges for CP/Orders/LFL, session snapshots for Manufacturers/directory/Transit Times, and faster order-rule, price and image analysis. Native CP/Orders Excel retains off-page selections and aspect-locked images that move and size with cells.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "nNQ/9yVa0xhJIBo45XMyZxyEE69W3nc9eefmE0I9x7FBAOKi4iW54XPK3Vjs7rwvrJClwIefnwAi2rvuVoj3Bw=="
+    "value": "TqcHF/o86NUxJrjRlDHk8m2/o11poPE3g21MDTgviD2isofN+q3ULbb/nq87V9ZH7RgOjPdg3r6t6w0atJtbBw=="
   }
 }
