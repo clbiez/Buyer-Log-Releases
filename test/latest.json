@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.256",
-  "publishedAt": "2026-10-07T20:15:46.602Z",
-  "artifact": "releases/BuyerLog-7.0.256.zip",
-  "sha256": "9a0f4aaee5b9ae611d08fdf749432819c108e84ef214af6eb47dfb7816751dcf",
-  "size": 68845959,
+  "version": "7.0.257",
+  "publishedAt": "2026-10-07T20:48:34.413Z",
+  "artifact": "releases/BuyerLog-7.0.257.zip",
+  "sha256": "d4dbe1946bf07833aa0c80df243675de9df987ba6544c26d9fac687536d3f942",
+  "size": 68992225,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.256: LCW Merch Calendar iş tarihi tek kaynağı oldu ve LCW/GLB hafta görünümü eklendi; dünya saatlerinde dini bayramlar ve açılış kullanıcı bilgileri performans düzeltmesi dahil.",
+  "releaseNotes": "Buyer Log 7.0.257 TEST: Endeksmatik Setleri penceresine Yapı raporu eklendi. Büyük ülke Endeksmatik dosyası bu bilgisayarda okunur ve birkaç KB'lık, değerleri maskeli bir rapor indirilir (başlıklar, ENDEKSMATİK formülleri, ÖZET-pivot anahtar örtüşmesi); hiçbir şey kaydedilmez. Yükleme hatası bu yolu önerir. main'deki i18n sistem verisi düzeltmesi dahildir. Node regression suite (869 dosya) başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "82Cs9LKkzlABLejkFFd0YsIradOFu2CQwVj7KNOpzgdfo7a5pt8b+4sfZVTeKTnY8FEemEhyLAkRk/LMh1E4BA=="
+    "value": "4uzGy5yzWkd79UH5UE3VmtXVkrDtp86cHQR3oxTPJBINQRvt/V6R/Rgz+mMHJDXFfMWfRn/fwSfJbHFtLxOMDw=="
   }
 }
