@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.255",
-  "publishedAt": "2026-10-07T18:40:11.756Z",
-  "artifact": "releases/BuyerLog-7.0.255.zip",
-  "sha256": "b7fc7227d5bfcb6d3c510e522bbc906ee90d4fbd055b9de81124e0625490abd3",
-  "size": 69009778,
+  "version": "7.0.256",
+  "publishedAt": "2026-10-07T20:16:52.835Z",
+  "artifact": "releases/BuyerLog-7.0.256.zip",
+  "sha256": "9a0f4aaee5b9ae611d08fdf749432819c108e84ef214af6eb47dfb7816751dcf",
+  "size": 68845959,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.255: Genel Bakış Koleksiyon özeti kompakt aylık listeye geçti (ay, adet, model görselleri, status çubuğu, hover detayı); LCW AI çıktı düzenleyici, yerleşim aracı ve paylaşılabilir şablonlar.",
+  "releaseNotes": "Buyer Log 7.0.256: LCW Merch Calendar iş tarihi tek kaynağı oldu ve LCW/GLB hafta görünümü eklendi; dünya saatlerinde dini bayramlar ve açılış kullanıcı bilgileri performans düzeltmesi dahil.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "5RJDtzAM2qHQR1NTfZ3r0S/oN7f9AbxhVW1QzTg1l4vGyrzfGvSnvHFgOYPksRLgX9it/hPzaJ+slUazOkiVDw=="
+    "value": "82Cs9LKkzlABLejkFFd0YsIradOFu2CQwVj7KNOpzgdfo7a5pt8b+4sfZVTeKTnY8FEemEhyLAkRk/LMh1E4BA=="
   }
 }
