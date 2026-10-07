@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.254",
-  "publishedAt": "2026-10-07T12:54:14.725Z",
-  "artifact": "releases/BuyerLog-7.0.254.zip",
-  "sha256": "45cdf4d5a8e5841f38cc9a4a806c70b3f843a9c3adbd369d40cd78377cb228ea",
-  "size": 67741801,
+  "version": "7.0.255",
+  "publishedAt": "2026-10-07T18:32:37.729Z",
+  "artifact": "releases/BuyerLog-7.0.255.zip",
+  "sha256": "b7fc7227d5bfcb6d3c510e522bbc906ee90d4fbd055b9de81124e0625490abd3",
+  "size": 69009778,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.254: OneDrive Shared Hub'da en yeni kullanıcı revizyonu okunamadığında giriş en yeni geçerli revizyonla sürer; okunamayan revizyonun nedeni Shared Sync panelinde gösterilir.",
+  "releaseNotes": "Buyer Log 7.0.255: Genel Bakış Koleksiyon özeti kompakt aylık listeye geçti (ay, adet, model görselleri, status çubuğu, hover detayı); LCW AI çıktı düzenleyici, yerleşim aracı ve paylaşılabilir şablonlar.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "qXMk1hdj9s4cT+R7PYUgpoBT3Fii3Q59QHkOgFVXXF7B5CjwW1qlm+uLMmBcYlgGZ7ntH9p8vm/wwi3Ey+NuCQ=="
+    "value": "5RJDtzAM2qHQR1NTfZ3r0S/oN7f9AbxhVW1QzTg1l4vGyrzfGvSnvHFgOYPksRLgX9it/hPzaJ+slUazOkiVDw=="
   }
 }
