@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.256",
-  "publishedAt": "2026-10-07T20:16:52.835Z",
-  "artifact": "releases/BuyerLog-7.0.256.zip",
-  "sha256": "9a0f4aaee5b9ae611d08fdf749432819c108e84ef214af6eb47dfb7816751dcf",
-  "size": 68845959,
+  "version": "7.0.258",
+  "publishedAt": "2026-10-07T21:08:45.668Z",
+  "artifact": "releases/BuyerLog-7.0.258.zip",
+  "sha256": "99a313be6a95ebdc5b0f5bd0c151a9c7a8f20bb7bb025e2a8c8a306b15f6e378",
+  "size": 68992765,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.256: LCW Merch Calendar iş tarihi tek kaynağı oldu ve LCW/GLB hafta görünümü eklendi; dünya saatlerinde dini bayramlar ve açılış kullanıcı bilgileri performans düzeltmesi dahil.",
+  "releaseNotes": "Buyer Log 7.0.258 TEST: Koleksiyon'da MB WEEK, MB Month, STATUS ve diğer seçimli hücrelerde sağ tık Kopyala/Yapıştır güncel seçili değeri kullanıyor; sağ tık Kopyala hücre/aralık odaklı, Ctrl+C/global Copy checkbox ile seçili modellerin önceliğini koruyor. 7.0.257'deki Endeksmatik yapı raporu ve i18n sistem verisi düzeltmeleri de dahildir. PR #430 Buyer Log regresyon paketi başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "82Cs9LKkzlABLejkFFd0YsIradOFu2CQwVj7KNOpzgdfo7a5pt8b+4sfZVTeKTnY8FEemEhyLAkRk/LMh1E4BA=="
+    "value": "IyIPOiedN1/5jzT1KpzBbAbn1MLeuqg9H2AptccyQUon1c2ZrIpD1BfJV9b3RqrYPfNED0E4sICyMVGYVvcjDg=="
   }
 }
