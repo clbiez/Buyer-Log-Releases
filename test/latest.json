@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.257",
-  "publishedAt": "2026-10-07T20:48:34.413Z",
-  "artifact": "releases/BuyerLog-7.0.257.zip",
-  "sha256": "d4dbe1946bf07833aa0c80df243675de9df987ba6544c26d9fac687536d3f942",
-  "size": 68992225,
+  "version": "7.0.258",
+  "publishedAt": "2026-10-07T21:07:44.139Z",
+  "artifact": "releases/BuyerLog-7.0.258.zip",
+  "sha256": "99a313be6a95ebdc5b0f5bd0c151a9c7a8f20bb7bb025e2a8c8a306b15f6e378",
+  "size": 68992765,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.257 TEST: Endeksmatik Setleri penceresine Yapı raporu eklendi. Büyük ülke Endeksmatik dosyası bu bilgisayarda okunur ve birkaç KB'lık, değerleri maskeli bir rapor indirilir (başlıklar, ENDEKSMATİK formülleri, ÖZET-pivot anahtar örtüşmesi); hiçbir şey kaydedilmez. Yükleme hatası bu yolu önerir. main'deki i18n sistem verisi düzeltmesi dahildir. Node regression suite (869 dosya) başarıyla geçti.",
+  "releaseNotes": "Buyer Log 7.0.258 TEST: Koleksiyon'da MB WEEK, MB Month, STATUS ve diğer seçimli hücrelerde sağ tık Kopyala/Yapıştır güncel seçili değeri kullanıyor; sağ tık Kopyala hücre/aralık odaklı, Ctrl+C/global Copy checkbox ile seçili modellerin önceliğini koruyor. 7.0.257'deki Endeksmatik yapı raporu ve i18n sistem verisi düzeltmeleri de dahildir. PR #430 Buyer Log regresyon paketi başarıyla geçti.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "4uzGy5yzWkd79UH5UE3VmtXVkrDtp86cHQR3oxTPJBINQRvt/V6R/Rgz+mMHJDXFfMWfRn/fwSfJbHFtLxOMDw=="
+    "value": "IyIPOiedN1/5jzT1KpzBbAbn1MLeuqg9H2AptccyQUon1c2ZrIpD1BfJV9b3RqrYPfNED0E4sICyMVGYVvcjDg=="
   }
 }
