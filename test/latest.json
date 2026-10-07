@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.253",
-  "publishedAt": "2026-10-07T10:08:16.321Z",
-  "artifact": "releases/BuyerLog-7.0.253.zip",
-  "sha256": "5fe88251c6e316112cd28317221bd7e7d952657c5ee9f4091f39ea7bd190ed02",
-  "size": 67848940,
+  "version": "7.0.254",
+  "publishedAt": "2026-10-07T12:54:14.725Z",
+  "artifact": "releases/BuyerLog-7.0.254.zip",
+  "sha256": "45cdf4d5a8e5841f38cc9a4a806c70b3f843a9c3adbd369d40cd78377cb228ea",
+  "size": 67741801,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.253: Yenileme başarısız olduğunda hatanın gerçekleştiği adım doğru biçimde Başarısız olarak gösterilir; ASAS/tabular kaynak bellek yetersizliği hataları ayrı teşhis edilerek kullanıcıya doğru çözüm yönlendirmesi sunulur.",
+  "releaseNotes": "Buyer Log 7.0.254: OneDrive Shared Hub'da en yeni kullanıcı revizyonu okunamadığında giriş en yeni geçerli revizyonla sürer; okunamayan revizyonun nedeni Shared Sync panelinde gösterilir.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "A3GapSGH/JTs5gXxbuAgfiWzKAtjpphyh1v34ZnaVNjQ/e55hTv6BWccADbbPPQVwGga3QoZfSeAsbIYdvAPCQ=="
+    "value": "qXMk1hdj9s4cT+R7PYUgpoBT3Fii3Q59QHkOgFVXXF7B5CjwW1qlm+uLMmBcYlgGZ7ntH9p8vm/wwi3Ey+NuCQ=="
   }
 }
