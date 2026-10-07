@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.251",
-  "publishedAt": "2026-10-07T07:35:50.634Z",
-  "artifact": "releases/BuyerLog-7.0.251.zip",
-  "sha256": "94a5a6e79e94d233bd1c88cf5af61631ea417d9905c81eaa02011cbeb99b4ad4",
-  "size": 67067333,
+  "version": "7.0.252",
+  "publishedAt": "2026-10-07T08:25:17.855Z",
+  "artifact": "releases/BuyerLog-7.0.252.zip",
+  "sha256": "7b23ff694b4b4ef1665a53f266c9f4f9e021750ae71b5dd8d0a3860a08253eee",
+  "size": 68188031,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.251: Yenile daha kısa sürer (33 bin siparişte değişen veriyle ~58 sn → ~33 sn). Backlog (~9 sn → ~2 sn) ve LFL (~5 sn → ~1,6 sn) ilk açılışta beklemiyor; Backlog'dan Genel Bakış'a dönüş ~4 sn → ~0,3 sn.",
+  "releaseNotes": "Buyer Log 7.0.252: Koleksiyon'a PLM ID listesinden toplu model ekleme (yapıştırma, Excel/CSV, LCW AI ile metinden ayıklama, varsayılanlar, renk seçimi, sonuç raporu ve bekleyen liste); büyük yerel veride sync onarımı ve çakışma çözümü; Yenile'nin Denetleme ve Kaydetme adımında donma düzeltmesi.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "mfIWk0GgF+6vxCpABgnmzyx802k3rg6esK2BP52wcad5AlW8DXlHaMQsZhdL3YOIalxmKmkM/x2ECWdOGGhIDw=="
+    "value": "LHDfEykBxd+iamh9w7ctzNw6RD0oSAfWj3IlR4xpVhsooCcbxG+PROuC1J5/tWXRwCtEWFNTsU7B2HwURGEGDA=="
   }
 }
