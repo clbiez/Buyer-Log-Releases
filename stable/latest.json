@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.252",
-  "publishedAt": "2026-10-07T08:25:17.855Z",
-  "artifact": "releases/BuyerLog-7.0.252.zip",
-  "sha256": "7b23ff694b4b4ef1665a53f266c9f4f9e021750ae71b5dd8d0a3860a08253eee",
-  "size": 68188031,
+  "version": "7.0.253",
+  "publishedAt": "2026-10-07T10:09:46.416Z",
+  "artifact": "releases/BuyerLog-7.0.253.zip",
+  "sha256": "5fe88251c6e316112cd28317221bd7e7d952657c5ee9f4091f39ea7bd190ed02",
+  "size": 67848940,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.252: Koleksiyon'a PLM ID listesinden toplu model ekleme (yapıştırma, Excel/CSV, LCW AI ile metinden ayıklama, varsayılanlar, renk seçimi, sonuç raporu ve bekleyen liste); büyük yerel veride sync onarımı ve çakışma çözümü; Yenile'nin Denetleme ve Kaydetme adımında donma düzeltmesi.",
+  "releaseNotes": "Buyer Log 7.0.253: Yenileme başarısız olduğunda hatanın gerçekleştiği adım doğru biçimde Başarısız olarak gösterilir; ASAS/tabular kaynak bellek yetersizliği hataları ayrı teşhis edilerek kullanıcıya doğru çözüm yönlendirmesi sunulur.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "LHDfEykBxd+iamh9w7ctzNw6RD0oSAfWj3IlR4xpVhsooCcbxG+PROuC1J5/tWXRwCtEWFNTsU7B2HwURGEGDA=="
+    "value": "A3GapSGH/JTs5gXxbuAgfiWzKAtjpphyh1v34ZnaVNjQ/e55hTv6BWccADbbPPQVwGga3QoZfSeAsbIYdvAPCQ=="
   }
 }
