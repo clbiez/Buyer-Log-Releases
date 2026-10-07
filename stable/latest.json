@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.250",
-  "publishedAt": "2026-10-06T13:58:34.982Z",
-  "artifact": "releases/BuyerLog-7.0.250.zip",
-  "sha256": "bdb667a13c8eaece5b09ea782880576a170397db75c22df94731f63038ba4348",
-  "size": 67768874,
+  "version": "7.0.251",
+  "publishedAt": "2026-10-07T07:35:50.634Z",
+  "artifact": "releases/BuyerLog-7.0.251.zip",
+  "sha256": "94a5a6e79e94d233bd1c88cf5af61631ea417d9905c81eaa02011cbeb99b4ad4",
+  "size": 67067333,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.250: Sayfa geçişleri hızlandı (CP'ye dönüş ~1,9 sn → ~0,2 sn), açılış ~1 sn kısaldı, merkezi kullanıcı dizininde istek başı bekleme ~60 ms → ~3 ms. Başka uygulamadan dönünce giriş ekranına düşme giderildi. Harita yükleme animasyonu ve tekrarlanan Backlog hesapları uygulamayı yavaşlatmaz.",
+  "releaseNotes": "Buyer Log 7.0.251: Yenile daha kısa sürer (33 bin siparişte değişen veriyle ~58 sn → ~33 sn). Backlog (~9 sn → ~2 sn) ve LFL (~5 sn → ~1,6 sn) ilk açılışta beklemiyor; Backlog'dan Genel Bakış'a dönüş ~4 sn → ~0,3 sn.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "6bR+s90wnkJdta8O/2RSsHQwz8Mdy+mVtbWvAPvECJcetpK1OUW+EFjERrdBlZsmq9dpY9Ma4cL7Y/jB3KcoDA=="
+    "value": "mfIWk0GgF+6vxCpABgnmzyx802k3rg6esK2BP52wcad5AlW8DXlHaMQsZhdL3YOIalxmKmkM/x2ECWdOGGhIDw=="
   }
 }
