@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.263",
-  "publishedAt": "2026-10-08T12:23:31.376Z",
-  "artifact": "releases/BuyerLog-7.0.263.zip",
-  "sha256": "77cdc9385ed64545e86f1502391a553b435fd5400f9aa8b8219f336e6a68dd6c",
-  "size": 82443198,
+  "version": "7.0.264",
+  "publishedAt": "2026-10-08T17:09:53.200Z",
+  "artifact": "releases/BuyerLog-7.0.264.zip",
+  "sha256": "afa4b649a3a5223f74fa05cc864a9b3472face57aa6b5ce2c5d3cf5d0bac1ef3",
+  "size": 82489731,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.263 TEST: Masaüstü OAB girişi artık kabul ediliyor; oturum doğrulaması PASS'in HTTP 405 döndürdüğü uç nokta yerine OAB rapor servisiyle (GetReportData) yapılıyor ve rapor verisi tabloya geliyor. PR #441.",
+  "releaseNotes": "Buyer Log 7.0.264 TEST: Yeni sürüm ilk açılışta yavaş başlasa da health-timeout ile geri alınmıyor; sağlık onayı sunucu yanıt verdiğinde veriliyor. 7.0.263 OAB giriş düzeltmesini (GetReportData doğrulaması) içerir. PR #441, #445.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "P39GsUaw/R5rlxdxWZQ5DmM8FJOEXDkYeqdlJGyM3nzR/8HW3u0moafAru8llCoFb4dddT/uKGklJ+K1wlshBg=="
+    "value": "eyQjLQYi+k8ZkON70Qb15rJbfulfeQuxSHtjvk1w/2LiOXEDdtaCbvB0Ohwov2BAKxt7/8Ghkp8jSpGYgeJ+CA=="
   }
 }
