@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.260",
-  "publishedAt": "2026-10-08T06:21:59.067Z",
-  "artifact": "releases/BuyerLog-7.0.260.zip",
-  "sha256": "a7ded09d88fb305a2bac25556cf6b42e95636fef8f1c7aba9fb2ff27ac7ae028",
-  "size": 82097707,
+  "version": "7.0.261",
+  "publishedAt": "2026-10-08T09:19:39.980Z",
+  "artifact": "releases/BuyerLog-7.0.261.zip",
+  "sha256": "638a39c892cbaceb3424053c7b551a5b36b693cf8b3c564bbee3127236e17838",
+  "size": 82373542,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.260 TEST: Merch Calendar dosyalarında LCW 53. hafta kabul edilir, 54. hafta reddedilir. Calendar yönetimi Data Management > Tools > Calculation Rules altında açılır/kapanır modül olarak bulunur. LCW/GLB hafta ve yıl geçişi eşlemesi korunur. PR #434 ve release PR #436 regresyon testleri geçti.",
+  "releaseNotes": "Buyer Log 7.0.261 TEST: Lab Dip / ROS Renk Sonuç Bildirimi ve Color Evaluation Notification .msg/.eml mailleri çoklu renk, bağımsız onay/ret/yorum ve revizyonları ile içe aktarılır. Eksik PO durumunda CP model/renk adayları manuel doğrulanır. Tek Checklist hücresinde renk bazlı durum/yorum görüntülenir; LCW AI inceleme bağlamı zenginleştirildi. PR #437 regresyon testleri başarılı; gerçek anonim demo ekran görüntüsü sürüm notlarında.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "HGdRW5x0UKpYC980YhbL+ass4X846FzEib6l4sxfRa20W4oFcABp5qF4Ez7Uqy3yzetA9cMc0JUkItjqC8J0Ag=="
+    "value": "3IoAyUvFgrKHL6UqMe580Htdqa2A1DuOmSDk2tf8EBIBb41LC+Z4KauyS8ZCkD/IX/bskMbUUY/2r/wcUkwcBg=="
   }
 }
