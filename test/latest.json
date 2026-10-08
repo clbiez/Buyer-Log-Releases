@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.261",
-  "publishedAt": "2026-10-08T09:19:39.980Z",
-  "artifact": "releases/BuyerLog-7.0.261.zip",
-  "sha256": "638a39c892cbaceb3424053c7b551a5b36b693cf8b3c564bbee3127236e17838",
-  "size": 82373542,
+  "version": "7.0.262",
+  "publishedAt": "2026-10-08T10:06:31.959Z",
+  "artifact": "releases/BuyerLog-7.0.262.zip",
+  "sha256": "ccefbd12ceb024fde912eecc04b29949d80e540e083b9c6a3b04bcb40c7c6b25",
+  "size": 82380210,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.261 TEST: Lab Dip / ROS Renk Sonuç Bildirimi ve Color Evaluation Notification .msg/.eml mailleri çoklu renk, bağımsız onay/ret/yorum ve revizyonları ile içe aktarılır. Eksik PO durumunda CP model/renk adayları manuel doğrulanır. Tek Checklist hücresinde renk bazlı durum/yorum görüntülenir; LCW AI inceleme bağlamı zenginleştirildi. PR #437 regresyon testleri başarılı; gerçek anonim demo ekran görüntüsü sürüm notlarında.",
+  "releaseNotes": "Buyer Log 7.0.262 TEST: OAB masaüstünde oturum, girişin yapıldığı gizli PASS sayfası içinde doğrulanıyor ve OAB verisi o sayfa üzerinden çekiliyor; giriş tamamlandığında zaman aşımı yaşanmıyor. Kurumsal Bağlantılar'da OAB bağlantı durumu gösteriliyor. PR #438.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "3IoAyUvFgrKHL6UqMe580Htdqa2A1DuOmSDk2tf8EBIBb41LC+Z4KauyS8ZCkD/IX/bskMbUUY/2r/wcUkwcBg=="
+    "value": "UX1hpM/hXoEUW12yJn7GK3B4VNTBFtVoh2MqpumjYRY5iT/RCLrU0xjUE3C79O6ZMcu64G3o0t9ozWstDYphAA=="
   }
 }
