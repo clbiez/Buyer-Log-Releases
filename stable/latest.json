@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.267",
-  "publishedAt": "2026-10-09T11:10:51.908Z",
-  "artifact": "releases/BuyerLog-7.0.267.zip",
-  "sha256": "065f28e3dece8248a4cf810e0cf6603b76bdad366989fab3e8511142fcdab82d",
-  "size": 83839936,
+  "version": "7.0.269",
+  "publishedAt": "2026-10-09T14:57:41.988Z",
+  "artifact": "releases/BuyerLog-7.0.269.zip",
+  "sha256": "5638a7b70ef939b4de63e0130378694006e681eafd63fd7545a441c5cd83a4a7",
+  "size": 84848940,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.267 TEST: Koleksiyon takım modellerde A/B kumaş kartları ve 12 haneye kadar kumaş kodları (#471); Ürün Ana Tanım PLM→ASAS eşleme hafızası (#467); çeviri alanlarını atlama; satır aralığı sayfalaması üst araç çubuğunda (#470).",
+  "releaseNotes": "SYNC: device health, verified order ownership, deterministic HLC ordering, fewer ACK writes, transport fixes, and versioned Moderator rules with confirmed restore. Includes TR/EN accessibility correction.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "xsAjxjlNEukIbe+JFJZNE724d8YJrN6UNmBs18EYv5KbYSVORrMpY0yCq0USZ+Hu+NTuQ1xqSvbCD+fKkmemAQ=="
+    "value": "D4Z0nZ525jCYKnbclLF2sswz7bpDYW8EdsUEWZnz9vcCbXvm6oF1B9ZlsjuhuTCsKgOGfgwKanKXBp6/uoTHBg=="
   }
 }
