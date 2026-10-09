@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-10-09T14:57:59.384Z",
+  "channels": {
+    "test": {
+      "version": "7.0.269",
+      "sha256": "5638a7b70ef939b4de63e0130378694006e681eafd63fd7545a441c5cd83a4a7",
+      "size": 84848940,
+      "file": "BuyerLog-7.0.269.zip"
+    },
+    "stable": {
+      "version": "7.0.269",
+      "sha256": "5638a7b70ef939b4de63e0130378694006e681eafd63fd7545a441c5cd83a4a7",
+      "size": 84848940,
+      "file": "BuyerLog-7.0.269.zip"
+    }
+  }
+}
