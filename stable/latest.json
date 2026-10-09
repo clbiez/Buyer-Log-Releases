@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.264",
-  "publishedAt": "2026-10-08T17:11:44.416Z",
-  "artifact": "releases/BuyerLog-7.0.264.zip",
-  "sha256": "afa4b649a3a5223f74fa05cc864a9b3472face57aa6b5ce2c5d3cf5d0bac1ef3",
-  "size": 82489731,
+  "version": "7.0.265",
+  "publishedAt": "2026-10-09T04:43:36.354Z",
+  "artifact": "releases/BuyerLog-7.0.265.zip",
+  "sha256": "85d1da99e53ce723d9fa52104c54da6d8d55ecf65ff7cce3ac0fa581bf956f86",
+  "size": 82540111,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.264 TEST: Yeni sürüm ilk açılışta yavaş başlasa da health-timeout ile geri alınmıyor; sağlık onayı sunucu yanıt verdiğinde veriliyor. 7.0.263 OAB giriş düzeltmesini (GetReportData doğrulaması) içerir. PR #441, #445.",
+  "releaseNotes": "Buyer Log 7.0.265 TEST: CP/Orders Original Ex-F. sütunu ASAS Dates tablosundaki ilk tarihten (Initial Inspection Geçme Tarih Gün Ay Yıl) okunuyor ve Ex-factory revizyonundan bağımsız. Kullanılmayan kod temizliği (61 fonksiyon). PR #453, #454.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "eyQjLQYi+k8ZkON70Qb15rJbfulfeQuxSHtjvk1w/2LiOXEDdtaCbvB0Ohwov2BAKxt7/8Ghkp8jSpGYgeJ+CA=="
+    "value": "JkZr7GdWXpINBArJynLXM6Vi2b9ZUBbyzrleWezFxxuynlz7wK8vvUj2m7GOETd55sqj/8hQ24aT8oqD77dcDA=="
   }
 }
