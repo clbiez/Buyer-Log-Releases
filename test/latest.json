@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.269",
-  "publishedAt": "2026-10-09T14:56:10.713Z",
-  "artifact": "releases/BuyerLog-7.0.269.zip",
-  "sha256": "5638a7b70ef939b4de63e0130378694006e681eafd63fd7545a441c5cd83a4a7",
-  "size": 84848940,
+  "version": "7.0.271",
+  "publishedAt": "2026-10-10T19:35:39.173Z",
+  "artifact": "releases/BuyerLog-7.0.271.zip",
+  "sha256": "2884e718bd362bd2be6caa338ea916f80d3b07d50554374c47379e327dd8696d",
+  "size": 158736916,
   "mandatory": false,
-  "releaseNotes": "SYNC: device health, verified order ownership, deterministic HLC ordering, fewer ACK writes, transport fixes, and versioned Moderator rules with confirmed restore. Includes TR/EN accessibility correction.",
+  "releaseNotes": "Buyer Log 7.0.271 TEST: LCW AI Agent Ofisi, kalıcı konuşma ve hafıza, güvenli ortak görevler ve izin kontrollü agent paylaşımı; sabit iki katlı Pixel Atölye, karakter/ofis kişiselleştirme, yerel saat atmosferleri, yan oturma pozları ve aksesuar hizaları. Main'de biriken 59 TR/EN görsel sürüm notunu içerir.\n\nBuyer Log 7.0.271 TEST: LCW AI Agent Office, persistent conversations and memory, safe shared tasks and permission-controlled agent sharing; fixed two-floor Pixel Workshop, character/office customization, local-time atmospheres, side-facing seated poses and accessory alignment. Includes all 59 pending bilingual visual release notes on main.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "D4Z0nZ525jCYKnbclLF2sswz7bpDYW8EdsUEWZnz9vcCbXvm6oF1B9ZlsjuhuTCsKgOGfgwKanKXBp6/uoTHBg=="
+    "value": "tZDtcJYpFzoj9udaigdwZV7n/bz7ZWZC7BB5JXJee9J88v/CQEvZ6IXK+IBrBxah/VrNWwF4iBGwzuIOYfDZAw=="
   }
 }
