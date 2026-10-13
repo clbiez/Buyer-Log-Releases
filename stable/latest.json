@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.269",
-  "publishedAt": "2026-10-09T14:57:41.988Z",
-  "artifact": "releases/BuyerLog-7.0.269.zip",
-  "sha256": "5638a7b70ef939b4de63e0130378694006e681eafd63fd7545a441c5cd83a4a7",
-  "size": 84848940,
+  "version": "7.0.273",
+  "publishedAt": "2026-10-13T22:23:01.321Z",
+  "artifact": "releases/BuyerLog-7.0.273.zip",
+  "sha256": "910add9d321d9080c67305ebfb132140fe19c8710efc26ed9561270920755c49",
+  "size": 206524426,
   "mandatory": false,
-  "releaseNotes": "SYNC: device health, verified order ownership, deterministic HLC ordering, fewer ACK writes, transport fixes, and versioned Moderator rules with confirmed restore. Includes TR/EN accessibility correction.",
+  "releaseNotes": "Buyer Log 7.0.273: current Agent Capability implementation and accumulated native updates; verified release delivery.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "D4Z0nZ525jCYKnbclLF2sswz7bpDYW8EdsUEWZnz9vcCbXvm6oF1B9ZlsjuhuTCsKgOGfgwKanKXBp6/uoTHBg=="
+    "value": "G5Hr6tkV7ugvg6FMN2Ykz5RCRMxMIg1HXWzVk1tyFNvxaA3CCXX5hbrWNONB5iPHhVsT4U8dBLkl8FBLJdVfCw=="
   }
 }
