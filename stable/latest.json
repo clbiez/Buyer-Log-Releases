@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.276",
-  "publishedAt": "2026-10-14T10:27:16.541Z",
-  "artifact": "releases/BuyerLog-7.0.276.zip",
-  "sha256": "07753f20a75a0ca14177409f2bffb64915240c8824fe76448eafc0b65e75e9d9",
-  "size": 150666383,
+  "version": "7.0.279",
+  "publishedAt": "2026-10-14T14:53:07.531Z",
+  "artifact": "releases/BuyerLog-7.0.279.zip",
+  "sha256": "b5fe36de7e0efb355d2351d39b346bd729258a76a5f564f36b83c7c50b60faaf",
+  "size": 153551690,
   "mandatory": false,
-  "releaseNotes": "Reliable update restart in tray mode and bounded desktop shutdown; approved native refresh-group definitions for agents. Full Windows regression and signed visual/browser acceptance required.",
+  "releaseNotes": "",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "h/t0S9LuhVqsTYeElYeMyoHYO4NwKrUu4pp59bXymNXCY2M/mfiOgsMkUXMzmmC3uUAuA1KDs84l2G5DQ6q1Dg=="
+    "value": "rVRi/o+o0ihJChlCGHk79W/y6AO3W/QA2LRD3JBP5a3S2It+TgpdwNTXfQLvk4dh7ubANacG3OXpTCosNg9OBg=="
   }
 }
