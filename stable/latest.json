@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.275",
-  "publishedAt": "2026-10-14T09:05:44.356Z",
-  "artifact": "releases/BuyerLog-7.0.275.zip",
-  "sha256": "0e2d7315f1986d3ed2cda03986165ab0ae8eb620a0e9d949dfc74b562377e537",
-  "size": 151587373,
+  "version": "7.0.276",
+  "publishedAt": "2026-10-14T10:27:16.541Z",
+  "artifact": "releases/BuyerLog-7.0.276.zip",
+  "sha256": "07753f20a75a0ca14177409f2bffb64915240c8824fe76448eafc0b65e75e9d9",
+  "size": 150666383,
   "mandatory": false,
-  "releaseNotes": "Startup notification isolation and native bulk identity reliability; post-7.0.273 reviewed agent capability updates. Full Windows regression and signed visual/browser acceptance required.",
+  "releaseNotes": "Reliable update restart in tray mode and bounded desktop shutdown; approved native refresh-group definitions for agents. Full Windows regression and signed visual/browser acceptance required.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Pq+hdqzmQM9vHIuURWVyvHkwXkdvwbcoLQZKd9Ipp6jbBbTyYnZ1JIQtuwdHXw8JkLp35lDYwS+cdb7utC/QDQ=="
+    "value": "h/t0S9LuhVqsTYeElYeMyoHYO4NwKrUu4pp59bXymNXCY2M/mfiOgsMkUXMzmmC3uUAuA1KDs84l2G5DQ6q1Dg=="
   }
 }
