@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.273",
-  "publishedAt": "2026-10-13T21:25:19.303Z",
-  "artifact": "releases/BuyerLog-7.0.273.zip",
-  "sha256": "910add9d321d9080c67305ebfb132140fe19c8710efc26ed9561270920755c49",
-  "size": 206524426,
+  "version": "7.0.275",
+  "publishedAt": "2026-10-14T08:42:34.220Z",
+  "artifact": "releases/BuyerLog-7.0.275.zip",
+  "sha256": "0e2d7315f1986d3ed2cda03986165ab0ae8eb620a0e9d949dfc74b562377e537",
+  "size": 151587373,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.273: current Agent Capability implementation and accumulated native updates; verified release delivery.",
+  "releaseNotes": "Startup notification isolation and native bulk identity reliability; post-7.0.273 reviewed agent capability updates. Full Windows regression and signed visual/browser acceptance required.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "G5Hr6tkV7ugvg6FMN2Ykz5RCRMxMIg1HXWzVk1tyFNvxaA3CCXX5hbrWNONB5iPHhVsT4U8dBLkl8FBLJdVfCw=="
+    "value": "Pq+hdqzmQM9vHIuURWVyvHkwXkdvwbcoLQZKd9Ipp6jbBbTyYnZ1JIQtuwdHXw8JkLp35lDYwS+cdb7utC/QDQ=="
   }
 }
