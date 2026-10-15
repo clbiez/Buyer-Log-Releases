@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.279",
-  "publishedAt": "2026-10-14T14:53:07.531Z",
-  "artifact": "releases/BuyerLog-7.0.279.zip",
-  "sha256": "b5fe36de7e0efb355d2351d39b346bd729258a76a5f564f36b83c7c50b60faaf",
-  "size": 153551690,
+  "version": "7.0.281",
+  "publishedAt": "2026-10-15T04:47:52.355Z",
+  "artifact": "releases/BuyerLog-7.0.281.zip",
+  "sha256": "730fa32e86c3907b4de4d0e6a349cf08a36463933457b9f90cfb7bc2c209476d",
+  "size": 156573942,
   "mandatory": false,
   "releaseNotes": "",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "rVRi/o+o0ihJChlCGHk79W/y6AO3W/QA2LRD3JBP5a3S2It+TgpdwNTXfQLvk4dh7ubANacG3OXpTCosNg9OBg=="
+    "value": "NbL0kzIztg6B0/I4Pp943jHT/meitfM1/md6yllepvIMhrCpKkalYm2V9E+myHdiAHAabQesKOkreHdy8xsSAQ=="
   }
 }
