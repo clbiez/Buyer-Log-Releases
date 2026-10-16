@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.281",
-  "publishedAt": "2026-10-15T04:37:58.145Z",
-  "artifact": "releases/BuyerLog-7.0.281.zip",
-  "sha256": "730fa32e86c3907b4de4d0e6a349cf08a36463933457b9f90cfb7bc2c209476d",
-  "size": 156573942,
+  "version": "7.0.282",
+  "publishedAt": "2026-10-16T04:50:33.235Z",
+  "artifact": "releases/BuyerLog-7.0.282.zip",
+  "sha256": "a937f3594822c70131bc0f38c94f2e3c40ae3aea1b034f3832e3b617a5370a7a",
+  "size": 162435530,
   "mandatory": false,
-  "releaseNotes": "",
+  "releaseNotes": "Buyer Log 7.0.282 TEST: tek tasarım dili (yazı ölçeği, köşe, renk token'ları, bileşen sözleşmeleri), komut paleti (Ctrl+Shift+K), kompakt ray, KPI hareketi, animasyonlu Backlog sunum raporu (HTML/PDF). PR #596.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "NbL0kzIztg6B0/I4Pp943jHT/meitfM1/md6yllepvIMhrCpKkalYm2V9E+myHdiAHAabQesKOkreHdy8xsSAQ=="
+    "value": "2tIfR2hdmXB6Qxs4cAJkJWyXQy4PL5d/jRubIh8Lu042DmvjnrUDAmGHzBIz43AlWrNM+CtKG74KinMVtsTHDg=="
   }
 }
