@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.282",
-  "publishedAt": "2026-10-16T04:50:33.235Z",
-  "artifact": "releases/BuyerLog-7.0.282.zip",
-  "sha256": "a937f3594822c70131bc0f38c94f2e3c40ae3aea1b034f3832e3b617a5370a7a",
-  "size": 162435530,
+  "version": "7.0.283",
+  "publishedAt": "2026-10-18T19:24:22.968Z",
+  "artifact": "releases/BuyerLog-7.0.283.zip",
+  "sha256": "21d25591905d888de6a21729049eba8ae68a9db1a4e8b4864514b45bd804973f",
+  "size": 163193836,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.282 TEST: tek tasarım dili (yazı ölçeği, köşe, renk token'ları, bileşen sözleşmeleri), komut paleti (Ctrl+Shift+K), kompakt ray, KPI hareketi, animasyonlu Backlog sunum raporu (HTML/PDF). PR #596.",
+  "releaseNotes": "Buyer Log 7.0.283: 7.0.282 sonrası tüm güncellemeler; CP/Siparişler kumaş kartı ve kalıcı kumaş filtreleri, seçili siparişlerden yıl bazlı Endeksmatik, coğrafi rotalarla yeni Overview, MB/Exfactory/retail depo için kompakt ve kaydırmalı Backlog tarih aralığı. PR #597–#600.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "2tIfR2hdmXB6Qxs4cAJkJWyXQy4PL5d/jRubIh8Lu042DmvjnrUDAmGHzBIz43AlWrNM+CtKG74KinMVtsTHDg=="
+    "value": "Pgwf3JRy4mXv3QkCQWibrKLBcHcxXELvoUM4ounva8xrdbanv3XZicwNaffVlrrcxATF2GTW0zO6By1KhKd2Aw=="
   }
 }
