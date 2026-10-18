@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.283",
-  "publishedAt": "2026-10-18T19:25:43.960Z",
-  "artifact": "releases/BuyerLog-7.0.283.zip",
-  "sha256": "21d25591905d888de6a21729049eba8ae68a9db1a4e8b4864514b45bd804973f",
-  "size": 163193836,
+  "version": "7.0.284",
+  "publishedAt": "2026-10-18T23:23:35.855Z",
+  "artifact": "releases/BuyerLog-7.0.284.zip",
+  "sha256": "8cffb887055e65f34382b5eacd6dda8500325e8f7755e2b96be1c0cc4820a150",
+  "size": 161614032,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.283: 7.0.282 sonrası tüm güncellemeler; CP/Siparişler kumaş kartı ve kalıcı kumaş filtreleri, seçili siparişlerden yıl bazlı Endeksmatik, coğrafi rotalarla yeni Overview, MB/Exfactory/retail depo için kompakt ve kaydırmalı Backlog tarih aralığı. PR #597–#600.",
+  "releaseNotes": "Buyer Log 7.0.284: Mevcut Aydınlık, Kurşun ve Karanlık temaları arasında dalgalı geçiş; köşeli kontroller, gerçek CP/Siparişler/Koleksiyon tabloları, araçlar ve tek sol navigasyon korunur. Hızlı seçim, azaltılmış hareket ve eski tarayıcı desteği. PR #601.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Pgwf3JRy4mXv3QkCQWibrKLBcHcxXELvoUM4ounva8xrdbanv3XZicwNaffVlrrcxATF2GTW0zO6By1KhKd2Aw=="
+    "value": "TLryaX3VjnOZvdd+QqfEDtJoAVCHoVO2HvRd5KIIcXHvsG67kQ6Oa6ThY2sC/PbuWYYFPMjUcq/tAlF/t2EmAQ=="
   }
 }
