@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.284",
-  "publishedAt": "2026-10-18T23:21:46.792Z",
-  "artifact": "releases/BuyerLog-7.0.284.zip",
-  "sha256": "8cffb887055e65f34382b5eacd6dda8500325e8f7755e2b96be1c0cc4820a150",
-  "size": 161614032,
+  "version": "7.0.285",
+  "publishedAt": "2026-10-19T13:17:16.056Z",
+  "artifact": "releases/BuyerLog-7.0.285.zip",
+  "sha256": "399ecb05d7de5fd10e874e937a1589de6e7b377dfba0934935ef7617fcb50bd1",
+  "size": 164599708,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.284: Mevcut Aydınlık, Kurşun ve Karanlık temaları arasında dalgalı geçiş; köşeli kontroller, gerçek CP/Siparişler/Koleksiyon tabloları, araçlar ve tek sol navigasyon korunur. Hızlı seçim, azaltılmış hareket ve eski tarayıcı desteği. PR #601.",
+  "releaseNotes": "Buyer Log 7.0.285 TEST / Test release: Genel Bakış kontrol listesi, operasyon nabzı ve not kartları; e-posta sütun seçimi ve tablo ön izlemesi; Hologram Request Excel ve düzenlenebilir şablonlar; lisans düzenleme çatışması ve royalty ekranı düzeltmeleri. / Overview checklist, operation pulse and note cards; email column selection and table preview; editable Hologram Request Excel templates; license edit conflict and royalty screen fixes. PR #602–#606.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "TLryaX3VjnOZvdd+QqfEDtJoAVCHoVO2HvRd5KIIcXHvsG67kQ6Oa6ThY2sC/PbuWYYFPMjUcq/tAlF/t2EmAQ=="
+    "value": "QXebskDv5qbpC65HYfUSPEWK8IHwZbKQeKMGh5rpRgmFa1k25mAdegHOPFcujTg9ORtwAUzpwRXp7OkK2VZBCw=="
   }
 }
