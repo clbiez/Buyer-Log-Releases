@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.284",
-  "publishedAt": "2026-10-18T23:23:35.855Z",
-  "artifact": "releases/BuyerLog-7.0.284.zip",
-  "sha256": "8cffb887055e65f34382b5eacd6dda8500325e8f7755e2b96be1c0cc4820a150",
-  "size": 161614032,
+  "version": "7.0.286",
+  "publishedAt": "2026-10-19T22:44:56.220Z",
+  "artifact": "releases/BuyerLog-7.0.286.zip",
+  "sha256": "c12991f5c6a749229bb5dd1079ebd8a66eb55d47e5a20d0a2f662baeb399811a",
+  "size": 165385143,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.284: Mevcut Aydınlık, Kurşun ve Karanlık temaları arasında dalgalı geçiş; köşeli kontroller, gerçek CP/Siparişler/Koleksiyon tabloları, araçlar ve tek sol navigasyon korunur. Hızlı seçim, azaltılmış hareket ve eski tarayıcı desteği. PR #601.",
+  "releaseNotes": "Buyer Log 7.0.286: Lisans kartlarına düzenlenebilir süreç atlası, 18 lisanslık kaynak kütüphanesi, seçilebilir üretici paylaşımı ve TR/EN çevrimdışı HTML çıktısı. Mevcut royalty, komisyon, hologram ve sözleşme geçmişi korunur. / Editable process atlas in License Cards, 18-license source library, selective supplier sharing and TR/EN offline HTML export. Existing royalty, commissions, hologram and contract history retained. PR #607.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "TLryaX3VjnOZvdd+QqfEDtJoAVCHoVO2HvRd5KIIcXHvsG67kQ6Oa6ThY2sC/PbuWYYFPMjUcq/tAlF/t2EmAQ=="
+    "value": "Y8zojX1ZWcdl+F7+TdiKosQZkvkDcIJ8aSRjrgiXi/jrsHr8QRUvBWttFTaTkD2I+i18FNqSeHHBJwEExwfhDw=="
   }
 }
