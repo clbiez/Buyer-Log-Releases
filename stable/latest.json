@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.286",
-  "publishedAt": "2026-10-19T22:44:56.220Z",
-  "artifact": "releases/BuyerLog-7.0.286.zip",
-  "sha256": "c12991f5c6a749229bb5dd1079ebd8a66eb55d47e5a20d0a2f662baeb399811a",
-  "size": 165385143,
+  "version": "7.0.287",
+  "publishedAt": "2026-10-20T07:59:26.590Z",
+  "artifact": "releases/BuyerLog-7.0.287.zip",
+  "sha256": "f83d1dd287b4bb1e21e3898db9c01ff32a89ea0696ebe1856012298924fe60ce",
+  "size": 171153493,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.286: Lisans kartlarına düzenlenebilir süreç atlası, 18 lisanslık kaynak kütüphanesi, seçilebilir üretici paylaşımı ve TR/EN çevrimdışı HTML çıktısı. Mevcut royalty, komisyon, hologram ve sözleşme geçmişi korunur. / Editable process atlas in License Cards, 18-license source library, selective supplier sharing and TR/EN offline HTML export. Existing royalty, commissions, hologram and contract history retained. PR #607.",
+  "releaseNotes": "Özgün Lisans Atlası arayüzü ve süreç ağacı Buyer Log'a entegre edildi; royalty, komisyon, hologram, toplu ağaç kopyalama ve üretici rehberi birlikte çalışır.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Y8zojX1ZWcdl+F7+TdiKosQZkvkDcIJ8aSRjrgiXi/jrsHr8QRUvBWttFTaTkD2I+i18FNqSeHHBJwEExwfhDw=="
+    "value": "Y4dTq66dbVxc34eyZ+wsU1Iy7u6drMExefsTgexmIt1tPWKV5e3KEePrqBqioTXg2bHvcvAFK05Ir9NSf1XoDA=="
   }
 }
