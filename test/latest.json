@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.287",
-  "publishedAt": "2026-10-20T07:58:00.971Z",
-  "artifact": "releases/BuyerLog-7.0.287.zip",
-  "sha256": "f83d1dd287b4bb1e21e3898db9c01ff32a89ea0696ebe1856012298924fe60ce",
-  "size": 171153493,
+  "version": "7.0.288",
+  "publishedAt": "2026-10-21T04:39:03.179Z",
+  "artifact": "releases/BuyerLog-7.0.288.zip",
+  "sha256": "1358378e2f0b874230f263729f5b87855499169a2e3ab588f9bafda2de397bd4",
+  "size": 174163246,
   "mandatory": false,
-  "releaseNotes": "Özgün Lisans Atlası arayüzü ve süreç ağacı Buyer Log'a entegre edildi; royalty, komisyon, hologram, toplu ağaç kopyalama ve üretici rehberi birlikte çalışır.",
+  "releaseNotes": "Buyer Log 7.0.288: LCW AI layout review with CP order matching and compact findings; automatic layout/test routing; source-grounded test assessment and buyer rematching; checklist set components and supplier export fixes; backlog presentation date filters. / LCW AI ile CP eşlemeli ve kompakt layout kontrolü, otomatik belge yönlendirme, kaynaklı test incelemesi ve buyer sipariş düzeltmesi, set parçaları ve checklist iyileştirmeleri, Backlog sunum tarih filtresi.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Y4dTq66dbVxc34eyZ+wsU1Iy7u6drMExefsTgexmIt1tPWKV5e3KEePrqBqioTXg2bHvcvAFK05Ir9NSf1XoDA=="
+    "value": "im9dZuvVHpmzcMx8OF81rn7tiiRoxelu5Q8SKs5g4afdwBivS0iFsjSarDBy5blm6cgPG9RWSza+jVxF+K2nBQ=="
   }
 }
