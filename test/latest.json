@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.288",
-  "publishedAt": "2026-10-21T04:39:03.179Z",
-  "artifact": "releases/BuyerLog-7.0.288.zip",
-  "sha256": "1358378e2f0b874230f263729f5b87855499169a2e3ab588f9bafda2de397bd4",
-  "size": 174163246,
+  "version": "7.0.293",
+  "publishedAt": "2026-10-21T12:10:21.026Z",
+  "artifact": "releases/BuyerLog-7.0.293.zip",
+  "sha256": "433e55c31cc017c5db8618ea77a745e751be879b2d6ba4fd468433e531e2819b",
+  "size": 159910413,
   "mandatory": false,
-  "releaseNotes": "Buyer Log 7.0.288: LCW AI layout review with CP order matching and compact findings; automatic layout/test routing; source-grounded test assessment and buyer rematching; checklist set components and supplier export fixes; backlog presentation date filters. / LCW AI ile CP eşlemeli ve kompakt layout kontrolü, otomatik belge yönlendirme, kaynaklı test incelemesi ve buyer sipariş düzeltmesi, set parçaları ve checklist iyileştirmeleri, Backlog sunum tarih filtresi.",
+  "releaseNotes": "Agent Office kaldırıldı; LCW AI ve yerel modüller korunur. / Agent Office removed; LCW AI and native modules remain available.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "im9dZuvVHpmzcMx8OF81rn7tiiRoxelu5Q8SKs5g4afdwBivS0iFsjSarDBy5blm6cgPG9RWSza+jVxF+K2nBQ=="
+    "value": "/otSAuSKgdsXDChMp+UUKjW2pDerazb0kl8OcmeqzWosoarZgP7eNZMVt0jc57peZos4cIQaf37GHgssH7M3Dw=="
   }
 }
