@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.293",
-  "publishedAt": "2026-10-21T12:12:23.653Z",
-  "artifact": "releases/BuyerLog-7.0.293.zip",
-  "sha256": "433e55c31cc017c5db8618ea77a745e751be879b2d6ba4fd468433e531e2819b",
-  "size": 159910413,
+  "version": "7.0.294",
+  "publishedAt": "2026-10-23T05:41:08.417Z",
+  "artifact": "releases/BuyerLog-7.0.294.zip",
+  "sha256": "ec34006b5789ae2810eaf05879ce8341da1f5356c33fd3c5f696c82537db1777",
+  "size": 171501207,
   "mandatory": false,
-  "releaseNotes": "Agent Office kaldırıldı; LCW AI ve yerel modüller korunur. / Agent Office removed; LCW AI and native modules remain available.",
+  "releaseNotes": "TR Landed kopyalama düzeltmesi, ayrıntılı fiyat çıktıları ve Teklifler sayfası, kalabalık Fiyat Masası, Koleksiyon ve lisans iyileştirmeleri. / Safe TR Landed copy, detailed price exports and Quotations sheet, crowded Pricing Desk, Collection and license improvements.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "/otSAuSKgdsXDChMp+UUKjW2pDerazb0kl8OcmeqzWosoarZgP7eNZMVt0jc57peZos4cIQaf37GHgssH7M3Dw=="
+    "value": "9NzIzAQcAOes8ibUaOp1zkCUuw7MD9+Ha9YyN/2usgVb+Dl9KOvodslYrSAeOiUpf36XEUG//WFsPlscbkbFDg=="
   }
 }
