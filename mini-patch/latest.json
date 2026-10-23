@@ -3,10 +3,10 @@
   "kind": "buyerlog-manual-hotfix",
   "base_version": "7.0.294",
   "base_commit": "406090f7d95b5cc6c0b95103d72aca81f15cb52e",
-  "target_commit": "a9183b319dd4927642bf153defc653bf67b74ccd",
-  "asset": "BuyerLog-7.0.294-MiniPatch-a9183b319dd4.zip",
-  "sha256": "f1a5a53d8c710588219dc8d84ef6473ecdbb5de13f45288c2b752670d65fbcee",
-  "size": 92465,
-  "published_at_utc": "2026-10-23T17:50:28.062946+00:00",
+  "target_commit": "a28f972cbe0a5129eacf0b86d1974db9d20ed1c6",
+  "asset": "BuyerLog-7.0.294-MiniPatch-a28f972cbe0a.zip",
+  "sha256": "c65bad4a9312a52ac5a2509f4020cc74c2f93e23217cedca05c6c4b7bcff1a12",
+  "size": 96930,
+  "published_at_utc": "2026-10-23T19:31:37.840845+00:00",
   "message": "This is NOT a signed official STABLE update. The native updater is unchanged."
 }
