@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.294",
-  "publishedAt": "2026-10-23T05:39:45.525Z",
-  "artifact": "releases/BuyerLog-7.0.294.zip",
-  "sha256": "ec34006b5789ae2810eaf05879ce8341da1f5356c33fd3c5f696c82537db1777",
-  "size": 171501207,
+  "version": "7.0.300",
+  "publishedAt": "2026-10-25T14:04:36.499Z",
+  "artifact": "releases/BuyerLog-7.0.300.zip",
+  "sha256": "c55b8cb2f7ece11efc9ca35e3d4f4915cb8b31cfe8eed06d6608542191d8d990",
+  "size": 193081372,
   "mandatory": false,
-  "releaseNotes": "TR Landed kopyalama düzeltmesi, ayrıntılı fiyat çıktıları ve Teklifler sayfası, kalabalık Fiyat Masası, Koleksiyon ve lisans iyileştirmeleri. / Safe TR Landed copy, detailed price exports and Quotations sheet, crowded Pricing Desk, Collection and license improvements.",
-  "minimumUpdaterVersion": "1.0.0",
+  "releaseNotes": "TR: Buyer Log 7.0.300 — 5150c389d384 commitine kadar main dalına alınan güncellemeler ve Windows regresyon düzeltmeleri. Henüz merge edilmemiş #694/#721 bildirim taslakları hariç.\nEN: Buyer Log 7.0.300 — all updates merged through 5150c389d384 and Windows regression corrections. Unmerged notification drafts #694/#721 remain excluded.",
+  "minimumUpdaterVersion": "1.1.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "9NzIzAQcAOes8ibUaOp1zkCUuw7MD9+Ha9YyN/2usgVb+Dl9KOvodslYrSAeOiUpf36XEUG//WFsPlscbkbFDg=="
+    "value": "ySKaGISRDliaBU7CEAbHK1syVXAh2vVxOEbp5doWuceVzYHaIz3X73v/Zs89pOfFk8wu/B6qE9vOEsKmbSZUAQ=="
   }
 }
