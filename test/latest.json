@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.313",
-  "publishedAt": "2026-10-27T04:59:48.596Z",
-  "artifact": "releases/BuyerLog-7.0.313.zip",
-  "sha256": "3f242738800ac52ce0366872e0f4d83d32d45022f7250c476b747ba3c74a0907",
-  "size": 180095187,
+  "version": "7.0.316",
+  "publishedAt": "2026-10-27T16:38:14.191Z",
+  "artifact": "releases/BuyerLog-7.0.316.zip",
+  "sha256": "e704c41842fa10937f795c17f615d71ff7244dbf83c9487b0dfc569fa48a7d4b",
+  "size": 178963625,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.313 — Eşzamanlı Koleksiyon kayıtlarında kabul edilmiş verinin korunması; silme/kayıt yarışları, yetki iptali, geciken yanıtlar ve çevrimdışı taslak kurtarma düzeltmeleri. Paylaşım hatası sonrası toparlanma, güncel otomatik fiyat hesapları, özel alan bildirimlerinin yetkiyle süzülmesi ve arayüz bekleme sorunlarının giderilmesi.\nEN: Buyer Log 7.0.313 — Preserve accepted Collection data during concurrent use; fixes for delete/save races, access revocation, delayed responses and offline draft recovery. Sharing recovery, current automatic price projections, access-scoped private workspace notifications and UI responsiveness fixes.\nTR: Windows’ta geçici kilit işaretçisi erişim hatalarında sınırlı yeniden deneme; canlı sahip ve kalıcı hata korumaları korunur.\nEN: Bounded retry for transient Windows lease-marker access failures, preserving live-owner fencing and persistent-error protection.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.316 — 7.0.294 klasik tablo çizgileri ve seçim işaretleri, Intake/OAB tablo varsayılanları, erken açılış bildirimi, kalıcı Koleksiyon/CP/Siparişler sekmeleri. Başlatıcı imzalı yama ve Global Flow açılış perdesi güvenlik/performance regresyon testleri güncellendi. Windows tam regresyon, imza ve SHA doğrulaması zorunludur; Chromium görsel geri dönüş testindeki eksik model görselleri yalnız uyarıdır.\nEN: Buyer Log TEST 7.0.316 — Classic 7.0.294 grid outlines and selection cues, table-first Intake/OAB, early opening notice and persistent Collection/CP/Orders tabs. Updates the signed patch launcher and Global Flow startup curtain regression tests. Full Windows regression, signatures and SHA verification remain mandatory; missing model imagery from Chromium image-return acceptance is advisory only.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "rFPmB6eyKOWDKPTsIMTVN9uL3eep11OaV0B4kyYwJYLiCZgF6fJXaIJ3CYo4ANIt3nLgCFinO7fHiBTIdktRCA=="
+    "value": "MIFn1J+TBJe6swCNgpyJVEnCzWtk4et+3xfUaLyOX8VuXwC8JWRXa/Spo43ZwY+8EgPbfu9RMIhJctAHAqKQDw=="
   }
 }
