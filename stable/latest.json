@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.311",
-  "publishedAt": "2026-10-27T00:07:11.742Z",
-  "artifact": "releases/BuyerLog-7.0.311.zip",
-  "sha256": "dede0a823e23568d18e0e5b04d107e2876471b7cdfaf89ea32583d7e9392addf",
-  "size": 176352836,
+  "version": "7.0.313",
+  "publishedAt": "2026-10-27T05:03:04.869Z",
+  "artifact": "releases/BuyerLog-7.0.313.zip",
+  "sha256": "3f242738800ac52ce0366872e0f4d83d32d45022f7250c476b747ba3c74a0907",
+  "size": 180095187,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.311 — 7.0.300 sonrası Motion+ ve Thinking Orbs, kişisel CP/Sipariş notları, çoklu hücre kopyala/yapıştır, Koleksiyon/tablo/güncelleyici iyileştirmeleri, kalıcı PLM görselleri ve dışa aktarma iyileştirmeleri. Chromium görsel dönüş kabulü uygulanır; eksik veya geç yüklenen görseller uyarı olarak raporlanır ve sürüm yayınını engellemez. Windows tam regresyonu ve imza doğrulaması zorunludur.\nEN: Buyer Log 7.0.311 — post-7.0.300 Motion+ and Thinking Orbs, private CP/Orders notes, multi-cell copy/paste, Collection/table/updater enhancements, persistent PLM images and image-aware exports. Chromium image-return acceptance still runs; missing or late images are reported as warnings and do not block release. Windows full regression and cryptographic verification remain mandatory.",
+  "releaseNotes": "TR: Buyer Log 7.0.313 — Eşzamanlı Koleksiyon kayıtlarında kabul edilmiş verinin korunması; silme/kayıt yarışları, yetki iptali, geciken yanıtlar ve çevrimdışı taslak kurtarma düzeltmeleri. Paylaşım hatası sonrası toparlanma, güncel otomatik fiyat hesapları, özel alan bildirimlerinin yetkiyle süzülmesi ve arayüz bekleme sorunlarının giderilmesi.\nEN: Buyer Log 7.0.313 — Preserve accepted Collection data during concurrent use; fixes for delete/save races, access revocation, delayed responses and offline draft recovery. Sharing recovery, current automatic price projections, access-scoped private workspace notifications and UI responsiveness fixes.\nTR: Windows’ta geçici kilit işaretçisi erişim hatalarında sınırlı yeniden deneme; canlı sahip ve kalıcı hata korumaları korunur.\nEN: Bounded retry for transient Windows lease-marker access failures, preserving live-owner fencing and persistent-error protection.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "wYXEKWuuUl1YRuVbdzNJPBz42cva3soTl06pnPqIunC/19Fg92w5eBO01vGZCTvKbuAtj0RP663A9mRdkTlmCA=="
+    "value": "rFPmB6eyKOWDKPTsIMTVN9uL3eep11OaV0B4kyYwJYLiCZgF6fJXaIJ3CYo4ANIt3nLgCFinO7fHiBTIdktRCA=="
   }
 }
