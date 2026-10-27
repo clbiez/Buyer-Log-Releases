@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.316",
-  "publishedAt": "2026-10-27T16:38:14.191Z",
-  "artifact": "releases/BuyerLog-7.0.316.zip",
-  "sha256": "e704c41842fa10937f795c17f615d71ff7244dbf83c9487b0dfc569fa48a7d4b",
-  "size": 178963625,
+  "version": "7.0.317",
+  "publishedAt": "2026-10-27T18:33:57.262Z",
+  "artifact": "releases/BuyerLog-7.0.317.zip",
+  "sha256": "85d0ba97b03d4e063e5e947a3c419e74ef525bbe00d62ba6fe94deb06e60bf8e",
+  "size": 181893205,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.316 — 7.0.294 klasik tablo çizgileri ve seçim işaretleri, Intake/OAB tablo varsayılanları, erken açılış bildirimi, kalıcı Koleksiyon/CP/Siparişler sekmeleri. Başlatıcı imzalı yama ve Global Flow açılış perdesi güvenlik/performance regresyon testleri güncellendi. Windows tam regresyon, imza ve SHA doğrulaması zorunludur; Chromium görsel geri dönüş testindeki eksik model görselleri yalnız uyarıdır.\nEN: Buyer Log TEST 7.0.316 — Classic 7.0.294 grid outlines and selection cues, table-first Intake/OAB, early opening notice and persistent Collection/CP/Orders tabs. Updates the signed patch launcher and Global Flow startup curtain regression tests. Full Windows regression, signatures and SHA verification remain mandatory; missing model imagery from Chromium image-return acceptance is advisory only.",
+  "releaseNotes": "TR: Buyer Log 7.0.317 — 7.0.294 klasik tablo başlıkları, doğal seçim kutuları ve renkli satır işaretleri; görünür panel/buton sınırları; çerçevesiz ve uyumlu logo/kullanıcı işaretleri; eski konumunda 64px Thinking Orb ve toparlanan Intake. CP/Orders/Koleksiyon daha geniş tablo alanı, birleşik görünüm menüleri, anında toplu seçim, animasyonlu sidebar/blur ve zengin not editörü içerir. PR #777 kontrolleri ve Chromium kabulü geçti. Windows tam regresyon, imza ve SHA doğrulamaları zorunludur.\nEN: Buyer Log 7.0.317 — Restores classic 7.0.294 table headings, native checkboxes and row indicators, visible panel/control boundaries, matching frameless identity marks, the original inline 64px Thinking Orb and recoverable Intake. Includes compact CP/Orders/Collection workspaces, consolidated view menus, instant bulk selection, animated sidebar/blur and rich row notes. PR #777 checks and Chromium acceptance passed; full Windows regression, signatures and SHA verification remain mandatory.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "MIFn1J+TBJe6swCNgpyJVEnCzWtk4et+3xfUaLyOX8VuXwC8JWRXa/Spo43ZwY+8EgPbfu9RMIhJctAHAqKQDw=="
+    "value": "8OWW3AEg7RrCGosHC7gf3evSfGTAoIubNkLgSFRMcGk06BaE/UGGo6e7c3FztN2GkQMeUZNKffMEopjLQ0iBDQ=="
   }
 }
