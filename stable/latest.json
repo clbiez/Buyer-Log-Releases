@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.317",
-  "publishedAt": "2026-10-27T18:36:49.968Z",
-  "artifact": "releases/BuyerLog-7.0.317.zip",
-  "sha256": "85d0ba97b03d4e063e5e947a3c419e74ef525bbe00d62ba6fe94deb06e60bf8e",
-  "size": 181893205,
+  "version": "7.0.318",
+  "publishedAt": "2026-10-28T14:14:29.356Z",
+  "artifact": "releases/BuyerLog-7.0.318.zip",
+  "sha256": "93930cad9a34138be61ea5c04190d637d808fc16b1e6fe5fed184731cf011a89",
+  "size": 181459583,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.317 — 7.0.294 klasik tablo başlıkları, doğal seçim kutuları ve renkli satır işaretleri; görünür panel/buton sınırları; çerçevesiz ve uyumlu logo/kullanıcı işaretleri; eski konumunda 64px Thinking Orb ve toparlanan Intake. CP/Orders/Koleksiyon daha geniş tablo alanı, birleşik görünüm menüleri, anında toplu seçim, animasyonlu sidebar/blur ve zengin not editörü içerir. PR #777 kontrolleri ve Chromium kabulü geçti. Windows tam regresyon, imza ve SHA doğrulamaları zorunludur.\nEN: Buyer Log 7.0.317 — Restores classic 7.0.294 table headings, native checkboxes and row indicators, visible panel/control boundaries, matching frameless identity marks, the original inline 64px Thinking Orb and recoverable Intake. Includes compact CP/Orders/Collection workspaces, consolidated view menus, instant bulk selection, animated sidebar/blur and rich row notes. PR #777 checks and Chromium acceptance passed; full Windows regression, signatures and SHA verification remain mandatory.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.318 — açılışta ayrı sekme yok, modüller aynı pencerede arka planda hazırlanır; kayıtlı ekran önbelleği yeniden açılışlarda kullanılır (Backlog soğuk yolu Excel'i yeniden okumuyor); CP ilk çizimi, içerik özetli kalıcı dosya önbelleği, işçi iş parçacığında bütünlük kontrolü, GPU'suz masaüstü profili.\nEN: Buyer Log TEST 7.0.318 — no extra tabs at startup, modules prepare in the background in the same window; the saved screen cache is reused on later launches (cold Backlog path no longer re-reads Excel); faster CP first render, content-hash immutable asset cache, off-thread integrity check, software-compositing profile.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "8OWW3AEg7RrCGosHC7gf3evSfGTAoIubNkLgSFRMcGk06BaE/UGGo6e7c3FztN2GkQMeUZNKffMEopjLQ0iBDQ=="
+    "value": "totLUKB8VtV65o5hP1Jl53yRtvMFAf5vyN98CA6m1jYdD9Mh3bMFjSON9vh94iL5zH5JkBmmFBTbWX0otHpLBQ=="
   }
 }
