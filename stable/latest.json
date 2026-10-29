@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.319",
-  "publishedAt": "2026-10-29T09:13:52.692Z",
-  "artifact": "releases/BuyerLog-7.0.319.zip",
-  "sha256": "2f34aa1d85bf14b504a6f84e12f4bc61c00503994e8f597c22a4f9c06d2756a2",
-  "size": 184332465,
+  "version": "7.0.320",
+  "publishedAt": "2026-10-29T12:24:57.051Z",
+  "artifact": "releases/BuyerLog-7.0.320.zip",
+  "sha256": "17c91fbf23ff10fea9e4ade116c9dab7fa6adb43da4d7cdca402ea710cb19f67",
+  "size": 182651340,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.319 — animasyonlu tema geçişi (Kurşun tema kaldırıldı), tek Excel çekmecesi, seçim çubuğu, tutarlı segment/sekme/menü/başlıklar, Bağlantılar düğmesi ve Görünüm menüsü, katlanabilir Veri Yönetimi, Küresel Akış Haritası gemi/uçak/tır simgeleri, kritik alarm ve hover özeti; lisans kartı onay haritası kaydı düzeltmesi.\nEN: Buyer Log TEST 7.0.319 — animated theme switching (Slate theme removed), single Excel drawer, selection bar, consistent segments/tabs/menus/headings, Connections button and Appearance menu, collapsible Data Management, Global Flow Map ship/plane/truck icons, critical alarm and hover summary; license card approval-map save fix.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.320 — Genel Bakış dünya saatleri açılır kapanır: kapalıyken tek satırlık minik saat şeridi, açılınca saat kartları, resmi tatiller ve saat yönetimi.\nEN: Buyer Log TEST 7.0.320 — Collapsible Overview world clocks: a single-line mini clock strip when collapsed; clock cards, public holidays and clock management when opened.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "zgoVTl42gYgvOfNOy52oZ1FHrRnKuJOoacDNXRsfrAhu/JCoR1YHj58mJSffSJsxYxJx4UEcTnHM0ePLJ5atCQ=="
+    "value": "Mepoot2kLamA3yjNPwvCKNXDbrqHQDHSrA0uhKgyTS6bN+4KQimv/p64VNcrMYzqfBaq7lWofPHgawMBVNdEDg=="
   }
 }
