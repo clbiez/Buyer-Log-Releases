@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.318",
-  "publishedAt": "2026-10-28T14:00:08.741Z",
-  "artifact": "releases/BuyerLog-7.0.318.zip",
-  "sha256": "93930cad9a34138be61ea5c04190d637d808fc16b1e6fe5fed184731cf011a89",
-  "size": 181459583,
+  "version": "7.0.319",
+  "publishedAt": "2026-10-29T08:58:51.689Z",
+  "artifact": "releases/BuyerLog-7.0.319.zip",
+  "sha256": "2f34aa1d85bf14b504a6f84e12f4bc61c00503994e8f597c22a4f9c06d2756a2",
+  "size": 184332465,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.318 — açılışta ayrı sekme yok, modüller aynı pencerede arka planda hazırlanır; kayıtlı ekran önbelleği yeniden açılışlarda kullanılır (Backlog soğuk yolu Excel'i yeniden okumuyor); CP ilk çizimi, içerik özetli kalıcı dosya önbelleği, işçi iş parçacığında bütünlük kontrolü, GPU'suz masaüstü profili.\nEN: Buyer Log TEST 7.0.318 — no extra tabs at startup, modules prepare in the background in the same window; the saved screen cache is reused on later launches (cold Backlog path no longer re-reads Excel); faster CP first render, content-hash immutable asset cache, off-thread integrity check, software-compositing profile.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.319 — animasyonlu tema geçişi (Kurşun tema kaldırıldı), tek Excel çekmecesi, seçim çubuğu, tutarlı segment/sekme/menü/başlıklar, Bağlantılar düğmesi ve Görünüm menüsü, katlanabilir Veri Yönetimi, Küresel Akış Haritası gemi/uçak/tır simgeleri, kritik alarm ve hover özeti; lisans kartı onay haritası kaydı düzeltmesi.\nEN: Buyer Log TEST 7.0.319 — animated theme switching (Slate theme removed), single Excel drawer, selection bar, consistent segments/tabs/menus/headings, Connections button and Appearance menu, collapsible Data Management, Global Flow Map ship/plane/truck icons, critical alarm and hover summary; license card approval-map save fix.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "totLUKB8VtV65o5hP1Jl53yRtvMFAf5vyN98CA6m1jYdD9Mh3bMFjSON9vh94iL5zH5JkBmmFBTbWX0otHpLBQ=="
+    "value": "zgoVTl42gYgvOfNOy52oZ1FHrRnKuJOoacDNXRsfrAhu/JCoR1YHj58mJSffSJsxYxJx4UEcTnHM0ePLJ5atCQ=="
   }
 }
