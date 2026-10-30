@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.321",
-  "publishedAt": "2026-10-30T08:45:35.178Z",
-  "artifact": "releases/BuyerLog-7.0.321.zip",
-  "sha256": "670569671100aa28133ebb7d4bb2048805da0841ebc8df21281dcc19b786b1bf",
-  "size": 184217407,
+  "version": "7.0.322",
+  "publishedAt": "2026-10-30T15:21:03.920Z",
+  "artifact": "releases/BuyerLog-7.0.322.zip",
+  "sha256": "98b01a64333ad8d4501d495831b31eb44f6b4aabdab69d5e0132054f754bf893",
+  "size": 184542200,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.321 — Fiyat Masası alternatif fiyatlar (opsiyonlar) ve tablodan üretici ekleme; Koleksiyon fiyat görünümü düğmeleri; adım adım açılış ekranı; Sunum Editörü etkileşimli HTML.\nEN: Buyer Log TEST 7.0.321 — Pricing Desk alternative prices (options) and add manufacturer from the table; Collection price view buttons; step-by-step startup screen; interactive HTML in the Presentation Editor.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.322 — seçilebilir tema geçişleri (varsayılan sırayla katlanan üçgenler), belirgin giriş alanları, Veri Yönetimi iki ufuk ve ASAS ⇄ IAS yan yana filtreler.\nEN: Buyer Log TEST 7.0.322 — selectable theme transitions (default triangles folding in sequence), distinct input fields, Data Management two horizons and ASAS ⇄ IAS side-by-side filters.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "DuqRiLHmov/i31mZHVQMLCcN480fWSW0LfYB+cIwD3sKCOpUCoyPsPQr2yimlgfD7hMqiutHOPov+IPyVvS2Cw=="
+    "value": "oxx1FZB4/ni6JKQSDfQ64ozlUz4fJJtb/XHmpFlyfOPnLZo4kew6+RPm9XmQdWnltfuVw8PeR8B1zFvtjjsMDA=="
   }
 }
