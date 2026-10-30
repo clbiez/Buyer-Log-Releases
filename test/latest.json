@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.320",
-  "publishedAt": "2026-10-29T12:18:37.581Z",
-  "artifact": "releases/BuyerLog-7.0.320.zip",
-  "sha256": "17c91fbf23ff10fea9e4ade116c9dab7fa6adb43da4d7cdca402ea710cb19f67",
-  "size": 182651340,
+  "version": "7.0.321",
+  "publishedAt": "2026-10-30T08:41:53.638Z",
+  "artifact": "releases/BuyerLog-7.0.321.zip",
+  "sha256": "670569671100aa28133ebb7d4bb2048805da0841ebc8df21281dcc19b786b1bf",
+  "size": 184217407,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.320 — Genel Bakış dünya saatleri açılır kapanır: kapalıyken tek satırlık minik saat şeridi, açılınca saat kartları, resmi tatiller ve saat yönetimi.\nEN: Buyer Log TEST 7.0.320 — Collapsible Overview world clocks: a single-line mini clock strip when collapsed; clock cards, public holidays and clock management when opened.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.321 — Fiyat Masası alternatif fiyatlar (opsiyonlar) ve tablodan üretici ekleme; Koleksiyon fiyat görünümü düğmeleri; adım adım açılış ekranı; Sunum Editörü etkileşimli HTML.\nEN: Buyer Log TEST 7.0.321 — Pricing Desk alternative prices (options) and add manufacturer from the table; Collection price view buttons; step-by-step startup screen; interactive HTML in the Presentation Editor.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Mepoot2kLamA3yjNPwvCKNXDbrqHQDHSrA0uhKgyTS6bN+4KQimv/p64VNcrMYzqfBaq7lWofPHgawMBVNdEDg=="
+    "value": "DuqRiLHmov/i31mZHVQMLCcN480fWSW0LfYB+cIwD3sKCOpUCoyPsPQr2yimlgfD7hMqiutHOPov+IPyVvS2Cw=="
   }
 }
