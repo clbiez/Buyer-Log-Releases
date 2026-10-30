@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-10-30T15:21:26.489Z",
+  "channels": {
+    "test": {
+      "version": "7.0.322",
+      "sha256": "98b01a64333ad8d4501d495831b31eb44f6b4aabdab69d5e0132054f754bf893",
+      "size": 184542200,
+      "file": "BuyerLog-7.0.322.zip",
+      "mirrored": false,
+      "artifactSource": "github-release"
+    },
+    "stable": {
+      "version": "7.0.322",
+      "sha256": "98b01a64333ad8d4501d495831b31eb44f6b4aabdab69d5e0132054f754bf893",
+      "size": 184542200,
+      "file": "BuyerLog-7.0.322.zip",
+      "mirrored": false,
+      "artifactSource": "github-release"
+    }
+  }
+}
