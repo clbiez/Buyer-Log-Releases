@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.327",
-  "publishedAt": "2026-11-01T18:43:24.882Z",
-  "artifact": "releases/BuyerLog-7.0.327.zip",
-  "sha256": "4fdb156911feb0650bf8c6dbeba617bffabd7498f94b67c80d393d3d280053dd",
-  "size": 76154812,
+  "version": "7.0.328",
+  "publishedAt": "2026-11-01T20:00:26.389Z",
+  "artifact": "releases/BuyerLog-7.0.328.zip",
+  "sha256": "5ed6e51c7e7ade96f3083d68f5d2a6d78f1e154dfcdc1efe579bb207e6529266",
+  "size": 76013191,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.327 — CP ve Orders içindeki seçili siparişleri önizleyerek Koleksiyonunuza aktarın. Aynı model ve MB ayında adetler birleştirilir; farklı fiyat, ülke veya tedarikçiler ayrı kalır. Tekrar aktarım koruması ve tek adım geri alma dahildir. Daha sade Genel Bakış özeti, Buyer Log temasıyla belirgin alanlar, uygulamadan önce kural önizlemesi ve aciliyetten bağımsız takip etiketleri.\nEN: Buyer Log TEST 7.0.327 — Preview selected CP and Orders rows and import them into your Collection. Quantities are combined for the same model and MB month; different prices, countries or suppliers stay separate. Includes duplicate protection and one-step undo. A simpler Overview summary, clear fields in the Buyer Log theme, rule previews before applying changes and tracking tags separate from urgency.",
+  "releaseNotes": "TR: Buyer Log 7.0.328 — Eski Outlook ve Agent izinlerini içeren SYNC kullanıcı dizinleri yeni bilgisayarlarda mevcut şifreler korunarak yüklenir. Kaldırılmış izinler etkin yetki vermez; bütünlük ve kullanıcı yetkisi kontrolleri korunur. Koleksiyon Price alt ortalamaları, kompakt kıyaslar ve referans sipariş detayları dahildir.\nEN: Buyer Log 7.0.328 — New computers load SYNC user directories containing retired Outlook and Agent permissions while preserving existing passwords. Retired codes grant no active access; integrity and authorization checks remain enforced. Includes Collection Price footer averages, compact comparisons and reference order details.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "v1ugCPgNE4teVvmZxMTzSATZy5+T72F6uYg187ZCJSEoo+gl+K+1BA44SVriAxqRPvpTRIMrx6dEFR9eNjNFCg=="
+    "value": "kSU3SYegLwS1CWOth6+m9QwUJLBeSrZ/mHJmqH5hty7nlYlV+AhKdATKlPve1mXYKHoPhfxN6ErvyWXuSBBDCQ=="
   }
 }
