@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.325",
-  "publishedAt": "2026-11-01T14:10:21.212Z",
-  "artifact": "releases/BuyerLog-7.0.325.zip",
-  "sha256": "a1c96172e5d4bb878609b356e12a8375a08457d2da3c5fe4eb4b7d1803ff6dc7",
-  "size": 77072833,
+  "version": "7.0.327",
+  "publishedAt": "2026-11-01T18:43:24.882Z",
+  "artifact": "releases/BuyerLog-7.0.327.zip",
+  "sha256": "4fdb156911feb0650bf8c6dbeba617bffabd7498f94b67c80d393d3d280053dd",
+  "size": 76154812,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.325 — Koleksiyon Fiyat: Previous Season/LFL, örneklem uyarıları ve sezon etkisi; daha hızlı açılış; Global Flow sade uyarı ve filo simgeleri; Görünüm çekmecesi ve köşeden yayılan üçgen geçişi; kurulum EXE simgesi; yeni bilgisayarda SYNC kullanıcıları; OneDrive paylaşımlı klasörde atlanan cihaz ve çakışma kopyası uyarısı; engelli Release indirmelerinde güncelleme. Ortak klasör yazma kilidi Windows'ta geçici erişim reddinde yeniden dener; LCW AI bağlamı sütun hatasında güvenli biçimde durur.\nEN: Buyer Log TEST 7.0.325 — Collection Price: Previous Season/LFL, sample warnings and season impact; faster startup; quieter Global Flow warnings and fleet icons; Appearance drawer and corner-wave triangle transition; installer EXE icon; SYNC users on new computers; skipped devices and conflict copy warning in OneDrive shared folders; updates where Release downloads are blocked. Shared-folder write lease retries a transient Windows access denial; LCW AI context fails closed on column errors.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.327 — CP ve Orders içindeki seçili siparişleri önizleyerek Koleksiyonunuza aktarın. Aynı model ve MB ayında adetler birleştirilir; farklı fiyat, ülke veya tedarikçiler ayrı kalır. Tekrar aktarım koruması ve tek adım geri alma dahildir. Daha sade Genel Bakış özeti, Buyer Log temasıyla belirgin alanlar, uygulamadan önce kural önizlemesi ve aciliyetten bağımsız takip etiketleri.\nEN: Buyer Log TEST 7.0.327 — Preview selected CP and Orders rows and import them into your Collection. Quantities are combined for the same model and MB month; different prices, countries or suppliers stay separate. Includes duplicate protection and one-step undo. A simpler Overview summary, clear fields in the Buyer Log theme, rule previews before applying changes and tracking tags separate from urgency.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "eeH0gQQyZcNrpLJvl4KMj+NVSwS4NUhMfBVh9K2SnVdW+Kz9y1i6ocm4mb78wPdFmOn2KmRjX+I10DUXp+xPCg=="
+    "value": "v1ugCPgNE4teVvmZxMTzSATZy5+T72F6uYg187ZCJSEoo+gl+K+1BA44SVriAxqRPvpTRIMrx6dEFR9eNjNFCg=="
   }
 }
