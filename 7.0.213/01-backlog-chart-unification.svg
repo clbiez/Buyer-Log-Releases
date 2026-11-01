@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d">
+<title id="t">Buyer Log Backlog chart visual unification</title><desc id="d">Buyer Log themed component preview showing unified Backlog timeline and quantity charts with Today marker, persistent totals and hover detail.</desc>
+<rect width="1280" height="720" fill="#f2f2f3"/><rect x="50" y="42" width="1180" height="636" fill="#fff" stroke="#b7b7ba"/>
+<text x="82" y="78" font-family="Arial,sans-serif" font-size="14" letter-spacing="3" fill="#3f6488">BUYER LOG · BACKLOG</text>
+<text x="82" y="116" font-family="Arial,sans-serif" font-size="30" font-weight="600" fill="#1d1f20">Zaman akışı grafikleri</text>
+<text x="82" y="146" font-family="Arial,sans-serif" font-size="14" fill="#5d5d60">Aynı eksen, aynı bilgi hiyerarşisi, aynı etkileşim.</text>
+<rect x="82" y="182" width="1116" height="210" rx="8" fill="#fafafa" stroke="#d4d4d7"/>
+<text x="104" y="214" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#1d1f20">TIMELINE</text>
+<line x1="104" y1="346" x2="1172" y2="346" stroke="#c7c7ca"/>
+<rect x="134" y="286" width="54" height="60" fill="#dfe7ef"/><rect x="205" y="250" width="54" height="96" fill="#cbd8e4"/><rect x="276" y="304" width="54" height="42" fill="#dfe7ef"/><rect x="347" y="232" width="54" height="114" fill="#b9cbdc"/>
+<rect x="418" y="270" width="54" height="76" fill="#dfe7ef"/><rect x="489" y="216" width="54" height="130" fill="#9fb8cf"/><rect x="560" y="252" width="54" height="94" fill="#cbd8e4"/>
+<rect x="631" y="294" width="54" height="52" fill="#dfe7ef"/><rect x="702" y="240" width="54" height="106" fill="#b9cbdc"/><rect x="773" y="270" width="54" height="76" fill="#cbd8e4"/>
+<rect x="844" y="228" width="54" height="118" fill="#9fb8cf"/><rect x="915" y="284" width="54" height="62" fill="#dfe7ef"/><rect x="986" y="258" width="54" height="88" fill="#cbd8e4"/>
+<line x1="661" y1="230" x2="661" y2="360" stroke="#3f6488" stroke-width="3"/><rect x="627" y="194" width="68" height="24" rx="12" fill="#3f6488"/><text x="642" y="211" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff">TODAY</text>
+<text x="139" y="277" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#1d1f20">84</text><text x="495" y="207" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#1d1f20">146</text><text x="851" y="219" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#1d1f20">132</text>
+<rect x="704" y="206" width="196" height="74" rx="8" fill="#1d1f20"/><text x="720" y="228" font-family="Arial,sans-serif" font-size="11" fill="#b9cbdc">WEEK 41</text><text x="720" y="252" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#fff">Toplam 118 adet</text><text x="720" y="270" font-family="Arial,sans-serif" font-size="11" fill="#d4d4d7">Detay için hover</text>
+<rect x="82" y="416" width="1116" height="220" rx="8" fill="#fafafa" stroke="#d4d4d7"/>
+<text x="104" y="448" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#1d1f20">ADET / HAFTA</text>
+<line x1="104" y1="590" x2="1172" y2="590" stroke="#c7c7ca"/>
+<polyline points="120,560 190,520 260,545 330,492 400,518 470,470 540,502 610,454 680,486 750,442 820,474 890,430 960,462 1030,444 1100,468 1160,450" fill="none" stroke="#3f6488" stroke-width="4"/>
+<circle cx="610" cy="454" r="6" fill="#3f6488"/><line x1="610" y1="452" x2="610" y2="606" stroke="#3f6488" stroke-width="2"/><text x="588" y="624" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#3f6488">TODAY</text>
+<text x="103" y="612" font-family="Arial,sans-serif" font-size="12" fill="#5d5d60">Kalıcı toplam etiketleri ve ortak hover davranışı</text>
+</svg>

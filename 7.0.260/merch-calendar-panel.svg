@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="540" viewBox="0 0 1120 540" role="img" aria-label="Merch Calendar schematic preview">
+<rect width="1120" height="540" fill="#f5f7fa"/>
+<rect x="56" y="40" width="1008" height="460" fill="#fff" stroke="#bdc5d0" stroke-width="2"/>
+<text x="84" y="80" fill="#23334a" font-family="Arial,sans-serif" font-size="23" font-weight="bold">Tools / Araçlar</text>
+<line x1="84" x2="1036" y1="100" y2="100" stroke="#c8d1db"/>
+<text x="84" y="136" fill="#23334a" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Calculation Rules / Hesaplama Kuralları</text>
+<rect x="84" y="155" width="952" height="62" fill="#e9eff6" stroke="#8897aa"/>
+<text x="108" y="193" fill="#23334a" font-family="Arial,sans-serif" font-size="21" font-weight="bold">▼ Merch Calendar</text>
+<text x="810" y="190" fill="#44556a" font-family="Arial,sans-serif" font-size="14">Expandable module</text>
+<rect x="106" y="234" width="908" height="219" fill="#fff" stroke="#b7c1cd"/>
+<text x="128" y="266" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#23334a">LCW week / month calendar</text>
+<text x="128" y="295" font-family="Arial,sans-serif" font-size="15" fill="#526276">1–53 weeks supported · LCW / GLB shown in date pickers</text>
+<rect x="128" y="320" width="548" height="57" fill="#f6f8fa" stroke="#b7c1cd"/>
+<text x="150" y="356" font-family="Arial,sans-serif" font-size="16" fill="#23334a">Upload / Replace Calendar</text>
+<rect x="699" y="320" width="278" height="57" fill="#f6f8fa" stroke="#b7c1cd"/>
+<text x="726" y="356" font-family="Arial,sans-serif" font-size="16" fill="#23334a">Remove Calendar</text>
+<text x="128" y="420" font-family="Arial,sans-serif" font-size="14" fill="#637185">Component preview only · No live business data</text>
+</svg>

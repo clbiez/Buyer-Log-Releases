@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d">
+<title id="t">Buyer Log visual release archive</title><desc id="d">Buyer Log style release archive preview used only to bootstrap the new archive system.</desc>
+<rect width="1280" height="720" fill="#f2f2f3"/><rect x="50" y="44" width="1180" height="632" fill="#fff" stroke="#b7b7ba"/>
+<rect x="50" y="44" width="1180" height="96" fill="#fff"/><line x1="50" y1="140" x2="1230" y2="140" stroke="#d4d4d7"/>
+<text x="82" y="78" font-family="Arial,sans-serif" font-size="14" letter-spacing="3" fill="#3f6488">BUYER LOG · SÜRÜM ARŞİVİ</text>
+<text x="82" y="112" font-family="Arial,sans-serif" font-size="31" font-weight="600" fill="#1d1f20">Sürüm Geçmişi</text>
+<rect x="50" y="140" width="292" height="536" fill="#f5f5f8"/><line x1="342" y1="140" x2="342" y2="676" stroke="#d4d4d7"/>
+<text x="74" y="178" font-family="Arial,sans-serif" font-size="12" letter-spacing="2" fill="#7a7a7d">STABLE SÜRÜMLER</text>
+<rect x="70" y="198" width="252" height="72" fill="#e6edf4" stroke="#3f6488"/><text x="86" y="224" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#1d1f20">v7.0.211</text><text x="86" y="250" font-family="Arial,sans-serif" font-size="13" fill="#5d5d60">Görsel sürüm geçmişi</text>
+<rect x="70" y="280" width="252" height="72" fill="#fff" stroke="#d4d4d7"/><text x="86" y="306" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#1d1f20">v7.0.210</text><text x="86" y="332" font-family="Arial,sans-serif" font-size="13" fill="#5d5d60">IAS Database</text>
+<rect x="378" y="184" width="414" height="330" fill="#f2f2f3" stroke="#d4d4d7"/><rect x="378" y="184" width="414" height="40" fill="#f5f5f8"/><text x="394" y="209" font-family="Arial,sans-serif" font-size="12" fill="#5d5d60">BUYER LOG</text>
+<rect x="402" y="252" width="366" height="220" fill="#fff" stroke="#d4d4d7"/><rect x="430" y="278" width="130" height="18" fill="#e6edf4"/><rect x="430" y="312" width="310" height="12" fill="#d4d4d7"/><rect x="430" y="340" width="278" height="12" fill="#d4d4d7"/><rect x="430" y="382" width="88" height="58" fill="#e6edf4" stroke="#3f6488"/><rect x="534" y="382" width="88" height="58" fill="#f5f5f8" stroke="#d4d4d7"/><rect x="638" y="382" width="88" height="58" fill="#f5f5f8" stroke="#d4d4d7"/>
+<text x="838" y="238" font-family="Arial,sans-serif" font-size="12" letter-spacing="2" fill="#3f6488">YENİ ÖZELLİK · SÜRÜM GEÇMİŞİ</text>
+<text x="838" y="282" font-family="Arial,sans-serif" font-size="28" font-weight="600" fill="#1d1f20">Görsel sürüm arşivi</text>
+<text x="838" y="324" font-family="Arial,sans-serif" font-size="16" fill="#5d5d60">Stable değişiklikleri Buyer Log ekranları,</text><text x="838" y="350" font-family="Arial,sans-serif" font-size="16" fill="#5d5d60">TR/EN açıklamalar ve kısa anlatımlarla saklanır.</text>
+<line x1="378" y1="568" x2="1192" y2="568" stroke="#d4d4d7"/><rect x="378" y="586" width="814" height="4" fill="#e6edf4"/><rect x="378" y="586" width="420" height="4" fill="#3f6488"/>
+<circle cx="1128" cy="624" r="22" fill="#fff" stroke="#d4d4d7"/><text x="1122" y="632" font-family="Arial,sans-serif" font-size="24" fill="#1d1f20">‹</text><circle cx="1180" cy="624" r="22" fill="#3f6488"/><text x="1174" y="632" font-family="Arial,sans-serif" font-size="24" fill="#fff">›</text>
+</svg>

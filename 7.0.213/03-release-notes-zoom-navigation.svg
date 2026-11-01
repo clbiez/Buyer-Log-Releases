@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d">
+<title id="t">Readable release notes with zoom and navigation</title><desc id="d">Buyer Log themed component preview showing readable release-note copy, enlarged visual preview and prominent previous-next navigation.</desc>
+<rect width="1280" height="720" fill="#f2f2f3"/><rect x="50" y="42" width="1180" height="636" fill="#fff" stroke="#b7b7ba"/>
+<text x="82" y="78" font-family="Arial,sans-serif" font-size="14" letter-spacing="3" fill="#3f6488">BUYER LOG · GÜNCELLEME BİLDİRİMİ</text>
+<text x="82" y="118" font-family="Arial,sans-serif" font-size="30" font-weight="600" fill="#1d1f20">Daha okunaklı sürüm notları</text>
+<rect x="82" y="168" width="430" height="420" rx="10" fill="#fafafa" stroke="#d4d4d7"/>
+<rect x="108" y="194" width="378" height="188" rx="8" fill="#e7ebef" stroke="#c4c8cc"/><rect x="132" y="218" width="330" height="140" fill="#fff" stroke="#cfd3d7"/><rect x="154" y="240" width="130" height="14" fill="#c7d5e2"/><rect x="154" y="274" width="282" height="9" fill="#d9dde1"/><rect x="154" y="298" width="230" height="9" fill="#d9dde1"/><rect x="154" y="322" width="258" height="9" fill="#d9dde1"/>
+<text x="108" y="424" font-family="Arial,sans-serif" font-size="13" letter-spacing="1.4" fill="#3f6488">GÜNCELLEME</text><text x="108" y="462" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#1d1f20">Açıklama artık görselin yanında okunur</text>
+<text x="108" y="494" font-family="Arial,sans-serif" font-size="14" fill="#5d5d60">Eksik içerik varsa yedek açıklama gösterilir.</text><text x="108" y="518" font-family="Arial,sans-serif" font-size="14" fill="#5d5d60">Görsele tıklayarak detay görünümünü açabilirsiniz.</text>
+<rect x="548" y="168" width="650" height="420" rx="10" fill="#1d1f20" stroke="#1d1f20"/><rect x="592" y="208" width="562" height="304" rx="8" fill="#fff"/>
+<rect x="626" y="242" width="494" height="236" fill="#f3f4f5" stroke="#d1d4d7"/><rect x="662" y="274" width="180" height="20" fill="#c7d5e2"/><rect x="662" y="318" width="410" height="12" fill="#d8dadd"/><rect x="662" y="348" width="360" height="12" fill="#d8dadd"/><rect x="662" y="396" width="120" height="52" fill="#e1e9f0" stroke="#3f6488"/><rect x="800" y="396" width="120" height="52" fill="#fff" stroke="#cfd2d5"/><rect x="938" y="396" width="120" height="52" fill="#fff" stroke="#cfd2d5"/>
+<circle cx="576" cy="378" r="28" fill="#fff"/><text x="567" y="389" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#1d1f20">‹</text>
+<circle cx="1170" cy="378" r="28" fill="#3f6488" stroke="#fff"/><text x="1161" y="389" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#fff">›</text>
+<text x="752" y="548" font-family="Arial,sans-serif" font-size="13" fill="#d4d4d7">Büyütülmüş görsel · 2 / 3</text>
+<text x="82" y="630" font-family="Arial,sans-serif" font-size="12" fill="#5d5d60">Tek tıkla büyütme · Belirgin ileri/geri kontrolleri · Okunabilir açıklama alanı</text>
+</svg>

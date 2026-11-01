@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d">
+<title id="t">Cumulative stable update flow</title><desc id="d">Buyer Log style cumulative update flow preview used only to bootstrap the new archive system.</desc>
+<rect width="1280" height="720" fill="#f2f2f3"/><rect x="70" y="60" width="1140" height="600" fill="#fff" stroke="#b7b7ba"/>
+<text x="105" y="104" font-family="Arial,sans-serif" font-size="14" letter-spacing="3" fill="#3f6488">BUYER LOG · YENİLİKLER</text><text x="105" y="144" font-family="Arial,sans-serif" font-size="32" font-weight="600" fill="#1d1f20">Buyer Log güncellendi</text>
+<text x="105" y="174" font-family="Arial,sans-serif" font-size="15" fill="#5d5d60">4 stable sürümdeki yenilikler tek akışta gösteriliyor.</text>
+<line x1="105" y1="230" x2="1175" y2="230" stroke="#d4d4d7"/>
+<line x1="172" y1="340" x2="1082" y2="340" stroke="#b7b7ba" stroke-width="3"/>
+<circle cx="200" cy="340" r="46" fill="#e6edf4" stroke="#3f6488"/><circle cx="480" cy="340" r="46" fill="#e6edf4" stroke="#3f6488"/><circle cx="760" cy="340" r="46" fill="#e6edf4" stroke="#3f6488"/><circle cx="1040" cy="340" r="46" fill="#3f6488" stroke="#3f6488"/>
+<text x="166" y="348" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#1d1f20">7.0.208</text><text x="446" y="348" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#1d1f20">7.0.209</text><text x="726" y="348" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#1d1f20">7.0.210</text><text x="1006" y="348" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#fff">7.0.211</text>
+<text x="151" y="420" font-family="Arial,sans-serif" font-size="14" fill="#5d5d60">Kaçırılan stable</text><text x="439" y="420" font-family="Arial,sans-serif" font-size="14" fill="#5d5d60">Tüm değişiklikler</text><text x="716" y="420" font-family="Arial,sans-serif" font-size="14" fill="#5d5d60">Kronolojik sıra</text><text x="995" y="420" font-family="Arial,sans-serif" font-size="14" fill="#5d5d60">Güncel sürüm</text>
+<rect x="140" y="492" width="1000" height="4" fill="#e6edf4"/><rect x="140" y="492" width="1000" height="4" fill="#3f6488"/>
+<text x="140" y="540" font-family="Arial,sans-serif" font-size="13" fill="#5d5d60">Son görülen stable sürüm cihazda saklanır; kullanıcı yalnız görmediği sürümleri izler.</text>
+</svg>
