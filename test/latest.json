@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.323",
-  "publishedAt": "2026-11-01T10:21:05.975Z",
-  "artifact": "releases/BuyerLog-7.0.323.zip",
-  "sha256": "4f7f311d9d5f945e84b99e8de641dbac1a1eb43fc96c7941f3c2dc0eff09fef9",
-  "size": 74111872,
+  "version": "7.0.325",
+  "publishedAt": "2026-11-01T14:02:38.250Z",
+  "artifact": "releases/BuyerLog-7.0.325.zip",
+  "sha256": "a1c96172e5d4bb878609b356e12a8375a08457d2da3c5fe4eb4b7d1803ff6dc7",
+  "size": 77072833,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.323 — 7.0.321–322 değişiklikleri ve kurumsal ağlar için kalıcı güncelleme düzeltmesi. Mevcut STORE ZIP istemcisiyle uyumlu küçük paket; raw indirme boyutu ve SHA doğrulanmadan kanal ilerlemez.\nEN: Buyer Log TEST 7.0.323 — Includes the 7.0.321–322 changes and the permanent update fix for managed networks. Small package compatible with existing STORE ZIP clients; the channel advances only after raw download size and SHA verification.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.325 — Koleksiyon Fiyat: Previous Season/LFL, örneklem uyarıları ve sezon etkisi; daha hızlı açılış; Global Flow sade uyarı ve filo simgeleri; Görünüm çekmecesi ve köşeden yayılan üçgen geçişi; kurulum EXE simgesi; yeni bilgisayarda SYNC kullanıcıları; OneDrive paylaşımlı klasörde atlanan cihaz ve çakışma kopyası uyarısı; engelli Release indirmelerinde güncelleme. Ortak klasör yazma kilidi Windows'ta geçici erişim reddinde yeniden dener; LCW AI bağlamı sütun hatasında güvenli biçimde durur.\nEN: Buyer Log TEST 7.0.325 — Collection Price: Previous Season/LFL, sample warnings and season impact; faster startup; quieter Global Flow warnings and fleet icons; Appearance drawer and corner-wave triangle transition; installer EXE icon; SYNC users on new computers; skipped devices and conflict copy warning in OneDrive shared folders; updates where Release downloads are blocked. Shared-folder write lease retries a transient Windows access denial; LCW AI context fails closed on column errors.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "uxAuO9shLz8J/pby2EdAXpmqBZel15TNKLFRM5k7KNH0G4BHGNvYsLq2vm0sc2TEp08bN5jf4o8DLzMLqBy1BQ=="
+    "value": "eeH0gQQyZcNrpLJvl4KMj+NVSwS4NUhMfBVh9K2SnVdW+Kz9y1i6ocm4mb78wPdFmOn2KmRjX+I10DUXp+xPCg=="
   }
 }
