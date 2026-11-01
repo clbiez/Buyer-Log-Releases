@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.322",
-  "publishedAt": "2026-10-30T15:21:03.920Z",
-  "artifact": "releases/BuyerLog-7.0.322.zip",
-  "sha256": "98b01a64333ad8d4501d495831b31eb44f6b4aabdab69d5e0132054f754bf893",
-  "size": 184542200,
+  "version": "7.0.325",
+  "publishedAt": "2026-11-01T14:10:21.212Z",
+  "artifact": "releases/BuyerLog-7.0.325.zip",
+  "sha256": "a1c96172e5d4bb878609b356e12a8375a08457d2da3c5fe4eb4b7d1803ff6dc7",
+  "size": 77072833,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.322 — seçilebilir tema geçişleri (varsayılan sırayla katlanan üçgenler), belirgin giriş alanları, Veri Yönetimi iki ufuk ve ASAS ⇄ IAS yan yana filtreler.\nEN: Buyer Log TEST 7.0.322 — selectable theme transitions (default triangles folding in sequence), distinct input fields, Data Management two horizons and ASAS ⇄ IAS side-by-side filters.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.325 — Koleksiyon Fiyat: Previous Season/LFL, örneklem uyarıları ve sezon etkisi; daha hızlı açılış; Global Flow sade uyarı ve filo simgeleri; Görünüm çekmecesi ve köşeden yayılan üçgen geçişi; kurulum EXE simgesi; yeni bilgisayarda SYNC kullanıcıları; OneDrive paylaşımlı klasörde atlanan cihaz ve çakışma kopyası uyarısı; engelli Release indirmelerinde güncelleme. Ortak klasör yazma kilidi Windows'ta geçici erişim reddinde yeniden dener; LCW AI bağlamı sütun hatasında güvenli biçimde durur.\nEN: Buyer Log TEST 7.0.325 — Collection Price: Previous Season/LFL, sample warnings and season impact; faster startup; quieter Global Flow warnings and fleet icons; Appearance drawer and corner-wave triangle transition; installer EXE icon; SYNC users on new computers; skipped devices and conflict copy warning in OneDrive shared folders; updates where Release downloads are blocked. Shared-folder write lease retries a transient Windows access denial; LCW AI context fails closed on column errors.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "oxx1FZB4/ni6JKQSDfQ64ozlUz4fJJtb/XHmpFlyfOPnLZo4kew6+RPm9XmQdWnltfuVw8PeR8B1zFvtjjsMDA=="
+    "value": "eeH0gQQyZcNrpLJvl4KMj+NVSwS4NUhMfBVh9K2SnVdW+Kz9y1i6ocm4mb78wPdFmOn2KmRjX+I10DUXp+xPCg=="
   }
 }
