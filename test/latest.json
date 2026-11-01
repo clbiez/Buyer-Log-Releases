@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.322",
-  "publishedAt": "2026-10-30T15:14:51.009Z",
-  "artifact": "releases/BuyerLog-7.0.322.zip",
-  "sha256": "98b01a64333ad8d4501d495831b31eb44f6b4aabdab69d5e0132054f754bf893",
-  "size": 184542200,
+  "version": "7.0.323",
+  "publishedAt": "2026-11-01T10:21:05.975Z",
+  "artifact": "releases/BuyerLog-7.0.323.zip",
+  "sha256": "4f7f311d9d5f945e84b99e8de641dbac1a1eb43fc96c7941f3c2dc0eff09fef9",
+  "size": 74111872,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.322 — seçilebilir tema geçişleri (varsayılan sırayla katlanan üçgenler), belirgin giriş alanları, Veri Yönetimi iki ufuk ve ASAS ⇄ IAS yan yana filtreler.\nEN: Buyer Log TEST 7.0.322 — selectable theme transitions (default triangles folding in sequence), distinct input fields, Data Management two horizons and ASAS ⇄ IAS side-by-side filters.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.323 — 7.0.321–322 değişiklikleri ve kurumsal ağlar için kalıcı güncelleme düzeltmesi. Mevcut STORE ZIP istemcisiyle uyumlu küçük paket; raw indirme boyutu ve SHA doğrulanmadan kanal ilerlemez.\nEN: Buyer Log TEST 7.0.323 — Includes the 7.0.321–322 changes and the permanent update fix for managed networks. Small package compatible with existing STORE ZIP clients; the channel advances only after raw download size and SHA verification.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "oxx1FZB4/ni6JKQSDfQ64ozlUz4fJJtb/XHmpFlyfOPnLZo4kew6+RPm9XmQdWnltfuVw8PeR8B1zFvtjjsMDA=="
+    "value": "uxAuO9shLz8J/pby2EdAXpmqBZel15TNKLFRM5k7KNH0G4BHGNvYsLq2vm0sc2TEp08bN5jf4o8DLzMLqBy1BQ=="
   }
 }
