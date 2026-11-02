@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.328",
-  "publishedAt": "2026-11-01T20:00:26.389Z",
-  "artifact": "releases/BuyerLog-7.0.328.zip",
-  "sha256": "5ed6e51c7e7ade96f3083d68f5d2a6d78f1e154dfcdc1efe579bb207e6529266",
-  "size": 76013191,
+  "version": "7.0.331",
+  "publishedAt": "2026-11-02T21:41:37.254Z",
+  "artifact": "releases/BuyerLog-7.0.331.zip",
+  "sha256": "e7eecc628ad94001b6714c86bf5a627fb68ebfb4ba75572919abd53f378632a3",
+  "size": 74589528,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.328 — Eski Outlook ve Agent izinlerini içeren SYNC kullanıcı dizinleri yeni bilgisayarlarda mevcut şifreler korunarak yüklenir. Kaldırılmış izinler etkin yetki vermez; bütünlük ve kullanıcı yetkisi kontrolleri korunur. Koleksiyon Price alt ortalamaları, kompakt kıyaslar ve referans sipariş detayları dahildir.\nEN: Buyer Log 7.0.328 — New computers load SYNC user directories containing retired Outlook and Agent permissions while preserving existing passwords. Retired codes grant no active access; integrity and authorization checks remain enforced. Includes Collection Price footer averages, compact comparisons and reference order details.",
+  "releaseNotes": "TR: Buyer Log 7.0.331 — Horizon ve yenileme altında CP, Diğer modüller ve INTAKE tek panelde; tekrarlanan Modüller alanı kaldırıldı. PLM baskı analizinde uygulama içi LCW AI oturumu kullanılır.\nEN: Buyer Log 7.0.331 — CP, Other modules and INTAKE share one Horizon and refresh panel; the duplicate Modules section was removed. PLM print analysis uses the embedded LCW AI session.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "kSU3SYegLwS1CWOth6+m9QwUJLBeSrZ/mHJmqH5hty7nlYlV+AhKdATKlPve1mXYKHoPhfxN6ErvyWXuSBBDCQ=="
+    "value": "gZxuqfkBgfH2k0NetgMVtmhkWOgk6Pvw0uoYeSoBSi/pvDJ6C0BCDs+BssT5GeqgZViY7nTz0f8gfmi5kZlsBA=="
   }
 }
