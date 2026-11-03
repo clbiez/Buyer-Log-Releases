@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.331",
-  "publishedAt": "2026-11-02T21:39:37.773Z",
-  "artifact": "releases/BuyerLog-7.0.331.zip",
-  "sha256": "e7eecc628ad94001b6714c86bf5a627fb68ebfb4ba75572919abd53f378632a3",
-  "size": 74589528,
+  "version": "7.0.333",
+  "publishedAt": "2026-11-03T09:26:56.607Z",
+  "artifact": "releases/BuyerLog-7.0.333.zip",
+  "sha256": "84579013ac7fcb02ac708f456c85be04493f148c62a652dc1be3b0c1008197c9",
+  "size": 74983035,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.331 — Horizon ve yenileme altında CP, Diğer modüller ve INTAKE tek panelde; tekrarlanan Modüller alanı kaldırıldı. PLM baskı analizinde uygulama içi LCW AI oturumu kullanılır.\nEN: Buyer Log 7.0.331 — CP, Other modules and INTAKE share one Horizon and refresh panel; the duplicate Modules section was removed. PLM print analysis uses the embedded LCW AI session.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.333 — PR #825 ile CP ve Siparişler'de filtre dışındaki seçili satırlar Kopyala/Excel'e dahil; kompakt seçim listesi, tek tek kaldırma, temizleme ve Geri al. PR #826, tam regresyonda bulunan seçim kaynağı ve Excel beklentisi test uyumsuzluklarını giderir ve bunları PR CI kapsamına alır.\nEN: Buyer Log TEST 7.0.333 — PR #825 includes filtered-out CP/Orders selections in Copy/Excel, with compact list, per-row removal, clear and Undo. PR #826 fixes the full-regression isolated selection-source and Excel assertion mismatches and adds them to PR CI.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "gZxuqfkBgfH2k0NetgMVtmhkWOgk6Pvw0uoYeSoBSi/pvDJ6C0BCDs+BssT5GeqgZViY7nTz0f8gfmi5kZlsBA=="
+    "value": "E1Wbm7FBbxy+OnXbOJ41jrFy/YET8D+GmXifzWsIufDKir3WM9SHm/mWjgEfdiXDuMCX9lMoVuF5RWyKAmg+BA=="
   }
 }
