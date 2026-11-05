@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.334",
-  "publishedAt": "2026-11-04T14:20:19.866Z",
-  "artifact": "releases/BuyerLog-7.0.334.zip",
-  "sha256": "2ae4b49696cf265338560ce06f6defdbd912b71981dbb9a571ce64a0a399478d",
-  "size": 79071371,
+  "version": "7.0.335",
+  "publishedAt": "2026-11-05T04:26:21.375Z",
+  "artifact": "releases/BuyerLog-7.0.335.zip",
+  "sha256": "5252ec9991537d72a214169b7a6b3634b8f577f5ce18ff4aae25bb72a63a3bca",
+  "size": 82092682,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.334 — Uygulama genelindeki bulanık arka planlara hafif karartma ve açılan sol menüye kenar gölgesi eklendi. Tema, boyut, klavye ve yazılım çizimi kontrolleri tamamlandı. Son main geliştirmelerinin görsel sürüm notları pakete dahildir. EN: Buyer Log 7.0.334 — Blurred backgrounds now include subtle dimming, and expanded navigation casts an edge shadow. Themes, sizes, keyboard and software rendering verified. Includes visual release notes for the latest main improvements.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.335 — PR #850: güncelleme sonrası giriş ekranı öncesi donma giderildi; EXE açılış bildirimi güncelleme adımlarını gösterir; açılış perdesi modüller hazır olmadan geçilmez ve aşamayı gösterir.\nEN: Buyer Log TEST 7.0.335 — PR #850: fixes the post-update freeze before the sign-in screen; the EXE launch notice lists update steps; the startup curtain waits for modules and shows the current stage.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "cU5S73IgRbJCBTclvtsCtYMOvHF0o13BjGSMovp/9f+4aw9ruLUxumC4QUmbJhCDJDepepNjaMVvY0sMvcGEDQ=="
+    "value": "3LZaUdcOaOgQqQsUhbCbriGOX3QNUGqsYuS0cDDEDRZPEzNyGpYoogZw/j8uQpl5++4sn/Z8LWO2ufFjKx9sBA=="
   }
 }
