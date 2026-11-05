@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.336",
-  "publishedAt": "2026-11-05T05:31:29.292Z",
-  "artifact": "releases/BuyerLog-7.0.336.zip",
-  "sha256": "664e412ca7e230f670345f200d8d4fc888b3414717c8f744857fd662aeff574b",
-  "size": 82635917,
+  "version": "7.0.337",
+  "publishedAt": "2026-11-05T12:45:13.132Z",
+  "artifact": "releases/BuyerLog-7.0.337.zip",
+  "sha256": "7399e47f013ae8569f2c73993bdda1e4fd7fc77032ef03eb0f19b01a36e2bac9",
+  "size": 85031123,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.336 — PR #851: Koleksiyon Previous Season / LFL / Sezon Etkisi için buyer bazlı ülke filtresi (model sahibinin kuralı, Çoklu görünümde sahip bazlı hesap). 7.0.335 değişikliklerini de içerir.\nEN: Buyer Log TEST 7.0.336 — PR #851: buyer-based country filter for Collection Previous Season / LFL / Season Impact (model owner's rule, owner-based calculation in Multi view). Also includes the 7.0.335 changes.",
+  "releaseNotes": "TR: Buyer Log 7.0.337 — CP, Siparişler ve Koleksiyon sütun dondurma düzeltmeleri; daraltılmış modellerde kumaş özeti; parsiyel sevkiyatlarda LCW AI belge kontrolü; PLM Sync tüm renkler ve kaldığı yerden yeniden deneme. EN: Buyer Log 7.0.337 — Freeze Columns fixes in CP, Orders and Collection; fabric summaries for collapsed models; LCW AI document review for partial shipments; all model colours and resumable PLM Sync retries.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "O4twRbcmUQJLJ5PaWtrqHFTIZlJ1cl+bXomohLthw+A0PzBsocDBlsTBFz1xrEPX+VAIXf+VDf7i/QzfF4ggAw=="
+    "value": "6pTWd6OZcix3puAqc9amzmZL7pb1Gas9ZU4/f4YABQePEWyk4dRmX45heDzYGYvuv2O+od2PgkEp3QzXxw7QAw=="
   }
 }
