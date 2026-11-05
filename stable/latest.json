@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.334",
-  "publishedAt": "2026-11-04T14:21:46.339Z",
-  "artifact": "releases/BuyerLog-7.0.334.zip",
-  "sha256": "2ae4b49696cf265338560ce06f6defdbd912b71981dbb9a571ce64a0a399478d",
-  "size": 79071371,
+  "version": "7.0.336",
+  "publishedAt": "2026-11-05T12:21:35.886Z",
+  "artifact": "releases/BuyerLog-7.0.336.zip",
+  "sha256": "664e412ca7e230f670345f200d8d4fc888b3414717c8f744857fd662aeff574b",
+  "size": 82635917,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.334 — Uygulama genelindeki bulanık arka planlara hafif karartma ve açılan sol menüye kenar gölgesi eklendi. Tema, boyut, klavye ve yazılım çizimi kontrolleri tamamlandı. Son main geliştirmelerinin görsel sürüm notları pakete dahildir. EN: Buyer Log 7.0.334 — Blurred backgrounds now include subtle dimming, and expanded navigation casts an edge shadow. Themes, sizes, keyboard and software rendering verified. Includes visual release notes for the latest main improvements.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.336 — PR #851: Koleksiyon Previous Season / LFL / Sezon Etkisi için buyer bazlı ülke filtresi (model sahibinin kuralı, Çoklu görünümde sahip bazlı hesap). 7.0.335 değişikliklerini de içerir.\nEN: Buyer Log TEST 7.0.336 — PR #851: buyer-based country filter for Collection Previous Season / LFL / Season Impact (model owner's rule, owner-based calculation in Multi view). Also includes the 7.0.335 changes.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "cU5S73IgRbJCBTclvtsCtYMOvHF0o13BjGSMovp/9f+4aw9ruLUxumC4QUmbJhCDJDepepNjaMVvY0sMvcGEDQ=="
+    "value": "O4twRbcmUQJLJ5PaWtrqHFTIZlJ1cl+bXomohLthw+A0PzBsocDBlsTBFz1xrEPX+VAIXf+VDf7i/QzfF4ggAw=="
   }
 }
