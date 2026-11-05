@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.335",
-  "publishedAt": "2026-11-05T04:26:21.375Z",
-  "artifact": "releases/BuyerLog-7.0.335.zip",
-  "sha256": "5252ec9991537d72a214169b7a6b3634b8f577f5ce18ff4aae25bb72a63a3bca",
-  "size": 82092682,
+  "version": "7.0.336",
+  "publishedAt": "2026-11-05T05:31:29.292Z",
+  "artifact": "releases/BuyerLog-7.0.336.zip",
+  "sha256": "664e412ca7e230f670345f200d8d4fc888b3414717c8f744857fd662aeff574b",
+  "size": 82635917,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log TEST 7.0.335 — PR #850: güncelleme sonrası giriş ekranı öncesi donma giderildi; EXE açılış bildirimi güncelleme adımlarını gösterir; açılış perdesi modüller hazır olmadan geçilmez ve aşamayı gösterir.\nEN: Buyer Log TEST 7.0.335 — PR #850: fixes the post-update freeze before the sign-in screen; the EXE launch notice lists update steps; the startup curtain waits for modules and shows the current stage.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.336 — PR #851: Koleksiyon Previous Season / LFL / Sezon Etkisi için buyer bazlı ülke filtresi (model sahibinin kuralı, Çoklu görünümde sahip bazlı hesap). 7.0.335 değişikliklerini de içerir.\nEN: Buyer Log TEST 7.0.336 — PR #851: buyer-based country filter for Collection Previous Season / LFL / Season Impact (model owner's rule, owner-based calculation in Multi view). Also includes the 7.0.335 changes.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "3LZaUdcOaOgQqQsUhbCbriGOX3QNUGqsYuS0cDDEDRZPEzNyGpYoogZw/j8uQpl5++4sn/Z8LWO2ufFjKx9sBA=="
+    "value": "O4twRbcmUQJLJ5PaWtrqHFTIZlJ1cl+bXomohLthw+A0PzBsocDBlsTBFz1xrEPX+VAIXf+VDf7i/QzfF4ggAw=="
   }
 }
