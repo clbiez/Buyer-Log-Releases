@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.337",
-  "publishedAt": "2026-11-05T12:45:13.132Z",
-  "artifact": "releases/BuyerLog-7.0.337.zip",
-  "sha256": "7399e47f013ae8569f2c73993bdda1e4fd7fc77032ef03eb0f19b01a36e2bac9",
-  "size": 85031123,
+  "version": "7.0.339",
+  "publishedAt": "2026-11-06T11:12:46.424Z",
+  "artifact": "releases/BuyerLog-7.0.339.zip",
+  "sha256": "28e8bc0c0cc5925adbbdd446e2f126208d0199aeacd727dabc11068aed4f4dda",
+  "size": 88932533,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.337 — CP, Siparişler ve Koleksiyon sütun dondurma düzeltmeleri; daraltılmış modellerde kumaş özeti; parsiyel sevkiyatlarda LCW AI belge kontrolü; PLM Sync tüm renkler ve kaldığı yerden yeniden deneme. EN: Buyer Log 7.0.337 — Freeze Columns fixes in CP, Orders and Collection; fabric summaries for collapsed models; LCW AI document review for partial shipments; all model colours and resumable PLM Sync retries.",
+  "releaseNotes": "TR: Buyer Log TEST 7.0.339 — PR #877: CP/Siparişler → Koleksiyon aktarımı onaylı fiyatı Supp. FOB, onaylı üreticiyi Sub-Manufacturer olarak alır (royalty iki kez eklenmez); MB ayı + PLM ID + Renk Kodu eşleşen kayıt çoğaltılmadan yerinde güncellenir, fiyat geçmişi korunur, fiyat/üretici farkı onayla değişir. 7.0.337'den bu yana #858–#876 değişikliklerini de içerir. PR #878: Node 22 test uyumu.\nEN: Buyer Log TEST 7.0.339 — PR #877: CP/Orders → Collection import takes Supp. FOB as the confirmed price and Sub-Manufacturer as the confirmed manufacturer (royalty is not added twice); a record matching MB month + PLM ID + Colour Code is updated in place without duplication, pricing history is kept, price/manufacturer differences change only on approval. Also includes #858–#876 since 7.0.337. PR #878: Node 22 test compatibility.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "6pTWd6OZcix3puAqc9amzmZL7pb1Gas9ZU4/f4YABQePEWyk4dRmX45heDzYGYvuv2O+od2PgkEp3QzXxw7QAw=="
+    "value": "0F/x+gE+rUpJWErFj+MTQVTE1t4F11z0aOVflDqJOHrAE4mb7Y7OV40PQ6Jliumb4zau9RPAgs22TVuItTQ9Aw=="
   }
 }
