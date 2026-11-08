@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.342",
-  "publishedAt": "2026-11-08T17:26:17.943Z",
-  "artifact": "releases/BuyerLog-7.0.342.zip",
-  "sha256": "a4985ba9728bb5e4b6471b080dc40b396ac6a964ab2ae7e140909a1bef620178",
-  "size": 100458567,
+  "version": "7.0.343",
+  "publishedAt": "2026-11-08T21:48:08.775Z",
+  "artifact": "releases/BuyerLog-7.0.343.zip",
+  "sha256": "84cff46685abbb18cb93b22078bfdf15777a8d7a87e7f9b560f2ea8ffc7bd81f",
+  "size": 88950459,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.342 — dondurulan performans ve güvenilirlik paketi: küçük oturum denetim kayıtları, dense Excel kaynak okuması, birincil ekran açılış kapısı, isteğe bağlı modül JS/CSS yüklemesi, CP checklist geçiş önbelleği, ortak sunucu worker havuzu, fiyatlama/analitik istemci hesapları, güncel yetki denetimleri, snapshot serileştirmesi, ortak görsel pack yayını ve parser önceliği. 6a/6c, INT-08 preview ve SHELL-06 polling entegrasyonu uygulanmamıştır; bilinen ödünleşimler 2026-11-08 final raporundadır. Yayın öncesi Windows tam regresyonu, imza ve byte doğrulaması zorunludur.\nEN: Buyer Log 7.0.342 — frozen performance and reliability package: compact session audits, dense Excel source reads, primary-screen startup gate, lazy module JS/CSS, CP checklist pass caching, shared server workers, pricing/analytics computation, current-authority checks, snapshot serialization, shared image-pack publication and parser priorities. 6a/6c, INT-08 previews and SHELL-06 polling integration are not implemented; known tradeoffs remain in the 2026-11-08 final report. Windows full regression, signing and byte verification are mandatory before publication.",
+  "releaseNotes": "TR: Buyer Log 7.0.343 — yenilemede COMPUTE_JOB_TOO_LARGE ve büyük snapshot kaydında bellek taşması düzeltildi. CP, Siparişler ve Backlog güncel veriyi alır; kullanılmayan kullanıcı kaynakları bellekten bırakılır. Tablo görsel önizlemeleri, CP toplu satır indeksleri, analitik/INTAKE detayları ve fiyat matrisi pencerelemesi iyileştirildi.\nEN: Buyer Log 7.0.343 — fixes COMPUTE_JOB_TOO_LARGE during refresh and out-of-memory crashes while saving large snapshots. CP, Orders and Backlog receive current data; inactive user sources are released from memory. Includes table image previews, bulk CP row indexes, analytics/INTAKE details and pricing-matrix windowing improvements.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "vIrhcaSGTrq8qbKAnLT3BNgN8wIsy3szIHqWarokn2BaearTpzyYUT1o4ZolFDmdHisuwus/WF9QzpDQjdt+BQ=="
+    "value": "Xyk5j2Di/g/Wd2fo6Rtidd1EXP7kKnDBo7N4ofuE4YuNUk98xEx3qBP5QU5Jp46kR+tXt+4+0uoI+LfNaOJVDw=="
   }
 }
