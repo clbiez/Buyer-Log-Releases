@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.343",
-  "publishedAt": "2026-11-08T21:48:08.775Z",
-  "artifact": "releases/BuyerLog-7.0.343.zip",
-  "sha256": "84cff46685abbb18cb93b22078bfdf15777a8d7a87e7f9b560f2ea8ffc7bd81f",
-  "size": 88950459,
+  "version": "7.0.344",
+  "publishedAt": "2026-11-09T17:53:13.215Z",
+  "artifact": "releases/BuyerLog-7.0.344.zip",
+  "sha256": "c6b6456570c04227f43db1e4815384631d683bd2f5460c3106795a0dc1a634d5",
+  "size": 91860054,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.343 — yenilemede COMPUTE_JOB_TOO_LARGE ve büyük snapshot kaydında bellek taşması düzeltildi. CP, Siparişler ve Backlog güncel veriyi alır; kullanılmayan kullanıcı kaynakları bellekten bırakılır. Tablo görsel önizlemeleri, CP toplu satır indeksleri, analitik/INTAKE detayları ve fiyat matrisi pencerelemesi iyileştirildi.\nEN: Buyer Log 7.0.343 — fixes COMPUTE_JOB_TOO_LARGE during refresh and out-of-memory crashes while saving large snapshots. CP, Orders and Backlog receive current data; inactive user sources are released from memory. Includes table image previews, bulk CP row indexes, analytics/INTAKE details and pricing-matrix windowing improvements.",
+  "releaseNotes": "TR: Buyer Log 7.0.344 — Koleksiyon LFL yenileme ve Artwork/BOM düzeltmeleri, filtre aramasında odak koruma, Backlog filtre ve tarih paneli iyileştirmeleri, bildirimden kayda gitme, lisans atlası, PLM görsel/BOM ilerleme ve kaynak sınırları, Excel/kur aktarımında veri koruma, sekme hazırlama ve LCW AI hesaplamaları. SQLite araştırması bu sürüme dahil değildir.\nEN: Buyer Log 7.0.344 — Collection LFL refresh and Artwork/BOM fixes, persistent filter-search focus, Backlog filters and date panel improvements, notification navigation, license atlas, PLM image/BOM progress and resource budgets, Excel/FX import safety, tab readiness and LCW AI calculations. SQLite research is not included.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Xyk5j2Di/g/Wd2fo6Rtidd1EXP7kKnDBo7N4ofuE4YuNUk98xEx3qBP5QU5Jp46kR+tXt+4+0uoI+LfNaOJVDw=="
+    "value": "R8KGJCCQi4uY5eeiyNrT2eSyM0KG1w77QeJkrEnwJwKBD2yoHliBXEbtPlP2+L4X/KFtwpEpDcvi5YLXvnCUAg=="
   }
 }
