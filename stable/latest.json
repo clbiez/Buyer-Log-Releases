@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.344",
-  "publishedAt": "2026-11-09T17:53:13.215Z",
-  "artifact": "releases/BuyerLog-7.0.344.zip",
-  "sha256": "c6b6456570c04227f43db1e4815384631d683bd2f5460c3106795a0dc1a634d5",
-  "size": 91860054,
+  "version": "7.0.346",
+  "publishedAt": "2026-11-10T07:37:05.147Z",
+  "artifact": "releases/BuyerLog-7.0.346.zip",
+  "sha256": "156871bd2f07c1cd273c2d888306be984e5c490069a7824fb76e9b780b6f1015",
+  "size": 80355277,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.344 — Koleksiyon LFL yenileme ve Artwork/BOM düzeltmeleri, filtre aramasında odak koruma, Backlog filtre ve tarih paneli iyileştirmeleri, bildirimden kayda gitme, lisans atlası, PLM görsel/BOM ilerleme ve kaynak sınırları, Excel/kur aktarımında veri koruma, sekme hazırlama ve LCW AI hesaplamaları. SQLite araştırması bu sürüme dahil değildir.\nEN: Buyer Log 7.0.344 — Collection LFL refresh and Artwork/BOM fixes, persistent filter-search focus, Backlog filters and date panel improvements, notification navigation, license atlas, PLM image/BOM progress and resource budgets, Excel/FX import safety, tab readiness and LCW AI calculations. SQLite research is not included.",
+  "releaseNotes": "TR: Buyer Log 7.0.346 — Backlog Excel sütunlarına özel ad, kaynak ve alan eşlemesi, CP ile ortak FX/formül düzenleyicisi ve Excel Ayarlar sayfasında kaynak bağlantıları. Sipariş Importance etiketleri ortak klasörden güncel istemciler arasında eşitlenir; Regular seçimi ve kaldırma işlemi de aktarılır. 7.0.345 TEST tam regresyonunda bulunan eski kaynak sözleşmesi de güncellendi; ürün davranışında ek değişiklik yoktur.\nEN: Buyer Log 7.0.346 — Custom Backlog Excel column names, source/field mapping, shared CP FX/formula editor and source lineage in Excel Settings. Order Importance assignments replicate across updated clients via the shared sync folder, including explicit Regular selection and clears. An outdated source contract exposed by the failed 7.0.345 TEST regression was corrected without changing product behavior.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "R8KGJCCQi4uY5eeiyNrT2eSyM0KG1w77QeJkrEnwJwKBD2yoHliBXEbtPlP2+L4X/KFtwpEpDcvi5YLXvnCUAg=="
+    "value": "Hp9mOS2rTUrQ2ZNLdgm9UNBTe/m24OkOV3M/j661vC25rpWR768pXaHfiaycVyUz8VO8P4INZl6ypUTdhPdwDA=="
   }
 }
