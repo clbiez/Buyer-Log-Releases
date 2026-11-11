@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.351",
-  "publishedAt": "2026-11-11T17:46:42.195Z",
-  "artifact": "releases/BuyerLog-7.0.351.zip",
-  "sha256": "212f632d5a2eedf3a2516dbe2b321eb137d1f01292e73bae32d1cbb5b5de7e80",
-  "size": 76677715,
+  "version": "7.0.352",
+  "publishedAt": "2026-11-11T21:32:13.443Z",
+  "artifact": "releases/BuyerLog-7.0.352.zip",
+  "sha256": "2cd6055d0c07883a255b6e2d69a4921e8c04cbc050c493a4b577aef549259e95",
+  "size": 75391754,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.351 — LCW AI Koleksiyon MB ayını tanır; sunum/PDF hazırlanırken adım adım ilerleme gösterilir; Buyer Log'un hesapladığı listelerden üretilen dosyalara model görselleri eklenir; uzun sonuçlar CSV eki olarak eksiksiz gider. Ayrıca main'deki sipariş/tablo düzeltmeleri. 7.0.350 TEST regresyonu Windows test koşucusu hatasıyla başlamadan düştü; koşucu düzeltildi, ürün davranışında ek değişiklik yoktur.\nEN: Buyer Log 7.0.351 — LCW AI recognises the Collection MB month; step-by-step progress while presentations/PDFs are prepared; model images in files built from lists calculated by Buyer Log; long results go in full as a CSV attachment. Also includes the order/table fixes on main. The 7.0.350 TEST regression failed before starting due to a Windows test-runner bug; the runner was fixed without changing product behavior.",
+  "releaseNotes": "TR: Buyer Log 7.0.352 — Tablo aramasında ! değerin önüne veya sonuna yazılabilir ve VEYA listesi içinde de tüm aramadan eler (örn. LE SHA; FORM, MINE, 14! SAD!). LCW AI dosya ekleri yeniden çalışır.\nEN: Buyer Log 7.0.352 — In table search, ! can be placed before or after a value and excludes from the whole search even inside an OR list (e.g. LE SHA; FORM, MINE, 14! SAD!). LCW AI file attachments work again.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "pZG++M2GZuxRroo2rv2df8iecFo/vkRhH0QaCkGsrUBxmbQyJsxizPd8ai90YCrmT3+IVUAGOTzmKqsb/mzOAw=="
+    "value": "hQMofEUqg9+bvuIV/XcirXINk4nVscpSkKm5ywlEMnEDXD+BC1U42XCFHolQpEXDuPmnvcWX11piRrDyMuZaCA=="
   }
 }
