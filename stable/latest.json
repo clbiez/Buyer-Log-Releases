@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.348",
-  "publishedAt": "2026-11-11T05:38:35.997Z",
-  "artifact": "releases/BuyerLog-7.0.348.zip",
-  "sha256": "215fc58acb936d278c146515627e8dac1ce88e6200bf966f37f91f2cdf39be8c",
-  "size": 81002978,
+  "version": "7.0.349",
+  "publishedAt": "2026-11-11T10:58:30.313Z",
+  "artifact": "releases/BuyerLog-7.0.349.zip",
+  "sha256": "f966a9dafeb7059e3c82737d73ca780535af0f2f735c4e191252a1e2dece6f4e",
+  "size": 78261011,
   "mandatory": false,
-  "releaseNotes": "Presentation column matrix, continuous preview, fixed typography, cross-slide moves; source values excluded from AI layout requests.",
+  "releaseNotes": "TR: Buyer Log 7.0.349 — Koleksiyon'da Previous Season / LFL / Sezon Etkisi referansları kaynaktan grup düştüğünde de yenilenir ve sipariş detayları açılır; PLM/OAB/LCW AI giriş ekranları ERR_FAILED sonrası kendini onarır; Merch Calendar ekibe dağıtılır; Backlog Overview sorgusu düzeltildi; saatlik güncelleme kontrolü ve kalıcı Güncelleme var uyarısı.\nEN: Buyer Log 7.0.349 — Collection Previous Season / LFL / Season Impact references refresh even when groups leave the source, and order details open again; PLM/OAB/LCW AI sign-in screens recover after ERR_FAILED; the Merch Calendar reaches the whole team; Backlog Overview query fixed; hourly update checks with a persistent Update available notice.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "s2JapmZ6bIrQi3CZEKnJfpQbOG074FvoWPLoRLWoWtHKea/b0T9PfxuFNdeiaz6L6smbplOwYqZDmlZvglSkDg=="
+    "value": "0KpaGi/W6MrA1efmVTh5hmCBI0p7hmWXyLgNMw1wLtMI6bGAcgLX4OK/AXJcul2Twcas4JNrcdgoEX+iHr8CCQ=="
   }
 }
