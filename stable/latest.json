@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.346",
-  "publishedAt": "2026-11-10T07:37:05.147Z",
-  "artifact": "releases/BuyerLog-7.0.346.zip",
-  "sha256": "156871bd2f07c1cd273c2d888306be984e5c490069a7824fb76e9b780b6f1015",
-  "size": 80355277,
+  "version": "7.0.348",
+  "publishedAt": "2026-11-11T05:38:35.997Z",
+  "artifact": "releases/BuyerLog-7.0.348.zip",
+  "sha256": "215fc58acb936d278c146515627e8dac1ce88e6200bf966f37f91f2cdf39be8c",
+  "size": 81002978,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.346 — Backlog Excel sütunlarına özel ad, kaynak ve alan eşlemesi, CP ile ortak FX/formül düzenleyicisi ve Excel Ayarlar sayfasında kaynak bağlantıları. Sipariş Importance etiketleri ortak klasörden güncel istemciler arasında eşitlenir; Regular seçimi ve kaldırma işlemi de aktarılır. 7.0.345 TEST tam regresyonunda bulunan eski kaynak sözleşmesi de güncellendi; ürün davranışında ek değişiklik yoktur.\nEN: Buyer Log 7.0.346 — Custom Backlog Excel column names, source/field mapping, shared CP FX/formula editor and source lineage in Excel Settings. Order Importance assignments replicate across updated clients via the shared sync folder, including explicit Regular selection and clears. An outdated source contract exposed by the failed 7.0.345 TEST regression was corrected without changing product behavior.",
+  "releaseNotes": "Presentation column matrix, continuous preview, fixed typography, cross-slide moves; source values excluded from AI layout requests.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Hp9mOS2rTUrQ2ZNLdgm9UNBTe/m24OkOV3M/j661vC25rpWR768pXaHfiaycVyUz8VO8P4INZl6ypUTdhPdwDA=="
+    "value": "s2JapmZ6bIrQi3CZEKnJfpQbOG074FvoWPLoRLWoWtHKea/b0T9PfxuFNdeiaz6L6smbplOwYqZDmlZvglSkDg=="
   }
 }
