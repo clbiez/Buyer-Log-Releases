@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.352",
-  "publishedAt": "2026-11-11T21:23:01.913Z",
-  "artifact": "releases/BuyerLog-7.0.352.zip",
-  "sha256": "2cd6055d0c07883a255b6e2d69a4921e8c04cbc050c493a4b577aef549259e95",
-  "size": 75391754,
+  "version": "7.0.353",
+  "publishedAt": "2026-11-12T10:13:27.054Z",
+  "artifact": "releases/BuyerLog-7.0.353.zip",
+  "sha256": "47051f5bc110b8e9312db242cb4012de473d0599a1b24455602b89e5e9ee2263",
+  "size": 74980675,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.352 — Tablo aramasında ! değerin önüne veya sonuna yazılabilir ve VEYA listesi içinde de tüm aramadan eler (örn. LE SHA; FORM, MINE, 14! SAD!). LCW AI dosya ekleri yeniden çalışır.\nEN: Buyer Log 7.0.352 — In table search, ! can be placed before or after a value and excludes from the whole search even inside an OR list (e.g. LE SHA; FORM, MINE, 14! SAD!). LCW AI file attachments work again.",
+  "releaseNotes": "TR: Buyer Log 7.0.353 — Koleksiyon'dan Nakliye Kıyaslama'ya aktarılan modeller fiyatlarıyla (Onaylı → Best → Target), lisans komisyonu ve hologram maliyetiyle gelir.\nEN: Buyer Log 7.0.353 — Models sent from Collection to Shipping Comparison arrive with their prices (Approved → Best → Target), licence royalty and hologram cost.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "hQMofEUqg9+bvuIV/XcirXINk4nVscpSkKm5ywlEMnEDXD+BC1U42XCFHolQpEXDuPmnvcWX11piRrDyMuZaCA=="
+    "value": "AIM8GRUCry+NwIdRW36l/dqEF1fltYl1a33ZjHvXQeb1z2CBWrt8KZ3YVAZ6yM4knmLrCezwRnYCmX1aVn2TBg=="
   }
 }
