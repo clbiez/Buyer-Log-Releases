@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.353",
-  "publishedAt": "2026-11-12T10:15:21.858Z",
-  "artifact": "releases/BuyerLog-7.0.353.zip",
-  "sha256": "47051f5bc110b8e9312db242cb4012de473d0599a1b24455602b89e5e9ee2263",
-  "size": 74980675,
+  "version": "7.0.355",
+  "publishedAt": "2026-11-13T18:58:07.817Z",
+  "artifact": "releases/BuyerLog-7.0.355.zip",
+  "sha256": "9e07b44bfa92a12a542ba1641125f29ce314e044fae8d63d9ada861243a8d806",
+  "size": 78715097,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.353 — Koleksiyon'dan Nakliye Kıyaslama'ya aktarılan modeller fiyatlarıyla (Onaylı → Best → Target), lisans komisyonu ve hologram maliyetiyle gelir.\nEN: Buyer Log 7.0.353 — Models sent from Collection to Shipping Comparison arrive with their prices (Approved → Best → Target), licence royalty and hologram cost.",
+  "releaseNotes": "TR: Buyer Log 7.0.355 — Büyük yerel veride açılış ekranı veritabanının tamamen okunmasını beklemez; gereksiz tam yeniden yazımlar kalktı, onaylanmış eski değişiklik geçmişi sınırsız birikmez. Koleksiyon MB Date ve PLM revize görsel yenilemesi dahil.\nEN: Buyer Log 7.0.355 — With large local data the startup screen no longer waits for the whole database; needless full rewrites are gone and acknowledged change history no longer grows without limit. Includes Collection MB Date and PLM revised-image refresh.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "AIM8GRUCry+NwIdRW36l/dqEF1fltYl1a33ZjHvXQeb1z2CBWrt8KZ3YVAZ6yM4knmLrCezwRnYCmX1aVn2TBg=="
+    "value": "0ehmX//DYNOShpB17JvSCYQN5oMOqsbfs043VBBJxoKBlwytTdaiGfJxq9FJWfciKUZ5ydg1O0TikYufST8cBQ=="
   }
 }
