@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.353",
-  "publishedAt": "2026-11-12T10:13:27.054Z",
-  "artifact": "releases/BuyerLog-7.0.353.zip",
-  "sha256": "47051f5bc110b8e9312db242cb4012de473d0599a1b24455602b89e5e9ee2263",
-  "size": 74980675,
+  "version": "7.0.354",
+  "publishedAt": "2026-11-13T13:00:58.585Z",
+  "artifact": "releases/BuyerLog-7.0.354.zip",
+  "sha256": "b10156bc2d176e020e713e1c38605835786e4339b8ab83920dbdac6a4d91e8ba",
+  "size": 78227997,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.353 — Koleksiyon'dan Nakliye Kıyaslama'ya aktarılan modeller fiyatlarıyla (Onaylı → Best → Target), lisans komisyonu ve hologram maliyetiyle gelir.\nEN: Buyer Log 7.0.353 — Models sent from Collection to Shipping Comparison arrive with their prices (Approved → Best → Target), licence royalty and hologram cost.",
+  "releaseNotes": "",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "AIM8GRUCry+NwIdRW36l/dqEF1fltYl1a33ZjHvXQeb1z2CBWrt8KZ3YVAZ6yM4knmLrCezwRnYCmX1aVn2TBg=="
+    "value": "JUqloDiY6vyaFYN9pf0zhufDwQ+uNyTfq0iGX5gXOBMimgO0kyHvwdKURi0YNJTG7WSGIt4K1FEKcUsk1wtnBw=="
   }
 }
