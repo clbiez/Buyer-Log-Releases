@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.355",
-  "publishedAt": "2026-11-13T18:56:35.905Z",
-  "artifact": "releases/BuyerLog-7.0.355.zip",
-  "sha256": "9e07b44bfa92a12a542ba1641125f29ce314e044fae8d63d9ada861243a8d806",
-  "size": 78715097,
+  "version": "7.0.356",
+  "publishedAt": "2026-11-14T10:47:48.682Z",
+  "artifact": "releases/BuyerLog-7.0.356.zip",
+  "sha256": "d7bfc88953af55ef822ce4b03713d9e595892f4f1665c61ffa029c12ecf37eb7",
+  "size": 78875390,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.355 — Büyük yerel veride açılış ekranı veritabanının tamamen okunmasını beklemez; gereksiz tam yeniden yazımlar kalktı, onaylanmış eski değişiklik geçmişi sınırsız birikmez. Koleksiyon MB Date ve PLM revize görsel yenilemesi dahil.\nEN: Buyer Log 7.0.355 — With large local data the startup screen no longer waits for the whole database; needless full rewrites are gone and acknowledged change history no longer grows without limit. Includes Collection MB Date and PLM revised-image refresh.",
+  "releaseNotes": "",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "0ehmX//DYNOShpB17JvSCYQN5oMOqsbfs043VBBJxoKBlwytTdaiGfJxq9FJWfciKUZ5ydg1O0TikYufST8cBQ=="
+    "value": "uOZ5UiZKC5lITvrDHVx7bSvclGxS82PEyXH+UBH29OujNx6HJxg57gzn2VzptVymQbKciJRi0IhdBbq6/OCiBg=="
   }
 }
