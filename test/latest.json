@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.356",
-  "publishedAt": "2026-11-14T10:47:48.682Z",
-  "artifact": "releases/BuyerLog-7.0.356.zip",
-  "sha256": "d7bfc88953af55ef822ce4b03713d9e595892f4f1665c61ffa029c12ecf37eb7",
-  "size": 78875390,
+  "version": "7.0.357",
+  "publishedAt": "2026-11-14T18:29:55.702Z",
+  "artifact": "releases/BuyerLog-7.0.357.zip",
+  "sha256": "8fd96acc39f90104d99334db47924d1e23eb5f28607c7dedb95c190c0fa626c2",
+  "size": 81254577,
   "mandatory": false,
-  "releaseNotes": "",
+  "releaseNotes": "TR: Buyer Log 7.0.357 — Görünüm › Stil ile yeni Çizgi arayüz stili (kâğıt zemin, mürekkep çizgiler, çizilerek açılan pencereler; Klasik varsayılan) ve CP Tracker, Siparişler, Koleksiyon tablolarında Rapor görünümü.\nEN: Buyer Log 7.0.357 — New Line interface style via Appearance › Style (paper background, ink lines, windows that open by being drawn; Classic stays default) and Report view for the CP Tracker, Orders and Collection tables.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "uOZ5UiZKC5lITvrDHVx7bSvclGxS82PEyXH+UBH29OujNx6HJxg57gzn2VzptVymQbKciJRi0IhdBbq6/OCiBg=="
+    "value": "9eNpyClKsm/F29qZm2zyCI8RGajBK/6yoiWiDGAzsHoUHdCH9S0qtEqfYVSyZo59keBN7EDnyAczpPduLzDTAQ=="
   }
 }
