@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.357",
-  "publishedAt": "2026-11-14T18:29:55.702Z",
-  "artifact": "releases/BuyerLog-7.0.357.zip",
-  "sha256": "8fd96acc39f90104d99334db47924d1e23eb5f28607c7dedb95c190c0fa626c2",
-  "size": 81254577,
+  "version": "7.0.358",
+  "publishedAt": "2026-11-15T19:36:30.600Z",
+  "artifact": "releases/BuyerLog-7.0.358.zip",
+  "sha256": "c74473e461dbc8923b6ebeb489358901afded33d8ae2dfee66ad1fcef8bea520",
+  "size": 83165234,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.357 — Görünüm › Stil ile yeni Çizgi arayüz stili (kâğıt zemin, mürekkep çizgiler, çizilerek açılan pencereler; Klasik varsayılan) ve CP Tracker, Siparişler, Koleksiyon tablolarında Rapor görünümü.\nEN: Buyer Log 7.0.357 — New Line interface style via Appearance › Style (paper background, ink lines, windows that open by being drawn; Classic stays default) and Report view for the CP Tracker, Orders and Collection tables.",
+  "releaseNotes": "TR: Buyer Log 7.0.358 TEST — Not kaydı sunucu önbelleğinin yeniden yazılmasını beklemeden tamamlanır; CP/Siparişler araması ürün tanımı, kategori, MAG, Buyer Grup, Buyer ve Line alanlarını kapsar; beklenmeyen JS hataları bildirim olarak görünür; Termin Ufku üretimi bitmiş siparişleri tarihi geçmiş saymaz; tablolarda Rapor görünümü.\nEN: Buyer Log 7.0.358 TEST — Saving a note no longer waits for the server cache rewrite; CP/Orders search covers product description, category, MAG, buyer group, buyer and line; unexpected JS errors appear as notifications; Horizon no longer counts finished-production orders as overdue; Report view in tables.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "9eNpyClKsm/F29qZm2zyCI8RGajBK/6yoiWiDGAzsHoUHdCH9S0qtEqfYVSyZo59keBN7EDnyAczpPduLzDTAQ=="
+    "value": "QiDtJ1/xMF/2zkurF5+hm6M7D5YeTN0dbAVYEMdyS5mQieQ+k65QB/iQ3BD0r2Q+G5ZnHfwZFrhJZOnGxRdXAg=="
   }
 }
