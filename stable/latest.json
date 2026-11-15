@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.355",
-  "publishedAt": "2026-11-13T18:58:07.817Z",
-  "artifact": "releases/BuyerLog-7.0.355.zip",
-  "sha256": "9e07b44bfa92a12a542ba1641125f29ce314e044fae8d63d9ada861243a8d806",
-  "size": 78715097,
+  "version": "7.0.358",
+  "publishedAt": "2026-11-15T19:42:28.396Z",
+  "artifact": "releases/BuyerLog-7.0.358.zip",
+  "sha256": "c74473e461dbc8923b6ebeb489358901afded33d8ae2dfee66ad1fcef8bea520",
+  "size": 83165234,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.355 — Büyük yerel veride açılış ekranı veritabanının tamamen okunmasını beklemez; gereksiz tam yeniden yazımlar kalktı, onaylanmış eski değişiklik geçmişi sınırsız birikmez. Koleksiyon MB Date ve PLM revize görsel yenilemesi dahil.\nEN: Buyer Log 7.0.355 — With large local data the startup screen no longer waits for the whole database; needless full rewrites are gone and acknowledged change history no longer grows without limit. Includes Collection MB Date and PLM revised-image refresh.",
+  "releaseNotes": "TR: Buyer Log 7.0.358 TEST — Not kaydı sunucu önbelleğinin yeniden yazılmasını beklemeden tamamlanır; CP/Siparişler araması ürün tanımı, kategori, MAG, Buyer Grup, Buyer ve Line alanlarını kapsar; beklenmeyen JS hataları bildirim olarak görünür; Termin Ufku üretimi bitmiş siparişleri tarihi geçmiş saymaz; tablolarda Rapor görünümü.\nEN: Buyer Log 7.0.358 TEST — Saving a note no longer waits for the server cache rewrite; CP/Orders search covers product description, category, MAG, buyer group, buyer and line; unexpected JS errors appear as notifications; Horizon no longer counts finished-production orders as overdue; Report view in tables.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "0ehmX//DYNOShpB17JvSCYQN5oMOqsbfs043VBBJxoKBlwytTdaiGfJxq9FJWfciKUZ5ydg1O0TikYufST8cBQ=="
+    "value": "QiDtJ1/xMF/2zkurF5+hm6M7D5YeTN0dbAVYEMdyS5mQieQ+k65QB/iQ3BD0r2Q+G5ZnHfwZFrhJZOnGxRdXAg=="
   }
 }
