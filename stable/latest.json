@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.358",
-  "publishedAt": "2026-11-15T19:42:28.396Z",
-  "artifact": "releases/BuyerLog-7.0.358.zip",
-  "sha256": "c74473e461dbc8923b6ebeb489358901afded33d8ae2dfee66ad1fcef8bea520",
-  "size": 83165234,
+  "version": "7.0.359",
+  "publishedAt": "2026-11-16T16:14:09.415Z",
+  "artifact": "releases/BuyerLog-7.0.359.zip",
+  "sha256": "776027a9310525f26f1facbfb2243a6e206ccda1934196ddf99b6af915c3ae58",
+  "size": 84396238,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.358 TEST — Not kaydı sunucu önbelleğinin yeniden yazılmasını beklemeden tamamlanır; CP/Siparişler araması ürün tanımı, kategori, MAG, Buyer Grup, Buyer ve Line alanlarını kapsar; beklenmeyen JS hataları bildirim olarak görünür; Termin Ufku üretimi bitmiş siparişleri tarihi geçmiş saymaz; tablolarda Rapor görünümü.\nEN: Buyer Log 7.0.358 TEST — Saving a note no longer waits for the server cache rewrite; CP/Orders search covers product description, category, MAG, buyer group, buyer and line; unexpected JS errors appear as notifications; Horizon no longer counts finished-production orders as overdue; Report view in tables.",
+  "releaseNotes": "TR: Priority kurallarında eşleşen etiketleri birlikte gösterme, kapsanan etiketleri açık ayarla gizleme; ana öncelik ve gerekçeler korunur. EN: Show matching Priority tags together and explicitly hide covered tags while preserving urgency and reasons.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "QiDtJ1/xMF/2zkurF5+hm6M7D5YeTN0dbAVYEMdyS5mQieQ+k65QB/iQ3BD0r2Q+G5ZnHfwZFrhJZOnGxRdXAg=="
+    "value": "bEtLPW0llZrv9PVuqVSt4f+nNZ2Ko7YAbuep52Ssa/0+ZS329ARmKpoqy4uAcd4p2YHqQdLME2AkTegwwb9NBQ=="
   }
 }
