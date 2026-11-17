@@ -1,0 +1,252 @@
+{
+  "version": "7.0.360",
+  "sourceCommit": "b84d97c2344a97004c2720c67e0798a2fcbec695",
+  "patchManifest": "BuyerLog-SignedPatch-7.0.360-1.json",
+  "verifierFiles": [
+    {
+      "path": "electron/app-integrity.json",
+      "size": 289640,
+      "sha256": "2e6adf5b51efc982b1b00292f97873e7be91d20e7360b8a69a68e356e0203c6d"
+    },
+    {
+      "path": "electron/backend.js",
+      "size": 18704,
+      "sha256": "8a676b556fddfbb556fbc03af42f45c79530ec21dd0fd8d3aefe1291ebbd97c1"
+    },
+    {
+      "path": "electron/exe-icon-worker.mjs",
+      "size": 4173,
+      "sha256": "6173a21797ae001ec5023ad920587055f9c18081cf319a95649a33aa16a24d90"
+    },
+    {
+      "path": "electron/exe-icon.js",
+      "size": 5328,
+      "sha256": "bfc27843a888790190896d74a0436786ec67ace3392cc6daa24ccb1bc8312c32"
+    },
+    {
+      "path": "electron/first-run-migration.js",
+      "size": 23805,
+      "sha256": "8df482378e834e3c83cb6d63a464abd0023dd24cfd3c3c714291c43c6ae8de72"
+    },
+    {
+      "path": "electron/install-repair.js",
+      "size": 9834,
+      "sha256": "3a6c066a422f358ecc0611b755097a426c723aa8d18cbe65a76d6ae556d7d94d"
+    },
+    {
+      "path": "electron/launcher-core.js",
+      "size": 23058,
+      "sha256": "a5d79b39c4430d2e8cbc20b194639f8039486c70dabb0417dbf94ed65a90879c"
+    },
+    {
+      "path": "electron/launcher.js",
+      "size": 8987,
+      "sha256": "e30facaa37d0d730a66f66f14c05e3f6f9c8f5db1103fcfcdd710a9bd117b136"
+    },
+    {
+      "path": "electron/lcwai-request-shape.js",
+      "size": 3995,
+      "sha256": "db47aa9c25a524eb5df9c1ac2158df7594168a54d7f1baa79a925cfaaada5555"
+    },
+    {
+      "path": "electron/main.js",
+      "size": 157531,
+      "sha256": "be6baff3bf8b06e5f1869c5f5c3288175902f1aae9cc70413e382c1c532e323f"
+    },
+    {
+      "path": "electron/manual-patch/bootstrap.json",
+      "size": 143,
+      "sha256": "336e32d9e0242bf370709ed613efa336921800815a5ddf373de719ffc0886966"
+    },
+    {
+      "path": "electron/manual-patch/core-verification.js",
+      "size": 3112,
+      "sha256": "6a494aa943f1b691d403d151141c0f5090398c046db2e367f70dc86f2212fc99"
+    },
+    {
+      "path": "electron/manual-patch/desktop.js",
+      "size": 1938,
+      "sha256": "fcfe43a0022f362926acb98dd225c8ca41a93556eb7a7168ac70e5dd4f931d7a"
+    },
+    {
+      "path": "electron/manual-patch/files.js",
+      "size": 5254,
+      "sha256": "c69c0f4d15935d7346e8c9dbb8b241d6a1cd59e3163126a058be01985409cf32"
+    },
+    {
+      "path": "electron/manual-patch/kernel/lease-worker-registry.js",
+      "size": 6031,
+      "sha256": "5adc794a1101671859a16c78a2e7fc55399551080286c995bb6343927627038d"
+    },
+    {
+      "path": "electron/manual-patch/kernel/shared-file-transaction.js",
+      "size": 32298,
+      "sha256": "c97b75950ddd726ce58d73a256c0953a98987451d6165bb99112a0e93faa1881"
+    },
+    {
+      "path": "electron/manual-patch/manager.js",
+      "size": 9037,
+      "sha256": "0191e372266ec5b804cec5199289202453e3f20b05bc784db9694c166f82acd3"
+    },
+    {
+      "path": "electron/manual-patch/signature.js",
+      "size": 6682,
+      "sha256": "e0865c11fb6ea9596c2d5ca82a9dbf2c99c87c54e3cbdef6325fffdbaf730814"
+    },
+    {
+      "path": "electron/oab-auth-lifecycle.js",
+      "size": 9128,
+      "sha256": "40e9383c8ae4054d9450c225f3b145c6489a1b8f790c9c32b506289dea1bd637"
+    },
+    {
+      "path": "electron/port-owner.js",
+      "size": 6840,
+      "sha256": "875cd5727b1c5e825abcb923e026693079e0d87bd34c930158bf642cbc7320ef"
+    },
+    {
+      "path": "electron/portable-paths.js",
+      "size": 10601,
+      "sha256": "61a80d7f388be0afeb70c935962df16334c08c26cb99f79e6a44d1a4a372f4c9"
+    },
+    {
+      "path": "electron/portal-navigation-recovery.js",
+      "size": 8587,
+      "sha256": "3a8241f425f55719d3ea92065bf0da9299e44b71ff08bed8af02524eadfd8c71"
+    },
+    {
+      "path": "electron/preload.js",
+      "size": 7964,
+      "sha256": "afb658978b254cbd179f0525c04256579aff1514322dad869aae1952ba7dbad1"
+    },
+    {
+      "path": "electron/shortcut-icon.js",
+      "size": 5204,
+      "sha256": "cd1d2d3d1ac3e24b164959ce353f5c9a2ad1083f3a1115a03877e3dfffe81440"
+    },
+    {
+      "path": "electron/splash.html",
+      "size": 9487,
+      "sha256": "85c1b7f7a4f34905c565ea75e60c59b7901d22dabcbc8fa34005a9d4ded74b5d"
+    },
+    {
+      "path": "electron/startup-error.html",
+      "size": 6511,
+      "sha256": "fc74d1daf26d64cd66398ac0b2eed644ac9c9ceb64064221295d79f161234a82"
+    },
+    {
+      "path": "electron/startup-transition.js",
+      "size": 1709,
+      "sha256": "fffb7dee8772c454bede989c4e365d01a76f31cdf126d191a2900e8b5e65c9fa"
+    },
+    {
+      "path": "electron/update/core-verify-async.js",
+      "size": 2538,
+      "sha256": "0c27de36c50f34e655b4a32a64f2c8ad84c26c9e208e7e9e6ca0cc09d7880081"
+    },
+    {
+      "path": "electron/update/crypto.js",
+      "size": 421,
+      "sha256": "17562826491ecd9e3933c29c2c54931211b9729e2555f119369f4b54ea95ffbf"
+    },
+    {
+      "path": "electron/update/folder-provider.js",
+      "size": 2270,
+      "sha256": "963db8442bcd2565cb70c4eb8b8317ec4e0d13fd458b078257c56a7c7220735c"
+    },
+    {
+      "path": "electron/update/github-provider.js",
+      "size": 8915,
+      "sha256": "7fd7c3de4cb035f47a24534e75402d2b9fb4c0036f2539dda5b101883754ebf2"
+    },
+    {
+      "path": "electron/update/integrity.js",
+      "size": 2767,
+      "sha256": "4d9dde03d034754686c9c931ea824bfc30610960dd548d53d050dfd34d722e7e"
+    },
+    {
+      "path": "electron/update/json-store.js",
+      "size": 1883,
+      "sha256": "918843f3a36a44c63c37c7fd1a5ed05b3594f96f0c3ecc0ab4125b3d9b0e122a"
+    },
+    {
+      "path": "electron/update/launcher-host.js",
+      "size": 17675,
+      "sha256": "6520aa93c80da2025cb2f0ca2a3e58fd988f590eecf53b7d5f4b75a2d5abd91d"
+    },
+    {
+      "path": "electron/update/launcher-state.js",
+      "size": 23493,
+      "sha256": "a152af4ff7394d0e7a210f5b98e50c9a96bf4f32623ad050fead2e5e772b0bab"
+    },
+    {
+      "path": "electron/update/launcher-version.json",
+      "size": 95,
+      "sha256": "8dd9a2aa62a61b7f7caea9af3ee7e4c1dd79048e8c6bfcdb76d3c0ac7b9d836c"
+    },
+    {
+      "path": "electron/update/manifest.js",
+      "size": 2764,
+      "sha256": "1032f355cb49d67c911a76ee97f43a0b4d4a00e4a80e288c490e6f696781958d"
+    },
+    {
+      "path": "electron/update/release-signing-keys.json",
+      "size": 258,
+      "sha256": "96d8d4c3479cc6730e5a3021814aa6baf9573983ee44980a59a6678fa87b47a4"
+    },
+    {
+      "path": "electron/update/release-source.json",
+      "size": 52,
+      "sha256": "9efd1dea1ffc318aa111cef383c5b68a63ef4c86318cc39bb860b2471db6e88d"
+    },
+    {
+      "path": "electron/update/semver.js",
+      "size": 2096,
+      "sha256": "29c1dcbca6858e3d55e6e0e1952339f81c5658a9c3cbcadd02af72ecdf51e574"
+    },
+    {
+      "path": "electron/update/signature.js",
+      "size": 5502,
+      "sha256": "24ab32840294f4dd7a1f15ba4735aa03017035958aceeb1a4268d1b6adb89218"
+    },
+    {
+      "path": "electron/update/trial-backend.js",
+      "size": 5567,
+      "sha256": "f1e3c590bab8c38bc0c2703185a1ef6bdcb8f88bab421399a31adab17596f618"
+    },
+    {
+      "path": "electron/update/updater.js",
+      "size": 20512,
+      "sha256": "dfd1ac1df55bb39dea21ca142ffe6e23bacc99bf7991a65503260a6797f22f41"
+    },
+    {
+      "path": "electron/update/zip.js",
+      "size": 7817,
+      "sha256": "5a419c254758eafc65987e1aa14f98f2d88a25230e962ebf089ca2525862c840"
+    },
+    {
+      "path": "electron/workspace-manager.js",
+      "size": 32056,
+      "sha256": "7329d1b6e5b63a82da95809fa0133ba3dd08464c0faa3097893a56bb51abaa8f"
+    },
+    {
+      "path": "electron/workspace-preload.js",
+      "size": 1784,
+      "sha256": "3fff1fc1fb58ef2693570b2feec400d16123d8017239f0ddf8839f1cf0bb6337"
+    },
+    {
+      "path": "electron/workspace-renderer.js",
+      "size": 5901,
+      "sha256": "88a4fd77381d5754883af8da1b89105629399b72cc2381de7f0d6add29f28695"
+    },
+    {
+      "path": "electron/workspace.css",
+      "size": 3637,
+      "sha256": "1926bce31c241033ab3710a85d7c3e0667b7a0ae0b16bfb81b161fa9e7655825"
+    },
+    {
+      "path": "electron/workspace.html",
+      "size": 877,
+      "sha256": "7498ae29b3b0baa5beca5ddaa49b534c439453ce5f575b19e8a1911a6db42289"
+    }
+  ]
+}

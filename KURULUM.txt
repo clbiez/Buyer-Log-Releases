@@ -1,0 +1,33 @@
+BUYER LOG 7.0.360 — KULLANICI BILGILERI ACILIS DUZELTMESI
+
+1. Bu dis ZIP'i bir klasore cikarin. Icindeki BuyerLog-SignedPatch ZIP'ini ACMAYIN.
+2. Buyer Log'u tum pencereleriyle kapatin.
+3. UYGULA.cmd dosyasini calistirin. BuyerLog.exe'nin bulundugu kurulum klasorunu yazin.
+4. E ile onaylayin. "Imzali yama hazirlandi" yazisini gordukten sonra BuyerLog.exe'yi normal acin.
+
+Bu paket yalnizca resmi 7.0.360 tam kurulumuna uygundur. Uygulama acilmasa da
+hazirlama araci calisir. Internet, Node.js kurulumu veya yonetici yetkisi istemez;
+kurulum klasorunuza normal yazma erisiminiz olmalidir.
+
+Yayinci imzasi, taban surum, korumali dogrulayici dosyalari ve arsiv ozeti
+denetlenir. Paket, kurulu imzali yama yoneticisi ile AYRI bir uygulama
+cekirdegi hazirlar. Mevcut uygulama dosyalarini veya veritabanini elle degistirmez.
+Sonraki normal acilista mevcut baslaticinin saglik kontrolu ve geri donus
+mekanizmasi kullanilir. Bekleyen guncelleme, yarim deneme veya farkli surum
+varsa zorlamadan durur. TEST/STABLE yayin kanallari degismez.
+
+Uygulama aciliyorsa alternatif kurulum: Moderator kullanici menusu >
+Guncellemeleri Kontrol Et > Imzali Yama Yukle. JSON dosyasini secin;
+ayni adli imzali ZIP onun yaninda kalmalidir.
+
+ENGLISH
+Extract this outer ZIP, keeping the signed patch ZIP unopened beside its JSON.
+Close every Buyer Log window. Run UYGULA.cmd, enter the installation folder
+containing BuyerLog.exe, and confirm with Y. After successful staging, start
+BuyerLog.exe normally. Only the official 7.0.360 installation is supported.
+The recovery tool pins the installed verifier, verifies the publisher signature
+and stages through the installed patch manager. Existing app files and business
+data are not manually overwritten. The regular launcher handles health checks
+and rollback. Pending updates and incomplete trials are rejected.
+Alternatively, use the moderator menu > Check for Updates > Install Signed Patch
+and select the JSON. TEST/STABLE feeds remain unchanged.
