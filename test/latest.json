@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.360",
-  "publishedAt": "2026-11-17T12:44:05.674Z",
-  "artifact": "releases/BuyerLog-7.0.360.zip",
-  "sha256": "df768ed5d9377c344f842f75d04ff29331ff6094d72d33e1c40731f288ce0f88",
-  "size": 81506332,
+  "version": "7.0.361",
+  "publishedAt": "2026-11-17T17:24:04.120Z",
+  "artifact": "releases/BuyerLog-7.0.361.zip",
+  "sha256": "922db1d46b19cae1cb524473ec150901f1d81c67062b605263fc218fd9020a3b",
+  "size": 82074485,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.360 — ASAS / IAS / Excel kaynak doğrulama aracı (BuyerLog-Kaynak-Dogrulama.cmd). Normal yenileme değişmez.\nEN: Buyer Log 7.0.360 — ASAS / IAS / Excel source verification tool (BuyerLog-Kaynak-Dogrulama.cmd). Normal refresh is unchanged.",
+  "releaseNotes": "TR: Buyer Log 7.0.361 — Kaynak Kontrolü PR #1050 geri alındı. ASAS/IAS sorgu motorundaki ilgili değişiklikler PR öncesine döndürüldü; kullanıcı verileri ve bağlantı ayarları korunur. Bu doğrulanmış paket STABLE yayını için hazırlanmıştır. EN: Buyer Log 7.0.361 — Source Control PR #1050 is reverted. Its ASAS/IAS query-engine changes are restored to their pre-PR versions; user data and connection settings are preserved. This verified candidate is prepared for STABLE publication.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "YYeCSfBFhViNoAUosP54PSrvID/1YmTqr9ZkuctKVhT15jhn4YeLNGOzOxIJitFpmetabI11z2YdzPa71xxbCg=="
+    "value": "B3lKKNE0zhjNf3wcTjsAKJG9u5bhSvhKOyiDzNKT8GknA0PblFc6KHQDorlLJnzgQHSoegqo3LStnUnxoYaLCQ=="
   }
 }
