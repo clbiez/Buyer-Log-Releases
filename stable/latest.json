@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.359",
-  "publishedAt": "2026-11-16T16:14:09.415Z",
-  "artifact": "releases/BuyerLog-7.0.359.zip",
-  "sha256": "776027a9310525f26f1facbfb2243a6e206ccda1934196ddf99b6af915c3ae58",
-  "size": 84396238,
+  "version": "7.0.362",
+  "publishedAt": "2026-11-17T19:47:12.323Z",
+  "artifact": "releases/BuyerLog-7.0.362.zip",
+  "sha256": "e6b2a81162ce1b322c3b4ceec6b53eb511c52bd045ab067833fa19659158196d",
+  "size": 82063231,
   "mandatory": false,
-  "releaseNotes": "TR: Priority kurallarında eşleşen etiketleri birlikte gösterme, kapsanan etiketleri açık ayarla gizleme; ana öncelik ve gerekçeler korunur. EN: Show matching Priority tags together and explicitly hide covered tags while preserving urgency and reasons.",
+  "releaseNotes": "TR: Buyer Log 7.0.362, 7.0.359 STABLE davranışını geri getirir. 7.0.360 ve 7.0.361 kurulu cihazlar normal güncelleme yolunu kullanabilir. EN: Buyer Log 7.0.362 restores the 7.0.359 STABLE behavior. Devices running 7.0.360 or 7.0.361 can use the normal update channel.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "bEtLPW0llZrv9PVuqVSt4f+nNZ2Ko7YAbuep52Ssa/0+ZS329ARmKpoqy4uAcd4p2YHqQdLME2AkTegwwb9NBQ=="
+    "value": "ZwOnG1y9L5IbotBeyilD4hwCia++Iccp4G3cqpzBZbhV1JW0xLh1D8SgAyCn9wqyRkGcSLMRNj8ZQUeJ8B/rBA=="
   }
 }
