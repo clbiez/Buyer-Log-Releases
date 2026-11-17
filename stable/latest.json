@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "7.0.359",
-  "publishedAt": "2026-11-16T16:14:09.415Z",
-  "artifact": "releases/BuyerLog-7.0.359.zip",
-  "sha256": "776027a9310525f26f1facbfb2243a6e206ccda1934196ddf99b6af915c3ae58",
-  "size": 84396238,
+  "version": "7.0.361",
+  "publishedAt": "2026-11-17T17:25:50.860Z",
+  "artifact": "releases/BuyerLog-7.0.361.zip",
+  "sha256": "922db1d46b19cae1cb524473ec150901f1d81c67062b605263fc218fd9020a3b",
+  "size": 82074485,
   "mandatory": false,
-  "releaseNotes": "TR: Priority kurallarında eşleşen etiketleri birlikte gösterme, kapsanan etiketleri açık ayarla gizleme; ana öncelik ve gerekçeler korunur. EN: Show matching Priority tags together and explicitly hide covered tags while preserving urgency and reasons.",
+  "releaseNotes": "TR: Buyer Log 7.0.361 — Kaynak Kontrolü PR #1050 geri alındı. ASAS/IAS sorgu motorundaki ilgili değişiklikler PR öncesine döndürüldü; kullanıcı verileri ve bağlantı ayarları korunur. Bu doğrulanmış paket STABLE yayını için hazırlanmıştır. EN: Buyer Log 7.0.361 — Source Control PR #1050 is reverted. Its ASAS/IAS query-engine changes are restored to their pre-PR versions; user data and connection settings are preserved. This verified candidate is prepared for STABLE publication.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "bEtLPW0llZrv9PVuqVSt4f+nNZ2Ko7YAbuep52Ssa/0+ZS329ARmKpoqy4uAcd4p2YHqQdLME2AkTegwwb9NBQ=="
+    "value": "B3lKKNE0zhjNf3wcTjsAKJG9u5bhSvhKOyiDzNKT8GknA0PblFc6KHQDorlLJnzgQHSoegqo3LStnUnxoYaLCQ=="
   }
 }
