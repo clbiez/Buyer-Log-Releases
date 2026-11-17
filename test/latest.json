@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.359",
-  "publishedAt": "2026-11-16T16:12:24.087Z",
-  "artifact": "releases/BuyerLog-7.0.359.zip",
-  "sha256": "776027a9310525f26f1facbfb2243a6e206ccda1934196ddf99b6af915c3ae58",
-  "size": 84396238,
+  "version": "7.0.360",
+  "publishedAt": "2026-11-17T12:44:05.674Z",
+  "artifact": "releases/BuyerLog-7.0.360.zip",
+  "sha256": "df768ed5d9377c344f842f75d04ff29331ff6094d72d33e1c40731f288ce0f88",
+  "size": 81506332,
   "mandatory": false,
-  "releaseNotes": "TR: Priority kurallarında eşleşen etiketleri birlikte gösterme, kapsanan etiketleri açık ayarla gizleme; ana öncelik ve gerekçeler korunur. EN: Show matching Priority tags together and explicitly hide covered tags while preserving urgency and reasons.",
+  "releaseNotes": "TR: Buyer Log 7.0.360 — ASAS / IAS / Excel kaynak doğrulama aracı (BuyerLog-Kaynak-Dogrulama.cmd). Normal yenileme değişmez.\nEN: Buyer Log 7.0.360 — ASAS / IAS / Excel source verification tool (BuyerLog-Kaynak-Dogrulama.cmd). Normal refresh is unchanged.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "bEtLPW0llZrv9PVuqVSt4f+nNZ2Ko7YAbuep52Ssa/0+ZS329ARmKpoqy4uAcd4p2YHqQdLME2AkTegwwb9NBQ=="
+    "value": "YYeCSfBFhViNoAUosP54PSrvID/1YmTqr9ZkuctKVhT15jhn4YeLNGOzOxIJitFpmetabI11z2YdzPa71xxbCg=="
   }
 }
