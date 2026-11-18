@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.362",
-  "publishedAt": "2026-11-17T19:45:10.336Z",
-  "artifact": "releases/BuyerLog-7.0.362.zip",
-  "sha256": "e6b2a81162ce1b322c3b4ceec6b53eb511c52bd045ab067833fa19659158196d",
-  "size": 82063231,
+  "version": "7.0.363",
+  "publishedAt": "2026-11-18T21:07:32.832Z",
+  "artifact": "releases/BuyerLog-7.0.363.zip",
+  "sha256": "7b3a09f5e3cfc4a58b1a6ca5f0a75b4e03638eb5899bb8a7eb4945a1414d9b2d",
+  "size": 77310388,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.362, 7.0.359 STABLE davranışını geri getirir. 7.0.360 ve 7.0.361 kurulu cihazlar normal güncelleme yolunu kullanabilir. EN: Buyer Log 7.0.362 restores the 7.0.359 STABLE behavior. Devices running 7.0.360 or 7.0.361 can use the normal update channel.",
+  "releaseNotes": "TR: Buyer Log 7.0.363 — Daha hızlı açılış: program dosyaları paralel doğrulanır, güncellemede tek tarama, paket yalnız çalışma zamanı dosyalarını içerir, girişten sonra çalışma alanı doğrudan açılır.\nEN: Buyer Log 7.0.363 — Faster startup: program files are verified in parallel, a single scan when applying updates, a runtime-only package, and the workspace opens directly after sign-in.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "ZwOnG1y9L5IbotBeyilD4hwCia++Iccp4G3cqpzBZbhV1JW0xLh1D8SgAyCn9wqyRkGcSLMRNj8ZQUeJ8B/rBA=="
+    "value": "Zg7P/EUOqGwBtM8sQXX3puhMm+wD9r2/uX66AikiWC/n6k2sgefuQXXLXj1DwD4wtDbSgDwoTodLnqaodqHoCg=="
   }
 }
