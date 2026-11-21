@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "8.0.0",
-  "publishedAt": "2026-11-21T16:00:29.235Z",
-  "artifact": "releases/BuyerLog-8.0.0.zip",
-  "sha256": "8aac8b472bb4a88b31344ad451e9d71731e4bea7a3430a19af8a1cfd3bd67024",
-  "size": 88018695,
+  "version": "8.0.1",
+  "publishedAt": "2026-11-21T16:42:01.069Z",
+  "artifact": "releases/BuyerLog-8.0.1.zip",
+  "sha256": "e8c1f30722eaf6cfdbdf937f01b5ffa73e770864cfe346597e08b3f43cb1fa2c",
+  "size": 87596260,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 8.0.0 — aşama bazlı teslimat tahmini (CP, Siparişler, Priority Rules σ koşulu), daha hızlı açılış, arka planda hesaplanan Genel Bakış/CP/Siparişler, Sessiz çalışma alanı önizlemesi ve rapor/ASAS/IAS iyileştirmeleri.\nEN: Buyer Log 8.0.0 — stage-based delivery forecast (CP, Orders, Priority Rules σ condition), faster startup, Overview/CP/Orders computed in the background, Sessiz workspace preview and report/ASAS/IAS improvements.",
+  "releaseNotes": "TR: Buyer Log 8.0.1 — aşama bazlı teslimat tahmini (CP, Siparişler, Priority Rules σ koşulu), daha hızlı açılış, arka planda hesaplanan Genel Bakış/CP/Siparişler ve rapor/ASAS/IAS iyileştirmeleri. 8.0.0 TEST'teki Sessiz önizlemesi kaldırıldı.\nEN: Buyer Log 8.0.1 — stage-based delivery forecast (CP, Orders, Priority Rules σ condition), faster startup, Overview/CP/Orders computed in the background and report/ASAS/IAS improvements. The Sessiz preview from 8.0.0 TEST is removed.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "xWjBcSqSfdNmTA+BD2/bbag8EvvbbZ4mAPb4EaNs5v/0EsbROjPaxeOJKLH84ht6kW4GTARPv1IpWChmaxAPCA=="
+    "value": "aTz74x6zm/I+XdNeQTMN2Ty7JCq/0Q2+3eAVRkVCqa2JpvdGLcjf1pnpttCrgHdeKlhlbFe1pRr3k8buNOjOBA=="
   }
 }
