@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "8.0.2",
-  "publishedAt": "2026-11-21T21:11:37.312Z",
-  "artifact": "releases/BuyerLog-8.0.2.zip",
-  "sha256": "c463e2174ddb9c6b7a1d57ea75e00a547fc6f5cfc579a9300dfb953cc8359ddf",
-  "size": 78761279,
+  "version": "8.0.3",
+  "publishedAt": "2026-11-21T22:38:18.314Z",
+  "artifact": "releases/BuyerLog-8.0.3.zip",
+  "sha256": "a45ea9123f3e3ad48f2119fd825dc859f20c1fa7fcb0b068d01dda1179012260",
+  "size": 78945236,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 8.0.2 — Genel Bakış › Ticari: FOB Sonrası Maliyet widget'ı; CP aşama tahmini ve yeniden çizim düzeltmeleri; Koleksiyon renk opsiyonları; büyük veride sunucu kilitlenmez.\nEN: Buyer Log 8.0.2 — Overview › Commercial: Post-FOB Cost widget; CP stage forecast and redraw fixes; Collection colour options; server no longer freezes on large data.",
+  "releaseNotes": "",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "vJ4pAyoesQOvEJtdAA2GrGIe6/B/ofFTADroFJbIzJzYtLGKtaJBgZLFQaCxpxSA6QCaPa38DZ7zNea4XT3JBQ=="
+    "value": "m7GHLdn6OInKWNpA9W3gQS929xBFD7mnXGh4huqsKesLwktCYPi1mEHhoHgBfG/6QLZatxqP1NvrErPZi7C8CQ=="
   }
 }
