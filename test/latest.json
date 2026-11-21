@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.363",
-  "publishedAt": "2026-11-18T21:07:32.832Z",
-  "artifact": "releases/BuyerLog-7.0.363.zip",
-  "sha256": "7b3a09f5e3cfc4a58b1a6ca5f0a75b4e03638eb5899bb8a7eb4945a1414d9b2d",
-  "size": 77310388,
+  "version": "7.0.364",
+  "publishedAt": "2026-11-21T01:58:54.696Z",
+  "artifact": "releases/BuyerLog-7.0.364.zip",
+  "sha256": "1663864429c442e7263b6cd357aef41f11bb6591c4e4252d8924a84a9033093f",
+  "size": 82408098,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 7.0.363 — Daha hızlı açılış: program dosyaları paralel doğrulanır, güncellemede tek tarama, paket yalnız çalışma zamanı dosyalarını içerir, girişten sonra çalışma alanı doğrudan açılır.\nEN: Buyer Log 7.0.363 — Faster startup: program files are verified in parallel, a single scan when applying updates, a runtime-only package, and the workspace opens directly after sign-in.",
+  "releaseNotes": "ERP okuma modeli geçişi: CP satır bazlı kayıt, kayıt sonrası projeksiyon işçide, Siparişler kısa sorgu şeridi, Koleksiyon/Teklifler/telif/checklist/test raporu hızlandırmaları, kayıt reddi düzeltmesi.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "Zg7P/EUOqGwBtM8sQXX3puhMm+wD9r2/uX66AikiWC/n6k2sgefuQXXLXj1DwD4wtDbSgDwoTodLnqaodqHoCg=="
+    "value": "F7wmdwt/Uxfzsm7so//FOEYhWJ9OGKb0bYAh5TObnmXKTJfxkio5xFHBvM/D5fh0xWWiALg9fjbZ1JiNmriGCQ=="
   }
 }
