@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "7.0.364",
-  "publishedAt": "2026-11-21T01:58:54.696Z",
-  "artifact": "releases/BuyerLog-7.0.364.zip",
-  "sha256": "1663864429c442e7263b6cd357aef41f11bb6591c4e4252d8924a84a9033093f",
-  "size": 82408098,
+  "version": "8.0.0",
+  "publishedAt": "2026-11-21T16:00:29.235Z",
+  "artifact": "releases/BuyerLog-8.0.0.zip",
+  "sha256": "8aac8b472bb4a88b31344ad451e9d71731e4bea7a3430a19af8a1cfd3bd67024",
+  "size": 88018695,
   "mandatory": false,
-  "releaseNotes": "ERP okuma modeli geçişi: CP satır bazlı kayıt, kayıt sonrası projeksiyon işçide, Siparişler kısa sorgu şeridi, Koleksiyon/Teklifler/telif/checklist/test raporu hızlandırmaları, kayıt reddi düzeltmesi.",
+  "releaseNotes": "TR: Buyer Log 8.0.0 — aşama bazlı teslimat tahmini (CP, Siparişler, Priority Rules σ koşulu), daha hızlı açılış, arka planda hesaplanan Genel Bakış/CP/Siparişler, Sessiz çalışma alanı önizlemesi ve rapor/ASAS/IAS iyileştirmeleri.\nEN: Buyer Log 8.0.0 — stage-based delivery forecast (CP, Orders, Priority Rules σ condition), faster startup, Overview/CP/Orders computed in the background, Sessiz workspace preview and report/ASAS/IAS improvements.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "F7wmdwt/Uxfzsm7so//FOEYhWJ9OGKb0bYAh5TObnmXKTJfxkio5xFHBvM/D5fh0xWWiALg9fjbZ1JiNmriGCQ=="
+    "value": "xWjBcSqSfdNmTA+BD2/bbag8EvvbbZ4mAPb4EaNs5v/0EsbROjPaxeOJKLH84ht6kW4GTARPv1IpWChmaxAPCA=="
   }
 }
