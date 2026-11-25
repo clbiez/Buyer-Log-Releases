@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "8.0.16",
-  "publishedAt": "2026-11-24T11:56:35.157Z",
-  "artifact": "releases/BuyerLog-8.0.16.zip",
-  "sha256": "33c5576240380b3827c5c2b44befa8fe796250f677cb803894d6514e4d7e8a28",
-  "size": 72169511,
+  "version": "8.0.17",
+  "publishedAt": "2026-11-25T23:41:42.018Z",
+  "artifact": "releases/BuyerLog-8.0.17.zip",
+  "sha256": "8be883e30a244ddcf392e93baa36f59b4b1ecdd7b50c099428afe793b032dfa1",
+  "size": 74542829,
   "mandatory": false,
-  "releaseNotes": "",
+  "releaseNotes": "TR: Buyer Log 8.0.17 — Çok kullanıcılı Koleksiyon ve Fiyat Masası: 20 eşzamanlı kullanıcıyla test; kayıpsız senkron, sıkılaştırılmış yetki (başkası adına izin yalnız Moderatör, satır görseli silme yalnız düzenleyebilen), canlı güncelleme; üretici seçmeden Fiyat Masası talebi.\nEN: Buyer Log 8.0.17 — Multi-user Collection and Pricing Desk: tested with 20 concurrent users; lossless sync, stricter access (granting on another user's behalf is Moderator-only, row images deletable only by editors), live updates; Pricing Desk requests without choosing manufacturers.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "QNLiqmX6dz7TWd3f4zBfPpJgLzE5OiUGiqt26sVfLRBCVa33AsBZNCwQ9EDY+gR34K8Aws1yBf2K6pAvgwivAQ=="
+    "value": "A5vYqTo8v7DU1E0RRIcLCedkhKX6zmMpijNLc0q8lcRUw/sSHjpkpOb316+v6ndVJ4S3/Phl3H6BGe8VCKArBg=="
   }
 }
