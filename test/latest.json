@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "8.0.19",
-  "publishedAt": "2026-11-26T22:00:51.866Z",
-  "artifact": "releases/BuyerLog-8.0.19.zip",
-  "sha256": "cad596aa28ac41fe227e6bcdf64a2c7f268147ee00c4d018dba28763c690c785",
-  "size": 78371741,
+  "version": "8.0.20",
+  "publishedAt": "2026-11-26T22:48:14.526Z",
+  "artifact": "releases/BuyerLog-8.0.20.zip",
+  "sha256": "6818a54fbe52005010b5d16a39336ceec2bb9b193952cd4705b924017ecab762",
+  "size": 78376407,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 8.0.19 — Koleksiyon senkronunda OneDrive'ın ayırdığı eşzamanlı düzenleme artık kaybolmuyor; Siparişler açılışında gereksiz 15 sn bekleme kaldırıldı; Fiyat Masası onay görünümü, Sunum Stüdyosu ve tablo alanı iyileştirmeleri.\nEN: Buyer Log 8.0.19 — Concurrent Collection edits set aside by OneDrive are no longer lost; the unnecessary 15-second Orders startup wait was removed; Pricing Desk approval view, Presentation Studio and table field improvements.",
+  "releaseNotes": "TR: Buyer Log 8.0.20 — Okuma modeli açıkken CP düzenlemesinden sonra Siparişler artık eski değeri göstermiyor (aynı pencere ve ekip arkadaşının değişikliği). 8.0.19 içeriğini de kapsar.\nEN: Buyer Log 8.0.20 — With the read model on, Orders no longer shows an old value after a CP edit (same window and a teammate's change). Also includes 8.0.19.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "a5ouuYoshh51tyjltvCYt/2RgX2PAkwphtFMQZUL/ZivXQK39nlpK5+xosH9O3B+nVwmn8y9Y6IIXGCa9OCEDA=="
+    "value": "+NnEIhtuQ/AvMOfkGFAxpsk+4c0qzWNEM7V6/ri3ROcIJ2YN9mbQTgREPQVJeKqbs1A7W7VXUkgCylPt8L91AA=="
   }
 }
