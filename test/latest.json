@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "8.0.18",
-  "publishedAt": "2026-11-26T09:58:46.880Z",
-  "artifact": "releases/BuyerLog-8.0.18.zip",
-  "sha256": "1ddb3d583d518641b2c1580e96f11a5053968c757b31742ef12a3a67b80b721d",
-  "size": 76959282,
+  "version": "8.0.19",
+  "publishedAt": "2026-11-26T22:00:51.866Z",
+  "artifact": "releases/BuyerLog-8.0.19.zip",
+  "sha256": "cad596aa28ac41fe227e6bcdf64a2c7f268147ee00c4d018dba28763c690c785",
+  "size": 78371741,
   "mandatory": false,
-  "releaseNotes": "",
+  "releaseNotes": "TR: Buyer Log 8.0.19 — Koleksiyon senkronunda OneDrive'ın ayırdığı eşzamanlı düzenleme artık kaybolmuyor; Siparişler açılışında gereksiz 15 sn bekleme kaldırıldı; Fiyat Masası onay görünümü, Sunum Stüdyosu ve tablo alanı iyileştirmeleri.\nEN: Buyer Log 8.0.19 — Concurrent Collection edits set aside by OneDrive are no longer lost; the unnecessary 15-second Orders startup wait was removed; Pricing Desk approval view, Presentation Studio and table field improvements.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "XPw3BEAMjFJRZZbUaz7hgWqehIk3y16zN3kDU1WHLvaY7Kx0px3UJP2LCjdXHmSJCl2NDkifZOojYhpdniCJDw=="
+    "value": "a5ouuYoshh51tyjltvCYt/2RgX2PAkwphtFMQZUL/ZivXQK39nlpK5+xosH9O3B+nVwmn8y9Y6IIXGCa9OCEDA=="
   }
 }
