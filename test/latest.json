@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "8.0.20",
-  "publishedAt": "2026-11-26T22:48:14.526Z",
-  "artifact": "releases/BuyerLog-8.0.20.zip",
-  "sha256": "6818a54fbe52005010b5d16a39336ceec2bb9b193952cd4705b924017ecab762",
-  "size": 78376407,
+  "version": "8.0.21",
+  "publishedAt": "2026-11-27T05:27:16.020Z",
+  "artifact": "releases/BuyerLog-8.0.21.zip",
+  "sha256": "59a56fa32dde3fdfc12cebf4f374b0b972e9c8297b50242aaf1834b404de6a6b",
+  "size": 78777315,
   "mandatory": false,
-  "releaseNotes": "TR: Buyer Log 8.0.20 — Okuma modeli açıkken CP düzenlemesinden sonra Siparişler artık eski değeri göstermiyor (aynı pencere ve ekip arkadaşının değişikliği). 8.0.19 içeriğini de kapsar.\nEN: Buyer Log 8.0.20 — With the read model on, Orders no longer shows an old value after a CP edit (same window and a teammate's change). Also includes 8.0.19.",
+  "releaseNotes": "TR: Buyer Log 8.0.21 — Siparişler listesi yeniden okunurken “Güncelleniyor…” gösterilir, tablo/filtre/seçim korunur; başarısızlıkta uyarı ve Tekrar dene. Açılış hazırlığı Siparişler tablosunu gizlemez. 8.0.19–8.0.20 içeriğini de kapsar.\nEN: Buyer Log 8.0.21 — “Updating…” is shown while the Orders list is read again; table, filters and selection are kept; on failure a warning and Retry. Startup preparation no longer hides the Orders table. Also includes 8.0.19–8.0.20.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "+NnEIhtuQ/AvMOfkGFAxpsk+4c0qzWNEM7V6/ri3ROcIJ2YN9mbQTgREPQVJeKqbs1A7W7VXUkgCylPt8L91AA=="
+    "value": "W4bZ5uKvzKjeugGCI+0WIQTqL8Cus7xBfk4gbIL7VFFUVMZOSzGLuN4zxNSfZAbleM6jP9NQPUcze4p5ZVQGDw=="
   }
 }
