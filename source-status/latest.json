@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "kind": "buyerlog-main-status",
-  "source_commit": "39384d7b426bd74bbef5964e966d8aaa3356905d",
+  "source_commit": "5f2e9069b6eb5b9e8a7ae77dba2a525008e54ef8",
   "source_version": "8.0.22",
-  "published_at_utc": "2026-11-27T09:10:16.236326+00:00",
+  "published_at_utc": "2026-11-27T09:45:17.441810+00:00",
   "note": "UNSIGNED STATUS METADATA ONLY. Not a release or installation authorization."
 }
