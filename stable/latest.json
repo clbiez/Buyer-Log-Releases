@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "8.0.23",
-  "publishedAt": "2026-11-28T11:36:48.969Z",
-  "artifact": "releases/BuyerLog-8.0.23.zip",
-  "sha256": "74d219086e06e1a8c6d43c7c210867f11ccb7338e636f373ca586c679f57eac0",
-  "size": 83179036,
+  "version": "8.0.24",
+  "publishedAt": "2026-11-28T19:52:51.698Z",
+  "artifact": "releases/BuyerLog-8.0.24.zip",
+  "sha256": "4072f31425da9ff359b1921653c377704e4edee39791302fb51525757a42b108",
+  "size": 80512528,
   "mandatory": false,
-  "releaseNotes": "8.0.23 TEST — TR: CP'de veri doğruluğu düzeltmeleri: IAS parsiyelli satırda seçilen Del. Type korunur; bir oturumun kaydı başka oturumun daha yeni notunu veya fiyatını sessizce ezmez (çakışma uyarısı); birincil lojistik segment CP ve Siparişler'de tek kuralla seçilir ve üretim bakiyesi gecikme denetimine girer (CRITICAL/gecikme sayıları mevcut risklerin doğru değerlendirilmesiyle artabilir). Yeni: Del. Type 'Kaynağa dön'. Del. Type / Ex-factory ve Supp. FOB / not kayıtlarından sonra CP tabloyu tam yeniden hesaplamayı beklemeden günceller; doğrulanamayan durumda güvenli tam hesaba döner. EN: CP data-correctness fixes: the chosen Del. Type is kept on rows with IAS partials; a save in one session no longer silently overwrites another session's newer note or price (conflict warning); the primary logistics segment uses one rule in CP and Orders and the production balance enters the delay check (CRITICAL/late counts may rise because existing risks are now assessed correctly). New: Del. Type 'Revert to source'. After Del. Type / Ex-factory and Supp. FOB / note saves, CP updates without waiting for a full recalculation and falls back to the safe full recalculation when a result cannot be verified.",
+  "releaseNotes": "8.0.24 · Kompakt MB Termin Hesaplayıcı, Licence Royalty / FOB hesaplayıcı ve güncel ana dal değişiklikleri.",
   "minimumUpdaterVersion": "1.0.0",
   "signature": {
     "alg": "ed25519",
     "keyId": "c4b9c0d6f8a4be0d",
-    "value": "7z7Fi355Hyl1VMsE4wa0dJqxKgKI3t6yyp9O+E7/OMS9qP11gMdDo1QVpMiF/ZUWsfhoZeatG2E7WhFKDhT5Aw=="
+    "value": "VfYdMIluGUysHywUQnkUhn8b0uscng/UKCqcynywxZzdphVNieVbWWqZpLTd7MGC6Fj4/+w/S2UtIezIaa83Bw=="
   }
 }
