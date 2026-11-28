@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-11-28T19:53:25.563Z",
+  "channels": {
+    "test": {
+      "version": "8.0.24",
+      "sha256": "4072f31425da9ff359b1921653c377704e4edee39791302fb51525757a42b108",
+      "size": 80512528,
+      "file": "BuyerLog-8.0.24.zip",
+      "mirrored": true
+    },
+    "stable": {
+      "version": "8.0.24",
+      "sha256": "4072f31425da9ff359b1921653c377704e4edee39791302fb51525757a42b108",
+      "size": 80512528,
+      "file": "BuyerLog-8.0.24.zip",
+      "mirrored": true
+    }
+  }
+}
